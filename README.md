@@ -41,40 +41,40 @@ sudo reboot
 `./m1.sh download` does the install **AND** runs the critical post-install
 steps (SELinux relabel, dracut, grubby) automatically.
 
-### Manual download (if you prefer)
+### Manual download
 
 1. Open https://github.com/wilfredor/m1-kernel/releases/latest
 2. Download `kernel-*.aarch64.rpm` from "Assets"
-3. Install:
+3. Install — **no extra postinstall step needed for v6.18.15-21+**:
 
 ```bash
-git clone https://github.com/wilfredor/m1-kernel.git
-cd m1-kernel
-sudo dnf install -y ~/Downloads/kernel-*.aarch64.rpm
-sudo ./m1.sh postinstall      # MANDATORY — see warning below
+sudo dnf install -y ~/Downloads/kernel-6.18.15_m1opt+-*.aarch64.rpm
 sudo reboot
 ```
 
-## ⚠ If you install the RPM manually, you MUST run postinstall
+The RPM is **self-installing**: its `%post` scriptlet automatically runs
+`restorecon`, `dracut -f`, `grubby --set-default`, and relabels firmware.
 
-If you skip `./m1.sh download` and do `dnf install kernel-*.rpm` by hand,
-**the system will fail to boot** (SELinux blocks `bluetooth.ko`, `fuse`,
-`i2c_dev`, `uinput` → systemd cascade fail → forced shutdown).
+### About the self-installing RPM
 
-Always run after a manual RPM install:
+Starting with **v6.18.15-21**, the RPM `%post` scriptlet does:
+
+1. `restorecon -RF /lib/modules/$kver/` — fixes SELinux `unlabeled_t` (prevents boot failure)
+2. `dracut -f --kver $kver` — regenerates initramfs (kernel-install hooks may be missing on Asahi)
+3. `grubby --set-default` — points bootloader at the new kernel
+4. `restorecon -RF /lib/firmware/brcm/` — preserves WiFi firmware symlinks
+
+**Older RPMs (v6.18.15-18 and earlier) require `sudo ./m1.sh postinstall`** before reboot.
+If you have one of those installed and didn't run postinstall, the system **will fail to boot**:
+SELinux blocks `bluetooth.ko`, `fuse`, `i2c_dev`, `uinput` → systemd cascade → forced shutdown.
+
+Recovery for that case:
 
 ```bash
-sudo ./m1.sh postinstall
-sudo reboot
+# Boot with init=/bin/bash from m1n1/GRUB, then:
+bash /home/wilfredor/m1-kernel/rescue/fix-asahi.sh
+echo b > /proc/sysrq-trigger
 ```
-
-This is the single most common cause of broken boots after a kernel update.
-The postinstall step does:
-
-1. `restorecon` on `/lib/modules/$kver/` (fixes SELinux `unlabeled_t`)
-2. `dracut -f` regenerates the initramfs
-3. `grubby --set-default` points the bootloader at the new kernel
-4. `restorecon` on `/lib/firmware/brcm/` (preserves WiFi symlinks)
 
 ## Build from source (15-25 minutes)
 
@@ -104,7 +104,7 @@ sudo reboot
 ./m1.sh                  Build + install (default)
 ./m1.sh download [tag]   Download release RPM and install (default: latest)
 ./m1.sh install          Install last-built RPM + post-install
-./m1.sh postinstall      Post-install only (after manual `dnf install kernel-*.rpm`)
+./m1.sh postinstall      Post-install only (legacy — only needed for RPMs ≤ v6.18.15-18)
 ./m1.sh build            Build RPM only
 ./m1.sh validate [cfg]   Validate config (default: .config)
 ./m1.sh release          Build + create GitHub Release (maintainer only)
