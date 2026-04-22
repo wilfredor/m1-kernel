@@ -1,0 +1,16 @@
+[Unit]
+Description=M1 WiFi firmware symlink fix (brcmfmac variant names)
+DefaultDependencies=no
+Before=systemd-udev-trigger.service
+After=systemd-remount-fs.service
+ConditionPathIsDirectory=/lib/firmware/brcm
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/m1-wifi-firmware-fix.sh
+RemainAfterExit=yes
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=sysinit.target

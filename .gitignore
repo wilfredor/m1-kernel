@@ -1,0 +1,17 @@
+# Build artifacts (use GitHub Releases for RPMs)
+rpmbuild/
+*.rpm
+*.deb
+
+# Local kernel state
+.config
+.config.old
+*.bak
+*.orig
+*.rej
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*~

@@ -1,0 +1,137 @@
+++ date
++ echo '=== FIX START Tue Apr 21 22:09:59 -03 2026 ==='
+=== FIX START Tue Apr 21 22:09:59 -03 2026 ===
++ echo ''
+
++ echo '===> Step 1: restorecon /lib/modules and other affected paths'
+===> Step 1: restorecon /lib/modules and other affected paths
++ restorecon -R -v /lib/modules/
++ tail -20
++ echo 'restorecon /lib/modules exit: 0'
+restorecon /lib/modules exit: 0
++ restorecon -R /usr/lib/modules/
++ tail -5
++ echo 'restorecon /usr/lib/modules exit: 0'
+restorecon /usr/lib/modules exit: 0
++ restorecon -R /boot/
++ tail -5
++ echo ''
+
++ echo '===> Step 2: regenerate initramfs'
+===> Step 2: regenerate initramfs
++ dracut -f --kver 6.18.15-m1opt+
++ tail -20
+dracut[E]: No '/dev/log' or 'logger' included for syslog logging
+/usr/lib/dracut/modules.d/01systemd-modules-load/module-setup.sh: line 36: /dev/fd/63: No such file or directory
+/usr/lib/dracut/modules.d/01systemd-modules-load/module-setup.sh: line 42: /dev/fd/63: No such file or directory
++ echo 'dracut exit: 0'
+dracut exit: 0
++ echo ''
+
++ echo '===> Step 3: /boot final state'
+===> Step 3: /boot final state
++ ls -la /boot/
+total 73264
+drwxr-xr-x. 7 root root     4096 Apr 21 22:10 .
+drwxr-xr-x. 1 root root      186 Apr 21 11:55 ..
+-rw-r--r--  1 root root  6104541 Apr 19 21:00 System.map-6.18.15-m1opt+
+lrwxrwxrwx. 1 root root        1 Mar 17 13:14 boot -> .
+-rw-r--r--  1 root root   207025 Apr 19 21:00 config-6.18.15-m1opt+
+-rwxr-xr-x  1 root root     3070 Apr 21 16:29 diag.sh
+lrwxrwxrwx  1 root root       18 Apr 21 21:06 dtb -> dtb-6.18.15-m1opt+
+drwxr-xr-x. 5 root root     4096 Apr 19 21:00 dtb-6.18.15-m1opt+
+drwx------. 2 root root     4096 Mar 17 13:10 efi
+-rw-r--r--  1 root root      347 Apr 21 22:01 etc-fstab.txt
+-rw-r--r--  1 root root       17 Apr 21 22:09 f_01.txt
+-rw-r--r--  1 root root        8 Apr 21 22:09 f_02.txt
+-rw-r--r--  1 root root        9 Apr 21 22:09 f_03.txt
+-rw-r--r--  1 root root       15 Apr 21 22:09 f_04.txt
+-rw-r--r--  1 root root        0 Apr 21 22:09 f_chrooterr.txt
+-rw-r--r--  1 root root       98 Apr 21 22:01 failed-services.txt
+-rw-r--r--  1 root root     2590 Apr 21 21:24 final-listing.txt
+-rw-r--r--  1 root root     1091 Apr 21 22:10 fix.log
+drwx------. 4 root root     4096 Apr 21 14:02 grub2
+-rw-r--r--  1 root root      652 Apr 21 20:48 init-progress.log
+-rw-------  1 root root 26263667 Apr 21 22:10 initramfs-6.18.15-m1opt+.img
+-rw-r--r--. 1 root root  4568631 Apr 20 21:00 initramfs-6.18.15-m1opt+.img.orig
+-rw-r--r--  1 root root 24584373 Apr 21 22:06 initramfs-rescue.img
+-rw-r--r--  1 root root     1273 Apr 21 22:01 journal-boots.txt
+-rw-r--r--  1 root root    15259 Apr 21 22:01 journal-errors.log
+-rw-r--r--  1 root root   180643 Apr 21 22:01 journal-prev.log
+drwxr-xr-x. 3 root root     4096 Mar 17 13:05 loader
+drwx------  2 root root    16384 Mar 17 13:11 lost+found
+-rw-r--r--  1 root root        8 Apr 21 21:24 m_01.txt
+-rw-r--r--  1 root root       17 Apr 21 21:24 m_02.txt
+-rw-r--r--  1 root root       20 Apr 21 21:24 m_03.txt
+-rw-r--r--  1 root root        0 Apr 21 21:24 m_03err.txt
+-rw-r--r--  1 root root       13 Apr 21 21:24 m_04.txt
+-rw-r--r--  1 root root        0 Apr 21 21:24 m_04err.txt
+-rw-r--r--  1 root root       17 Apr 21 21:24 m_05.txt
+-rw-r--r--  1 root root        0 Apr 21 21:24 m_05err.txt
+-rw-r--r--  1 root root       15 Apr 21 21:24 m_06.txt
+-rw-r--r--  1 root root       17 Apr 21 21:24 m_07.txt
+-rw-r--r--  1 root root        0 Apr 21 21:24 m_07test.txt
+-rw-r--r--  1 root root       20 Apr 21 21:24 m_08.txt
+-rw-r--r--  1 root root       14 Apr 21 21:24 m_09.txt
+-rw-r--r--  1 root root        0 Apr 21 21:24 m_09chrooterr.txt
+-rw-r--r--  1 root root       13 Apr 21 21:24 m_10.txt
+-rw-r--r--  1 root root       18 Apr 21 21:24 m_11.txt
+-rw-r--r--  1 root root       35 Apr 21 21:24 m_chroot01.txt
+-rw-r--r--  1 root root       17 Apr 21 21:24 m_chroot02.txt
+-rw-r--r--  1 root root      291 Apr 21 21:24 m_chroot03_dracut.log
+-rw-r--r--  1 root root        7 Apr 21 21:24 m_chroot04.txt
+-rw-r--r--  1 root root      240 Apr 21 21:24 m_chroot05_initramfs.txt
+-rw-r--r--  1 root root       23 Apr 21 21:24 m_chroot06.txt
+-rw-r--r--  1 root root      256 Apr 21 21:24 m_chroot07_entries.txt
+-rw-r--r--  1 root root       15 Apr 21 22:01 r_01.txt
+-rw-r--r--  1 root root       13 Apr 21 22:01 r_02.txt
+-rw-r--r--  1 root root       11 Apr 21 22:01 r_03.txt
+-rw-r--r--  1 root root       14 Apr 21 22:01 r_04.txt
+-rw-r--r--  1 root root       20 Apr 21 22:01 r_05.txt
+-rw-r--r--  1 root root       14 Apr 21 22:01 r_06.txt
+-rw-r--r--  1 root root       13 Apr 21 22:01 r_07.txt
+-rw-r--r--  1 root root       16 Apr 21 22:01 r_08.txt
+-rw-r--r--  1 root root       95 Apr 21 22:01 r_chroot01.txt
+-rw-r--r--  1 root root       27 Apr 21 22:01 r_chroot02.txt
+-rw-r--r--  1 root root        0 Apr 21 22:01 r_chrooterr.txt
+-rw-r--r--  1 root root       14 Apr 21 22:01 r_passwd.txt
+-rwxr-xr-x  1 root root     1371 Apr 21 16:39 recovery-info.sh
+-rw-r--r--  1 root root     4876 Apr 21 18:17 recovery.log
+-rw-r--r--  1 root root     3742 Apr 21 22:01 rescue-listing.txt
+-rw-r--r--  1 root root       90 Apr 21 22:01 systemctl-status.txt
+-rw-r--r--  1 root root 12855540 Apr 19 21:00 vmlinuz-6.18.15-m1opt+
++ echo ''
+
++ echo '===> Step 4: restore standard loader entry'
+===> Step 4: restore standard loader entry
++ cat
++ cat
++ cat
++ echo ''
+
++ echo '===> Step 5: loader entries:'
+===> Step 5: loader entries:
++ ls -la /boot/loader/entries/
+total 20
+drwx------. 2 root root 4096 Apr 21 22:10 .
+drwxr-xr-x. 3 root root 4096 Mar 17 13:05 ..
+-rw-r--r--  1 root root  409 Apr 21 22:10 a2a47b05f5f24e679b6b3b0780a58ce4-6.18.15-m1opt+.conf
+-rw-r--r--  1 root root  284 Apr 21 22:10 permissive-selinux.conf
+-rw-r--r--  1 root root  229 Apr 21 22:10 rescue-recovery.conf
++ echo ''
+
++ echo '===> Step 6: set boot default to standard (good kernel + new initramfs)'
+===> Step 6: set boot default to standard (good kernel + new initramfs)
++ cat
+++ stat -c%s /boot/grub2/grubenv
++ SIZE=164
++ PAD=860
++ '[' 860 -gt 0 ']'
++ head -c 860 /dev/zero
++ tr '\0' '#'
++ echo ''
+
+++ date
++ echo '=== FIX DONE Tue Apr 21 22:10:08 -03 2026 ==='
+=== FIX DONE Tue Apr 21 22:10:08 -03 2026 ===
++ sync

@@ -1,0 +1,154 @@
++ echo '=== uname ==='
+=== uname ===
++ uname -a
+Linux (none) 6.18.15-m1opt+ #14 SMP PREEMPT_DYNAMIC Mon Apr 20 22:39:43 -03 2026 aarch64 GNU/Linux
++ echo '=== date ==='
+=== date ===
++ date
+Tue Apr 21 22:49:06 -03 2026
++ echo '=== mounted filesystems ==='
+=== mounted filesystems ===
++ mount
++ grep -vE 'tmpfs|cgroup|proc|sys|devtmpfs'
+mount: failed to read mtab: No such file or directory
++ echo '=== /home/wilfredor/m1-kernel/rpms/ ==='
+=== /home/wilfredor/m1-kernel/rpms/ ===
++ ls -la /home/wilfredor/m1-kernel/rpms/
+ls: cannot access '/home/wilfredor/m1-kernel/rpms/': No such file or directory
++ echo '=== ALL kernel RPMs in /home/wilfredor ==='
+=== ALL kernel RPMs in /home/wilfredor ===
++ find /home/wilfredor -name 'kernel*.rpm' -type f
++ echo '=== /var/cache/dnf kernel ==='
+=== /var/cache/dnf kernel ===
++ find /var/cache/dnf -name 'kernel*' -type f
++ head -30
++ echo '=== /var/cache/PackageKit ==='
+=== /var/cache/PackageKit ===
++ find /var/cache/PackageKit -name 'kernel*' -type f
++ head -10
++ echo '=== installed kernels (rpm -qa) ==='
+=== installed kernels (rpm -qa) ===
++ rpm -qa kernel
+kernel-6.18.15_m1opt+-14.aarch64
+kernel-6.18.15_m1opt+-17.aarch64
+kernel-6.18.15_m1opt+-18.aarch64
+kernel-6.18.15_m1opt+-14.aarch64
+kernel-6.18.15_m1opt+-14.aarch64
++ grep -i kernel
++ rpm -qa
+libreport-plugin-kerneloops-2.17.15-9.fc43.aarch64
+kernel-tools-libs-6.18.15-400.asahi.fc43.aarch64
+abrt-addon-kerneloops-2.17.8-1.fc43.aarch64
+kernel-tools-6.18.15-400.asahi.fc43.aarch64
+kernel-headers-6.18.15-400.asahi.fc43.aarch64
+kernel-srpm-macros-1.0-27.fc43.noarch
+kernel-6.18.15_m1opt+-14.aarch64
+kernel-devel-6.18.15_m1opt+-14.aarch64
+kernel-headers-6.18.15_m1opt+-14.aarch64
+kernel-6.18.15_m1opt+-17.aarch64
+kernel-6.18.15_m1opt+-18.aarch64
+kernel-6.18.15_m1opt+-14.aarch64
+kernel-6.18.15_m1opt+-14.aarch64
++ echo '=== /lib/modules ==='
+=== /lib/modules ===
++ ls -la /lib/modules/
+total 0
+drwxr-xr-x. 1 root root  28 Apr 20 22:42 .
+dr-xr-xr-x. 1 root root 940 Apr 20 20:29 ..
+drwxr-xr-x. 1 root root 736 Apr 21 21:08 6.18.15-m1opt+
++ echo '=== /boot full listing ==='
+=== /boot full listing ===
++ ls -la /boot/
+total 71708
+drwxr-xr-x. 7 root root     4096 Apr 21 22:48 .
+drwxr-xr-x. 1 root root      186 Apr 21 11:55 ..
+-rw-r--r--  1 root root  6104541 Apr 19 21:00 System.map-6.18.15-m1opt+
+lrwxrwxrwx. 1 root root        1 Mar 17 13:14 boot -> .
+-rw-r--r--  1 root root   207025 Apr 19 21:00 config-6.18.15-m1opt+
+-rw-r--r--  1 root root    57485 Apr 21 22:48 diag.log
+-rwxr-xr-x  1 root root     3070 Apr 21 16:29 diag.sh
+lrwxrwxrwx  1 root root       18 Apr 21 21:06 dtb -> dtb-6.18.15-m1opt+
+drwxr-xr-x. 5 root root     4096 Apr 19 21:00 dtb-6.18.15-m1opt+
+drwx------. 2 root root     4096 Mar 17 13:10 efi
+-rw-r--r--  1 root root      347 Apr 21 22:01 etc-fstab.txt
+-rw-r--r--  1 root root       17 Apr 21 22:09 f_01.txt
+-rw-r--r--  1 root root        8 Apr 21 22:09 f_02.txt
+-rw-r--r--  1 root root        9 Apr 21 22:09 f_03.txt
+-rw-r--r--  1 root root       15 Apr 21 22:09 f_04.txt
+-rw-r--r--  1 root root       14 Apr 21 22:10 f_05.txt
+-rw-r--r--  1 root root       11 Apr 21 22:10 f_06.txt
+-rw-r--r--  1 root root        5 Apr 21 22:10 f_07.txt
+-rw-r--r--  1 root root        0 Apr 21 22:09 f_chrooterr.txt
+-rw-r--r--  1 root root       98 Apr 21 22:01 failed-services.txt
+-rw-r--r--  1 root root     2590 Apr 21 21:24 final-listing.txt
+-rwxr-xr-x  1 root root     2197 Apr 21 22:34 fix-asahi.sh
+-rw-r--r--  1 root root     4315 Apr 21 22:10 fix-listing.txt
+-rw-r--r--  1 root root     6127 Apr 21 22:10 fix.log
+drwx------. 4 root root     4096 Apr 21 14:02 grub2
+-rw-r--r--  1 root root      652 Apr 21 20:48 init-progress.log
+-rw-r--r--  1 root root 24584379 Apr 21 22:27 initramfs-6.18.15-m1opt+.img
+-rw-r--r--. 1 root root  4568631 Apr 20 21:00 initramfs-6.18.15-m1opt+.img.orig
+-rw-r--r--  1 root root 24584379 Apr 21 22:27 initramfs-rescue.img
+-rw-r--r--  1 root root     1273 Apr 21 22:01 journal-boots.txt
+-rw-r--r--  1 root root    15259 Apr 21 22:01 journal-errors.log
+-rw-r--r--  1 root root   180643 Apr 21 22:01 journal-prev.log
+drwxr-xr-x. 3 root root     4096 Mar 17 13:05 loader
+drwx------  2 root root    16384 Mar 17 13:11 lost+found
+-rw-r--r--  1 root root        8 Apr 21 21:24 m_01.txt
+-rw-r--r--  1 root root       17 Apr 21 21:24 m_02.txt
+-rw-r--r--  1 root root       20 Apr 21 21:24 m_03.txt
+-rw-r--r--  1 root root        0 Apr 21 21:24 m_03err.txt
+-rw-r--r--  1 root root       13 Apr 21 21:24 m_04.txt
+-rw-r--r--  1 root root        0 Apr 21 21:24 m_04err.txt
+-rw-r--r--  1 root root       17 Apr 21 21:24 m_05.txt
+-rw-r--r--  1 root root        0 Apr 21 21:24 m_05err.txt
+-rw-r--r--  1 root root       15 Apr 21 21:24 m_06.txt
+-rw-r--r--  1 root root       17 Apr 21 21:24 m_07.txt
+-rw-r--r--  1 root root        0 Apr 21 21:24 m_07test.txt
+-rw-r--r--  1 root root       20 Apr 21 21:24 m_08.txt
+-rw-r--r--  1 root root       14 Apr 21 21:24 m_09.txt
+-rw-r--r--  1 root root        0 Apr 21 21:24 m_09chrooterr.txt
+-rw-r--r--  1 root root       13 Apr 21 21:24 m_10.txt
+-rw-r--r--  1 root root       18 Apr 21 21:24 m_11.txt
+-rw-r--r--  1 root root       35 Apr 21 21:24 m_chroot01.txt
+-rw-r--r--  1 root root       17 Apr 21 21:24 m_chroot02.txt
+-rw-r--r--  1 root root      291 Apr 21 21:24 m_chroot03_dracut.log
+-rw-r--r--  1 root root        7 Apr 21 21:24 m_chroot04.txt
+-rw-r--r--  1 root root      240 Apr 21 21:24 m_chroot05_initramfs.txt
+-rw-r--r--  1 root root       23 Apr 21 21:24 m_chroot06.txt
+-rw-r--r--  1 root root      256 Apr 21 21:24 m_chroot07_entries.txt
+-rw-r--r--  1 root root       15 Apr 21 22:01 r_01.txt
+-rw-r--r--  1 root root       13 Apr 21 22:01 r_02.txt
+-rw-r--r--  1 root root       11 Apr 21 22:01 r_03.txt
+-rw-r--r--  1 root root       14 Apr 21 22:01 r_04.txt
+-rw-r--r--  1 root root       20 Apr 21 22:01 r_05.txt
+-rw-r--r--  1 root root       14 Apr 21 22:01 r_06.txt
+-rw-r--r--  1 root root       13 Apr 21 22:01 r_07.txt
+-rw-r--r--  1 root root       16 Apr 21 22:01 r_08.txt
+-rw-r--r--  1 root root       95 Apr 21 22:01 r_chroot01.txt
+-rw-r--r--  1 root root       27 Apr 21 22:01 r_chroot02.txt
+-rw-r--r--  1 root root        0 Apr 21 22:01 r_chrooterr.txt
+-rw-r--r--  1 root root       14 Apr 21 22:01 r_passwd.txt
+-rwxr-xr-x  1 root root     1371 Apr 21 16:39 recovery-info.sh
+-rw-r--r--  1 root root     2114 Apr 21 22:49 recovery.log
+-rw-r--r--  1 root root     3742 Apr 21 22:01 rescue-listing.txt
+-rw-r--r--  1 root root       90 Apr 21 22:01 systemctl-status.txt
+-rw-r--r--  1 root root 12855540 Apr 19 21:00 vmlinuz-6.18.15-m1opt+
++ echo '=== git log m1-kernel HEAD ==='
+=== git log m1-kernel HEAD ===
++ cd /home/wilfredor/m1-kernel
+recovery-info.sh: line 42: cd: /home/wilfredor/m1-kernel: No such file or directory
++ echo '=== git status m1-kernel ==='
+=== git status m1-kernel ===
++ cd /home/wilfredor/m1-kernel
+recovery-info.sh: line 45: cd: /home/wilfredor/m1-kernel: No such file or directory
++ echo '=== END ==='
+=== END ===
++ date
+Tue Apr 21 22:49:07 -03 2026
++ sync
++ sync
++ set +x
+
+DONE. Log: /boot/recovery.log
+Now: sync; sync; poweroff -f

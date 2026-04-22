@@ -1,0 +1,12 @@
+[Unit]
+Description=Apple M1 Battery Optimization (T8103)
+After=multi-user.target
+Wants=multi-user.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/m1-battery-optimize.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

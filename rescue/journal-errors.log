@@ -1,0 +1,111 @@
+Journal file /var/log/journal/a2a47b05f5f24e679b6b3b0780a58ce4/system@692216be4aff4f99a1e28df568c8a166-000000000004727c-00064ff94838115c.journal is truncated, ignoring file.
+Apr 21 21:31:40 fedora systemd[1]: bpf-restrict-fs: Failed to load BPF object: No such process
+Apr 21 21:31:40 fedora systemd-modules-load[289]: Failed to find module 'hci_bcm4377'
+Apr 21 21:31:40 fedora systemd-modules-load[289]: Failed to find module 'fuse'
+Apr 21 21:31:40 fedora systemd-modules-load[289]: Failed to find module 'i2c_dev'
+Apr 21 21:31:40 fedora systemd-modules-load[289]: Failed to find module 'fuse'
+Apr 21 21:31:40 fedora systemd-modules-load[289]: Failed to find module 'scsi_dh_alua'
+Apr 21 21:31:40 fedora systemd-modules-load[289]: Failed to find module 'scsi_dh_emc'
+Apr 21 21:31:40 fedora systemd-modules-load[289]: Failed to find module 'scsi_dh_rdac'
+Apr 21 21:31:40 fedora systemd-modules-load[289]: Failed to find module 'uinput'
+Apr 21 21:31:41 fedora (udev-worker)[453]: nvme0: /etc/udev/rules.d/60-nvme-scheduler.rules:1 ATTR{queue/scheduler}="none": Could not chase sysfs attribute "/sys/devices/platform/soc/27bcc0000.nvme/nvme/nvme0/queue/scheduler", ignoring: No such file or directory
+Apr 21 21:31:41 fedora (udev-worker)[438]: nvme0n1p3: /etc/udev/rules.d/60-nvme-scheduler.rules:1 ATTR{queue/scheduler}="none": Could not chase sysfs attribute "/sys/devices/platform/soc/27bcc0000.nvme/nvme/nvme0/nvme0n1/nvme0n1p3/queue/scheduler", ignoring: No such file or directory
+Apr 21 21:31:41 fedora (udev-worker)[456]: nvme0n1p6: /etc/udev/rules.d/60-nvme-scheduler.rules:1 ATTR{queue/scheduler}="none": Could not chase sysfs attribute "/sys/devices/platform/soc/27bcc0000.nvme/nvme/nvme0/nvme0n1/nvme0n1p6/queue/scheduler", ignoring: No such file or directory
+Apr 21 21:31:41 fedora (udev-worker)[414]: nvme0n1p5: /etc/udev/rules.d/60-nvme-scheduler.rules:1 ATTR{queue/scheduler}="none": Could not chase sysfs attribute "/sys/devices/platform/soc/27bcc0000.nvme/nvme/nvme0/nvme0n1/nvme0n1p5/queue/scheduler", ignoring: No such file or directory
+Apr 21 21:31:41 fedora (udev-worker)[453]: nvme0n1p1: /etc/udev/rules.d/60-nvme-scheduler.rules:1 ATTR{queue/scheduler}="none": Could not chase sysfs attribute "/sys/devices/platform/soc/27bcc0000.nvme/nvme/nvme0/nvme0n1/nvme0n1p1/queue/scheduler", ignoring: No such file or directory
+Apr 21 21:31:41 fedora (udev-worker)[462]: macsmc-ac: Failed to find and pin callout binary "/usr/local/bin/m1-battery-mode": No such file or directory
+Apr 21 21:31:41 fedora (udev-worker)[441]: nvme0n1p4: /etc/udev/rules.d/60-nvme-scheduler.rules:1 ATTR{queue/scheduler}="none": Could not chase sysfs attribute "/sys/devices/platform/soc/27bcc0000.nvme/nvme/nvme0/nvme0n1/nvme0n1p4/queue/scheduler", ignoring: No such file or directory
+Apr 21 21:31:41 fedora (udev-worker)[436]: nvme0n1p2: /etc/udev/rules.d/60-nvme-scheduler.rules:1 ATTR{queue/scheduler}="none": Could not chase sysfs attribute "/sys/devices/platform/soc/27bcc0000.nvme/nvme/nvme0/nvme0n1/nvme0n1p2/queue/scheduler", ignoring: No such file or directory
+Apr 21 21:31:41 fedora (udev-worker)[442]: nvme0n1p7: /etc/udev/rules.d/60-nvme-scheduler.rules:1 ATTR{queue/scheduler}="none": Could not chase sysfs attribute "/sys/devices/platform/soc/27bcc0000.nvme/nvme/nvme0/nvme0n1/nvme0n1p7/queue/scheduler", ignoring: No such file or directory
+Apr 21 21:31:41 fedora kernel: brcmfmac: brcmf_fwvid_request_module: mod=wcc: failed 256
+Apr 21 21:31:41 fedora kernel: ieee80211 phy0: brcmf_attach: brcmf_fwvid_attach failed
+Apr 21 21:31:41 fedora kernel: brcmfmac 0000:01:00.0: brcmf_pcie_setup: Dongle setup failed
+Apr 21 21:31:41 fedora kernel: brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 00000.236 MALLOC warning: allocations are persistent by default in attach phase!
+Apr 21 21:31:41 fedora kernel: brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 000000.236 MALLOC warning: allocations are persistent by default in attach phase!
+Apr 21 21:31:41 fedora kernel: brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 000000.237 MALLOC warning: allocations are persistent by default in attach phase!
+Apr 21 21:31:41 fedora kernel: brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 000000.237 MALLOC warning: allocations are persistent by default in attach phase!
+Apr 21 21:31:41 fedora kernel: brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 000000.241 wl1: Broadcom BCM4378 802.11 Wireless Controller 18.20.383.15.7.8.150
+Apr 21 21:31:41 fedora kernel: brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 000000.242 MALLOC warning: allocations are persistent by default in attach phase!
+Apr 21 21:31:41 fedora kernel: brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 000000.243 TCAM: 768 used: 691 exceed:0
+Apr 21 21:31:41 fedora kernel: brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 000000.243 Reclaim section 1: returned 251380 bytes (pre-reclaim: 224556)
+Apr 21 21:31:41 fedora kernel: brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 000000.246 SPLITRX_MODE: 4 tcmsegsize 0 d11rxoffset 0
+Apr 21 21:31:41 fedora kernel: brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 000000.246 ThreadX v5.6 initialized
+Apr 21 21:31:41 fedora kernel: brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 000000.247 EL: 30 7c60
+Apr 21 21:31:41 fedora kernel: brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 000000.247 Single MSI enabled
+Apr 21 21:31:41 fedora kernel: brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 000000.247 FUNCNAME: dngl_sendpkt: dropped pkt
+Apr 21 21:31:41 fedora kernel: brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 000000.247 FUNCNAME: dngl_sendpkt: dropped pkt
+Apr 21 21:31:41 fedora kernel: brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 000000.247 FUNCNAME: dngl_sendpkt: dropped pkt
+Apr 21 21:31:41 fedora kernel: ieee80211 phy0: brcmf_fw_crashed: Firmware has halted or crashed
+Apr 21 21:31:42 fedora systemd[1]: bpf-restrict-fs: Failed to load BPF object: No such process
+Apr 21 21:31:42 fedora (sd-exec-[550]: /usr/lib/systemd/system-generators/zram-generator failed with exit status 1.
+Apr 21 21:31:42 fedora systemd[1]: Failed to start systemd-modules-load.service - Load Kernel Modules.
+Apr 21 21:31:42 fedora systemd-modules-load[609]: ctx=0xaaab6430eba0 path=/lib/modules/6.18.15-m1opt+/kernel/net/bluetooth/bluetooth.ko error=Permission denied
+Apr 21 21:31:42 fedora systemd-modules-load[609]: ctx=0xaaab6430eba0 path=/lib/modules/6.18.15-m1opt+/kernel/net/bluetooth/bluetooth.ko error=Permission denied
+Apr 21 21:31:42 fedora systemd-modules-load[609]: Failed to insert module 'hci_bcm4377': Permission denied
+Apr 21 21:31:42 fedora systemd-modules-load[609]: Failed to insert module 'fuse': Permission denied
+Apr 21 21:31:42 fedora systemd-modules-load[609]: Failed to insert module 'i2c_dev': Permission denied
+Apr 21 21:31:42 fedora systemd-modules-load[609]: Failed to insert module 'fuse': Permission denied
+Apr 21 21:31:42 fedora systemd-modules-load[609]: Failed to find module 'scsi_dh_alua'
+Apr 21 21:31:42 fedora systemd-modules-load[609]: Failed to find module 'scsi_dh_emc'
+Apr 21 21:31:42 fedora systemd-modules-load[609]: Failed to find module 'scsi_dh_rdac'
+Apr 21 21:31:42 fedora systemd-modules-load[609]: Failed to insert module 'uinput': Permission denied
+Apr 21 21:31:42 fedora (udev-worker)[681]: nvme0: /etc/udev/rules.d/60-nvme-scheduler.rules:1 ATTR{queue/scheduler}="none": Could not chase sysfs attribute "/sys/devices/platform/soc/27bcc0000.nvme/nvme/nvme0/queue/scheduler", ignoring: No such file or directory
+Apr 21 21:31:42 fedora (udev-worker)[682]: nvme0n1p5: /etc/udev/rules.d/60-nvme-scheduler.rules:1 ATTR{queue/scheduler}="none": Could not chase sysfs attribute "/sys/devices/platform/soc/27bcc0000.nvme/nvme/nvme0/nvme0n1/nvme0n1p5/queue/scheduler", ignoring: No such file or directory
+Apr 21 21:31:42 fedora (udev-worker)[666]: nvme0n1p7: /etc/udev/rules.d/60-nvme-scheduler.rules:1 ATTR{queue/scheduler}="none": Could not chase sysfs attribute "/sys/devices/platform/soc/27bcc0000.nvme/nvme/nvme0/nvme0n1/nvme0n1p7/queue/scheduler", ignoring: No such file or directory
+Apr 21 21:31:42 fedora (udev-worker)[680]: nvme0n1p4: /etc/udev/rules.d/60-nvme-scheduler.rules:1 ATTR{queue/scheduler}="none": Could not chase sysfs attribute "/sys/devices/platform/soc/27bcc0000.nvme/nvme/nvme0/nvme0n1/nvme0n1p4/queue/scheduler", ignoring: No such file or directory
+Apr 21 21:31:42 fedora (udev-worker)[664]: nvme0n1p2: /etc/udev/rules.d/60-nvme-scheduler.rules:1 ATTR{queue/scheduler}="none": Could not chase sysfs attribute "/sys/devices/platform/soc/27bcc0000.nvme/nvme/nvme0/nvme0n1/nvme0n1p2/queue/scheduler", ignoring: No such file or directory
+Apr 21 21:31:42 fedora (udev-worker)[681]: nvme0n1p1: /etc/udev/rules.d/60-nvme-scheduler.rules:1 ATTR{queue/scheduler}="none": Could not chase sysfs attribute "/sys/devices/platform/soc/27bcc0000.nvme/nvme/nvme0/nvme0n1/nvme0n1p1/queue/scheduler", ignoring: No such file or directory
+Apr 21 21:31:42 fedora (udev-worker)[670]: nvme0n1p6: /etc/udev/rules.d/60-nvme-scheduler.rules:1 ATTR{queue/scheduler}="none": Could not chase sysfs attribute "/sys/devices/platform/soc/27bcc0000.nvme/nvme/nvme0/nvme0n1/nvme0n1p6/queue/scheduler", ignoring: No such file or directory
+Apr 21 21:31:42 fedora (udev-worker)[689]: nvme0n1p3: /etc/udev/rules.d/60-nvme-scheduler.rules:1 ATTR{queue/scheduler}="none": Could not chase sysfs attribute "/sys/devices/platform/soc/27bcc0000.nvme/nvme/nvme0/nvme0n1/nvme0n1p3/queue/scheduler", ignoring: No such file or directory
+Apr 21 21:31:42 fedora systemd-modules-load[734]: ctx=0xaaab6758eba0 path=/lib/modules/6.18.15-m1opt+/kernel/net/bluetooth/bluetooth.ko error=Permission denied
+Apr 21 21:31:42 fedora systemd-modules-load[734]: ctx=0xaaab6758eba0 path=/lib/modules/6.18.15-m1opt+/kernel/net/bluetooth/bluetooth.ko error=Permission denied
+Apr 21 21:31:42 fedora systemd-modules-load[734]: Failed to insert module 'hci_bcm4377': Permission denied
+Apr 21 21:31:42 fedora systemd-modules-load[734]: Failed to insert module 'fuse': Permission denied
+Apr 21 21:31:42 fedora systemd-modules-load[734]: Failed to insert module 'i2c_dev': Permission denied
+Apr 21 21:31:42 fedora systemd-modules-load[734]: Failed to insert module 'fuse': Permission denied
+Apr 21 21:31:42 fedora systemd-modules-load[734]: Failed to find module 'scsi_dh_alua'
+Apr 21 21:31:42 fedora systemd-modules-load[734]: Failed to find module 'scsi_dh_emc'
+Apr 21 21:31:42 fedora systemd-modules-load[734]: Failed to find module 'scsi_dh_rdac'
+Apr 21 21:31:42 fedora systemd-modules-load[734]: Failed to insert module 'uinput': Permission denied
+Apr 21 21:31:42 fedora systemd[1]: Failed to start systemd-modules-load.service - Load Kernel Modules.
+Apr 21 21:31:43 fedora systemd[1]: Failed to mount boot-efi.mount - /boot/efi.
+Apr 21 21:31:43 fedora systemd-tmpfiles[762]: Failed to open file "/sys/module/brcmfmac/parameters/roamoff": Permission denied
+Apr 21 21:31:44 fedora systemd[1]: Failed to mount proc-sys-fs-binfmt_misc.mount - Arbitrary Executable File Formats File System.
+Apr 21 21:31:44 fedora systemd-binfmt[761]: Failed to check if /proc/sys/fs/binfmt_misc is mounted: No such device
+Apr 21 21:31:44 fedora systemd[1]: Failed to start systemd-binfmt.service - Set Up Additional Binary Formats.
+Apr 21 21:31:52 fedora systemd[1]: Timed out waiting for device dev-zram0.device - /dev/zram0.
+Apr 21 21:31:55 fedora (sd-exec-[818]: /usr/lib/systemd/system-generators/zram-generator failed with exit status 1.
+Apr 21 21:31:55 fedora systemd[1]: Failed to mount boot-efi.mount - /boot/efi.
+Apr 21 21:31:55 fedora systemd-modules-load[869]: ctx=0xaaaac9b52ba0 path=/lib/modules/6.18.15-m1opt+/kernel/net/bluetooth/bluetooth.ko error=Permission denied
+Apr 21 21:31:55 fedora systemd-modules-load[869]: ctx=0xaaaac9b52ba0 path=/lib/modules/6.18.15-m1opt+/kernel/net/bluetooth/bluetooth.ko error=Permission denied
+Apr 21 21:31:55 fedora systemd-modules-load[869]: Failed to insert module 'hci_bcm4377': Permission denied
+Apr 21 21:31:55 fedora systemd-modules-load[869]: Failed to insert module 'fuse': Permission denied
+Apr 21 21:31:55 fedora systemd-modules-load[869]: Failed to insert module 'i2c_dev': Permission denied
+Apr 21 21:31:55 fedora systemd-modules-load[869]: Failed to insert module 'fuse': Permission denied
+Apr 21 21:31:55 fedora systemd-modules-load[869]: Failed to find module 'scsi_dh_alua'
+Apr 21 21:31:55 fedora systemd-modules-load[869]: Failed to find module 'scsi_dh_emc'
+Apr 21 21:31:55 fedora systemd-modules-load[869]: Failed to find module 'scsi_dh_rdac'
+Apr 21 21:31:55 fedora systemd-modules-load[869]: Failed to insert module 'uinput': Permission denied
+Apr 21 21:31:56 fedora systemd[1]: Failed to start systemd-modules-load.service - Load Kernel Modules.
+Apr 21 21:31:56 fedora systemd[1]: Failed to mount proc-sys-fs-binfmt_misc.mount - Arbitrary Executable File Formats File System.
+Apr 21 21:31:56 fedora systemd-binfmt[879]: Failed to check if /proc/sys/fs/binfmt_misc is mounted: No such device
+Apr 21 21:31:56 fedora systemd[1]: Failed to start systemd-binfmt.service - Set Up Additional Binary Formats.
+Apr 21 21:32:05 fedora (sd-exec-[915]: /usr/lib/systemd/system-generators/zram-generator failed with exit status 1.
+Apr 21 21:32:06 fedora systemd[1]: Timed out waiting for device dev-zram0.device - /dev/zram0.
+Apr 21 21:32:06 fedora systemd-modules-load[965]: ctx=0xaaab9e3ceba0 path=/lib/modules/6.18.15-m1opt+/kernel/net/bluetooth/bluetooth.ko error=Permission denied
+Apr 21 21:32:06 fedora systemd-modules-load[965]: ctx=0xaaab9e3ceba0 path=/lib/modules/6.18.15-m1opt+/kernel/net/bluetooth/bluetooth.ko error=Permission denied
+Apr 21 21:32:06 fedora systemd-modules-load[965]: Failed to insert module 'hci_bcm4377': Permission denied
+Apr 21 21:32:06 fedora systemd-modules-load[965]: Failed to insert module 'fuse': Permission denied
+Apr 21 21:32:06 fedora systemd-modules-load[965]: Failed to insert module 'i2c_dev': Permission denied
+Apr 21 21:32:06 fedora systemd-modules-load[965]: Failed to insert module 'fuse': Permission denied
+Apr 21 21:32:06 fedora systemd-modules-load[965]: Failed to find module 'scsi_dh_alua'
+Apr 21 21:32:06 fedora systemd-modules-load[965]: Failed to find module 'scsi_dh_emc'
+Apr 21 21:32:06 fedora systemd-modules-load[965]: Failed to find module 'scsi_dh_rdac'
+Apr 21 21:32:06 fedora systemd-modules-load[965]: Failed to insert module 'uinput': Permission denied
+Apr 21 21:32:06 fedora systemd[1]: Failed to mount boot-efi.mount - /boot/efi.
+Apr 21 21:32:06 fedora systemd[1]: Failed to start systemd-modules-load.service - Load Kernel Modules.
+Apr 21 21:32:06 fedora systemd[1]: Failed to mount proc-sys-fs-binfmt_misc.mount - Arbitrary Executable File Formats File System.
+Apr 21 21:32:06 fedora systemd-binfmt[976]: Failed to check if /proc/sys/fs/binfmt_misc is mounted: No such device
+Apr 21 21:32:06 fedora systemd[1]: Failed to start systemd-binfmt.service - Set Up Additional Binary Formats.
+Apr 21 21:32:16 fedora systemd[1]: Timed out waiting for device dev-zram0.device - /dev/zram0.
+Apr 21 21:32:49 fedora kernel: macsmc-input macsmc-input: Triggering forced shutdown!

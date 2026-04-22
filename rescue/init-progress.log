@@ -1,0 +1,14 @@
+=== INIT START ===
+[] >>> [0] init start
+[] >>> [1] root = /dev/nvme0n1p6
+[] >>> [2] copying kernel RPM to /xboot
+[] >>> [2.OK] copied 29579818 bytes
+[] >>> [3] copying kernel-devel RPM (for dracut)
+[] >>> [4] sha256 of current vmlinuz (via gzip+wc trick)
+-rw-r--r--  1 root root 24584479 Apr 21 23:44 /xboot/initramfs-6.18.15-m1opt+.img
+-rw-r--r--. 1 root root  4568631 Apr 21 00:00 /xboot/initramfs-6.18.15-m1opt+.img.orig
+-rw-r--r--. 1 root root 10738331 Apr 21 00:00 /xboot/vmlinuz-6.18.15-m1opt+
+total 0
+drwxr-xr-x. 1 root root  28 Apr 21 01:42 .
+dr-xr-xr-x. 1 root root 940 Apr 20 23:29 ..
+drwxr-xr-x. 1 root root 548 Apr 21 18:49 6.18.15-m1opt+

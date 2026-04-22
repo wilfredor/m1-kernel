@@ -1,0 +1,687 @@
+### KERNEL: 6.18.15-m1opt+
+### DATE: Wed Apr 22 08:33:42 AM -03 2026
+
+===== A. brcmfmac module file paths =====
+filename:       /lib/modules/6.18.15-m1opt+/updates/brcmfmac.ko
+vermagic:       6.18.15-m1opt+ SMP preempt mod_unload aarch64
+
+===== B. updates/ vs kernel/ brcmfmac =====
+-- /lib/modules/6.18.15-m1opt+/kernel/drivers/net/wireless/broadcom/brcm80211/brcmfmac/brcmfmac.ko --
+-rw-r--r-- 1 root root 648145 Apr 19 21:00 /lib/modules/6.18.15-m1opt+/kernel/drivers/net/wireless/broadcom/brcm80211/brcmfmac/brcmfmac.ko
+vermagic:       6.18.15-m1opt+ SMP preempt mod_unload aarch64
+
+-- /lib/modules/6.18.15-m1opt+/updates/brcmfmac.ko --
+-rw-r--r--. 1 root root 647089 Apr 21 14:00 /lib/modules/6.18.15-m1opt+/updates/brcmfmac.ko
+vermagic:       6.18.15-m1opt+ SMP preempt mod_unload aarch64
+
+
+===== C. Asahi kmod packages installed =====
+alsa-ucm-asahi-8-2.fc43.noarch
+asahi-audio-3.4-3.fc43.noarch
+asahi-battery-20250713-5.fc43.noarch
+asahi-fwupdate-20250713-5.fc43.noarch
+asahi-platform-metapackage-0-28.fc43.aarch64
+asahi-platform-metapackage-audio-0-28.fc43.aarch64
+asahi-platform-metapackage-core-0-28.fc43.aarch64
+asahi-platform-metapackage-desktop-0-28.fc43.aarch64
+asahi-platform-metapackage-mesa-0-28.fc43.aarch64
+asahi-repos-1-26.fc43.noarch
+asahi-scripts-20250713-5.fc43.noarch
+atheros-firmware-20260309-1.fc43.noarch
+brcmfmac-firmware-20260309-1.fc43.noarch
+cirrus-audio-firmware-20260309-1.fc43.noarch
+dracut-asahi-20250713-5.fc43.noarch
+fedora-asahi-remix-release-common-43-14.noarch
+fedora-asahi-remix-release-identity-workstation-43-14.noarch
+fedora-asahi-remix-release-workstation-43-14.noarch
+fedora-asahi-remix-scripts-20241123-2.fc43.noarch
+iwlegacy-firmware-20260309-1.fc43.noarch
+iwlwifi-dvm-firmware-20260309-1.fc43.noarch
+kernel-headers-6.18.15-400.asahi.fc43.aarch64
+kernel-tools-6.18.15-400.asahi.fc43.aarch64
+kernel-tools-libs-6.18.15-400.asahi.fc43.aarch64
+kmod-34.2-2.fc43.aarch64
+kmod-libs-34.2-2.fc43.aarch64
+libertas-firmware-20260309-1.fc43.noarch
+linux-firmware-20260309-1.fc43.noarch
+linux-firmware-vendor-20250713-5.fc43.noarch
+linux-firmware-whence-20260309-1.fc43.noarch
+mt7xxx-firmware-20260309-1.fc43.noarch
+nxpwireless-firmware-20260309-1.fc43.noarch
+python3-asahi_firmware-0.8.0-1.fc43.aarch64
+python3-perf-6.18.15-400.asahi.fc43.aarch64
+qcom-wwan-firmware-20260309-1.fc43.noarch
+realtek-firmware-20260309-1.fc43.noarch
+tiwilink-firmware-20260309-1.fc43.noarch
+
+===== D. dmesg first 200 lines =====
+[    0.000000] Booting Linux on physical CPU 0x0000000000 [0x611f0221]
+[    0.000000] Linux version 6.18.15-m1opt+ (wilfredor@fedora) (gcc (GCC) 15.2.1 20260123 (Red Hat 15.2.1-7), GNU ld version 2.45.1-4.fc43) #14 SMP PREEMPT_DYNAMIC Mon Apr 20 22:39:43 -03 2026
+[    0.000000] KASLR enabled
+[    0.000000] random: crng init done
+[    0.000000] Machine model: Apple MacBook Air (M1, 2020)
+[    0.000000] efi: EFI v2.11 by Das U-Boot
+[    0.000000] efi: RTPROP=0xbda3c9040 SMBIOS 3.0=0xbdb467000 MOKvar=0xbda39e000 INITRD=0xbda393040 MEMRESERVE=0xbda391040 
+[    0.000000] OF: reserved mem: 0x0000000801b50000..0x0000000801f7ffff (4288 KiB) nomap non-reusable asc-firmware@801b50000
+[    0.000000] OF: reserved mem: 0x0000000800b0c000..0x000000080152ffff (10384 KiB) nomap non-reusable asc-firmware@800b0c000
+[    0.000000] OF: reserved mem: 0x0000000804e68000..0x0000000805403fff (5744 KiB) map non-reusable sep-firmware
+[    0.000000] OF: reserved mem: 0x0000000be262c000..0x0000000be5387fff (46448 KiB) nomap non-reusable framebuffer@be262c000
+[    0.000000] OF: reserved mem: 0x0000000be5388000..0x0000000be5447fff (768 KiB) nomap non-reusable region95@be5388000
+[    0.000000] OF: reserved mem: 0x0000000be5448000..0x0000000be544bfff (16 KiB) nomap non-reusable region94@be5448000
+[    0.000000] OF: reserved mem: 0x0000000be544c000..0x0000000be644bfff (16384 KiB) nomap non-reusable region57@be544c000
+[    0.000000] OF: reserved mem: 0x0000000be644c000..0x0000000be674bfff (3072 KiB) nomap non-reusable dcp_data@be644c000
+[    0.000000] OF: reserved mem: 0x0000000bdf51c000..0x0000000bdf51ffff (16 KiB) map non-reusable flash@bdf51c000
+[    0.000000] OF: reserved mem: 0x0000000804a50000..0x0000000804aabfff (368 KiB) map non-reusable flash@804a50000
+[    0.000000] OF: reserved mem: 0x0000000bfff70000..0x0000000bfff73fff (16 KiB) map non-reusable uat-handoff
+[    0.000000] OF: reserved mem: 0x0000000bfff78000..0x0000000bfffb7fff (256 KiB) map non-reusable uat-pagetables
+[    0.000000] OF: reserved mem: 0x0000000bfffb8000..0x0000000bfffbbfff (16 KiB) map non-reusable uat-ttbs
+[    0.000000] OF: reserved mem: 0x0000000bdf520000..0x0000000bdf6cbfff (1712 KiB) nomap non-reusable isp-heap
+[    0.000000] Zone ranges:
+[    0.000000]   DMA      [mem 0x0000000800b0c000-0x0000000bfffbbfff]
+[    0.000000]   DMA32    empty
+[    0.000000]   Normal   empty
+[    0.000000] Movable zone start for each node
+[    0.000000] Early memory node ranges
+[    0.000000]   node   0: [mem 0x0000000800b0c000-0x000000080152ffff]
+[    0.000000]   node   0: [mem 0x0000000801b50000-0x0000000801f7ffff]
+[    0.000000]   node   0: [mem 0x0000000802078000-0x0000000804b03fff]
+[    0.000000]   node   0: [mem 0x0000000804b04000-0x0000000804bf7fff]
+[    0.000000]   node   0: [mem 0x0000000804bf8000-0x000000080690ffff]
+[    0.000000]   node   0: [mem 0x0000000806910000-0x000000080691ffff]
+[    0.000000]   node   0: [mem 0x0000000806920000-0x0000000806923fff]
+[    0.000000]   node   0: [mem 0x0000000806924000-0x0000000806933fff]
+[    0.000000]   node   0: [mem 0x0000000806934000-0x0000000806937fff]
+[    0.000000]   node   0: [mem 0x0000000806938000-0x0000000806947fff]
+[    0.000000]   node   0: [mem 0x0000000806948000-0x000000080694bfff]
+[    0.000000]   node   0: [mem 0x000000080694c000-0x000000080695bfff]
+[    0.000000]   node   0: [mem 0x000000080695c000-0x000000080695ffff]
+[    0.000000]   node   0: [mem 0x0000000806960000-0x000000080696ffff]
+[    0.000000]   node   0: [mem 0x0000000806970000-0x0000000806973fff]
+[    0.000000]   node   0: [mem 0x0000000806974000-0x0000000806983fff]
+[    0.000000]   node   0: [mem 0x0000000806984000-0x0000000806987fff]
+[    0.000000]   node   0: [mem 0x0000000806988000-0x0000000806997fff]
+[    0.000000]   node   0: [mem 0x0000000806998000-0x000000080699bfff]
+[    0.000000]   node   0: [mem 0x000000080699c000-0x00000008069c7fff]
+[    0.000000]   node   0: [mem 0x00000008069c8000-0x0000000b413fffff]
+[    0.000000]   node   0: [mem 0x0000000b41400000-0x0000000b41403fff]
+[    0.000000]   node   0: [mem 0x0000000b41404000-0x0000000bda39bfff]
+[    0.000000]   node   0: [mem 0x0000000bda39c000-0x0000000bda39ffff]
+[    0.000000]   node   0: [mem 0x0000000bda3a0000-0x0000000bda3c7fff]
+[    0.000000]   node   0: [mem 0x0000000bda3c8000-0x0000000bda3effff]
+[    0.000000]   node   0: [mem 0x0000000bda3f0000-0x0000000bdb463fff]
+[    0.000000]   node   0: [mem 0x0000000bdb464000-0x0000000bdb467fff]
+[    0.000000]   node   0: [mem 0x0000000bdb468000-0x0000000bdf42ffff]
+[    0.000000]   node   0: [mem 0x0000000bdf430000-0x0000000bdf43ffff]
+[    0.000000]   node   0: [mem 0x0000000bdf440000-0x0000000bdf517fff]
+[    0.000000]   node   0: [mem 0x0000000bdf51c000-0x0000000bdf51ffff]
+[    0.000000]   node   0: [mem 0x0000000bdf520000-0x0000000bdf6cbfff]
+[    0.000000]   node   0: [mem 0x0000000be262c000-0x0000000be674bfff]
+[    0.000000]   node   0: [mem 0x0000000bfff70000-0x0000000bfff73fff]
+[    0.000000]   node   0: [mem 0x0000000bfff78000-0x0000000bfffbbfff]
+[    0.000000] Initmem setup node 0 [mem 0x0000000800b0c000-0x0000000bfffbbfff]
+[    0.000000] On node 0, zone DMA: 707 pages in unavailable ranges
+[    0.000000] On node 0, zone DMA: 392 pages in unavailable ranges
+[    0.000000] On node 0, zone DMA: 62 pages in unavailable ranges
+[    0.000000] On node 0, zone DMA: 1 pages in unavailable ranges
+[    0.000000] On node 0, zone DMA: 3032 pages in unavailable ranges
+[    0.000000] On node 0, zone DMA: 9737 pages in unavailable ranges
+[    0.000000] On node 0, zone DMA: 1 pages in unavailable ranges
+[    0.000000] On node 0, zone DMA: 17 pages in unavailable ranges
+[    0.000000] cma: Reserved 64 MiB at 0x0000000808000000
+[    0.000000] percpu: Embedded 14 pages/cpu s102424 r8192 d118760 u229376
+[    0.000000] pcpu-alloc: s102424 r8192 d118760 u229376 alloc=14*16384
+[    0.000000] pcpu-alloc: [0] 0 [0] 1 [0] 2 [0] 3 [0] 4 [0] 5 [0] 6 [0] 7 
+[    0.000000] Detected VIPT I-cache on CPU0
+[    0.000000] CPU features: detected: Address authentication (IMP DEF algorithm)
+[    0.000000] CPU features: detected: Virtualization Host Extensions
+[    0.000000] CPU features: detected: Spectre-v4
+[    0.000000] CPU features: detected: Spectre-BHB
+[    0.000000] CPU features: detected: Apple IMPDEF PMUv3 Traps
+[    0.000000] alternatives: applying boot alternatives
+[    0.000000] Kernel command line: BOOT_IMAGE=(hd0,gpt5)/vmlinuz-6.18.15-m1opt+ root=UUID=3cbd9d9a-90a4-404d-afaa-446e1c0722dc ro rootflags=subvol=root selinux=0 rhgb quiet workqueue.power_efficient=1 fw_devlink=permissive
+[    0.000000] Unknown kernel command line parameters "rhgb", will be passed to user space.
+[    0.000000] printk: log buffer data + meta data: 262144 + 917504 = 1179648 bytes
+[    0.000000] Dentry cache hash table entries: 2097152 (order: 10, 16777216 bytes, linear)
+[    0.000000] Inode-cache hash table entries: 1048576 (order: 9, 8388608 bytes, linear)
+[    0.000000] software IO TLB: SWIOTLB bounce buffer size adjusted to 15MB
+[    0.000000] software IO TLB: area num 8.
+[    0.000000] software IO TLB: SWIOTLB bounce buffer size roundup to 16MB
+[    0.000000] software IO TLB: mapped [mem 0x0000000bdc2f0000-0x0000000bdd2f0000] (16MB)
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 1018243
+[    0.000000] mem auto-init: stack:all(zero), heap alloc:on, heap free:off
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=8, Nodes=1
+[    0.000000] ftrace: allocating 57807 entries in 57 pages
+[    0.000000] ftrace: allocated 57 pages with 4 groups
+[    0.000000] Dynamic Preempt: full
+[    0.000000] rcu: Preemptible hierarchical RCU implementation.
+[    0.000000] rcu: 	RCU event tracing is enabled.
+[    0.000000] rcu: 	RCU restricting CPUs from NR_CPUS=16 to nr_cpu_ids=8.
+[    0.000000] 	Trampoline variant of Tasks RCU enabled.
+[    0.000000] 	Rude variant of Tasks RCU enabled.
+[    0.000000] 	Tracing variant of Tasks RCU enabled.
+[    0.000000] rcu: RCU calculated value of scheduler-enlistment delay is 100 jiffies.
+[    0.000000] rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=8
+[    0.000000] RCU Tasks: Setting shift to 3 and lim to 1 rcu_task_cb_adjust=1 rcu_task_cpu_ids=8.
+[    0.000000] RCU Tasks Rude: Setting shift to 3 and lim to 1 rcu_task_cb_adjust=1 rcu_task_cpu_ids=8.
+[    0.000000] RCU Tasks Trace: Setting shift to 3 and lim to 1 rcu_task_cb_adjust=1 rcu_task_cpu_ids=8.
+[    0.000000] NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+[    0.000000] Root IRQ handler: aic_handle_irq
+[    0.000000] Root FIQ handler: aic_handle_fiq
+[    0.000000] irq_apple_aic: Using Fast IPIs
+[    0.000000] irq_apple_aic: Initialized with 896/1024 IRQs * 1/1 die(s), 7 FIQs, 32 vIPIs
+[    0.000000] rcu: srcu_init: Setting srcu_struct sizes based on contention.
+[    0.000000] arch_timer: cp15 timer running at 24.00MHz (phys).
+[    0.000000] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x588fe9dc0, max_idle_ns: 440795202592 ns
+[    0.000000] sched_clock: 56 bits at 24MHz, resolution 41ns, wraps every 4398046511097ns
+[    0.000192] Console: colour dummy device 80x25
+[    0.000197] printk: legacy console [tty0] enabled
+[    0.000221] Calibrating delay loop (skipped), value calculated using timer frequency.. 48.00 BogoMIPS (lpj=24000)
+[    0.000224] pid_max: default: 32768 minimum: 301
+[    0.000294] LSM: initializing lsm=lockdown,capability,yama,bpf,landlock
+[    0.000369] Yama: becoming mindful.
+[    0.000585] LSM support for eBPF active
+[    0.000619] landlock: Up and running.
+[    0.000651] Mount-cache hash table entries: 32768 (order: 4, 262144 bytes, linear)
+[    0.000657] Mountpoint-cache hash table entries: 32768 (order: 4, 262144 bytes, linear)
+[    0.001300] rcu: Hierarchical SRCU implementation.
+[    0.001303] rcu: 	Max phase no-delay instances is 400.
+[    0.001342] Timer migration: 1 hierarchy levels; 8 children per group; 1 crossnode level
+[    0.001577] Remapping and enabling EFI services.
+[    0.001659] smp: Bringing up secondary CPUs ...
+[    0.001749] Detected VIPT I-cache on CPU1
+[    0.001783] CPU1: Booted secondary processor 0x0000000001 [0x611f0221]
+[    0.001894] Detected VIPT I-cache on CPU2
+[    0.001924] CPU2: Booted secondary processor 0x0000000002 [0x611f0221]
+[    0.002029] Detected VIPT I-cache on CPU3
+[    0.002058] CPU3: Booted secondary processor 0x0000000003 [0x611f0221]
+[    0.002156] Detected VIPT I-cache on CPU4
+[    0.002188] CPU4: Booted secondary processor 0x0000010100 [0x611f0231]
+[    0.002303] Detected VIPT I-cache on CPU5
+[    0.002327] CPU5: Booted secondary processor 0x0000010101 [0x611f0231]
+[    0.002437] Detected VIPT I-cache on CPU6
+[    0.002461] CPU6: Booted secondary processor 0x0000010102 [0x611f0231]
+[    0.002565] Detected VIPT I-cache on CPU7
+[    0.002589] CPU7: Booted secondary processor 0x0000010103 [0x611f0231]
+[    0.002617] smp: Brought up 1 node, 8 CPUs
+[    0.002621] SMP: Total of 8 processors activated.
+[    0.002622] CPU: All CPU(s) started at EL2
+[    0.002624] CPU features: detected: ARMv8.4 Translation Table Level
+[    0.002625] CPU features: detected: Data cache clean to the PoU not required for I/D coherence
+[    0.002627] CPU features: detected: Common not Private translations
+[    0.002628] CPU features: detected: CRC32 instructions
+[    0.002629] CPU features: detected: Data cache clean to Point of Deep Persistence
+[    0.002630] CPU features: detected: Data cache clean to Point of Persistence
+[    0.002631] CPU features: detected: Data independent timing control (DIT)
+[    0.002632] CPU features: detected: E0PD
+[    0.002633] CPU features: detected: Enhanced Virtualization Traps
+[    0.002635] CPU features: detected: Generic authentication (IMP DEF algorithm)
+[    0.002637] CPU features: detected: RCpc load-acquire (LDAPR)
+[    0.002638] CPU features: detected: LSE atomic instructions
+[    0.002639] CPU features: detected: Privileged Access Never
+[    0.002640] CPU features: detected: RAS Extension Support
+[    0.002641] CPU features: detected: Speculation barrier (SB)
+[    0.002642] CPU features: detected: Stage-2 Force Write-Back
+[    0.002643] CPU features: detected: TLB range maintenance instructions
+[    0.002645] CPU features: detected: Speculative Store Bypassing Safe (SSBS)
+[    0.002667] alternatives: applying system-wide alternatives
+[    0.003237] CPU features: detected: ACTLR virtualization (IMPDEF, Apple)
+[    0.003240] CPU features: detected: TSO memory model (Apple)
+[    0.003478] Memory: 15940208K/16291888K available (18176K kernel code, 2610K rwdata, 7104K rodata, 7296K init, 730K bss, 269648K reserved, 65536K cma-reserved)
+[    0.003661] devtmpfs: initialized
+[    0.005832] setend instruction emulation is not supported on this system
+[    0.005937] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 1911260446275000 ns
+[    0.005944] posixtimers hash table entries: 4096 (order: 2, 65536 bytes, linear)
+[    0.005958] futex hash table entries: 2048 (131072 bytes on 1 NUMA nodes, total 128 KiB, linear).
+[    0.006026] 5920 pages in range for non-PLT usage
+[    0.006027] 128800 pages in range for PLT usage
+[    0.006107] pinctrl core: initialized pinctrl subsystem
+[    0.006256] SMBIOS 3.7.0 present.
+[    0.006260] DMI: Apple Inc. MacBookAir10,1/J313, BIOS 2025.10 10/01/2025
+[    0.006264] DMI: Memory slots populated: 0/0
+[    0.006817] NET: Registered PF_NETLINK/PF_ROUTE protocol family
+[    0.007799] DMA: preallocated 2048 KiB GFP_KERNEL pool for atomic allocations
+[    0.007882] DMA: preallocated 2048 KiB GFP_KERNEL|GFP_DMA pool for atomic allocations
+[    0.008010] DMA: preallocated 2048 KiB GFP_KERNEL|GFP_DMA32 pool for atomic allocations
+[    0.008027] audit: initializing netlink subsys (disabled)
+[    0.008076] audit: type=2000 audit(0.007:1): state=initialized audit_enabled=0 res=1
+[    0.008179] thermal_sys: Registered thermal governor 'step_wise'
+[    0.008189] cpuidle: using governor menu
+[    0.008251] hw-breakpoint: found 6 breakpoint and 4 watchpoint registers.
+[    0.008301] ASID allocator initialised with 256 entries
+[    0.008361] Serial: AMBA PL011 UART driver
+[    0.010718] /soc/i2c@235010000/usb-pd@38/connector: Fixed dependency cycle(s) with /soc/phy@383000000
+[    0.010724] /soc/i2c@235010000/usb-pd@38/connector: Fixed dependency cycle(s) with /soc/usb@382280000
+[    0.010732] /soc/i2c@235010000/usb-pd@3f/connector: Fixed dependency cycle(s) with /soc/phy@503000000
+[    0.010737] /soc/i2c@235010000/usb-pd@3f/connector: Fixed dependency cycle(s) with /soc/usb@502280000
+[    0.010860] /soc/usb@382280000: Fixed dependency cycle(s) with /soc/i2c@235010000/usb-pd@38/connector
+[    0.010865] /soc/usb@382280000: Fixed dependency cycle(s) with /soc/phy@383000000
+
+===== E. dmesg around brcmfmac (50 before / 50 after) =====
+362:[    0.356346] pci 0000:01:00.0: [14e4:4425] type 00 class 0x028000 PCIe Endpoint
+368:[    0.357233] pci 0000:01:00.1: [14e4:5f69] type 00 class 0x028000 PCIe Endpoint
+479:[    1.095843] cfg80211: Loading compiled-in X.509 certificates for regulatory database
+487:[    1.098766] brcmfmac: loading out-of-tree module taints kernel.
+488:[    1.099871] usbcore: registered new interface driver brcmfmac
+489:[    1.099940] brcmfmac 0000:01:00.0: enabling device (0000 -> 0002)
+495:[    1.113221] brcmfmac: brcmf_fw_alloc_request: using brcm/brcmfmac4378b1-pcie for chip BCM4378/3
+496:[    1.113448] brcmfmac 0000:01:00.0: Direct firmware load for brcm/brcmfmac4378b1-pcie.sig failed with error -2
+503:[    1.678267] brcmfmac: brcmf_fwvid_request_module: mod=wcc: failed 256
+504:[    1.678271] ieee80211 phy0: brcmf_attach: brcmf_fwvid_attach failed
+505:[    1.684197] brcmfmac 0000:01:00.0: brcmf_pcie_setup: Dongle setup failed
+506:[    1.684321] brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 00000.237 MALLOC warning: allocations are persistent by default in attach phase!
+507:[    1.684433] brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 000000.237 MALLOC warning: allocations are persistent by default in attach phase!
+508:[    1.684543] brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 000000.237 MALLOC warning: allocations are persistent by default in attach phase!
+509:[    1.684654] brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 000000.238 MALLOC warning: allocations are persistent by default in attach phase!
+510:[    1.684765] brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 000000.242 wl1: Broadcom BCM4378 802.11 Wireless Controller 18.20.383.15.7.8.150
+511:[    1.684877] brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 000000.242 MALLOC warning: allocations are persistent by default in attach phase!
+512:[    1.684932] brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 000000.243 TCAM: 768 used: 691 exceed:0
+513:[    1.685032] brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 000000.243 Reclaim section 1: returned 251380 bytes (pre-reclaim: 224560)
+514:[    1.685109] brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 000000.247 SPLITRX_MODE: 4 tcmsegsize 0 d11rxoffset 0
+515:[    1.685158] brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 000000.247 ThreadX v5.6 initialized
+516:[    1.685225] brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 000000.247 EL: 30 7c60
+517:[    1.685269] brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 000000.247 Single MSI enabled
+518:[    1.685332] brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 000000.247 FUNCNAME: dngl_sendpkt: dropped pkt
+519:[    1.685397] brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 000000.248 FUNCNAME: dngl_sendpkt: dropped pkt
+520:[    1.685462] brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 000000.248 FUNCNAME: dngl_sendpkt: dropped pkt
+521:[    1.685463] ieee80211 phy0: brcmf_fw_crashed: Firmware has halted or crashed
+602:[    2.430786] systemd[1]: Starting m1-wifi-firmware-fix.service - M1 WiFi firmware symlink fix (brcmfmac variant names)...
+620:[    2.476938] audit: type=1130 audit(1776857020.506:3): pid=1 uid=0 auid=4294967295 ses=4294967295 msg='unit=m1-wifi-firmware-fix comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+-- full context lines --
+[    1.077378] apple-display-crossbar 38304c000.mux: Switched dpin0 to disconnected state
+[    1.077382] apple-display-crossbar 38304c000.mux: Switched dpin1 to disconnected state
+[    1.077517] /soc/i2c@235010000/usb-pd@38/connector: Fixed dependency cycle(s) with /soc/phy@383000000
+[    1.077761] apple-display-crossbar 50304c000.mux: Switched dpphy to disconnected state
+[    1.077766] apple-display-crossbar 50304c000.mux: Switched dpin0 to disconnected state
+[    1.077770] apple-display-crossbar 50304c000.mux: Switched dpin1 to disconnected state
+[    1.078102] /soc/i2c@235010000/usb-pd@3f/connector: Fixed dependency cycle(s) with /soc/phy@503000000
+[    1.081637] apple_aop 24ac00000.aop: RTKit: Initializing (protocol version 12)
+[    1.083639] apple_aop 24ac00000.aop: RTKit: syslog message: AOP_oslog_init.cpp:96: Start AOP OSLog init
+[    1.083906] apple_aop 24ac00000.aop: RTKit: syslog message: P_os_log_support.cpp:60: AOP os log initialized
+[    1.083976] apple_aop 24ac00000.aop: RTKit: syslog message: SPU_dram_client.cpp:211: AOP platform dram client initialized
+[    1.095783] apple_aop 24ac00000.aop: RTKit: syslog message: ALSCT720.cpp:57: probe
+[    1.095843] cfg80211: Loading compiled-in X.509 certificates for regulatory database
+[    1.096239] apple_aop 24ac00000.aop: RTKit: syslog message: ALSCT720.cpp:85: CT720 device found.
+[    1.096503] apple_aop 24ac00000.aop: RTKit: syslog message: ALSVD6286.cpp:80: [ALS2] VD6286 device NOT found. Calibration Override:0
+[    1.096938] apple_aop 24ac00000.aop: RTKit: syslog message: ClientInfo.cpp:184: exp "inCallbackAction(it.key(), inRef)" fail, RunActionOnClientManagers(), ln 1
+[    1.096945] apple_aop 24ac00000.aop: RTKit: syslog message: ALSCT720.cpp:93: start
+[    1.097236] Loaded X.509 cert 'sforshee: 00b28ddf47aef9cea7'
+[    1.097469] Loaded X.509 cert 'wens: 61c038651aabdcf94bd0ac7ff06c7248db18c600'
+[    1.098558] apple_aop 24ac00000.aop: RTKit: syslog message: udioPDMNodeBase.cpp:150: PDMDev<pdm0> wake notification. Prev AP state 1
+[    1.098766] brcmfmac: loading out-of-tree module taints kernel.
+[    1.099871] usbcore: registered new interface driver brcmfmac
+[    1.099940] brcmfmac 0000:01:00.0: enabling device (0000 -> 0002)
+[    1.099960] apple_aop 24ac00000.aop: RTKit: syslog message: iggerController.cpp:129: VoiceTrig ready!! <AppleAOPVoiceTriggerController v240.2 built: Jun 30 202317:4
+[    1.100185] apple_aop 24ac00000.aop: RTKit: syslog message: ClientInfo.cpp:184: exp "inCallbackAction(it.key(), inRef)" fail, RunActionOnClientManagers(), ln 1
+[    1.100333] apple_aop 24ac00000.aop: RTKit: syslog message: Controller.cpp:160: RTKitAudioFramework v240.4 (built Jun 30 2023 17:51:05) ready!! {12 nodes}
+[    1.100389] apple_aop 24ac00000.aop: RTKit: syslog message: Controller.cpp:251: aop-audio v240.10 (built Jun 30 2023 17:56:11, debug 0x0) ready!!
+[    1.100644] apple_aop 24ac00000.aop: RTKit: syslog message: SPU_init.cpp:320: ===( AOP IS READY )===
+[    1.113221] brcmfmac: brcmf_fw_alloc_request: using brcm/brcmfmac4378b1-pcie for chip BCM4378/3
+[    1.113448] brcmfmac 0000:01:00.0: Direct firmware load for brcm/brcmfmac4378b1-pcie.sig failed with error -2
+[    1.663209] BTRFS: device label fedora devid 1 transid 2814 /dev/nvme0n1p6 (259:6) scanned by mount (499)
+[    1.663610] BTRFS info (device nvme0n1p6): first mount of filesystem 3cbd9d9a-90a4-404d-afaa-446e1c0722dc
+[    1.663628] BTRFS info (device nvme0n1p6): using crc32c (crc32c-lib) checksum algorithm
+[    1.668286] BTRFS info (device nvme0n1p6): enabling ssd optimizations
+[    1.668290] BTRFS info (device nvme0n1p6): turning on async discard
+[    1.668292] BTRFS info (device nvme0n1p6): enabling free space tree
+[    1.678267] brcmfmac: brcmf_fwvid_request_module: mod=wcc: failed 256
+[    1.678271] ieee80211 phy0: brcmf_attach: brcmf_fwvid_attach failed
+[    1.684197] brcmfmac 0000:01:00.0: brcmf_pcie_setup: Dongle setup failed
+[    1.684321] brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 00000.237 MALLOC warning: allocations are persistent by default in attach phase!
+[    1.684433] brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 000000.237 MALLOC warning: allocations are persistent by default in attach phase!
+[    1.684543] brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 000000.237 MALLOC warning: allocations are persistent by default in attach phase!
+[    1.684654] brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 000000.238 MALLOC warning: allocations are persistent by default in attach phase!
+[    1.684765] brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 000000.242 wl1: Broadcom BCM4378 802.11 Wireless Controller 18.20.383.15.7.8.150
+[    1.684877] brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 000000.242 MALLOC warning: allocations are persistent by default in attach phase!
+[    1.684932] brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 000000.243 TCAM: 768 used: 691 exceed:0
+[    1.685032] brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 000000.243 Reclaim section 1: returned 251380 bytes (pre-reclaim: 224560)
+[    1.685109] brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 000000.247 SPLITRX_MODE: 4 tcmsegsize 0 d11rxoffset 0
+[    1.685158] brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 000000.247 ThreadX v5.6 initialized
+[    1.685225] brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 000000.247 EL: 30 7c60
+[    1.685269] brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 000000.247 Single MSI enabled
+[    1.685332] brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 000000.247 FUNCNAME: dngl_sendpkt: dropped pkt
+[    1.685397] brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 000000.248 FUNCNAME: dngl_sendpkt: dropped pkt
+[    1.685462] brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 000000.248 FUNCNAME: dngl_sendpkt: dropped pkt
+[    1.685463] ieee80211 phy0: brcmf_fw_crashed: Firmware has halted or crashed
+[    1.835795] systemd-journald[290]: Received SIGTERM from PID 1 (systemd).
+[    1.923547] systemd[1]: systemd 258.7-1.fc43 running in system mode (+PAM +AUDIT +SELINUX -APPARMOR +IMA +IPE +SMACK +SECCOMP -GCRYPT +GNUTLS +OPENSSL +ACL +BLKID +CURL +ELFUTILS +FIDO2 +IDN2 -IDN -IPTC +KMOD +LIBCRYPTSETUP +LIBCRYPTSETUP_PLUGINS +LIBFDISK +PCRE2 +PWQUALITY +P11KIT +QRENCODE +TPM2 +BZIP2 +LZ4 +XZ +ZLIB +ZSTD +BPF_FRAMEWORK +BTF +XKBCOMMON +UTMP +SYSVINIT +LIBARCHIVE)
+[    1.923569] systemd[1]: Detected architecture arm64.
+[    2.015703] systemd[1]: bpf-restrict-fs: Failed to load BPF object: No such process
+[    2.181728] zram: Added device: zram0
+[    2.182481] zram_generator::generator[576]: modprobe "crypto-zstd" failed, ignoring: code exit status: 1
+[    2.414574] systemd[1]: initrd-switch-root.service: Deactivated successfully.
+[    2.414655] systemd[1]: Stopped initrd-switch-root.service - Switch Root.
+[    2.415104] systemd[1]: systemd-journald.service: Scheduled restart job, restart counter is at 1.
+[    2.415377] systemd[1]: Created slice system-getty.slice - Slice /system/getty.
+[    2.415591] systemd[1]: Created slice system-systemd\x2dgrowfs.slice - Slice /system/systemd-growfs.
+[    2.415802] systemd[1]: Created slice system-systemd\x2dzram\x2dsetup.slice - Slice /system/systemd-zram-setup.
+[    2.415933] systemd[1]: Created slice user.slice - User and Session Slice.
+[    2.415966] systemd[1]: Started systemd-ask-password-console.path - Dispatch Password Requests to Console Directory Watch.
+[    2.415989] systemd[1]: Started systemd-ask-password-wall.path - Forward Password Requests to Wall Directory Watch.
+[    2.416086] systemd[1]: Set up automount proc-sys-fs-binfmt_misc.automount - Arbitrary Executable File Formats File System Automount Point.
+[    2.416098] systemd[1]: Expecting device dev-disk-by\x2duuid-107698e4\x2d392a\x2d4bf6\x2d9737\x2da1e9a84792c1.device - /dev/disk/by-uuid/107698e4-392a-4bf6-9737-a1e9a84792c1...
+[    2.416102] systemd[1]: Expecting device dev-disk-by\x2duuid-3cbd9d9a\x2d90a4\x2d404d\x2dafaa\x2d446e1c0722dc.device - /dev/disk/by-uuid/3cbd9d9a-90a4-404d-afaa-446e1c0722dc...
+[    2.416106] systemd[1]: Expecting device dev-disk-by\x2duuid-84BA\x2d5639.device - /dev/disk/by-uuid/84BA-5639...
+[    2.416113] systemd[1]: Expecting device dev-zram0.device - /dev/zram0...
+[    2.416120] systemd[1]: Reached target cryptsetup.target - Local Encrypted Volumes.
+[    2.416130] systemd[1]: Reached target getty.target - Login Prompts.
+[    2.416137] systemd[1]: Reached target imports.target - Image Downloads.
+[    2.416148] systemd[1]: Stopped target initrd-switch-root.target - Switch Root.
+[    2.416156] systemd[1]: Stopped target initrd-fs.target - Initrd File Systems.
+[    2.416162] systemd[1]: Stopped target initrd-root-fs.target - Initrd Root File System.
+[    2.416174] systemd[1]: Reached target integritysetup.target - Local Integrity Protected Volumes.
+[    2.416196] systemd[1]: Reached target paths.target - Path Units.
+[    2.416204] systemd[1]: Reached target slices.target - Slice Units.
+[    2.416221] systemd[1]: Reached target veritysetup.target - Local Verity Protected Volumes.
+[    2.416260] systemd[1]: Listening on dm-event.socket - Device-mapper event daemon FIFOs.
+[    2.416297] systemd[1]: Listening on lvm2-lvmpolld.socket - LVM2 poll daemon socket.
+[    2.416988] systemd[1]: Listening on systemd-ask-password.socket - Query the User Interactively for a Password.
+[    2.417478] systemd[1]: Listening on systemd-creds.socket - Credential Encryption/Decryption.
+[    2.418149] systemd[1]: Listening on systemd-factory-reset.socket - Factory Reset Management.
+[    2.418312] systemd[1]: Listening on systemd-journald-audit.socket - Journal Audit Socket.
+[    2.418335] systemd[1]: systemd-pcrextend.socket - TPM PCR Measurements skipped, unmet condition check ConditionSecurity=measured-uki
+[    2.418346] systemd[1]: systemd-pcrlock.socket - Make TPM PCR Policy skipped, unmet condition check ConditionSecurity=measured-uki
+[    2.418394] systemd[1]: Listening on systemd-resolved-monitor.socket - Resolve Monitor Varlink Socket.
+[    2.418429] systemd[1]: Listening on systemd-resolved-varlink.socket - Resolve Service Varlink Socket.
+[    2.418469] systemd[1]: Listening on systemd-udevd-control.socket - udev Control Socket.
+[    2.418505] systemd[1]: Listening on systemd-udevd-varlink.socket - udev Varlink Socket.
+[    2.418542] systemd[1]: Listening on systemd-userdbd.socket - User Database Manager Socket.
+[    2.418640] systemd[1]: dev-hugepages.mount - Huge Pages File System skipped, unmet condition check ConditionPathExists=/sys/kernel/mm/hugepages
+[    2.419836] systemd[1]: Mounting dev-mqueue.mount - POSIX Message Queue File System...
+[    2.420268] systemd[1]: Mounting sys-kernel-debug.mount - Kernel Debug File System...
+
+===== F. m1-wifi-firmware-fix.service =====
+# /etc/systemd/system/m1-wifi-firmware-fix.service
+[Unit]
+Description=M1 WiFi firmware symlink fix (brcmfmac variant names)
+DefaultDependencies=no
+Before=systemd-udev-trigger.service
+After=systemd-remount-fs.service
+ConditionPathIsDirectory=/lib/firmware/brcm
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/m1-wifi-firmware-fix.sh
+RemainAfterExit=yes
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=sysinit.target
+
+# /usr/lib/systemd/system/service.d/10-timeout-abort.conf
+# This file is part of the systemd package.
+# See https://fedoraproject.org/wiki/Changes/Shorter_Shutdown_Timer.
+#
+# To facilitate debugging when a service fails to stop cleanly,
+# TimeoutStopFailureMode=abort is set to "crash" services that fail to stop in
+# the time allotted. This will cause the service to be terminated with SIGABRT
+# and a coredump to be generated.
+#
+# To undo this configuration change, create a mask file:
+#   sudo mkdir -p /etc/systemd/system/service.d
+#   sudo ln -sv /dev/null /etc/systemd/system/service.d/10-timeout-abort.conf
+
+[Service]
+TimeoutStopFailureMode=abort
+-- status --
+● m1-wifi-firmware-fix.service - M1 WiFi firmware symlink fix (brcmfmac variant names)
+     Loaded: loaded (/etc/systemd/system/m1-wifi-firmware-fix.service; enabled; preset: disabled)
+    Drop-In: /usr/lib/systemd/system/service.d
+             └─10-timeout-abort.conf
+     Active: active (exited) since Wed 2026-04-22 08:23:40 -03; 10min ago
+ Invocation: 537e768a2c9849a49098c9f0691a75e1
+    Process: 620 ExecStart=/usr/local/sbin/m1-wifi-firmware-fix.sh (code=exited, status=0/SUCCESS)
+   Main PID: 620 (code=exited, status=0/SUCCESS)
+   Mem peak: 4.9M
+        CPU: 4ms
+
+Apr 22 08:23:40 fedora m1-wifi-firmware-fix.sh[620]: m1-wifi-firmware-fix: created 0 symlinks
+Apr 22 08:23:40 fedora systemd[1]: Finished m1-wifi-firmware-fix.service - M1 WiFi firmware symlink fix (brcmfmac variant names).
+-- journal --
+Apr 21 14:17:17 fedora systemd[1]: Starting m1-wifi-firmware-fix.service - M1 WiFi firmware symlink fix (brcmfmac variant names)...
+Apr 21 14:17:17 fedora m1-wifi-firmware-fix.sh[10555]: m1-wifi-firmware-fix: created 66 symlinks
+Apr 21 14:17:17 fedora systemd[1]: Finished m1-wifi-firmware-fix.service - M1 WiFi firmware symlink fix (brcmfmac variant names).
+-- Boot c0a743fe7cc54ae69892c40f6d1e8eac --
+Apr 21 21:31:42 fedora m1-wifi-firmware-fix.sh[620]: m1-wifi-firmware-fix: created 0 symlinks
+Apr 21 21:31:42 fedora systemd[1]: Finished m1-wifi-firmware-fix.service - M1 WiFi firmware symlink fix (brcmfmac variant names).
+-- Boot cc15a6ba6ab74a99ac46fb63b51d4785 --
+Apr 21 21:41:55 fedora m1-wifi-firmware-fix.sh[523]: m1-wifi-firmware-fix: created 0 symlinks
+-- Boot 7af85d8d7418463a9bc76076968bf24d --
+Apr 21 22:15:07 fedora m1-wifi-firmware-fix.sh[608]: m1-wifi-firmware-fix: created 0 symlinks
+Apr 21 22:15:07 fedora systemd[1]: Finished m1-wifi-firmware-fix.service - M1 WiFi firmware symlink fix (brcmfmac variant names).
+-- Boot 89866708448c4d378e02b38d823b872f --
+Apr 22 07:56:39 fedora m1-wifi-firmware-fix.sh[537]: m1-wifi-firmware-fix: created 0 symlinks
+Apr 22 07:56:39 fedora systemd[1]: Finished m1-wifi-firmware-fix.service - M1 WiFi firmware symlink fix (brcmfmac variant names).
+-- Boot d6400a84cc2b402a8fba1a5653280c2c --
+Apr 22 07:59:46 fedora m1-wifi-firmware-fix.sh[628]: m1-wifi-firmware-fix: created 0 symlinks
+Apr 22 07:59:46 fedora systemd[1]: Finished m1-wifi-firmware-fix.service - M1 WiFi firmware symlink fix (brcmfmac variant names).
+-- Boot 4b2c885e428245cb8cf1a254f8d0e802 --
+Apr 22 08:13:37 fedora m1-wifi-firmware-fix.sh[521]: m1-wifi-firmware-fix: created 0 symlinks
+Apr 22 08:13:37 fedora systemd[1]: Finished m1-wifi-firmware-fix.service - M1 WiFi firmware symlink fix (brcmfmac variant names).
+-- Boot 732dfb42f0dc4d68aeec9489a6cca3c1 --
+Apr 22 08:15:11 fedora m1-wifi-firmware-fix.sh[624]: m1-wifi-firmware-fix: created 0 symlinks
+Apr 22 08:15:11 fedora systemd[1]: Finished m1-wifi-firmware-fix.service - M1 WiFi firmware symlink fix (brcmfmac variant names).
+-- Boot 4a22965fabbf401e854d2b42f9a6cd85 --
+Apr 22 08:23:40 fedora m1-wifi-firmware-fix.sh[620]: m1-wifi-firmware-fix: created 0 symlinks
+Apr 22 08:23:40 fedora systemd[1]: Finished m1-wifi-firmware-fix.service - M1 WiFi firmware symlink fix (brcmfmac variant names).
+
+===== G. brcm,board-type from DT =====
+-- board-type --
+apple,shikoku
+-- compatible --
+pci14e4,4425
+-- cal-blob size --
+-r--r--r-- 1 root root 2112 Apr 22 08:33 /sys/firmware/devicetree/base/soc/pcie@690000000/pci@0,0/wifi@0,0/brcm,cal-blob
+-- antenna-sku --
+cat: /sys/firmware/devicetree/base/soc/pcie@690000000/pci@0,0/wifi@0,0/brcm,antenna-sku: No such file or directory
+-- module-instance --
+cat: /sys/firmware/devicetree/base/soc/pcie@690000000/pci@0,0/wifi@0,0/module-instance: No such file or directory
+-- all DT files --
+apple,antenna-sku
+brcm,board-type
+brcm,cal-blob
+compatible
+local-mac-address
+name
+reg
+
+===== H. brcmfmac4378* firmware files =====
+-rw-r--r--. 1 root root 1377067 Apr 21 13:34 /lib/firmware/brcm/brcmfmac4378b1-pcie.apple,atlantisb.bin
+-rw-r--r--. 1 root root   33493 Apr 21 13:34 /lib/firmware/brcm/brcmfmac4378b1-pcie.apple,atlantisb.clm_blob
+lrwxrwxrwx. 1 root root      39 Apr 21 13:47 /lib/firmware/brcm/brcmfmac4378b1-pcie.apple,atlantisb-RASP.bin -> brcmfmac4378b1-pcie.apple,atlantisb.bin
+lrwxrwxrwx. 1 root root      44 Apr 21 13:47 /lib/firmware/brcm/brcmfmac4378b1-pcie.apple,atlantisb-RASP.clm_blob -> brcmfmac4378b1-pcie.apple,atlantisb.clm_blob
+-rw-r--r--. 1 root root    7783 Apr 21 13:34 /lib/firmware/brcm/brcmfmac4378b1-pcie.apple,atlantisb-RASP-m.txt
+lrwxrwxrwx. 1 root root      46 Apr 21 14:17 /lib/firmware/brcm/brcmfmac4378b1-pcie.apple,atlantisb-RASP.txcap_blob -> brcmfmac4378b1-pcie.apple,atlantisb.txcap_blob
+lrwxrwxrwx. 1 root root      46 Apr 21 14:17 /lib/firmware/brcm/brcmfmac4378b1-pcie.apple,atlantisb-RASP.txt -> brcmfmac4378b1-pcie.apple,atlantisb-RASP-u.txt
+lrwxrwxrwx. 1 root root      39 Apr 21 13:47 /lib/firmware/brcm/brcmfmac4378b1-pcie.apple,atlantisb-RASP-u-6.5.bin -> brcmfmac4378b1-pcie.apple,atlantisb.bin
+lrwxrwxrwx. 1 root root      44 Apr 21 13:47 /lib/firmware/brcm/brcmfmac4378b1-pcie.apple,atlantisb-RASP-u-6.5.clm_blob -> brcmfmac4378b1-pcie.apple,atlantisb.clm_blob
+lrwxrwxrwx. 1 root root      46 Apr 21 14:17 /lib/firmware/brcm/brcmfmac4378b1-pcie.apple,atlantisb-RASP-u-6.5.txcap_blob -> brcmfmac4378b1-pcie.apple,atlantisb.txcap_blob
+lrwxrwxrwx. 1 root root      46 Apr 21 14:17 /lib/firmware/brcm/brcmfmac4378b1-pcie.apple,atlantisb-RASP-u-6.5.txt -> brcmfmac4378b1-pcie.apple,atlantisb-RASP-u.txt
+lrwxrwxrwx. 1 root root      39 Apr 21 13:47 /lib/firmware/brcm/brcmfmac4378b1-pcie.apple,atlantisb-RASP-u-6.5-X0.bin -> brcmfmac4378b1-pcie.apple,atlantisb.bin
+lrwxrwxrwx. 1 root root      44 Apr 21 13:47 /lib/firmware/brcm/brcmfmac4378b1-pcie.apple,atlantisb-RASP-u-6.5-X0.clm_blob -> brcmfmac4378b1-pcie.apple,atlantisb.clm_blob
+lrwxrwxrwx. 1 root root      46 Apr 21 14:17 /lib/firmware/brcm/brcmfmac4378b1-pcie.apple,atlantisb-RASP-u-6.5-X0.txcap_blob -> brcmfmac4378b1-pcie.apple,atlantisb.txcap_blob
+lrwxrwxrwx. 1 root root      46 Apr 21 14:17 /lib/firmware/brcm/brcmfmac4378b1-pcie.apple,atlantisb-RASP-u-6.5-X0.txt -> brcmfmac4378b1-pcie.apple,atlantisb-RASP-u.txt
+lrwxrwxrwx. 1 root root      39 Apr 21 13:47 /lib/firmware/brcm/brcmfmac4378b1-pcie.apple,atlantisb-RASP-u.bin -> brcmfmac4378b1-pcie.apple,atlantisb.bin
+lrwxrwxrwx. 1 root root      44 Apr 21 13:47 /lib/firmware/brcm/brcmfmac4378b1-pcie.apple,atlantisb-RASP-u.clm_blob -> brcmfmac4378b1-pcie.apple,atlantisb.clm_blob
+lrwxrwxrwx. 1 root root      46 Apr 21 14:17 /lib/firmware/brcm/brcmfmac4378b1-pcie.apple,atlantisb-RASP-u.txcap_blob -> brcmfmac4378b1-pcie.apple,atlantisb.txcap_blob
+-rw-r--r--. 1 root root    7722 Apr 21 13:34 /lib/firmware/brcm/brcmfmac4378b1-pcie.apple,atlantisb-RASP-u.txt
+-rw-r--r--. 1 root root     304 Apr 21 13:34 /lib/firmware/brcm/brcmfmac4378b1-pcie.apple,atlantisb.txcap_blob
+lrwxrwxrwx. 1 root root      39 Apr 21 13:47 /lib/firmware/brcm/brcmfmac4378b1-pcie.apple,atlantisb-X0.bin -> brcmfmac4378b1-pcie.apple,atlantisb.bin
+lrwxrwxrwx. 1 root root      44 Apr 21 13:47 /lib/firmware/brcm/brcmfmac4378b1-pcie.apple,atlantisb-X0.clm_blob -> brcmfmac4378b1-pcie.apple,atlantisb.clm_blob
+lrwxrwxrwx. 1 root root      46 Apr 21 14:17 /lib/firmware/brcm/brcmfmac4378b1-pcie.apple,atlantisb-X0.txcap_blob -> brcmfmac4378b1-pcie.apple,atlantisb.txcap_blob
+lrwxrwxrwx. 1 root root      46 Apr 21 14:17 /lib/firmware/brcm/brcmfmac4378b1-pcie.apple,atlantisb-X0.txt -> brcmfmac4378b1-pcie.apple,atlantisb-RASP-u.txt
+-rw-r--r--. 1 root root 1376358 Apr 21 13:34 /lib/firmware/brcm/brcmfmac4378b1-pcie.apple,capri.bin
+-rw-r--r--. 1 root root   34053 Apr 21 13:34 /lib/firmware/brcm/brcmfmac4378b1-pcie.apple,capri.clm_blob
+lrwxrwxrwx. 1 root root      35 Apr 21 13:47 /lib/firmware/brcm/brcmfmac4378b1-pcie.apple,capri-RASP.bin -> brcmfmac4378b1-pcie.apple,capri.bin
+lrwxrwxrwx. 1 root root      40 Apr 21 13:47 /lib/firmware/brcm/brcmfmac4378b1-pcie.apple,capri-RASP.clm_blob -> brcmfmac4378b1-pcie.apple,capri.clm_blob
+-rw-r--r--. 1 root root    7662 Apr 21 13:34 /lib/firmware/brcm/brcmfmac4378b1-pcie.apple,capri-RASP-m.txt
+lrwxrwxrwx. 1 root root      42 Apr 21 14:17 /lib/firmware/brcm/brcmfmac4378b1-pcie.apple,capri-RASP.txcap_blob -> brcmfmac4378b1-pcie.apple,capri.txcap_blob
+lrwxrwxrwx. 1 root root      42 Apr 21 14:17 /lib/firmware/brcm/brcmfmac4378b1-pcie.apple,capri-RASP.txt -> brcmfmac4378b1-pcie.apple,capri-RASP-u.txt
+lrwxrwxrwx. 1 root root      35 Apr 21 13:47 /lib/firmware/brcm/brcmfmac4378b1-pcie.apple,capri-RASP-u-6.5.bin -> brcmfmac4378b1-pcie.apple,capri.bin
+lrwxrwxrwx. 1 root root      40 Apr 21 13:47 /lib/firmware/brcm/brcmfmac4378b1-pcie.apple,capri-RASP-u-6.5.clm_blob -> brcmfmac4378b1-pcie.apple,capri.clm_blob
+lrwxrwxrwx. 1 root root      42 Apr 21 14:17 /lib/firmware/brcm/brcmfmac4378b1-pcie.apple,capri-RASP-u-6.5.txcap_blob -> brcmfmac4378b1-pcie.apple,capri.txcap_blob
+lrwxrwxrwx. 1 root root      42 Apr 21 14:17 /lib/firmware/brcm/brcmfmac4378b1-pcie.apple,capri-RASP-u-6.5.txt -> brcmfmac4378b1-pcie.apple,capri-RASP-u.txt
+lrwxrwxrwx. 1 root root      35 Apr 21 13:47 /lib/firmware/brcm/brcmfmac4378b1-pcie.apple,capri-RASP-u-6.5-X0.bin -> brcmfmac4378b1-pcie.apple,capri.bin
+lrwxrwxrwx. 1 root root      40 Apr 21 13:47 /lib/firmware/brcm/brcmfmac4378b1-pcie.apple,capri-RASP-u-6.5-X0.clm_blob -> brcmfmac4378b1-pcie.apple,capri.clm_blob
+lrwxrwxrwx. 1 root root      42 Apr 21 14:17 /lib/firmware/brcm/brcmfmac4378b1-pcie.apple,capri-RASP-u-6.5-X0.txcap_blob -> brcmfmac4378b1-pcie.apple,capri.txcap_blob
+lrwxrwxrwx. 1 root root      42 Apr 21 14:17 /lib/firmware/brcm/brcmfmac4378b1-pcie.apple,capri-RASP-u-6.5-X0.txt -> brcmfmac4378b1-pcie.apple,capri-RASP-u.txt
+lrwxrwxrwx. 1 root root      35 Apr 21 13:47 /lib/firmware/brcm/brcmfmac4378b1-pcie.apple,capri-RASP-u.bin -> brcmfmac4378b1-pcie.apple,capri.bin
+
+===== I. brcmfmac variant for this board =====
+looking for brcmfmac4378*-pcie*apple,shikoku*
+brcmfmac4378b1-pcie.apple,shikoku.bin
+brcmfmac4378b1-pcie.apple,shikoku.clm_blob
+brcmfmac4378b1-pcie.apple,shikoku-RASP.bin
+brcmfmac4378b1-pcie.apple,shikoku-RASP.clm_blob
+brcmfmac4378b1-pcie.apple,shikoku-RASP-m.txt
+brcmfmac4378b1-pcie.apple,shikoku-RASP.txcap_blob
+brcmfmac4378b1-pcie.apple,shikoku-RASP.txt
+brcmfmac4378b1-pcie.apple,shikoku-RASP-u-6.5.bin
+brcmfmac4378b1-pcie.apple,shikoku-RASP-u-6.5.clm_blob
+brcmfmac4378b1-pcie.apple,shikoku-RASP-u-6.5.txcap_blob
+brcmfmac4378b1-pcie.apple,shikoku-RASP-u-6.5.txt
+brcmfmac4378b1-pcie.apple,shikoku-RASP-u-6.5-X0.bin
+brcmfmac4378b1-pcie.apple,shikoku-RASP-u-6.5-X0.clm_blob
+brcmfmac4378b1-pcie.apple,shikoku-RASP-u-6.5-X0.txcap_blob
+brcmfmac4378b1-pcie.apple,shikoku-RASP-u-6.5-X0.txt
+brcmfmac4378b1-pcie.apple,shikoku-RASP-u.bin
+brcmfmac4378b1-pcie.apple,shikoku-RASP-u.clm_blob
+brcmfmac4378b1-pcie.apple,shikoku-RASP-u.txcap_blob
+brcmfmac4378b1-pcie.apple,shikoku-RASP-u.txt
+brcmfmac4378b1-pcie.apple,shikoku.txcap_blob
+
+===== J. Reload attempt =====
+-- rmmod brcmfmac --
+-- waiting 2s --
+-- modprobe brcmfmac (with debug) --
+diag-wifi.sh: line 73: /sys/kernel/debug/dynamic_debug/control: No such file or directory
+diag-wifi.sh: line 74: /sys/kernel/debug/dynamic_debug/control: No such file or directory
+-- after reload, lsmod --
+brcmfmac_wcc           49152  0
+brcmfmac              425984  1 brcmfmac_wcc
+cfg80211             1146880  1 brcmfmac
+brcmutil               49152  1 brcmfmac
+-- after reload, ip link --
+lo               UNKNOWN        00:00:00:00:00:00 <LOOPBACK,UP,LOWER_UP> 
+wlp1s0f0         DOWN           ba:3f:19:30:3b:e3 <NO-CARRIER,BROADCAST,MULTICAST,UP> 
+-- after reload, dmesg tail (60 lines) --
+[  315.888981] apple-dcp 231c00000.dcp: RTKit: syslog message: eoInterfaceIOAV.cpp:433: IOMFB: VideoInterfaceIOAV::did_power_off: m_power_ctrl->setPower( 0 )
+[  315.889168] apple-dcp 231c00000.dcp: RTKit: syslog message: eoInterfaceIOAV.cpp:146: IOMFB: IOAVVideoInterface terminated
+[  315.889315] apple-dcp 231c00000.dcp: RTKit: syslog message: oInterfaceIOAV.cpp:1094: void VideoInterfaceIOAV::unplug_gated(IOAVVideoInterface *): display HPD removed
+[  315.890446] apple-dcp 231c00000.dcp: RTKit: syslog message: nifiedPipeline.cpp:1356: set_device_enabled_gated: current state: 1, requested state: 0
+[  315.890711] apple-dcp 231c00000.dcp: dcp_poweroff() done
+[  344.382590] macsmc-power macsmc-power: Emergency notification: Battery status is OK?
+[  402.384577] macsmc-power macsmc-power: Emergency notification: Battery status is OK?
+[  464.382585] macsmc-power macsmc-power: Emergency notification: Battery status is OK?
+[  526.386426] macsmc-power macsmc-power: Emergency notification: Battery status is OK?
+[  558.037139] apple-dcp 231c00000.dcp: dcp_poweron() starting
+[  558.037390] apple-dcp 231c00000.dcp: RTKit: syslog message: nifiedPipeline.cpp:1356: set_device_enabled_gated: current state: 0, requested state: 1
+[  558.037853] apple-dcp 231c00000.dcp: RTKit: syslog message: PPipeDCP_H13P.cpp:10468: set_run_mode_safe: no need to defer: 0 -> 1
+[  558.037872] apple-dcp 231c00000.dcp: RTKit: syslog message: ock_Tunables_v1.cpp:651: IOMFB: Writing tunables with target 4
+[  558.038513] apple-dcp 231c00000.dcp: RTKit: syslog message: PPipeDCP_H13P.cpp:10468: set_run_mode_safe: no need to defer: 1 -> 2
+[  558.038908] apple-dcp 231c00000.dcp: RTKit: syslog message: eoInterfaceIOAV.cpp:237: bool VideoInterfaceIOAV::open_ioav_gated(): IOAVVideoInterface open failed
+[  558.038916] apple-dcp 231c00000.dcp: RTKit: syslog message: eoInterfaceIOAV.cpp:296: IOMFB: VideoInterfaceIOAV::power_on: m_power_ctrl->setPower( 1 )
+[  558.039354] apple-dcp 231c00000.dcp: RTKit: syslog message: AppleDCPDPTX.cpp:355: [AFK]powering nub 0x884d98
+[  558.039497] apple-dcp 231c00000.dcp: RTKit: syslog message: AppleDCPDPTX.cpp:355: [AFK]powering nub 0x884f18
+[  558.040885] apple-dcp 231c00000.dcp: dcp_set_power_state_req returned, 4996 ms remaining
+[  558.040898] apple-dcp 231c00000.dcp: set_digital_out_mode(color:1 timing:2) "2560x1600": 60 266630 2560 2568 2600 2642 1600 1632 1640 1682 0x48 0x0
+[  558.040912] apple-dcp 231c00000.dcp: set_digital_out_mode() color mode depth:8 format:0 colorimetry:16 eotf:0 range:0 vrr:0
+[  558.040978] apple-dcp 231c00000.dcp: RTKit: syslog message: nifiedPipeline.cpp:7462: set_digital_out_mode: Modeset requested for colorID: 1, timingID: 2
+[  558.040992] apple-dcp 231c00000.dcp: RTKit: syslog message: PPipeDCP_H13P.cpp:18011: Dual pipe disabled offset 0
+[  558.040999] apple-dcp 231c00000.dcp: RTKit: syslog message: nifiedPipeline.cpp:7465: set_digital_out_mode returned 8000000b
+[  558.041023] apple-dcp 231c00000.dcp: set_digital_out_mode finished:8500
+[  558.191120] apple-dcp 231c00000.dcp: RTKit: syslog message: ileCDIDPDisplay.cpp:119: [AFK]SAC enable: DP=1 CDI=1
+[  558.191130] apple-dcp 231c00000.dcp: RTKit: syslog message: DCPDP13Service.cpp:60: [AFK]version: 13
+[  558.191137] apple-dcp 231c00000.dcp: RTKit: syslog message: DCPDPService.cpp:76: [AFK]version: 13
+[  558.226104] apple-dcp 231c00000.dcp: RTKit: syslog message: eoInterfaceIOAV.cpp:135: IOMFB: IOAVVideoInterface published
+[  558.226113] apple-dcp 231c00000.dcp: RTKit: syslog message: eoInterfaceIOAV.cpp:714: IOMFBStatus VideoInterfaceIOAV::plug_gated(IOAVVideoInterface *, bool): display HPD asserted
+[  558.232096] apple-dcp 231c00000.dcp: RTKit: syslog message: PPipeDCP_H13P.cpp:10490: set_run_mode_safe: deferring: 2 -> 4
+[  558.232105] apple-dcp 231c00000.dcp: RTKit: syslog message: PPipeDCP_H13P.cpp:10395: virtual IOMFBStatus IOMFB::UPPipeDCP_H13P::ready_for_run_mode_change(IOMFB::AppleRegisterStream *): initiating deferred run mod
+[  558.232197] apple-dcp 231c00000.dcp: RTKit: syslog message: M3Hal_v1.cpp:197: IOMFB: load APT M3 IMem : size 0x7948
+[  558.232544] apple-dcp 231c00000.dcp: RTKit: syslog message: M3Hal_v1.cpp:197: IOMFB: load APT M3 DMem : size 0x6f60
+[  558.232733] apple-dcp 231c00000.dcp: RTKit: syslog message: CAHandler.cpp:188: IOMFB load_ca_data: Unrecognized data version 0 (expected 1 or 2)
+[  558.233068] apple-dcp 231c00000.dcp: RTKit: syslog message: UPPipe.cpp:3767: IOMFB read_pmu_data_sync: pmu ram read error (e00800d8)
+[  558.233328] apple-dcp 231c00000.dcp: RTKit: syslog message: PPipeDCP_H13P.cpp:14085: IOMFB Int RTBandwidth: program_M3_rt_config: Using Legacy, scratch 23b738014
+[  558.233335] apple-dcp 231c00000.dcp: RTKit: syslog message: PPipeDCP_H13P.cpp:14105: IOMFB Int RTBandwidth: using legacy. Doorbell 23bc3c000, bit 2
+[  558.233375] apple-dcp 231c00000.dcp: RTKit: syslog message: UPTSQManager.cpp:133: IOMFB: clearing M3 reset
+[  558.233468] apple-dcp 231c00000.dcp: RTKit: syslog message: UPTSQ_Hal_v1.cpp:349: IOMFB: timebase_offset = 4
+[  558.249031] apple-dcp 231c00000.dcp: RTKit: syslog message: UPTSQManager.cpp:105: IOMFB: switch to normal mode succeeded
+[  558.251031] apple-dcp 231c00000.dcp: RTKit: syslog message: ock_PCC2DLTM_v1.cpp:910: IOMFBStatus IOMFB::UPBlock_PCC2DLTM_v1::set_mcpu_power(IOMFB::AppleRegisterStream *, bool) Loading M3 Hal
+[  558.251045] apple-dcp 231c00000.dcp: RTKit: syslog message: M3Hal_v1.cpp:197: IOMFB: load LTM M3 IMem : size 0x8ebc
+[  558.251398] apple-dcp 231c00000.dcp: RTKit: syslog message: M3Hal_v1.cpp:197: IOMFB: load LTM M3 DMem : size 0xedd8
+[  558.287309] apple-dcp 231c00000.dcp: RTKit: syslog message: PPipeDCP_H13P.cpp:17179: handle_stage1_enable blm_en 0 ltm_en 1
+[  564.762382] rfkill: input handler enabled
+[  565.398399] rfkill: input handler disabled
+[  591.382676] macsmc-power macsmc-power: Emergency notification: Battery status is OK?
+[  604.832025] usbcore: deregistering interface driver brcmfmac
+[  606.860520] usbcore: registered new interface driver brcmfmac
+[  606.872952] brcmfmac: brcmf_fw_alloc_request: using brcm/brcmfmac4378b1-pcie for chip BCM4378/3
+[  606.877432] brcmfmac 0000:01:00.0: Direct firmware load for brcm/brcmfmac4378b1-pcie.sig failed with error -2
+[  607.373214] brcmfmac: brcmf_c_process_txcap_blob: TxCap blob found, loading
+[  607.376105] brcmfmac: brcmf_c_process_cal_blob: Calibration blob provided by platform, loading
+[  607.391410] brcmfmac: brcmf_c_preinit_dcmds: Firmware: BCM4378/3 wl0: May 13 2023 07:20:48 version 18.20.383.15.7.8.150 FWID 01-b37727a5
+[  607.711709] brcmfmac 0000:01:00.0 wlp1s0f0: renamed from wlan0
+[  607.723568] ieee80211 phy1: brcmf_dongle_roam: WLC_SET_ROAM_DELTA error (-52)
+[  608.334251] ieee80211 phy1: brcmf_p2p_set_firmware: failed to update device address ret -52
+[  608.334749] ieee80211 phy1: brcmf_p2p_create_p2pdev: set p2p_disc error
+[  608.334753] ieee80211 phy1: brcmf_cfg80211_add_iface: add iface p2p-dev-wlp1s0f type 10 failed: err=-52
+
+===== K. PCI rescan attempt =====
+-- unbind/rebind PCI device --
+-- after rescan, PCI list --
+  0000:00:00.0 0x106b:0x100c driver=pcieport
+  0000:01:00.0 0x14e4:0x4425 driver=brcmfmac
+  0000:01:00.1 0x14e4:0x5f69 driver=hci_bcm4377
+-- after rescan, dmesg tail 40 --
+[  558.251031] apple-dcp 231c00000.dcp: RTKit: syslog message: ock_PCC2DLTM_v1.cpp:910: IOMFBStatus IOMFB::UPBlock_PCC2DLTM_v1::set_mcpu_power(IOMFB::AppleRegisterStream *, bool) Loading M3 Hal
+[  558.251045] apple-dcp 231c00000.dcp: RTKit: syslog message: M3Hal_v1.cpp:197: IOMFB: load LTM M3 IMem : size 0x8ebc
+[  558.251398] apple-dcp 231c00000.dcp: RTKit: syslog message: M3Hal_v1.cpp:197: IOMFB: load LTM M3 DMem : size 0xedd8
+[  558.287309] apple-dcp 231c00000.dcp: RTKit: syslog message: PPipeDCP_H13P.cpp:17179: handle_stage1_enable blm_en 0 ltm_en 1
+[  564.762382] rfkill: input handler enabled
+[  565.398399] rfkill: input handler disabled
+[  591.382676] macsmc-power macsmc-power: Emergency notification: Battery status is OK?
+[  604.832025] usbcore: deregistering interface driver brcmfmac
+[  606.860520] usbcore: registered new interface driver brcmfmac
+[  606.872952] brcmfmac: brcmf_fw_alloc_request: using brcm/brcmfmac4378b1-pcie for chip BCM4378/3
+[  606.877432] brcmfmac 0000:01:00.0: Direct firmware load for brcm/brcmfmac4378b1-pcie.sig failed with error -2
+[  607.373214] brcmfmac: brcmf_c_process_txcap_blob: TxCap blob found, loading
+[  607.376105] brcmfmac: brcmf_c_process_cal_blob: Calibration blob provided by platform, loading
+[  607.391410] brcmfmac: brcmf_c_preinit_dcmds: Firmware: BCM4378/3 wl0: May 13 2023 07:20:48 version 18.20.383.15.7.8.150 FWID 01-b37727a5
+[  607.711709] brcmfmac 0000:01:00.0 wlp1s0f0: renamed from wlan0
+[  607.723568] ieee80211 phy1: brcmf_dongle_roam: WLC_SET_ROAM_DELTA error (-52)
+[  608.334251] ieee80211 phy1: brcmf_p2p_set_firmware: failed to update device address ret -52
+[  608.334749] ieee80211 phy1: brcmf_p2p_create_p2pdev: set p2p_disc error
+[  608.334753] ieee80211 phy1: brcmf_cfg80211_add_iface: add iface p2p-dev-wlp1s0f type 10 failed: err=-52
+[  610.403085] ieee80211 phy1: brcmf_fil_cmd_data: bus is down. we have nothing to do.
+[  610.403101] ieee80211 phy1: brcmf_notify_escan_complete: Scan abort failed
+[  613.517515] pci 0000:01:00.0: [14e4:4425] type 00 class 0x028000 PCIe Endpoint
+[  613.517580] pci 0000:01:00.0: BAR 0 [mem 0x6c0c00000-0x6c0c0ffff 64bit]
+[  613.517594] pci 0000:01:00.0: BAR 2 [mem 0x6c0000000-0x6c07fffff 64bit]
+[  613.517721] pci 0000:01:00.0: supports D1 D2
+[  613.517727] pci 0000:01:00.0: PME# supported from D0 D1 D2 D3hot D3cold
+[  613.518240] pci 0000:01:00.0: Adding to iommu group 6
+[  613.518347] pci 0000:01:00.0: ASPM: default states L1
+[  613.518497] pci 0000:01:00.0: BAR 2 [mem 0x6c0000000-0x6c07fffff 64bit]: assigned
+[  613.518515] pci 0000:01:00.0: BAR 0 [mem 0x6c0c00000-0x6c0c0ffff 64bit]: assigned
+[  613.531318] brcmfmac: brcmf_fw_alloc_request: using brcm/brcmfmac4378b1-pcie for chip BCM4378/3
+[  613.533389] brcmfmac 0000:01:00.0: Direct firmware load for brcm/brcmfmac4378b1-pcie.sig failed with error -2
+[  614.023072] brcmfmac: brcmf_c_process_txcap_blob: TxCap blob found, loading
+[  614.025922] brcmfmac: brcmf_c_process_cal_blob: Calibration blob provided by platform, loading
+[  614.039557] brcmfmac: brcmf_c_preinit_dcmds: Firmware: BCM4378/3 wl0: May 13 2023 07:20:48 version 18.20.383.15.7.8.150 FWID 01-b37727a5
+[  614.342693] brcmfmac 0000:01:00.0 wlp1s0f0: renamed from wlan0
+[  614.358289] ieee80211 phy2: brcmf_dongle_roam: WLC_SET_ROAM_DELTA error (-52)
+[  614.967432] ieee80211 phy2: brcmf_p2p_set_firmware: failed to update device address ret -52
+[  614.967903] ieee80211 phy2: brcmf_p2p_create_p2pdev: set p2p_disc error
+[  614.967906] ieee80211 phy2: brcmf_cfg80211_add_iface: add iface p2p-dev-wlp1s0f type 10 failed: err=-52
+-- after rescan, ip link --
+lo               UNKNOWN        00:00:00:00:00:00 <LOOPBACK,UP,LOWER_UP> 
+wlp1s0f0         DOWN           26:b3:90:c9:17:8e <NO-CARRIER,BROADCAST,MULTICAST,UP> 
+
+===== L. taint reasons =====
+4100
+cat: /sys/kernel/tainted: No such file or directory
+-- decode --
+  bit 2 set
+  bit 12 set
+
+===== DONE =====

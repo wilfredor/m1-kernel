@@ -1,0 +1,680 @@
+diff --git a/drivers/cpufreq/apple-soc-cpufreq.c b/drivers/cpufreq/apple-soc-cpufreq.c
+index b1d29b7af..fdcee842a 100644
+--- a/drivers/cpufreq/apple-soc-cpufreq.c
++++ b/drivers/cpufreq/apple-soc-cpufreq.c
+@@ -20,6 +20,7 @@
+ #include <linux/of.h>
+ #include <linux/of_address.h>
+ #include <linux/pm_opp.h>
++#include <linux/power_supply.h>
+ #include <linux/slab.h>
+ 
+ #define APPLE_DVFS_CMD				0x20
+@@ -77,6 +78,70 @@ struct apple_cpu_priv {
+ 
+ static struct cpufreq_driver apple_soc_cpufreq_driver;
+ 
++static bool battery_aware = true;
++module_param(battery_aware, bool, 0644);
++MODULE_PARM_DESC(battery_aware, "Cap P-core frequency on battery (default: on)");
++
++static unsigned int battery_freq_pct = 80;
++module_param(battery_freq_pct, uint, 0644);
++MODULE_PARM_DESC(battery_freq_pct, "Max P-core frequency %% on battery (default: 80)");
++
++static bool on_ac_power = true;
++static struct notifier_block apple_cpufreq_psy_nb;
++
++static void apple_soc_cpufreq_update_limits(bool ac_online)
++{
++	struct cpufreq_policy *policy;
++	unsigned int cpu;
++
++	if (!battery_aware)
++		return;
++
++	on_ac_power = ac_online;
++
++	for_each_online_cpu(cpu) {
++		policy = cpufreq_cpu_get(cpu);
++		if (!policy)
++			continue;
++
++		/*
++		 * Only cap P-cores (policy4+). E-cores (policy0) are already
++		 * efficient and should not be limited.
++		 */
++		if (cpumask_first(policy->cpus) >= 4) {
++			if (ac_online) {
++				policy->max = policy->cpuinfo.max_freq;
++			} else {
++				policy->max = policy->cpuinfo.max_freq *
++					      battery_freq_pct / 100;
++			}
++			cpufreq_update_limits(cpu);
++		}
++		cpufreq_cpu_put(policy);
++	}
++}
++
++static int apple_soc_cpufreq_psy_event(struct notifier_block *nb,
++					unsigned long event, void *data)
++{
++	struct power_supply *psy = data;
++	union power_supply_propval val;
++
++	if (event != PSY_EVENT_PROP_CHANGED)
++		return NOTIFY_DONE;
++
++	if (power_supply_get_property(psy, POWER_SUPPLY_PROP_ONLINE, &val))
++		return NOTIFY_DONE;
++
++	/* Only react to AC adapter changes */
++	if (psy->desc->type != POWER_SUPPLY_TYPE_MAINS)
++		return NOTIFY_DONE;
++
++	apple_soc_cpufreq_update_limits(!!val.intval);
++
++	return NOTIFY_OK;
++}
++
+ static const struct apple_soc_cpufreq_info soc_s5l8960x_info = {
+ 	.has_ps2 = false,
+ 	.max_pstate = 7,
+@@ -356,15 +421,28 @@ static struct cpufreq_driver apple_soc_cpufreq_driver = {
+ 
+ static int __init apple_soc_cpufreq_module_init(void)
+ {
++	int ret;
++
+ 	if (!of_machine_is_compatible("apple,arm-platform"))
+ 		return -ENODEV;
+ 
+-	return cpufreq_register_driver(&apple_soc_cpufreq_driver);
++	ret = cpufreq_register_driver(&apple_soc_cpufreq_driver);
++	if (ret)
++		return ret;
++
++	if (battery_aware) {
++		apple_cpufreq_psy_nb.notifier_call = apple_soc_cpufreq_psy_event;
++		power_supply_reg_notifier(&apple_cpufreq_psy_nb);
++	}
++
++	return 0;
+ }
+ module_init(apple_soc_cpufreq_module_init);
+ 
+ static void __exit apple_soc_cpufreq_module_exit(void)
+ {
++	if (battery_aware)
++		power_supply_unreg_notifier(&apple_cpufreq_psy_nb);
+ 	cpufreq_unregister_driver(&apple_soc_cpufreq_driver);
+ }
+ module_exit(apple_soc_cpufreq_module_exit);
+diff --git a/drivers/cpuidle/cpuidle-apple.c b/drivers/cpuidle/cpuidle-apple.c
+index b7504066d..28026040d 100644
+--- a/drivers/cpuidle/cpuidle-apple.c
++++ b/drivers/cpuidle/cpuidle-apple.c
+@@ -18,6 +18,23 @@ enum idle_state {
+ 	STATE_COUNT
+ };
+ 
++/*
++ * SYS_IMP_APL_CYC_OVRD = s3_5_c15_c5_0
++ * SYS_IMP_APL_ACC_OVRD = s3_5_c15_c6_0
++ *
++ * CYC_OVRD bits:
++ *   [25:24] WFI_MODE: 0=normal, 3=deep WFI (cluster power-down capable)
++ *   [0]     DISABLE_WFI_RET: disable WFI return (stay in deep WFI)
++ *
++ * ACC_OVRD bits (from m1-deepsleep research on T8103):
++ *   [18:17] TRAIN_DOWN_LINK: 3=train-down interconnect on idle (saves power)
++ *   [26:25] POWER_DOWN_CPM:  3=power-down cluster PM unit on idle
++ *   [32]    DISABLE_PIO:     disable PIO on WFI (reduce leakage)
++ *
++ * The stock Asahi driver only sets CYC_OVRD WFI_MODE=3. Adding ACC_OVRD
++ * tuning enables deeper cluster-level power gating without requiring
++ * cold reset (unlike DEEP_SLEEP bit 34 which is too aggressive for idle).
++ */
+ asm(
+ 	".pushsection .cpuidle.text, \"ax\"\n"
+ 	".type apple_cpu_deep_wfi, @function\n"
+@@ -30,10 +47,22 @@ asm(
+ 		"stp x20, x21, [sp, #-16]!\n"
+ 		"stp x18, x19, [sp, #-16]!\n"
+ 
++		/* Save original ACC_OVRD for restore on wake */
++		"mrs x1, s3_5_c15_c6_0\n"
++		"str x1, [sp, #-16]!\n"
++
++		/* CYC_OVRD: WFI_MODE=3 (deep WFI) */
+ 		"mrs x0, s3_5_c15_c5_0\n"
+ 		"orr x0, x0, #(3L << 24)\n"
+ 		"msr s3_5_c15_c5_0, x0\n"
+ 
++		/* ACC_OVRD: enable deeper cluster power gating */
++		"mrs x0, s3_5_c15_c6_0\n"
++		"orr x0, x0, #(3L << 17)\n"	/* TRAIN_DOWN_LINK(3) */
++		"orr x0, x0, #(3L << 25)\n"	/* POWER_DOWN_CPM(3) */
++		"orr x0, x0, #(1L << 32)\n"	/* DISABLE_PIO_ON_WFI */
++		"msr s3_5_c15_c6_0, x0\n"
++
+ 	"1:\n"
+ 		"dsb sy\n"
+ 		"wfi\n"
+@@ -41,6 +70,11 @@ asm(
+ 		"mrs x0, ISR_EL1\n"
+ 		"cbz x0, 1b\n"
+ 
++		/* Restore ACC_OVRD */
++		"ldr x1, [sp], #16\n"
++		"msr s3_5_c15_c6_0, x1\n"
++
++		/* Clear CYC_OVRD WFI_MODE */
+ 		"mrs x0, s3_5_c15_c5_0\n"
+ 		"bic x0, x0, #(1L << 24)\n"
+ 		"msr s3_5_c15_c5_0, x0\n"
+@@ -111,10 +145,10 @@ static struct cpuidle_driver apple_idle_driver = {
+ 			.enter			= apple_enter_idle,
+ 			.enter_s2idle		= apple_enter_idle,
+ 			.exit_latency		= 10,
+-			.target_residency	= 10000,
++			.target_residency	= 2000,
+ 			.power_usage            = 0,
+ 			.name			= "CPU PD",
+-			.desc			= "CPU/cluster powered down",
++			.desc			= "CPU/cluster deep power-down",
+ 			.flags			= CPUIDLE_FLAG_RCU_IDLE,
+ 		},
+ 	},
+diff --git a/drivers/i2c/busses/i2c-pasemi-platform.c b/drivers/i2c/busses/i2c-pasemi-platform.c
+index a486a37d3..b351cb860 100644
+--- a/drivers/i2c/busses/i2c-pasemi-platform.c
++++ b/drivers/i2c/busses/i2c-pasemi-platform.c
+@@ -11,6 +11,7 @@
+ #include <linux/kernel.h>
+ #include <linux/module.h>
+ #include <linux/platform_device.h>
++#include <linux/pm_runtime.h>
+ #include <linux/types.h>
+ 
+ #include "i2c-pasemi-core.h"
+@@ -66,10 +67,14 @@ static int pasemi_platform_i2c_probe(struct platform_device *pdev)
+ 	if (of_property_read_u32(dev->of_node, "clock-frequency", &frequency))
+ 		frequency = I2C_MAX_STANDARD_MODE_FREQ;
+ 
+-	data->clk_ref = devm_clk_get_enabled(dev, NULL);
++	data->clk_ref = devm_clk_get(dev, NULL);
+ 	if (IS_ERR(data->clk_ref))
+ 		return PTR_ERR(data->clk_ref);
+ 
++	error = clk_prepare_enable(data->clk_ref);
++	if (error)
++		return error;
++
+ 	error = pasemi_platform_i2c_calc_clk_div(data, frequency);
+ 	if (error)
+ 		return error;
+@@ -86,11 +91,36 @@ static int pasemi_platform_i2c_probe(struct platform_device *pdev)
+ 		smbus->use_irq = 1;
+ 	platform_set_drvdata(pdev, data);
+ 
++	pm_runtime_set_autosuspend_delay(dev, 1000);
++	pm_runtime_use_autosuspend(dev);
++	pm_runtime_set_active(dev);
++	devm_pm_runtime_enable(dev);
++
+ 	return 0;
+ }
+ 
+ static void pasemi_platform_i2c_remove(struct platform_device *pdev) { }
+ 
++static int pasemi_platform_i2c_runtime_suspend(struct device *dev)
++{
++	struct pasemi_platform_i2c_data *data = dev_get_drvdata(dev);
++
++	clk_disable_unprepare(data->clk_ref);
++	return 0;
++}
++
++static int pasemi_platform_i2c_runtime_resume(struct device *dev)
++{
++	struct pasemi_platform_i2c_data *data = dev_get_drvdata(dev);
++
++	return clk_prepare_enable(data->clk_ref);
++}
++
++static const struct dev_pm_ops pasemi_platform_i2c_pm_ops = {
++	SET_RUNTIME_PM_OPS(pasemi_platform_i2c_runtime_suspend,
++			   pasemi_platform_i2c_runtime_resume, NULL)
++};
++
+ static const struct of_device_id pasemi_platform_i2c_of_match[] = {
+ 	{ .compatible = "apple,t8103-i2c" },
+ 	{ .compatible = "apple,i2c" },
+@@ -102,6 +132,7 @@ static struct platform_driver pasemi_platform_i2c_driver = {
+ 	.driver	= {
+ 		.name			= "i2c-apple",
+ 		.of_match_table		= pasemi_platform_i2c_of_match,
++		.pm			= &pasemi_platform_i2c_pm_ops,
+ 	},
+ 	.probe	= pasemi_platform_i2c_probe,
+ 	.remove = pasemi_platform_i2c_remove,
+diff --git a/drivers/nvme/host/apple.c b/drivers/nvme/host/apple.c
+index ed8aa0298..bb8236c8a 100644
+--- a/drivers/nvme/host/apple.c
++++ b/drivers/nvme/host/apple.c
+@@ -27,6 +27,7 @@
+ #include <linux/once.h>
+ #include <linux/platform_device.h>
+ #include <linux/pm_domain.h>
++#include <linux/pm_runtime.h>
+ #include <linux/soc/apple/rtkit.h>
+ #include <linux/soc/apple/sart.h>
+ #include <linux/reset.h>
+@@ -217,6 +218,12 @@ unsigned int flush_interval = 1000;
+ module_param(flush_interval, uint, 0644);
+ MODULE_PARM_DESC(flush_interval, "Grace period in msecs between flushes");
+ 
++static bool use_runtime_pm = true;
++module_param(use_runtime_pm, bool, 0644);
++MODULE_PARM_DESC(use_runtime_pm, "Use runtime PM to idle ANS coprocessor (default: on)");
++
++#define APPLE_NVME_AUTOSUSPEND_DELAY_MS	5000
++
+ static_assert(sizeof(struct nvme_command) == 64);
+ static_assert(sizeof(struct apple_nvmmu_tcb) == 128);
+ 
+@@ -600,8 +607,15 @@ static __always_inline void apple_nvme_unmap_rq(struct request *req)
+ 
+ static void apple_nvme_complete_rq(struct request *req)
+ {
++	struct apple_nvme *anv = queue_to_apple_nvme(req->mq_hctx->driver_data);
++
+ 	apple_nvme_unmap_rq(req);
+ 	nvme_complete_rq(req);
++
++	if (use_runtime_pm) {
++		pm_runtime_mark_last_busy(anv->dev);
++		pm_runtime_put_autosuspend(anv->dev);
++	}
+ }
+ 
+ static void apple_nvme_complete_batch(struct io_comp_batch *iob)
+@@ -805,6 +819,13 @@ static blk_status_t apple_nvme_queue_rq(struct blk_mq_hw_ctx *hctx,
+ 	struct nvme_command *cmnd = &iod->cmd;
+ 	blk_status_t ret;
+ 
++	if (use_runtime_pm) {
++		if (pm_runtime_get_sync(anv->dev) < 0) {
++			pm_runtime_put_noidle(anv->dev);
++			return BLK_STS_IOERR;
++		}
++	}
++
+ 	iod->npages = -1;
+ 	iod->nents = 0;
+ 
+@@ -812,8 +833,11 @@ static blk_status_t apple_nvme_queue_rq(struct blk_mq_hw_ctx *hctx,
+ 	 * We should not need to do this, but we're still using this to
+ 	 * ensure we can drain requests on a dying queue.
+ 	 */
+-	if (unlikely(!READ_ONCE(q->enabled)))
++	if (unlikely(!READ_ONCE(q->enabled))) {
++		if (use_runtime_pm)
++			pm_runtime_put_autosuspend(anv->dev);
+ 		return BLK_STS_IOERR;
++	}
+ 
+ 	if (!nvme_check_ready(&anv->ctrl, req, true))
+ 		return nvme_fail_nonready_command(&anv->ctrl, req);
+@@ -844,6 +868,10 @@ static blk_status_t apple_nvme_queue_rq(struct blk_mq_hw_ctx *hctx,
+ 
+ out_free_cmd:
+ 	nvme_cleanup_cmd(req);
++	if (use_runtime_pm) {
++		pm_runtime_mark_last_busy(anv->dev);
++		pm_runtime_put_autosuspend(anv->dev);
++	}
+ 	return ret;
+ }
+ 
+@@ -1687,6 +1715,15 @@ static int apple_nvme_probe(struct platform_device *pdev)
+ 
+ 	INIT_DELAYED_WORK(&anv->flush_dwork, apple_nvme_flush_work);
+ 
++	if (use_runtime_pm) {
++		pm_runtime_set_autosuspend_delay(anv->dev,
++						 APPLE_NVME_AUTOSUSPEND_DELAY_MS);
++		pm_runtime_use_autosuspend(anv->dev);
++		pm_runtime_set_active(anv->dev);
++		pm_runtime_enable(anv->dev);
++		pm_runtime_mark_last_busy(anv->dev);
++	}
++
+ 	nvme_reset_ctrl(&anv->ctrl);
+ 	async_schedule(apple_nvme_async_probe, anv);
+ 
+@@ -1704,6 +1741,11 @@ static void apple_nvme_remove(struct platform_device *pdev)
+ {
+ 	struct apple_nvme *anv = platform_get_drvdata(pdev);
+ 
++	if (use_runtime_pm) {
++		pm_runtime_get_sync(anv->dev);
++		pm_runtime_disable(anv->dev);
++	}
++
+ 	nvme_change_ctrl_state(&anv->ctrl, NVME_CTRL_DELETING);
+ 	flush_work(&anv->ctrl.reset_work);
+ 	nvme_stop_ctrl(&anv->ctrl);
+@@ -1756,8 +1798,40 @@ static int apple_nvme_suspend(struct device *dev)
+ 	return ret;
+ }
+ 
+-static DEFINE_SIMPLE_DEV_PM_OPS(apple_nvme_pm_ops, apple_nvme_suspend,
+-				apple_nvme_resume);
++static int apple_nvme_runtime_suspend(struct device *dev)
++{
++	struct apple_nvme *anv = dev_get_drvdata(dev);
++
++	if (!apple_rtkit_is_running(anv->rtk))
++		return 0;
++
++	cancel_delayed_work_sync(&anv->flush_dwork);
++
++	/*
++	 * Put ANS coprocessor into idle state (APPLE_RTKIT_PWR_STATE_IDLE).
++	 * This retains firmware state so wake is fast — no full reboot needed.
++	 */
++	return apple_rtkit_idle(anv->rtk);
++}
++
++static int apple_nvme_runtime_resume(struct device *dev)
++{
++	struct apple_nvme *anv = dev_get_drvdata(dev);
++	int ret;
++
++	ret = apple_rtkit_wake(anv->rtk);
++	if (ret) {
++		dev_warn(dev, "RTKit wake failed (%d), attempting full reinit\n", ret);
++		return nvme_reset_ctrl(&anv->ctrl);
++	}
++
++	return 0;
++}
++
++static const struct dev_pm_ops apple_nvme_pm_ops = {
++	SYSTEM_SLEEP_PM_OPS(apple_nvme_suspend, apple_nvme_resume)
++	RUNTIME_PM_OPS(apple_nvme_runtime_suspend, apple_nvme_runtime_resume, NULL)
++};
+ 
+ static const struct apple_nvme_hw apple_nvme_t8015_hw = {
+ 	.has_lsq_nvmmu = false,
+@@ -1781,7 +1855,7 @@ static struct platform_driver apple_nvme_driver = {
+ 	.driver = {
+ 		.name = "nvme-apple",
+ 		.of_match_table = apple_nvme_of_match,
+-		.pm = pm_sleep_ptr(&apple_nvme_pm_ops),
++		.pm = &apple_nvme_pm_ops,
+ 	},
+ 	.probe = apple_nvme_probe,
+ 	.remove = apple_nvme_remove,
+diff --git a/drivers/power/supply/macsmc-power.c b/drivers/power/supply/macsmc-power.c
+index dc3ec5ef2..6d407f991 100644
+--- a/drivers/power/supply/macsmc-power.c
++++ b/drivers/power/supply/macsmc-power.c
+@@ -806,17 +806,17 @@ static void macsmc_power_critical_work(struct work_struct *wrk)
+ 
+ 	/*
+ 	 * Check if the battery voltage is below the design voltage. If it is,
+-	 * we have a few seconds until the machine dies. Explicitly shut down,
+-	 * which at least gets the NVMe controller to flush its cache.
++	 * we have a few seconds until the machine dies. Use hw_protection_trigger
++	 * which handles NVMe cache flushing and clean shutdown with a 1.5s grace.
+ 	 */
+ 	if (apple_smc_read_u16(power->smc, SMC_KEY(BITV), &bitv) >= 0 &&
+ 	    apple_smc_read_u16(power->smc, SMC_KEY(B0AV), &b0av) >= 0 &&
+ 	    b0av < bitv) {
+-		dev_crit(power->dev, "Emergency notification: Battery is critical\n");
+-		if (kernel_can_power_off())
+-			kernel_power_off();
+-		else /* Missing macsmc-reboot driver? In this state, this will not boot anyway. */
+-			kernel_restart("Battery is critical");
++		dev_crit(power->dev,
++			 "Battery voltage %umV below design minimum %umV\n",
++			 b0av, bitv);
++		hw_protection_trigger("Battery voltage below design minimum", 1500);
++		return;
+ 	}
+ 
+ 	/* This spams once per second, so make sure we only trigger shutdown once. */
+@@ -838,17 +838,11 @@ static void macsmc_power_critical_work(struct work_struct *wrk)
+ 	power->shutdown_started = true;
+ 
+ 	/*
+-	 * Attempt to trigger an orderly shutdown. At this point, we should have a few
+-	 * minutes of reserve capacity left, enough to do a clean shutdown.
+-	 */
+-	dev_warn(power->dev, "Shutting down in 10 seconds\n");
+-	ssleep(10);
+-
+-	/*
+-	 * Don't force it; if this stalls or fails, the last-resort check above will
+-	 * trigger a hard shutdown when shutdown is truly imminent.
++	 * Attempt an orderly shutdown. Force it — at this point we have minutes
++	 * of reserve capacity, and a hung shutdown is worse than a forced one
++	 * since the voltage check above will hard-kill us anyway.
+ 	 */
+-	orderly_poweroff(false);
++	orderly_poweroff(true);
+ }
+ 
+ static int macsmc_power_event(struct notifier_block *nb, unsigned long event, void *data)
+@@ -860,7 +854,8 @@ static int macsmc_power_event(struct notifier_block *nb, unsigned long event, vo
+ 
+ 		dev_info(power->dev, "Charging: %d\n", charging);
+ 		power_supply_changed(power->batt);
+-		power_supply_changed(power->ac);
++		if (power->ac)
++			power_supply_changed(power->ac);
+ 
+ 		return NOTIFY_OK;
+ 	} else if (event == 0x71020000) {
+@@ -878,7 +873,8 @@ static int macsmc_power_event(struct notifier_block *nb, unsigned long event, vo
+ 		}
+ 
+ 		power_supply_changed(power->batt);
+-		power_supply_changed(power->ac);
++		if (power->ac)
++			power_supply_changed(power->ac);
+ 
+ 		return NOTIFY_OK;
+ 	} else if ((event & 0xffff0000) == 0x71130000) {
+@@ -893,7 +889,8 @@ static int macsmc_power_event(struct notifier_block *nb, unsigned long event, vo
+ 				port_index + 1, status);
+ 
+ 		power_supply_changed(power->batt);
+-		power_supply_changed(power->ac);
++		if (power->ac)
++			power_supply_changed(power->ac);
+ 
+ 		return NOTIFY_OK;
+ 	} else if ((event & 0xff000000) == 0x71000000) {
+@@ -911,6 +908,48 @@ static int macsmc_power_event(struct notifier_block *nb, unsigned long event, vo
+ 	return NOTIFY_DONE;
+ }
+ 
++/*
++ * Sysfs attributes for real-time SMC power monitoring.
++ * Values in milliwatts (mW). These read directly from SMC float32 sensors.
++ * Available keys vary by machine — reads return 0 if sensor not present.
++ *
++ * Usage: cat /sys/devices/platform/soc/23e400000.smc/macsmc-power/power_stats
++ */
++static ssize_t power_stats_show(struct device *dev,
++				struct device_attribute *attr, char *buf)
++{
++	struct macsmc_power *power = dev_get_drvdata(dev);
++	int p_in = 0, p_sys = 0, p_3v8 = 0, p_mpmu = 0, p_spmu = 0, p_clvr = 0, p_cpu = 0;
++	s32 p_bat = 0;
++
++	apple_smc_read_f32_scaled(power->smc, SMC_KEY(PDTR), &p_in, 1000);
++	apple_smc_read_f32_scaled(power->smc, SMC_KEY(PSTR), &p_sys, 1000);
++	apple_smc_read_f32_scaled(power->smc, SMC_KEY(PMVR), &p_3v8, 1000);
++	apple_smc_read_f32_scaled(power->smc, SMC_KEY(PHPC), &p_cpu, 1000);
++	apple_smc_read_f32_scaled(power->smc, SMC_KEY(PSVR), &p_clvr, 1000);
++	apple_smc_read_f32_scaled(power->smc, SMC_KEY(PPMC), &p_mpmu, 1000);
++	apple_smc_read_f32_scaled(power->smc, SMC_KEY(PPSC), &p_spmu, 1000);
++	apple_smc_read_s32(power->smc, SMC_KEY(B0AP), &p_bat);
++
++	return sysfs_emit(buf,
++		"input_mw=%d\n"
++		"system_mw=%d\n"
++		"cpu_mw=%d\n"
++		"3v8_rail_mw=%d\n"
++		"main_pmu_mw=%d\n"
++		"sec_pmu_mw=%d\n"
++		"clvr_mw=%d\n"
++		"battery_mw=%d\n",
++		p_in, p_sys, p_cpu, p_3v8, p_mpmu, p_spmu, p_clvr, p_bat);
++}
++static DEVICE_ATTR_RO(power_stats);
++
++static struct attribute *macsmc_power_attrs[] = {
++	&dev_attr_power_stats.attr,
++	NULL,
++};
++ATTRIBUTE_GROUPS(macsmc_power);
++
+ static int macsmc_power_probe(struct platform_device *pdev)
+ {
+ 	struct apple_smc *smc = dev_get_drvdata(pdev->dev.parent);
+@@ -999,16 +1038,23 @@ static int macsmc_power_probe(struct platform_device *pdev)
+ 		return ret;
+ 	}
+ 
+-	/* SMC firmware in macOS 15.4 dropped "AC-i" and "AC-n" (and all keys
+-	 * with lower case last letter) without obvious replacement. */
+-	if (apple_smc_read_u16(power->smc, SMC_KEY(AC-n), &vu16) < 0)
+-		power->ac_desc.num_properties -= 2;
+-
+-	power->ac = devm_power_supply_register(&pdev->dev, &power->ac_desc, &psy_cfg);
+-	if (IS_ERR(power->ac)) {
+-		dev_err(&pdev->dev, "Failed to register AC adapter\n");
+-		ret = PTR_ERR(power->ac);
+-		return ret;
++	/*
++	 * Only register AC supply if CHIS key exists (charger input status).
++	 * Desktop Macs (Mac Mini, Mac Studio, Mac Pro) don't have this key
++	 * and don't need an AC power supply device.
++	 */
++	if (apple_smc_read_u32(power->smc, SMC_KEY(CHIS), &val32) >= 0) {
++		/* SMC firmware in macOS 15.4 dropped "AC-i" and "AC-n" (and all keys
++		 * with lower case last letter) without obvious replacement. */
++		if (apple_smc_read_u16(power->smc, SMC_KEY(AC-n), &vu16) < 0)
++			power->ac_desc.num_properties -= 2;
++
++		power->ac = devm_power_supply_register(&pdev->dev, &power->ac_desc, &psy_cfg);
++		if (IS_ERR(power->ac)) {
++			dev_err(&pdev->dev, "Failed to register AC adapter\n");
++			ret = PTR_ERR(power->ac);
++			return ret;
++		}
+ 	}
+ 
+ 	power->nb.notifier_call = macsmc_power_event;
+@@ -1041,6 +1087,7 @@ static struct platform_driver macsmc_power_driver = {
+ 	.driver = {
+ 		.name = "macsmc-power",
+ 		.owner = THIS_MODULE,
++		.dev_groups = macsmc_power_groups,
+ 	},
+ 	.probe = macsmc_power_probe,
+ 	.remove = macsmc_power_remove,
+diff --git a/drivers/soc/apple/mailbox.c b/drivers/soc/apple/mailbox.c
+index 330015eea..022c719d4 100644
+--- a/drivers/soc/apple/mailbox.c
++++ b/drivers/soc/apple/mailbox.c
+@@ -384,6 +384,9 @@ static int apple_mbox_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		return ret;
+ 
++	pm_runtime_set_autosuspend_delay(dev, 50);
++	pm_runtime_use_autosuspend(dev);
++
+ 	ret = devm_pm_runtime_enable(dev);
+ 	if (ret)
+ 		return ret;
+diff --git a/drivers/spi/spi-apple.c b/drivers/spi/spi-apple.c
+index 2fee7057e..35feb48f0 100644
+--- a/drivers/spi/spi-apple.c
++++ b/drivers/spi/spi-apple.c
+@@ -471,10 +471,15 @@ static int apple_spi_probe(struct platform_device *pdev)
+ 	if (IS_ERR(spi->regs))
+ 		return PTR_ERR(spi->regs);
+ 
+-	spi->clk = devm_clk_get_enabled(&pdev->dev, NULL);
++	spi->clk = devm_clk_get(&pdev->dev, NULL);
+ 	if (IS_ERR(spi->clk))
+ 		return dev_err_probe(&pdev->dev, PTR_ERR(spi->clk),
+-				     "Unable to find or enable bus clock\n");
++				     "Unable to find bus clock\n");
++
++	ret = clk_prepare_enable(spi->clk);
++	if (ret)
++		return dev_err_probe(&pdev->dev, ret,
++				     "Unable to enable bus clock\n");
+ 
+ 	irq = platform_get_irq(pdev, 0);
+ 	if (irq < 0)
+@@ -496,6 +501,8 @@ static int apple_spi_probe(struct platform_device *pdev)
+ 	ctlr->use_gpio_descriptors = true;
+ 	ctlr->auto_runtime_pm = true;
+ 
++	pm_runtime_set_autosuspend_delay(&pdev->dev, 200);
++	pm_runtime_use_autosuspend(&pdev->dev);
+ 	pm_runtime_set_active(&pdev->dev);
+ 	ret = devm_pm_runtime_enable(&pdev->dev);
+ 	if (ret < 0)
+@@ -510,6 +517,33 @@ static int apple_spi_probe(struct platform_device *pdev)
+ 	return 0;
+ }
+ 
++static int apple_spi_runtime_suspend(struct device *dev)
++{
++	struct spi_controller *ctlr = dev_get_drvdata(dev);
++	struct apple_spi *spi = spi_controller_get_devdata(ctlr);
++
++	clk_disable_unprepare(spi->clk);
++	return 0;
++}
++
++static int apple_spi_runtime_resume(struct device *dev)
++{
++	struct spi_controller *ctlr = dev_get_drvdata(dev);
++	struct apple_spi *spi = spi_controller_get_devdata(ctlr);
++	int ret;
++
++	ret = clk_prepare_enable(spi->clk);
++	if (ret)
++		return ret;
++
++	apple_spi_init(spi);
++	return 0;
++}
++
++static const struct dev_pm_ops apple_spi_pm_ops = {
++	SET_RUNTIME_PM_OPS(apple_spi_runtime_suspend, apple_spi_runtime_resume, NULL)
++};
++
+ static const struct of_device_id apple_spi_of_match[] = {
+ 	{ .compatible = "apple,t8103-spi", },
+ 	{ .compatible = "apple,spi", },
+@@ -522,6 +556,7 @@ static struct platform_driver apple_spi_driver = {
+ 	.driver = {
+ 		.name = "apple-spi",
+ 		.of_match_table = apple_spi_of_match,
++		.pm = &apple_spi_pm_ops,
+ 	},
+ };
+ module_platform_driver(apple_spi_driver);

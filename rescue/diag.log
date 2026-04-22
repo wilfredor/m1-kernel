@@ -1,0 +1,969 @@
++ echo '=== uname ==='
+=== uname ===
++ uname -a
+Linux (none) 6.18.15-m1opt+ #14 SMP PREEMPT_DYNAMIC Mon Apr 20 22:39:43 -03 2026 aarch64 GNU/Linux
++ echo '=== /proc/cmdline ==='
+=== /proc/cmdline ===
++ cat /proc/cmdline
+cat: /proc/cmdline: No such file or directory
++ echo '=== date ==='
+=== date ===
++ date
+Tue Apr 21 22:48:56 -03 2026
++ echo '=== hostnamectl ==='
+=== hostnamectl ===
++ hostnamectl
+System has not been booted with systemd as init system (PID 1). Can't operate.
+Failed to connect to system scope bus via local transport: Host is down
++ true
++ echo '=== /proc/version ==='
+=== /proc/version ===
++ cat /proc/version
+cat: /proc/version: No such file or directory
++ echo '=== /proc/modules count ==='
+=== /proc/modules count ===
++ wc -l /proc/modules
+wc: /proc/modules: No such file or directory
++ echo '=== block devices ==='
+=== block devices ===
++ ls -la /dev/nvme0 /dev/nvme0n1 /dev/nvme0n1p1 /dev/nvme0n1p2 /dev/nvme0n1p3 /dev/nvme0n1p4 /dev/nvme0n1p5 /dev/nvme0n1p6 /dev/nvme0n1p7 /dev/nvme0n2 /dev/nvme0n3
+crw------- 1 root root 243, 0 Dec 31  1969 /dev/nvme0
+brw------- 1 root root 259, 0 Dec 31  1969 /dev/nvme0n1
+brw------- 1 root root 259, 1 Dec 31  1969 /dev/nvme0n1p1
+brw------- 1 root root 259, 2 Dec 31  1969 /dev/nvme0n1p2
+brw------- 1 root root 259, 3 Dec 31  1969 /dev/nvme0n1p3
+brw------- 1 root root 259, 4 Dec 31  1969 /dev/nvme0n1p4
+brw------- 1 root root 259, 5 Dec 31  1969 /dev/nvme0n1p5
+brw------- 1 root root 259, 6 Dec 31  1969 /dev/nvme0n1p6
+brw------- 1 root root 259, 7 Dec 31  1969 /dev/nvme0n1p7
+brw------- 1 root root 259, 8 Dec 31  1969 /dev/nvme0n2
+brw------- 1 root root 259, 9 Dec 31  1969 /dev/nvme0n3
++ ls -la /dev/disk/by-uuid/
+ls: cannot access '/dev/disk/by-uuid/': No such file or directory
++ ls -la /dev/disk/by-label/
+ls: cannot access '/dev/disk/by-label/': No such file or directory
++ ls -la /dev/disk/by-partlabel/
+ls: cannot access '/dev/disk/by-partlabel/': No such file or directory
++ echo '=== blkid ==='
+=== blkid ===
++ blkid
++ echo '=== lsblk ==='
+=== lsblk ===
++ lsblk -f
+lsblk: failed to access sysfs directory: /sys/dev/block: No such file or directory
++ echo '=== /proc/partitions ==='
+=== /proc/partitions ===
++ cat /proc/partitions
+cat: /proc/partitions: No such file or directory
++ echo '=== lsmod ==='
+=== lsmod ===
++ lsmod
+lsmod: ERROR: libkmod/libkmod-module.c:1364 kmod_module_new_from_loaded() could not open /proc/modules: No such file or directory
+lsmod: ERROR: could not get list of modules: No such file or directory
++ echo '=== /lib/modules ==='
+=== /lib/modules ===
++ ls /lib/modules/
+6.18.15-m1opt+
+++ uname -r
++ KVER=6.18.15-m1opt+
++ echo '=== modules dir for 6.18.15-m1opt+ ==='
+=== modules dir for 6.18.15-m1opt+ ===
++ ls /lib/modules/6.18.15-m1opt+/
++ head -30
+System.map
+build
+config
+dtb
+kernel
+modules.alias
+modules.alias.bin
+modules.builtin
+modules.builtin.alias.bin
+modules.builtin.bin
+modules.builtin.modinfo
+modules.builtin.modinfo;69e8117b
+modules.builtin;69e8117b
+modules.dep
+modules.dep.bin
+modules.devname
+modules.order
+modules.order;69e8117b
+modules.softdep
+modules.symbols
+modules.symbols.bin
+modules.weakdep
+updates
+vmlinuz
+vmlinuz;69e8117b
++ echo '=== specific modules ==='
+=== specific modules ===
++ for m in apple_nvme nvme btrfs apple_dart apple_admac apple_rtkit apple_sart apple_mailbox brcmfmac brcmfmac_wcc
++ echo '--- apple_nvme ---'
+--- apple_nvme ---
++ modinfo apple_nvme
++ head -5
+modinfo: ERROR: Module apple_nvme not found.
+++ lsmod
+++ grep -c '^apple_nvme\b'
+lsmod: ERROR: libkmod/libkmod-module.c:1364 kmod_module_new_from_loaded() could not open /proc/modules: No such file or directory
+lsmod: ERROR: could not get list of modules: No such file or directory
++ echo 'loaded: 0'
+loaded: 0
++ for m in apple_nvme nvme btrfs apple_dart apple_admac apple_rtkit apple_sart apple_mailbox brcmfmac brcmfmac_wcc
++ echo '--- nvme ---'
+--- nvme ---
++ modinfo nvme
++ head -5
+name:           nvme
+filename:       (builtin)
+description:    NVMe host PCIe transport driver
+version:        1.0
+license:        GPL
+++ lsmod
+++ grep -c '^nvme\b'
+lsmod: ERROR: libkmod/libkmod-module.c:1364 kmod_module_new_from_loaded() could not open /proc/modules: No such file or directory
+lsmod: ERROR: could not get list of modules: No such file or directory
++ echo 'loaded: 0'
+loaded: 0
++ for m in apple_nvme nvme btrfs apple_dart apple_admac apple_rtkit apple_sart apple_mailbox brcmfmac brcmfmac_wcc
++ echo '--- btrfs ---'
+--- btrfs ---
++ modinfo btrfs
++ head -5
+name:           btrfs
+filename:       (builtin)
+softdep:        pre: blake2b-256
+softdep:        pre: sha256
+softdep:        pre: xxhash64
+++ lsmod
+++ grep -c '^btrfs\b'
+lsmod: ERROR: libkmod/libkmod-module.c:1364 kmod_module_new_from_loaded() could not open /proc/modules: No such file or directory
+lsmod: ERROR: could not get list of modules: No such file or directory
++ echo 'loaded: 0'
+loaded: 0
++ for m in apple_nvme nvme btrfs apple_dart apple_admac apple_rtkit apple_sart apple_mailbox brcmfmac brcmfmac_wcc
++ echo '--- apple_dart ---'
+--- apple_dart ---
++ modinfo apple_dart
++ head -5
+name:           apple_dart
+filename:       (builtin)
+license:        GPL v2
+file:           drivers/iommu/apple-dart
+author:         Sven Peter <sven@svenpeter.dev>
+++ lsmod
+++ grep -c '^apple_dart\b'
+lsmod: ERROR: libkmod/libkmod-module.c:1364 kmod_module_new_from_loaded() could not open /proc/modules: No such file or directory
+lsmod: ERROR: could not get list of modules: No such file or directory
++ echo 'loaded: 0'
+loaded: 0
++ for m in apple_nvme nvme btrfs apple_dart apple_admac apple_rtkit apple_sart apple_mailbox brcmfmac brcmfmac_wcc
++ echo '--- apple_admac ---'
+--- apple_admac ---
++ modinfo apple_admac
++ head -5
+name:           apple_admac
+filename:       (builtin)
+license:        GPL
+file:           drivers/dma/apple-admac
+description:    Driver for Audio DMA Controller (ADMAC) on Apple SoCs
+++ lsmod
+++ grep -c '^apple_admac\b'
+lsmod: ERROR: libkmod/libkmod-module.c:1364 kmod_module_new_from_loaded() could not open /proc/modules: No such file or directory
+lsmod: ERROR: could not get list of modules: No such file or directory
++ echo 'loaded: 0'
+loaded: 0
++ for m in apple_nvme nvme btrfs apple_dart apple_admac apple_rtkit apple_sart apple_mailbox brcmfmac brcmfmac_wcc
++ echo '--- apple_rtkit ---'
+--- apple_rtkit ---
++ modinfo apple_rtkit
++ head -5
+name:           apple_rtkit
+filename:       (builtin)
+description:    Apple RTKit driver
+author:         Sven Peter <sven@svenpeter.dev>
+license:        Dual MIT/GPL
+++ lsmod
+++ grep -c '^apple_rtkit\b'
+lsmod: ERROR: libkmod/libkmod-module.c:1364 kmod_module_new_from_loaded() could not open /proc/modules: No such file or directory
+lsmod: ERROR: could not get list of modules: No such file or directory
++ echo 'loaded: 0'
+loaded: 0
++ for m in apple_nvme nvme btrfs apple_dart apple_admac apple_rtkit apple_sart apple_mailbox brcmfmac brcmfmac_wcc
++ echo '--- apple_sart ---'
+--- apple_sart ---
++ modinfo apple_sart
++ head -5
+name:           apple_sart
+filename:       (builtin)
+description:    Apple SART driver
+author:         Sven Peter <sven@svenpeter.dev>
+license:        Dual MIT/GPL
+++ lsmod
+++ grep -c '^apple_sart\b'
+lsmod: ERROR: libkmod/libkmod-module.c:1364 kmod_module_new_from_loaded() could not open /proc/modules: No such file or directory
+lsmod: ERROR: could not get list of modules: No such file or directory
++ echo 'loaded: 0'
+loaded: 0
++ for m in apple_nvme nvme btrfs apple_dart apple_admac apple_rtkit apple_sart apple_mailbox brcmfmac brcmfmac_wcc
++ echo '--- apple_mailbox ---'
+--- apple_mailbox ---
++ modinfo apple_mailbox
++ head -5
+name:           apple_mailbox
+filename:       (builtin)
+description:    Apple Mailbox driver
+author:         Sven Peter <sven@svenpeter.dev>
+license:        Dual MIT/GPL
+++ lsmod
+++ grep -c '^apple_mailbox\b'
+lsmod: ERROR: libkmod/libkmod-module.c:1364 kmod_module_new_from_loaded() could not open /proc/modules: No such file or directory
+lsmod: ERROR: could not get list of modules: No such file or directory
++ echo 'loaded: 0'
+loaded: 0
++ for m in apple_nvme nvme btrfs apple_dart apple_admac apple_rtkit apple_sart apple_mailbox brcmfmac brcmfmac_wcc
++ echo '--- brcmfmac ---'
+--- brcmfmac ---
++ modinfo brcmfmac
++ head -5
+filename:       /lib/modules/6.18.15-m1opt+/updates/brcmfmac.ko
+license:        Dual BSD/GPL
+description:    Broadcom 802.11 wireless LAN fullmac driver.
+author:         Broadcom Corporation
+firmware:       brcm/brcmfmac4373.bin
+++ lsmod
+++ grep -c '^brcmfmac\b'
+lsmod: ERROR: libkmod/libkmod-module.c:1364 kmod_module_new_from_loaded() could not open /proc/modules: No such file or directory
+lsmod: ERROR: could not get list of modules: No such file or directory
++ echo 'loaded: 0'
+loaded: 0
++ for m in apple_nvme nvme btrfs apple_dart apple_admac apple_rtkit apple_sart apple_mailbox brcmfmac brcmfmac_wcc
++ echo '--- brcmfmac_wcc ---'
+--- brcmfmac_wcc ---
++ modinfo brcmfmac_wcc
++ head -5
+filename:       /lib/modules/6.18.15-m1opt+/updates/wcc/brcmfmac-wcc.ko
+import_ns:      BRCMFMAC
+license:        Dual BSD/GPL
+description:    Broadcom FullMAC WLAN driver plugin for Broadcom mobility chipsets
+depends:        brcmfmac
+++ lsmod
+++ grep -c '^brcmfmac_wcc\b'
+lsmod: ERROR: libkmod/libkmod-module.c:1364 kmod_module_new_from_loaded() could not open /proc/modules: No such file or directory
+lsmod: ERROR: could not get list of modules: No such file or directory
++ echo 'loaded: 0'
+loaded: 0
++ echo '=== dmesg full ==='
+=== dmesg full ===
++ dmesg
+[    0.000000] Booting Linux on physical CPU 0x0000000000 [0x611f0221]
+[    0.000000] Linux version 6.18.15-m1opt+ (wilfredor@fedora) (gcc (GCC) 15.2.1 20260123 (Red Hat 15.2.1-7), GNU ld version 2.45.1-4.fc43) #14 SMP PREEMPT_DYNAMIC Mon Apr 20 22:39:43 -03 2026
+[    0.000000] KASLR enabled
+[    0.000000] random: crng init done
+[    0.000000] Machine model: Apple MacBook Air (M1, 2020)
+[    0.000000] printk: debug: ignoring loglevel setting.
+[    0.000000] efi: EFI v2.11 by Das U-Boot
+[    0.000000] efi: RTPROP=0xbda3c9040 SMBIOS 3.0=0xbdb467000 MOKvar=0xbda39e000 MEMRESERVE=0xbda396040 
+[    0.000000] OF: reserved mem: 0x0000000801b50000..0x0000000801f7ffff (4288 KiB) nomap non-reusable asc-firmware@801b50000
+[    0.000000] OF: reserved mem: 0x0000000800b0c000..0x000000080152ffff (10384 KiB) nomap non-reusable asc-firmware@800b0c000
+[    0.000000] OF: reserved mem: 0x00000008056e0000..0x0000000805c7bfff (5744 KiB) map non-reusable sep-firmware
+[    0.000000] OF: reserved mem: 0x0000000be262c000..0x0000000be5387fff (46448 KiB) nomap non-reusable framebuffer@be262c000
+[    0.000000] OF: reserved mem: 0x0000000be5388000..0x0000000be5447fff (768 KiB) nomap non-reusable region95@be5388000
+[    0.000000] OF: reserved mem: 0x0000000be5448000..0x0000000be544bfff (16 KiB) nomap non-reusable region94@be5448000
+[    0.000000] OF: reserved mem: 0x0000000be544c000..0x0000000be644bfff (16384 KiB) nomap non-reusable region57@be544c000
+[    0.000000] OF: reserved mem: 0x0000000be644c000..0x0000000be674bfff (3072 KiB) nomap non-reusable dcp_data@be644c000
+[    0.000000] OF: reserved mem: 0x0000000bdf51c000..0x0000000bdf51ffff (16 KiB) map non-reusable flash@bdf51c000
+[    0.000000] OF: reserved mem: 0x00000008052c8000..0x0000000805323fff (368 KiB) map non-reusable flash@8052c8000
+[    0.000000] OF: reserved mem: 0x0000000bfff70000..0x0000000bfff73fff (16 KiB) map non-reusable uat-handoff
+[    0.000000] OF: reserved mem: 0x0000000bfff78000..0x0000000bfffb7fff (256 KiB) map non-reusable uat-pagetables
+[    0.000000] OF: reserved mem: 0x0000000bfffb8000..0x0000000bfffbbfff (16 KiB) map non-reusable uat-ttbs
+[    0.000000] OF: reserved mem: 0x0000000bdf520000..0x0000000bdf6cbfff (1712 KiB) nomap non-reusable isp-heap
+[    0.000000] Zone ranges:
+[    0.000000]   DMA      [mem 0x0000000800b0c000-0x0000000bfffbbfff]
+[    0.000000]   DMA32    empty
+[    0.000000]   Normal   empty
+[    0.000000] Movable zone start for each node
+[    0.000000] Early memory node ranges
+[    0.000000]   node   0: [mem 0x0000000800b0c000-0x000000080152ffff]
+[    0.000000]   node   0: [mem 0x0000000801b50000-0x0000000801f7ffff]
+[    0.000000]   node   0: [mem 0x0000000802078000-0x000000080537bfff]
+[    0.000000]   node   0: [mem 0x000000080537c000-0x000000080546ffff]
+[    0.000000]   node   0: [mem 0x0000000805470000-0x000000080710ffff]
+[    0.000000]   node   0: [mem 0x0000000807110000-0x000000080711ffff]
+[    0.000000]   node   0: [mem 0x0000000807120000-0x0000000807123fff]
+[    0.000000]   node   0: [mem 0x0000000807124000-0x0000000807133fff]
+[    0.000000]   node   0: [mem 0x0000000807134000-0x0000000807137fff]
+[    0.000000]   node   0: [mem 0x0000000807138000-0x0000000807147fff]
+[    0.000000]   node   0: [mem 0x0000000807148000-0x000000080714bfff]
+[    0.000000]   node   0: [mem 0x000000080714c000-0x000000080715bfff]
+[    0.000000]   node   0: [mem 0x000000080715c000-0x000000080715ffff]
+[    0.000000]   node   0: [mem 0x0000000807160000-0x000000080716ffff]
+[    0.000000]   node   0: [mem 0x0000000807170000-0x0000000807173fff]
+[    0.000000]   node   0: [mem 0x0000000807174000-0x0000000807183fff]
+[    0.000000]   node   0: [mem 0x0000000807184000-0x0000000807187fff]
+[    0.000000]   node   0: [mem 0x0000000807188000-0x0000000807197fff]
+[    0.000000]   node   0: [mem 0x0000000807198000-0x000000080719bfff]
+[    0.000000]   node   0: [mem 0x000000080719c000-0x00000008071c7fff]
+[    0.000000]   node   0: [mem 0x00000008071c8000-0x0000000b413fffff]
+[    0.000000]   node   0: [mem 0x0000000b41400000-0x0000000b41403fff]
+[    0.000000]   node   0: [mem 0x0000000b41404000-0x0000000bda39bfff]
+[    0.000000]   node   0: [mem 0x0000000bda39c000-0x0000000bda39ffff]
+[    0.000000]   node   0: [mem 0x0000000bda3a0000-0x0000000bda3c7fff]
+[    0.000000]   node   0: [mem 0x0000000bda3c8000-0x0000000bda3effff]
+[    0.000000]   node   0: [mem 0x0000000bda3f0000-0x0000000bdb463fff]
+[    0.000000]   node   0: [mem 0x0000000bdb464000-0x0000000bdb467fff]
+[    0.000000]   node   0: [mem 0x0000000bdb468000-0x0000000bdf42ffff]
+[    0.000000]   node   0: [mem 0x0000000bdf430000-0x0000000bdf43ffff]
+[    0.000000]   node   0: [mem 0x0000000bdf440000-0x0000000bdf517fff]
+[    0.000000]   node   0: [mem 0x0000000bdf51c000-0x0000000bdf51ffff]
+[    0.000000]   node   0: [mem 0x0000000bdf520000-0x0000000bdf6cbfff]
+[    0.000000]   node   0: [mem 0x0000000be262c000-0x0000000be674bfff]
+[    0.000000]   node   0: [mem 0x0000000bfff70000-0x0000000bfff73fff]
+[    0.000000]   node   0: [mem 0x0000000bfff78000-0x0000000bfffbbfff]
+[    0.000000] Initmem setup node 0 [mem 0x0000000800b0c000-0x0000000bfffbbfff]
+[    0.000000] On node 0, zone DMA: 707 pages in unavailable ranges
+[    0.000000] On node 0, zone DMA: 392 pages in unavailable ranges
+[    0.000000] On node 0, zone DMA: 62 pages in unavailable ranges
+[    0.000000] On node 0, zone DMA: 1 pages in unavailable ranges
+[    0.000000] On node 0, zone DMA: 3032 pages in unavailable ranges
+[    0.000000] On node 0, zone DMA: 9737 pages in unavailable ranges
+[    0.000000] On node 0, zone DMA: 1 pages in unavailable ranges
+[    0.000000] On node 0, zone DMA: 17 pages in unavailable ranges
+[    0.000000] cma: Reserved 64 MiB at 0x0000000808000000
+[    0.000000] percpu: Embedded 14 pages/cpu s102424 r8192 d118760 u229376
+[    0.000000] pcpu-alloc: s102424 r8192 d118760 u229376 alloc=14*16384
+[    0.000000] pcpu-alloc: [0] 0 [0] 1 [0] 2 [0] 3 [0] 4 [0] 5 [0] 6 [0] 7 
+[    0.000000] Detected VIPT I-cache on CPU0
+[    0.000000] CPU features: detected: Address authentication (IMP DEF algorithm)
+[    0.000000] CPU features: detected: Virtualization Host Extensions
+[    0.000000] CPU features: detected: Spectre-v4
+[    0.000000] CPU features: detected: Spectre-BHB
+[    0.000000] CPU features: detected: Apple IMPDEF PMUv3 Traps
+[    0.000000] alternatives: applying boot alternatives
+[    0.000000] Kernel command line: BOOT_IMAGE=(hd0,gpt5)/vmlinuz-6.18.15-m1opt+ root=/dev/nvme0n1p6 rw rootflags=subvol=root rootfstype=btrfs init=/bin/bash selinux=0 rootwait earlycon loglevel=8 ignore_loglevel
+[    0.000000] printk: log buffer data + meta data: 262144 + 917504 = 1179648 bytes
+[    0.000000] Dentry cache hash table entries: 2097152 (order: 10, 16777216 bytes, linear)
+[    0.000000] Inode-cache hash table entries: 1048576 (order: 9, 8388608 bytes, linear)
+[    0.000000] software IO TLB: SWIOTLB bounce buffer size adjusted to 15MB
+[    0.000000] software IO TLB: area num 8.
+[    0.000000] software IO TLB: SWIOTLB bounce buffer size roundup to 16MB
+[    0.000000] software IO TLB: mapped [mem 0x0000000bdc2f0000-0x0000000bdd2f0000] (16MB)
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 1018243
+[    0.000000] mem auto-init: stack:all(zero), heap alloc:on, heap free:off
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=8, Nodes=1
+[    0.000000] ftrace: allocating 57807 entries in 57 pages
+[    0.000000] ftrace: allocated 57 pages with 4 groups
+[    0.000000] Dynamic Preempt: full
+[    0.000000] rcu: Preemptible hierarchical RCU implementation.
+[    0.000000] rcu: 	RCU event tracing is enabled.
+[    0.000000] rcu: 	RCU restricting CPUs from NR_CPUS=16 to nr_cpu_ids=8.
+[    0.000000] 	Trampoline variant of Tasks RCU enabled.
+[    0.000000] 	Rude variant of Tasks RCU enabled.
+[    0.000000] 	Tracing variant of Tasks RCU enabled.
+[    0.000000] rcu: RCU calculated value of scheduler-enlistment delay is 100 jiffies.
+[    0.000000] rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=8
+[    0.000000] RCU Tasks: Setting shift to 3 and lim to 1 rcu_task_cb_adjust=1 rcu_task_cpu_ids=8.
+[    0.000000] RCU Tasks Rude: Setting shift to 3 and lim to 1 rcu_task_cb_adjust=1 rcu_task_cpu_ids=8.
+[    0.000000] RCU Tasks Trace: Setting shift to 3 and lim to 1 rcu_task_cb_adjust=1 rcu_task_cpu_ids=8.
+[    0.000000] NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+[    0.000000] Root IRQ handler: aic_handle_irq
+[    0.000000] Root FIQ handler: aic_handle_fiq
+[    0.000000] irq_apple_aic: Using Fast IPIs
+[    0.000000] irq_apple_aic: Initialized with 896/1024 IRQs * 1/1 die(s), 7 FIQs, 32 vIPIs
+[    0.000000] rcu: srcu_init: Setting srcu_struct sizes based on contention.
+[    0.000000] arch_timer: cp15 timer running at 24.00MHz (phys).
+[    0.000000] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x588fe9dc0, max_idle_ns: 440795202592 ns
+[    0.000000] sched_clock: 56 bits at 24MHz, resolution 41ns, wraps every 4398046511097ns
+[    0.000193] Console: colour dummy device 80x25
+[    0.000197] printk: legacy console [tty0] enabled
+[    0.000393] Calibrating delay loop (skipped), value calculated using timer frequency.. 48.00 BogoMIPS (lpj=24000)
+[    0.000398] pid_max: default: 32768 minimum: 301
+[    0.000473] LSM: initializing lsm=lockdown,capability,yama,bpf,landlock
+[    0.000554] Yama: becoming mindful.
+[    0.000772] LSM support for eBPF active
+[    0.000807] landlock: Up and running.
+[    0.000836] Mount-cache hash table entries: 32768 (order: 4, 262144 bytes, linear)
+[    0.000844] Mountpoint-cache hash table entries: 32768 (order: 4, 262144 bytes, linear)
+[    0.001492] rcu: Hierarchical SRCU implementation.
+[    0.001496] rcu: 	Max phase no-delay instances is 400.
+[    0.001537] Timer migration: 1 hierarchy levels; 8 children per group; 1 crossnode level
+[    0.001790] Remapping and enabling EFI services.
+[    0.001867] smp: Bringing up secondary CPUs ...
+[    0.001963] Detected VIPT I-cache on CPU1
+[    0.001996] CPU1: Booted secondary processor 0x0000000001 [0x611f0221]
+[    0.002112] Detected VIPT I-cache on CPU2
+[    0.002141] CPU2: Booted secondary processor 0x0000000002 [0x611f0221]
+[    0.002237] Detected VIPT I-cache on CPU3
+[    0.002267] CPU3: Booted secondary processor 0x0000000003 [0x611f0221]
+[    0.002364] Detected VIPT I-cache on CPU4
+[    0.002396] CPU4: Booted secondary processor 0x0000010100 [0x611f0231]
+[    0.002504] Detected VIPT I-cache on CPU5
+[    0.002527] CPU5: Booted secondary processor 0x0000010101 [0x611f0231]
+[    0.002642] Detected VIPT I-cache on CPU6
+[    0.002666] CPU6: Booted secondary processor 0x0000010102 [0x611f0231]
+[    0.002768] Detected VIPT I-cache on CPU7
+[    0.002792] CPU7: Booted secondary processor 0x0000010103 [0x611f0231]
+[    0.002820] smp: Brought up 1 node, 8 CPUs
+[    0.002843] SMP: Total of 8 processors activated.
+[    0.002845] CPU: All CPU(s) started at EL2
+[    0.002848] CPU features: detected: ARMv8.4 Translation Table Level
+[    0.002851] CPU features: detected: Data cache clean to the PoU not required for I/D coherence
+[    0.002854] CPU features: detected: Common not Private translations
+[    0.002856] CPU features: detected: CRC32 instructions
+[    0.002858] CPU features: detected: Data cache clean to Point of Deep Persistence
+[    0.002861] CPU features: detected: Data cache clean to Point of Persistence
+[    0.002864] CPU features: detected: Data independent timing control (DIT)
+[    0.002866] CPU features: detected: E0PD
+[    0.002868] CPU features: detected: Enhanced Virtualization Traps
+[    0.002871] CPU features: detected: Generic authentication (IMP DEF algorithm)
+[    0.002874] CPU features: detected: RCpc load-acquire (LDAPR)
+[    0.002877] CPU features: detected: LSE atomic instructions
+[    0.002879] CPU features: detected: Privileged Access Never
+[    0.002881] CPU features: detected: RAS Extension Support
+[    0.002884] CPU features: detected: Speculation barrier (SB)
+[    0.002886] CPU features: detected: Stage-2 Force Write-Back
+[    0.002888] CPU features: detected: TLB range maintenance instructions
+[    0.002891] CPU features: detected: Speculative Store Bypassing Safe (SSBS)
+[    0.002915] alternatives: applying system-wide alternatives
+[    0.003489] CPU features: detected: ACTLR virtualization (IMPDEF, Apple)
+[    0.003494] CPU features: detected: TSO memory model (Apple)
+[    0.003743] Memory: 15965872K/16291888K available (18176K kernel code, 2610K rwdata, 7104K rodata, 7296K init, 730K bss, 243936K reserved, 65536K cma-reserved)
+[    0.003927] devtmpfs: initialized
+[    0.006117] setend instruction emulation is not supported on this system
+[    0.006220] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 1911260446275000 ns
+[    0.006231] posixtimers hash table entries: 4096 (order: 2, 65536 bytes, linear)
+[    0.006246] futex hash table entries: 2048 (131072 bytes on 1 NUMA nodes, total 128 KiB, linear).
+[    0.006312] 5920 pages in range for non-PLT usage
+[    0.006313] 128800 pages in range for PLT usage
+[    0.006395] pinctrl core: initialized pinctrl subsystem
+[    0.006548] SMBIOS 3.7.0 present.
+[    0.006554] DMI: Apple Inc. MacBookAir10,1/J313, BIOS 2025.10 10/01/2025
+[    0.006559] DMI: Memory slots populated: 0/0
+[    0.007129] NET: Registered PF_NETLINK/PF_ROUTE protocol family
+[    0.008127] DMA: preallocated 2048 KiB GFP_KERNEL pool for atomic allocations
+[    0.008217] DMA: preallocated 2048 KiB GFP_KERNEL|GFP_DMA pool for atomic allocations
+[    0.008364] DMA: preallocated 2048 KiB GFP_KERNEL|GFP_DMA32 pool for atomic allocations
+[    0.008384] audit: initializing netlink subsys (disabled)
+[    0.008433] audit: type=2000 audit(0.007:1): state=initialized audit_enabled=0 res=1
+[    0.008543] thermal_sys: Registered thermal governor 'step_wise'
+[    0.008554] cpuidle: using governor menu
+[    0.008621] hw-breakpoint: found 6 breakpoint and 4 watchpoint registers.
+[    0.008674] ASID allocator initialised with 256 entries
+[    0.008744] Serial: AMBA PL011 UART driver
+[    0.011098] /soc/i2c@235010000/usb-pd@38/connector: Fixed dependency cycle(s) with /soc/phy@383000000
+[    0.011108] /soc/i2c@235010000/usb-pd@38/connector: Fixed dependency cycle(s) with /soc/usb@382280000
+[    0.011117] /soc/i2c@235010000/usb-pd@3f/connector: Fixed dependency cycle(s) with /soc/phy@503000000
+[    0.011125] /soc/i2c@235010000/usb-pd@3f/connector: Fixed dependency cycle(s) with /soc/usb@502280000
+[    0.011250] /soc/usb@382280000: Fixed dependency cycle(s) with /soc/i2c@235010000/usb-pd@38/connector
+[    0.011257] /soc/usb@382280000: Fixed dependency cycle(s) with /soc/phy@383000000
+[    0.011265] /soc/phy@383000000: Fixed dependency cycle(s) with /soc/usb@382280000
+[    0.011270] /soc/phy@383000000: Fixed dependency cycle(s) with /soc/i2c@235010000/usb-pd@38/connector
+[    0.011282] /soc/usb@502280000: Fixed dependency cycle(s) with /soc/i2c@235010000/usb-pd@3f/connector
+[    0.011288] /soc/usb@502280000: Fixed dependency cycle(s) with /soc/phy@503000000
+[    0.011297] /soc/phy@503000000: Fixed dependency cycle(s) with /soc/usb@502280000
+[    0.011302] /soc/phy@503000000: Fixed dependency cycle(s) with /soc/i2c@235010000/usb-pd@3f/connector
+[    0.011314] /soc/pcie@690000000: Fixed dependency cycle(s) with /soc/pcie@690000000
+[    0.011319] /soc/pcie@690000000/pci@0,0: Fixed dependency cycle(s) with /soc/pcie@690000000/pci@0,0
+[    0.011668] /soc/i2c@235010000/usb-pd@38/connector: Fixed dependency cycle(s) with /soc/phy@383000000
+[    0.011676] /soc/i2c@235010000/usb-pd@38/connector: Fixed dependency cycle(s) with /soc/usb@382280000
+[    0.011685] /soc/i2c@235010000/usb-pd@3f/connector: Fixed dependency cycle(s) with /soc/phy@503000000
+[    0.011692] /soc/i2c@235010000/usb-pd@3f/connector: Fixed dependency cycle(s) with /soc/usb@502280000
+[    0.016101] /soc/i2c@235010000/usb-pd@38/connector: Fixed dependency cycle(s) with /soc/usb@382280000
+[    0.016118] /soc/usb@382280000: Fixed dependency cycle(s) with /soc/i2c@235010000/usb-pd@38/connector
+[    0.016126] /soc/usb@382280000: Fixed dependency cycle(s) with /soc/phy@383000000
+[    0.016227] /soc/usb@382280000: Fixed dependency cycle(s) with /soc/phy@383000000
+[    0.016242] /soc/i2c@235010000/usb-pd@38/connector: Fixed dependency cycle(s) with /soc/phy@383000000
+[    0.016257] /soc/phy@383000000: Fixed dependency cycle(s) with /soc/usb@382280000
+[    0.016270] /soc/phy@383000000: Fixed dependency cycle(s) with /soc/i2c@235010000/usb-pd@38/connector
+[    0.016337] /soc/i2c@235010000/usb-pd@3f/connector: Fixed dependency cycle(s) with /soc/usb@502280000
+[    0.016353] /soc/usb@502280000: Fixed dependency cycle(s) with /soc/i2c@235010000/usb-pd@3f/connector
+[    0.016360] /soc/usb@502280000: Fixed dependency cycle(s) with /soc/phy@503000000
+[    0.016462] /soc/usb@502280000: Fixed dependency cycle(s) with /soc/phy@503000000
+[    0.016476] /soc/i2c@235010000/usb-pd@3f/connector: Fixed dependency cycle(s) with /soc/phy@503000000
+[    0.016490] /soc/phy@503000000: Fixed dependency cycle(s) with /soc/usb@502280000
+[    0.016502] /soc/phy@503000000: Fixed dependency cycle(s) with /soc/i2c@235010000/usb-pd@3f/connector
+[    0.016608] /soc/pcie@690000000: Fixed dependency cycle(s) with /soc/pcie@690000000
+[    0.016624] /soc/pcie@690000000/pci@0,0: Fixed dependency cycle(s) with /soc/pcie@690000000/pci@0,0
+[    0.017707] raid6: skipped pq benchmark and selected neonx8
+[    0.017711] raid6: using neon recovery algorithm
+[    0.017755] fbcon: Taking over console
+[    0.017768] ACPI: Interpreter disabled.
+[    0.017877] iommu: Default domain type: Translated
+[    0.017880] iommu: DMA domain TLB invalidation policy: lazy mode
+[    0.020673] SCSI subsystem initialized
+[    0.020707] usbcore: registered new interface driver usbfs
+[    0.020716] usbcore: registered new interface driver hub
+[    0.020725] usbcore: registered new device driver usb
+[    0.020794] pps_core: LinuxPPS API ver. 1 registered
+[    0.020796] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    0.020802] PTP clock support registered
+[    0.020877] scmi_core: SCMI protocol bus registered
+[    0.020951] efivars: Registered efivars operations
+[    0.021313] NetLabel: Initializing
+[    0.021315] NetLabel:  domain hash size = 128
+[    0.021318] NetLabel:  protocols = UNLABELED CIPSOv4 CALIPSO
+[    0.021336] NetLabel:  unlabeled traffic allowed by default
+[    0.021381] vgaarb: loaded
+[    0.021465] clocksource: Switched to clocksource arch_sys_counter
+[    0.021640] VFS: Disk quotas dquot_6.6.0
+[    0.021651] VFS: Dquot-cache hash table entries: 2048 (order 0, 16384 bytes)
+[    0.021737] pnp: PnP ACPI: disabled
+[    0.023100] NET: Registered PF_INET protocol family
+[    0.023156] IP idents hash table entries: 262144 (order: 7, 2097152 bytes, linear)
+[    0.026409] tcp_listen_portaddr_hash hash table entries: 8192 (order: 3, 131072 bytes, linear)
+[    0.026431] Table-perturb hash table entries: 65536 (order: 4, 262144 bytes, linear)
+[    0.026459] TCP established hash table entries: 131072 (order: 6, 1048576 bytes, linear)
+[    0.026639] TCP bind hash table entries: 65536 (order: 7, 2097152 bytes, linear)
+[    0.026815] TCP: Hash tables configured (established 131072 bind 65536)
+[    0.026844] UDP hash table entries: 8192 (order: 5, 524288 bytes, linear)
+[    0.026911] UDP-Lite hash table entries: 8192 (order: 5, 524288 bytes, linear)
+[    0.027014] NET: Registered PF_UNIX/PF_LOCAL protocol family
+[    0.027024] NET: Registered PF_XDP protocol family
+[    0.027033] PCI: CLS 0 bytes, default 64
+[    0.028011] kvm [1]: nv: 568 coarse grained trap handlers
+[    0.028101] kvm [1]: IPA Size Limit: 36 bits (Reduced IPA size, limited VM/VMM compatibility)
+[    0.028111] kvm [1]: Non-architectural vgic, tainting kernel
+[    0.028114] kvm [1]: GICv3: no GICV resource entry
+[    0.028118] kvm [1]: disabling GICv2 emulation
+[    0.028120] kvm [1]: GICv3 with broken locally generated SEI
+[    0.028122] kvm [1]: GICv3 sysreg trapping enabled ([G0G1D], reduced performance)
+[    0.028150] kvm [1]: GIC system register CPU interface enabled
+[    0.028157] kvm [1]: vgic interrupt IRQ33
+[    0.028178] kvm [1]: VHE mode initialized successfully
+[    0.045040] Initialise system trusted keyrings
+[    0.045054] Key type blacklist registered
+[    0.045094] workingset: timestamp_bits=46 max_order=20 bucket_order=0
+[    0.045577] integrity: Platform Keyring initialized
+[    0.045584] integrity: Machine keyring initialized
+[    0.045655] cryptd: max_cpu_qlen set to 1000
+[    0.060754] NET: Registered PF_ALG protocol family
+[    0.060770] xor: measuring software checksum speed
+[    0.061004]    8regs           : 14149 MB/sec
+[    0.061238]    32regs          : 14187 MB/sec
+[    0.061425]    arm64_neon      : 17762 MB/sec
+[    0.061427] xor: using function: arm64_neon (17762 MB/sec)
+[    0.061432] Key type asymmetric registered
+[    0.061434] Asymmetric key parser 'x509' registered
+[    0.061454] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 244)
+[    0.061497] io scheduler mq-deadline registered
+[    0.061500] io scheduler kyber registered
+[    0.061509] io scheduler bfq registered
+[    0.061608] atomic64_test: passed
+[    0.062420] apple-gpio-pinctrl 23e820000.pinctrl: No cache defaults, reading back from HW
+[    0.062981] apple-gpio-pinctrl 24a820000.pinctrl: No cache defaults, reading back from HW
+[    0.069307] apple-pmgr-pwrstate 23d280000.power-management:power-controller@78: always-on domain msg is not on at boot
+[    0.070126] apple-dart 22c0e8000.iommu: DART [pagesize 4000, 16 streams, bypass support: 1, bypass forced: 0, locked: 0, AS 32 -> 36] initialized
+[    0.070308] apple-dart 22c0f4000.iommu: DART [pagesize 4000, 16 streams, bypass support: 0, bypass forced: 0, locked: 0, AS 32 -> 36] initialized
+[    0.070518] platform 22a000000.isp: Adding to iommu group 0
+[    0.070692] apple-dart 22c0fc000.iommu: DART [pagesize 4000, 16 streams, bypass support: 0, bypass forced: 0, locked: 0, AS 32 -> 36] initialized
+[    0.070936] platform 242400000.sep: Adding to iommu group 1
+[    0.071004] apple-dart 2412c0000.iommu: DART [pagesize 4000, 16 streams, bypass support: 0, bypass forced: 0, locked: 0, AS 32 -> 36] initialized
+[    0.071158] platform 24a980000.dma-controller: Adding to iommu group 2
+[    0.071186] platform 24ac00000.aop: Adding to iommu group 3
+[    0.071264] apple-dart 24a808000.iommu: DART [pagesize 4000, 16 streams, bypass support: 1, bypass forced: 0, locked: 0, AS 32 -> 36] initialized
+[    0.071448] apple-dart 382f00000.iommu: DART [pagesize 4000, 16 streams, bypass support: 1, bypass forced: 0, locked: 0, AS 32 -> 36] initialized
+[    0.071658] platform 382280000.usb: Adding to iommu group 4
+[    0.071704] apple-dart 382f80000.iommu: DART [pagesize 4000, 16 streams, bypass support: 1, bypass forced: 0, locked: 0, AS 32 -> 36] initialized
+[    0.071888] apple-dart 502f00000.iommu: DART [pagesize 4000, 16 streams, bypass support: 1, bypass forced: 0, locked: 0, AS 32 -> 36] initialized
+[    0.072109] platform 502280000.usb: Adding to iommu group 5
+[    0.072144] apple-dart 502f80000.iommu: DART [pagesize 4000, 16 streams, bypass support: 1, bypass forced: 0, locked: 0, AS 32 -> 36] initialized
+[    0.072312] apple-dart 681008000.iommu: DART [pagesize 4000, 16 streams, bypass support: 0, bypass forced: 0, locked: 0, AS 32 -> 36] initialized
+[    0.073500] macsmc 23e400000.smc: RTKit: Initializing (protocol version 12)
+[    0.076939] macsmc-gpio macsmc-gpio: First GPIO key: gP01 (0x67503031)
+[    0.083774] Key type psk registered
+[    0.084323] mousedev: PS/2 mouse device common for all mice
+[    0.085491] input: Apple SMC power/lid events as /devices/platform/soc/23e400000.smc/macsmc-input/input/input0
+[    0.087749] device-mapper: uevent: version 1.0.3
+[    0.087789] device-mapper: ioctl: 4.50.0-ioctl (2025-04-28) initialised: dm-devel@lists.linux.dev
+[    0.088053] cpu cpu0: EM: created perf domain
+[    0.088522] cpu cpu4: EM: created perf domain
+[    0.088965] hid: raw HID events driver (C) Jiri Kosina
+[    0.089000] usbcore: registered new interface driver usbhid
+[    0.089004] usbhid: USB HID core driver
+[    0.089776] hw perfevents: enabled with apple_icestorm_pmu PMU driver, 10 (0,000003ff) counters available
+[    0.089934] hw perfevents: enabled with apple_firestorm_pmu PMU driver, 10 (0,000003ff) counters available
+[    0.090189] drop_monitor: Initializing network drop monitor service
+[    0.090446] Initializing XFRM netlink socket
+[    0.090457] NET: Registered PF_INET6 protocol family
+[    0.090743] Segment Routing with IPv6
+[    0.090747] RPL Segment Routing with IPv6
+[    0.090754] In-situ OAM (IOAM) with IPv6
+[    0.090769] mip6: Mobile IPv6
+[    0.090782] NET: Registered PF_PACKET protocol family
+[    0.092131] registered taskstats version 1
+[    0.092493] Loading compiled-in X.509 certificates
+[    0.093278] Loaded X.509 cert 'Build time autogenerated kernel key: ee0f858551ccefdca65bff8b09f026d49cf2f2d6'
+[    0.095487] page_owner is disabled
+[    0.095579] Key type .fscrypt registered
+[    0.095581] Key type fscrypt-provisioning registered
+[    0.095824] Btrfs loaded, zoned=yes, fsverity=yes
+[    0.095843] Key type big_key registered
+[    0.095847] Key type encrypted registered
+[    0.096716] apple-gpio-pinctrl 23c100000.pinctrl: No cache defaults, reading back from HW
+[    0.098702] apple-gpio-pinctrl 23d1f0000.pinctrl: No cache defaults, reading back from HW
+[    0.100199] pcie-apple 690000000.pcie: host bridge /soc/pcie@690000000 ranges:
+[    0.100240] pcie-apple 690000000.pcie:      MEM 0x06a0000000..0x06bfffffff -> 0x06a0000000
+[    0.100262] pcie-apple 690000000.pcie:      MEM 0x06c0000000..0x06ffffffff -> 0x00c0000000
+[    0.100340] pcie-apple 690000000.pcie: Using 0 auxiliary PERST#
+[    0.312697] pcie-apple 690000000.pcie: ECAM at [mem 0x690000000-0x690ffffff] for [bus 00-03]
+[    0.312993] pcie-apple 690000000.pcie: PCI host bridge to bus 0000:00
+[    0.313010] pci_bus 0000:00: root bus resource [bus 00-03]
+[    0.313025] pci_bus 0000:00: root bus resource [mem 0x6a0000000-0x6bfffffff pref]
+[    0.313039] pci_bus 0000:00: root bus resource [mem 0x6c0000000-0x6ffffffff] (bus address [0xc0000000-0xffffffff])
+[    0.313154] pci 0000:00:00.0: [106b:100c] type 01 class 0x060400 PCIe Root Port
+[    0.313180] pci 0000:00:00.0: PCI bridge to [bus 01]
+[    0.313260] pci 0000:00:00.0: PME# supported from D0 D3hot D3cold
+[    0.313314] pci 0000:00:00.0: PTM enabled (root), 16ns granularity
+[    0.313541] OF: /soc/pcie@690000000: no iommu-map translation for id 0x0 on (null)
+[    0.313586] /soc/pcie@690000000/pci@0,0: Fixed dependency cycle(s) with /soc/pcie@690000000/pci@0,0
+[    0.316571] pci 0000:01:00.0: [14e4:4425] type 00 class 0x028000 PCIe Endpoint
+[    0.316630] pci 0000:01:00.0: BAR 0 [mem 0x00000000-0x0000ffff 64bit]
+[    0.316645] pci 0000:01:00.0: BAR 2 [mem 0x00000000-0x007fffff 64bit]
+[    0.316774] pci 0000:01:00.0: supports D1 D2
+[    0.316782] pci 0000:01:00.0: PME# supported from D0 D1 D2 D3hot D3cold
+[    0.317267] pci 0000:01:00.0: Adding to iommu group 6
+[    0.317481] pci 0000:01:00.1: [14e4:5f69] type 00 class 0x028000 PCIe Endpoint
+[    0.317538] pci 0000:01:00.1: BAR 0 [mem 0x00000000-0x00007fff 64bit]
+[    0.317551] pci 0000:01:00.1: BAR 2 [mem 0x00000000-0x003fffff 64bit]
+[    0.317667] pci 0000:01:00.1: supports D1 D2
+[    0.317675] pci 0000:01:00.1: PME# supported from D0 D1 D2 D3hot D3cold
+[    0.317990] pci 0000:01:00.1: Adding to iommu group 6
+[    0.319505] pci 0000:01:00.0: ASPM: default states L1
+[    0.319599] pci 0000:00:00.0: bridge window [mem 0x6c0000000-0x6c0cfffff]: assigned
+[    0.319623] pci 0000:01:00.0: BAR 2 [mem 0x6c0000000-0x6c07fffff 64bit]: assigned
+[    0.319656] pci 0000:01:00.1: BAR 2 [mem 0x6c0800000-0x6c0bfffff 64bit]: assigned
+[    0.319688] pci 0000:01:00.0: BAR 0 [mem 0x6c0c00000-0x6c0c0ffff 64bit]: assigned
+[    0.319719] pci 0000:01:00.1: BAR 0 [mem 0x6c0c10000-0x6c0c17fff 64bit]: assigned
+[    0.319752] pci 0000:00:00.0: PCI bridge to [bus 01]
+[    0.319763] pci 0000:00:00.0:   bridge window [mem 0x6c0000000-0x6c0cfffff]
+[    0.319777] pci_bus 0000:00: resource 4 [mem 0x6a0000000-0x6bfffffff pref]
+[    0.319788] pci_bus 0000:00: resource 5 [mem 0x6c0000000-0x6ffffffff]
+[    0.319799] pci_bus 0000:01: resource 1 [mem 0x6c0000000-0x6c0cfffff]
+[    0.319889] OF: /soc/pcie@690000000: no iommu-map translation for id 0x0 on (null)
+[    0.320185] pcieport 0000:00:00.0: PME: Signaling with IRQ 86
+[    0.320414] pcieport 0000:00:00.0: AER: enabled with IRQ 86
+[    0.320957] apple-admac 24a980000.dma-controller: Audio DMA Controller
+[    0.321663] apple-dart 231304000.iommu: Limiting DMA range to 0x0000000000000000..0x00000000fbffffff
+[    0.321903] platform soc:display-subsystem: Adding to iommu group 7
+[    0.322589] apple-dart 231304000.iommu: DART [pagesize 4000, 16 streams, bypass support: 1, bypass forced: 0, locked: 1, AS 32 -> 36] initialized
+[    0.322711] apple-dart 23130c000.iommu: Limiting DMA range to 0x0000000f00000000..0x0000000ffbffffff
+[    0.322879] platform 231c00000.dcp: Adding to iommu group 8
+[    0.323867] apple-dart 23130c000.iommu: DART [pagesize 4000, 16 streams, bypass support: 1, bypass forced: 0, locked: 1, AS 32 -> 36] initialized
+[    0.324248] platform 238200000.dma-controller: Adding to iommu group 9
+[    0.324494] apple-dart 235004000.iommu: DART [pagesize 4000, 16 streams, bypass support: 1, bypass forced: 0, locked: 0, AS 32 -> 36] initialized
+[    0.325310] simple-framebuffer be262c000.framebuffer: [drm] Registered 1 planes with drm panic
+[    0.325324] [drm] Initialized simpledrm 1.0.0 for be262c000.framebuffer on minor 0
+[    0.355974] Console: switching to colour frame buffer device 320x100
+[    0.380468] simple-framebuffer be262c000.framebuffer: [drm] fb0: simpledrmdrmfb frame buffer device
+[    0.381917] nvme-apple 27bcc0000.nvme: RTKit: Initializing (protocol version 12)
+[    0.444849] nvme-apple 27bcc0000.nvme: RTKit: syslog message: cmd.c:6546:  boot mode normal
+[    0.446160] hwmon hwmon2: temp1_input not attached to any thermal zone
+[    0.448675] spi-hid-apple-of spi1.0: limiting the number of devices to mngt, kbd and mouse
+[    0.449898]  nvme0n1: p1 p2 p3 p4 p5 p6 p7
+[    0.456546] input: Apple SPI Keyboard as /devices/platform/soc/23510c000.spi/spi_master/spi1/spi1.0/001C:05AC:0281.0001/input/input1
+[    0.456757] apple 001C:05AC:0281.0001: input,hidraw0: SPI HID v9.35 Keyboard [Apple SPI Keyboard] on spi1.0 (1)
+[    0.458713] input: Apple SPI Trackpad as /devices/platform/soc/23510c000.spi/spi_master/spi1/spi1.0/001C:05AC:0281.0002/input/input2
+[    0.458854] magicmouse 001C:05AC:0281.0002: input,hidraw1: SPI HID v9.35 Mouse [Apple SPI Trackpad] on spi1.0 (2)
+[    0.469488] macsmc-rtc macsmc-rtc: registered as rtc0
+[    0.479844] macsmc-rtc macsmc-rtc: setting system clock to 2026-04-22T01:44:42 UTC (1776822282)
+[    0.480116] /soc/i2c@235010000/usb-pd@38/connector: Fixed dependency cycle(s) with /soc/phy@383000000
+[    0.480165] /soc/i2c@235010000/usb-pd@38/connector: Fixed dependency cycle(s) with /soc/usb@382280000
+[    0.480252] /soc/i2c@235010000/usb-pd@3f/connector: Fixed dependency cycle(s) with /soc/phy@503000000
+[    0.480295] /soc/i2c@235010000/usb-pd@3f/connector: Fixed dependency cycle(s) with /soc/usb@502280000
+[    0.510997] macsmc-reboot macsmc-reboot: Handling reboot and poweroff requests via SMC
+[    0.511396] apple-admac 238200000.dma-controller: Audio DMA Controller
+[    0.511739] clk: Disabling unused clocks
+[    0.511879] PM: genpd: Disabling unused power domains
+[    0.512654] check access for rdinit=/init failed: -2, ignoring
+[    0.512674] md: Waiting for all devices to be available before autodetect
+[    0.512693] md: If you don't use raid, use raid=noautodetect
+[    0.512709] md: Autodetecting RAID arrays.
+[    0.512722] md: autorun ...
+[    0.512733] md: ... autorun DONE.
+[    0.513590] BTRFS: device label fedora devid 1 transid 2780 /dev/root (259:6) scanned by swapper/0 (1)
+[    0.514304] BTRFS info (device nvme0n1p6): first mount of filesystem 3cbd9d9a-90a4-404d-afaa-446e1c0722dc
+[    0.514406] BTRFS info (device nvme0n1p6): using crc32c (crc32c-lib) checksum algorithm
+[    0.518619] BTRFS info (device nvme0n1p6): enabling ssd optimizations
+[    0.518666] BTRFS info (device nvme0n1p6): turning on async discard
+[    0.518709] BTRFS info (device nvme0n1p6): enabling free space tree
+[    0.519712] VFS: Mounted root (btrfs filesystem) on device 0:21.
+[    0.519765] devtmpfs: mounted
+[    0.520665] Freeing unused kernel memory: 7296K
+[    0.529491] Checked W+X mappings: passed, no W+X pages found
+[    0.529540] Run /bin/bash as init process
+[    0.529569]   with arguments:
+[    0.529591]     /bin/bash
+[    0.529612]   with environment:
+[    0.529634]     HOME=/
+[    0.529653]     TERM=linux
+[   10.720632] apple-pmgr-pwrstate 23b700000.power-management:power-controller@228: sync_state() pending due to 238400000.i2s
+[   10.720693] apple-pmgr-pwrstate 23b700000.power-management:power-controller@270: sync_state() pending due to 235200000.serial
+[   10.720742] apple-pmgr-pwrstate 23b700000.power-management:power-controller@280: sync_state() pending due to 235208000.serial
+[   10.720792] apple-pmgr-pwrstate 23b700000.power-management:power-controller@2b8: sync_state() pending due to 238400000.i2s
+[   10.720839] apple-pmgr-pwrstate 23b700000.power-management:power-controller@2c0: sync_state() pending due to 238400000.i2s
+[   10.720886] apple-pmgr-pwrstate 23b700000.power-management:power-controller@2c8: sync_state() pending due to 238400000.i2s
+[   10.720932] apple-pmgr-pwrstate 23b700000.power-management:power-controller@2d0: sync_state() pending due to 238400000.i2s
+[   10.720978] apple-pmgr-pwrstate 23b700000.power-management:power-controller@2d8: sync_state() pending due to 238400000.i2s
+[   10.721023] apple-pmgr-pwrstate 23b700000.power-management:power-controller@2e0: sync_state() pending due to 238400000.i2s
+[   10.721072] apple-pmgr-pwrstate 23b700000.power-management:power-controller@3f8: sync_state() pending due to 206400000.gpu
+[   10.721119] apple-pmgr-pwrstate 23b700000.power-management:power-controller@400: sync_state() pending due to 22a000000.isp
+[   10.721171] apple-pmgr-pwrstate 23b700000.power-management:power-controller@10018: sync_state() pending due to 231c00000.dcp
+[   10.721219] apple-pmgr-pwrstate 23b700000.power-management:power-controller@4000: sync_state() pending due to 22a000000.isp
+[   10.721265] apple-pmgr-pwrstate 23b700000.power-management:power-controller@4008: sync_state() pending due to 22a000000.isp
+[   10.721311] apple-pmgr-pwrstate 23b700000.power-management:power-controller@4010: sync_state() pending due to 22a000000.isp
+[   10.721357] apple-pmgr-pwrstate 23b700000.power-management:power-controller@4018: sync_state() pending due to 22a000000.isp
+[   10.721402] apple-pmgr-pwrstate 23b700000.power-management:power-controller@4020: sync_state() pending due to 22a000000.isp
+[   10.721448] apple-pmgr-pwrstate 23b700000.power-management:power-controller@4028: sync_state() pending due to 22a000000.isp
+[   10.721505] apple-pmgr-pwrstate 23b700000.power-management:power-controller@4030: sync_state() pending due to 22a000000.isp
+[   10.721550] apple-pmgr-pwrstate 23b700000.power-management:power-controller@4038: sync_state() pending due to 22a000000.isp
+[   10.721596] apple-pmgr-pwrstate 23b700000.power-management:power-controller@4040: sync_state() pending due to 22a000000.isp
+[   10.721642] apple-pmgr-pwrstate 23b700000.power-management:power-controller@4048: sync_state() pending due to 22a000000.isp
+[   10.721687] apple-pmgr-pwrstate 23b700000.power-management:power-controller@4050: sync_state() pending due to 22a000000.isp
+[   10.721732] apple-pmgr-pwrstate 23b700000.power-management:power-controller@4058: sync_state() pending due to 22a000000.isp
+[   10.721778] apple-pmgr-pwrstate 23b700000.power-management:power-controller@4060: sync_state() pending due to 22a000000.isp
+[   10.721828] apple-pmgr-pwrstate 23d280000.power-management:power-controller@98: sync_state() pending due to 382280000.usb
+[   10.721874] apple-pmgr-pwrstate 23d280000.power-management:power-controller@98: sync_state() pending due to 383000000.phy
+[   10.721919] apple-pmgr-pwrstate 23d280000.power-management:power-controller@98: sync_state() pending due to 38304c000.mux
+[   10.721964] apple-pmgr-pwrstate 23d280000.power-management:power-controller@a0: sync_state() pending due to 502280000.usb
+[   10.722009] apple-pmgr-pwrstate 23d280000.power-management:power-controller@a0: sync_state() pending due to 503000000.phy
+[   10.722054] apple-pmgr-pwrstate 23d280000.power-management:power-controller@a0: sync_state() pending due to 50304c000.mux
+[   54.593952] macsmc-power macsmc-power: Emergency notification: Battery status is OK?
+[  174.900345] EXT4-fs (nvme0n1p5): Supports (experimental) DIO atomic writes awu_min: 4096, awu_max: 4096
+[  174.903317] EXT4-fs (nvme0n1p5): mounted filesystem 107698e4-392a-4bf6-9737-a1e9a84792c1 r/w with ordered data mode. Quota mode: none.
++ echo '=== dmesg errors ==='
+=== dmesg errors ===
++ dmesg
++ grep -iE 'error|fail|warn|panic|oops|cannot|unable|denied'
+[    0.325310] simple-framebuffer be262c000.framebuffer: [drm] Registered 1 planes with drm panic
+[    0.512654] check access for rdinit=/init failed: -2, ignoring
++ echo '=== systemctl status ==='
+=== systemctl status ===
++ systemctl status
++ head -50
+/proc/ is not mounted. This is not a supported mode of operation. Please fix
+your invocation environment to mount /proc/ and /sys/ properly. Proceeding anyway.
+Your mileage may vary.
+Running in chroot, ignoring command 'status'
++ echo '=== systemctl --failed ==='
+=== systemctl --failed ===
++ systemctl --failed
+/proc/ is not mounted. This is not a supported mode of operation. Please fix
+your invocation environment to mount /proc/ and /sys/ properly. Proceeding anyway.
+Your mileage may vary.
+Running in chroot, ignoring command 'list-units'
++ echo '=== systemd-analyze critical-chain ==='
+=== systemd-analyze critical-chain ===
++ systemd-analyze critical-chain
+System has not been booted with systemd as init system (PID 1). Can't operate.
+Failed to connect to system scope bus via local transport: Host is down
++ true
++ echo '=== systemd-analyze blame ==='
+=== systemd-analyze blame ===
++ systemd-analyze blame
++ head -30
+System has not been booted with systemd as init system (PID 1). Can't operate.
+Failed to connect to system scope bus via local transport: Host is down
++ echo '=== journalctl -xb (last 400) ==='
+=== journalctl -xb (last 400) ===
++ journalctl -xb
++ tail -400
+Journal file /var/log/journal/a2a47b05f5f24e679b6b3b0780a58ce4/system@692216be4aff4f99a1e28df568c8a166-000000000004727c-00064ff94838115c.journal is truncated, ignoring file.
+Failed to get boot ID: Function not implemented
++ echo '=== journalctl errors ==='
+=== journalctl errors ===
++ journalctl -xb -p err
++ tail -100
+Journal file /var/log/journal/a2a47b05f5f24e679b6b3b0780a58ce4/system@692216be4aff4f99a1e28df568c8a166-000000000004727c-00064ff94838115c.journal is truncated, ignoring file.
+Failed to get boot ID: Function not implemented
++ echo '=== try mount root manually ==='
+=== try mount root manually ===
++ mkdir -p /mnt/root
++ mount -t btrfs -o subvol=root,ro UUID=3cbd9d9a-90a4-404d-afaa-446e1c0722dc /mnt/root
+mount: /mnt/root: can't find UUID=3cbd9d9a-90a4-404d-afaa-446e1c0722dc.
++ head
++ ls /mnt/root
++ echo '--- /mnt/root/boot ---'
+--- /mnt/root/boot ---
++ ls /mnt/root/boot
++ head
+ls: cannot access '/mnt/root/boot': No such file or directory
++ echo '--- /mnt/root/lib/modules ---'
+--- /mnt/root/lib/modules ---
++ ls /mnt/root/lib/modules
++ head
+ls: cannot access '/mnt/root/lib/modules': No such file or directory
++ echo '--- /mnt/root/etc/fstab ---'
+--- /mnt/root/etc/fstab ---
++ cat /mnt/root/etc/fstab
+cat: /mnt/root/etc/fstab: No such file or directory
++ umount /mnt/root
++ echo '=== /boot listing ==='
+=== /boot listing ===
++ ls -la /boot
+total 71704
+drwxr-xr-x. 7 root root     4096 Apr 21 22:48 .
+drwxr-xr-x. 1 root root      186 Apr 21 11:55 ..
+-rw-r--r--  1 root root  6104541 Apr 19 21:00 System.map-6.18.15-m1opt+
+lrwxrwxrwx. 1 root root        1 Mar 17 13:14 boot -> .
+-rw-r--r--  1 root root   207025 Apr 19 21:00 config-6.18.15-m1opt+
+-rw-r--r--  1 root root    49555 Apr 21 22:48 diag.log
+-rwxr-xr-x  1 root root     3070 Apr 21 16:29 diag.sh
+lrwxrwxrwx  1 root root       18 Apr 21 21:06 dtb -> dtb-6.18.15-m1opt+
+drwxr-xr-x. 5 root root     4096 Apr 19 21:00 dtb-6.18.15-m1opt+
+drwx------. 2 root root     4096 Mar 17 13:10 efi
+-rw-r--r--  1 root root      347 Apr 21 22:01 etc-fstab.txt
+-rw-r--r--  1 root root       17 Apr 21 22:09 f_01.txt
+-rw-r--r--  1 root root        8 Apr 21 22:09 f_02.txt
+-rw-r--r--  1 root root        9 Apr 21 22:09 f_03.txt
+-rw-r--r--  1 root root       15 Apr 21 22:09 f_04.txt
+-rw-r--r--  1 root root       14 Apr 21 22:10 f_05.txt
+-rw-r--r--  1 root root       11 Apr 21 22:10 f_06.txt
+-rw-r--r--  1 root root        5 Apr 21 22:10 f_07.txt
+-rw-r--r--  1 root root        0 Apr 21 22:09 f_chrooterr.txt
+-rw-r--r--  1 root root       98 Apr 21 22:01 failed-services.txt
+-rw-r--r--  1 root root     2590 Apr 21 21:24 final-listing.txt
+-rwxr-xr-x  1 root root     2197 Apr 21 22:34 fix-asahi.sh
+-rw-r--r--  1 root root     4315 Apr 21 22:10 fix-listing.txt
+-rw-r--r--  1 root root     6127 Apr 21 22:10 fix.log
+drwx------. 4 root root     4096 Apr 21 14:02 grub2
+-rw-r--r--  1 root root      652 Apr 21 20:48 init-progress.log
+-rw-r--r--  1 root root 24584379 Apr 21 22:27 initramfs-6.18.15-m1opt+.img
+-rw-r--r--. 1 root root  4568631 Apr 20 21:00 initramfs-6.18.15-m1opt+.img.orig
+-rw-r--r--  1 root root 24584379 Apr 21 22:27 initramfs-rescue.img
+-rw-r--r--  1 root root     1273 Apr 21 22:01 journal-boots.txt
+-rw-r--r--  1 root root    15259 Apr 21 22:01 journal-errors.log
+-rw-r--r--  1 root root   180643 Apr 21 22:01 journal-prev.log
+drwxr-xr-x. 3 root root     4096 Mar 17 13:05 loader
+drwx------  2 root root    16384 Mar 17 13:11 lost+found
+-rw-r--r--  1 root root        8 Apr 21 21:24 m_01.txt
+-rw-r--r--  1 root root       17 Apr 21 21:24 m_02.txt
+-rw-r--r--  1 root root       20 Apr 21 21:24 m_03.txt
+-rw-r--r--  1 root root        0 Apr 21 21:24 m_03err.txt
+-rw-r--r--  1 root root       13 Apr 21 21:24 m_04.txt
+-rw-r--r--  1 root root        0 Apr 21 21:24 m_04err.txt
+-rw-r--r--  1 root root       17 Apr 21 21:24 m_05.txt
+-rw-r--r--  1 root root        0 Apr 21 21:24 m_05err.txt
+-rw-r--r--  1 root root       15 Apr 21 21:24 m_06.txt
+-rw-r--r--  1 root root       17 Apr 21 21:24 m_07.txt
+-rw-r--r--  1 root root        0 Apr 21 21:24 m_07test.txt
+-rw-r--r--  1 root root       20 Apr 21 21:24 m_08.txt
+-rw-r--r--  1 root root       14 Apr 21 21:24 m_09.txt
+-rw-r--r--  1 root root        0 Apr 21 21:24 m_09chrooterr.txt
+-rw-r--r--  1 root root       13 Apr 21 21:24 m_10.txt
+-rw-r--r--  1 root root       18 Apr 21 21:24 m_11.txt
+-rw-r--r--  1 root root       35 Apr 21 21:24 m_chroot01.txt
+-rw-r--r--  1 root root       17 Apr 21 21:24 m_chroot02.txt
+-rw-r--r--  1 root root      291 Apr 21 21:24 m_chroot03_dracut.log
+-rw-r--r--  1 root root        7 Apr 21 21:24 m_chroot04.txt
+-rw-r--r--  1 root root      240 Apr 21 21:24 m_chroot05_initramfs.txt
+-rw-r--r--  1 root root       23 Apr 21 21:24 m_chroot06.txt
+-rw-r--r--  1 root root      256 Apr 21 21:24 m_chroot07_entries.txt
+-rw-r--r--  1 root root       15 Apr 21 22:01 r_01.txt
+-rw-r--r--  1 root root       13 Apr 21 22:01 r_02.txt
+-rw-r--r--  1 root root       11 Apr 21 22:01 r_03.txt
+-rw-r--r--  1 root root       14 Apr 21 22:01 r_04.txt
+-rw-r--r--  1 root root       20 Apr 21 22:01 r_05.txt
+-rw-r--r--  1 root root       14 Apr 21 22:01 r_06.txt
+-rw-r--r--  1 root root       13 Apr 21 22:01 r_07.txt
+-rw-r--r--  1 root root       16 Apr 21 22:01 r_08.txt
+-rw-r--r--  1 root root       95 Apr 21 22:01 r_chroot01.txt
+-rw-r--r--  1 root root       27 Apr 21 22:01 r_chroot02.txt
+-rw-r--r--  1 root root        0 Apr 21 22:01 r_chrooterr.txt
+-rw-r--r--  1 root root       14 Apr 21 22:01 r_passwd.txt
+-rwxr-xr-x  1 root root     1371 Apr 21 16:39 recovery-info.sh
+-rw-r--r--  1 root root     4876 Apr 21 18:17 recovery.log
+-rw-r--r--  1 root root     3742 Apr 21 22:01 rescue-listing.txt
+-rw-r--r--  1 root root       90 Apr 21 22:01 systemctl-status.txt
+-rw-r--r--  1 root root 12855540 Apr 19 21:00 vmlinuz-6.18.15-m1opt+
++ echo '=== loader entries ==='
+=== loader entries ===
++ ls -la /boot/loader/entries/
+total 20
+drwx------. 2 root root 4096 Apr 21 22:10 .
+drwxr-xr-x. 3 root root 4096 Mar 17 13:05 ..
+-rw-r--r--  1 root root  325 Apr 21 22:38 a2a47b05f5f24e679b6b3b0780a58ce4-6.18.15-m1opt+.conf
+-rw-r--r--  1 root root  284 Apr 21 22:10 permissive-selinux.conf
+-rw-r--r--  1 root root  229 Apr 21 22:10 rescue-recovery.conf
++ for f in /boot/loader/entries/*.conf
++ echo '--- /boot/loader/entries/a2a47b05f5f24e679b6b3b0780a58ce4-6.18.15-m1opt+.conf ---'
+--- /boot/loader/entries/a2a47b05f5f24e679b6b3b0780a58ce4-6.18.15-m1opt+.conf ---
++ cat /boot/loader/entries/a2a47b05f5f24e679b6b3b0780a58ce4-6.18.15-m1opt+.conf
+title Asahi Bash Recovery (run /boot/fix-asahi.sh)
+version 6.18.15-m1opt+bash
+linux /vmlinuz-6.18.15-m1opt+
+options root=/dev/nvme0n1p6 rw rootflags=subvol=root rootfstype=btrfs init=/bin/bash selinux=0 rootwait earlycon loglevel=8 ignore_loglevel
+grub_users $grub_users
+grub_arg --unrestricted
+grub_class fedora-asahi-remix
++ for f in /boot/loader/entries/*.conf
++ echo '--- /boot/loader/entries/permissive-selinux.conf ---'
+--- /boot/loader/entries/permissive-selinux.conf ---
++ cat /boot/loader/entries/permissive-selinux.conf
+title Asahi (selinux=permissive fallback)
+version 6.18.15-m1opt+permissive
+linux /vmlinuz-6.18.15-m1opt+
+initrd /initramfs-6.18.15-m1opt+.img
+options root=UUID=3cbd9d9a-90a4-404d-afaa-446e1c0722dc ro rootflags=subvol=root enforcing=0 workqueue.power_efficient=1 fw_devlink=permissive
++ for f in /boot/loader/entries/*.conf
++ echo '--- /boot/loader/entries/rescue-recovery.conf ---'
+--- /boot/loader/entries/rescue-recovery.conf ---
++ cat /boot/loader/entries/rescue-recovery.conf
+title >> RESCUE shell <<
+version 6.18.15-m1opt+rescue
+linux /vmlinuz-6.18.15-m1opt+
+initrd /initramfs-rescue.img
+options root=UUID=3cbd9d9a-90a4-404d-afaa-446e1c0722dc rw rootflags=subvol=root earlycon loglevel=8 ignore_loglevel
++ echo '=== firmware loaded ==='
+=== firmware loaded ===
++ ls /lib/firmware/brcm/
++ head -40
+brcmbt4377b3-apple,formosa.bin
+brcmbt4377b3-apple,formosa.ptb
+brcmbt4378b1-apple,atlantisb-m.bin
+brcmbt4378b1-apple,atlantisb-m.ptb
+brcmbt4378b1-apple,atlantisb-u.bin
+brcmbt4378b1-apple,atlantisb-u.ptb
+brcmbt4378b1-apple,capri-m.bin
+brcmbt4378b1-apple,capri-m.ptb
+brcmbt4378b1-apple,capri-u.bin
+brcmbt4378b1-apple,capri-u.ptb
+brcmbt4378b1-apple,honshu-m.bin
+brcmbt4378b1-apple,honshu-m.ptb
+brcmbt4378b1-apple,honshu-u.bin
+brcmbt4378b1-apple,honshu-u.ptb
+brcmbt4378b1-apple,santorini-m.bin
+brcmbt4378b1-apple,santorini-m.ptb
+brcmbt4378b1-apple,santorini-u.bin
+brcmbt4378b1-apple,santorini-u.ptb
+brcmbt4378b1-apple,shikoku-m.bin
+brcmbt4378b1-apple,shikoku-m.ptb
+brcmbt4378b1-apple,shikoku-u.bin
+brcmbt4378b1-apple,shikoku-u.ptb
+brcmbt4378b3-apple,kyushu-u.bin
+brcmbt4378b3-apple,kyushu-u.ptb
+brcmbt4387c2-apple,hokkaido-u.bin
+brcmbt4387c2-apple,hokkaido-u.ptb
+brcmbt4387c2-apple,madagascar-u.bin
+brcmbt4387c2-apple,madagascar-u.ptb
+brcmbt4387c2-apple,maldives-u.bin
+brcmbt4387c2-apple,maldives-u.ptb
+brcmbt4387c2-apple,okinawa-u.bin
+brcmbt4387c2-apple,okinawa-u.ptb
+brcmbt4387c2-apple,snake-u.bin
+brcmbt4387c2-apple,snake-u.ptb
+brcmbt4388b0-apple,amami-u.bin
+brcmbt4388b0-apple,miyake-u.bin
+brcmbt4388b0-apple,miyake-u.ptb
+brcmbt4388b0-apple,tokara-u.bin
+brcmbt4388c0-apple,amami-u.bin
+brcmbt4388c0-apple,amami-u.ptb
++ echo '=== END ==='
+=== END ===
++ date
+Tue Apr 21 22:48:56 -03 2026
++ sync
++ sync
++ set +x
+
+DONE. Log written to /boot/diag.log
+Now run: poweroff   (then boot to macOS)

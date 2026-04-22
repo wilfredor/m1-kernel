@@ -1,0 +1,1453 @@
+Journal file /var/log/journal/a2a47b05f5f24e679b6b3b0780a58ce4/system@692216be4aff4f99a1e28df568c8a166-000000000004727c-00064ff94838115c.journal is truncated, ignoring file.
+Apr 21 21:31:40 fedora kernel: Booting Linux on physical CPU 0x0000000000 [0x611f0221]
+Apr 21 21:31:40 fedora kernel: Linux version 6.18.15-m1opt+ (wilfredor@fedora) (gcc (GCC) 15.2.1 20260123 (Red Hat 15.2.1-7), GNU ld version 2.45.1-4.fc43) #14 SMP PREEMPT_DYNAMIC Mon Apr 20 22:39:43 -03 2026
+Apr 21 21:31:40 fedora kernel: KASLR enabled
+Apr 21 21:31:40 fedora kernel: random: crng init done
+Apr 21 21:31:40 fedora kernel: Machine model: Apple MacBook Air (M1, 2020)
+Apr 21 21:31:40 fedora kernel: efi: EFI v2.11 by Das U-Boot
+Apr 21 21:31:40 fedora kernel: efi: RTPROP=0xbda3c9040 SMBIOS 3.0=0xbdb467000 MOKvar=0xbda39e000 INITRD=0xbda393040 MEMRESERVE=0xbda391040 
+Apr 21 21:31:40 fedora kernel: OF: reserved mem: 0x0000000801b50000..0x0000000801f7ffff (4288 KiB) nomap non-reusable asc-firmware@801b50000
+Apr 21 21:31:40 fedora kernel: OF: reserved mem: 0x0000000800b0c000..0x000000080152ffff (10384 KiB) nomap non-reusable asc-firmware@800b0c000
+Apr 21 21:31:40 fedora kernel: OF: reserved mem: 0x0000000804418000..0x00000008049b3fff (5744 KiB) map non-reusable sep-firmware
+Apr 21 21:31:40 fedora kernel: OF: reserved mem: 0x0000000be262c000..0x0000000be5387fff (46448 KiB) nomap non-reusable framebuffer@be262c000
+Apr 21 21:31:40 fedora kernel: OF: reserved mem: 0x0000000be5388000..0x0000000be5447fff (768 KiB) nomap non-reusable region95@be5388000
+Apr 21 21:31:40 fedora kernel: OF: reserved mem: 0x0000000be5448000..0x0000000be544bfff (16 KiB) nomap non-reusable region94@be5448000
+Apr 21 21:31:40 fedora kernel: OF: reserved mem: 0x0000000be544c000..0x0000000be644bfff (16384 KiB) nomap non-reusable region57@be544c000
+Apr 21 21:31:40 fedora kernel: OF: reserved mem: 0x0000000be644c000..0x0000000be674bfff (3072 KiB) nomap non-reusable dcp_data@be644c000
+Apr 21 21:31:40 fedora kernel: OF: reserved mem: 0x0000000bdf51c000..0x0000000bdf51ffff (16 KiB) map non-reusable flash@bdf51c000
+Apr 21 21:31:40 fedora kernel: OF: reserved mem: 0x0000000804000000..0x000000080405bfff (368 KiB) map non-reusable flash@804000000
+Apr 21 21:31:40 fedora kernel: OF: reserved mem: 0x0000000bfff70000..0x0000000bfff73fff (16 KiB) map non-reusable uat-handoff
+Apr 21 21:31:40 fedora kernel: OF: reserved mem: 0x0000000bfff78000..0x0000000bfffb7fff (256 KiB) map non-reusable uat-pagetables
+Apr 21 21:31:40 fedora kernel: OF: reserved mem: 0x0000000bfffb8000..0x0000000bfffbbfff (16 KiB) map non-reusable uat-ttbs
+Apr 21 21:31:40 fedora kernel: OF: reserved mem: 0x0000000bdf520000..0x0000000bdf6cbfff (1712 KiB) nomap non-reusable isp-heap
+Apr 21 21:31:40 fedora kernel: Zone ranges:
+Apr 21 21:31:40 fedora kernel:   DMA      [mem 0x0000000800b0c000-0x0000000bfffbbfff]
+Apr 21 21:31:40 fedora kernel:   DMA32    empty
+Apr 21 21:31:40 fedora kernel:   Normal   empty
+Apr 21 21:31:40 fedora kernel: Movable zone start for each node
+Apr 21 21:31:40 fedora kernel: Early memory node ranges
+Apr 21 21:31:40 fedora kernel:   node   0: [mem 0x0000000800b0c000-0x000000080152ffff]
+Apr 21 21:31:40 fedora kernel:   node   0: [mem 0x0000000801b50000-0x0000000801f7ffff]
+Apr 21 21:31:40 fedora kernel:   node   0: [mem 0x0000000802078000-0x00000008040b3fff]
+Apr 21 21:31:40 fedora kernel:   node   0: [mem 0x00000008040b4000-0x00000008041a7fff]
+Apr 21 21:31:40 fedora kernel:   node   0: [mem 0x00000008041a8000-0x0000000805f0ffff]
+Apr 21 21:31:40 fedora kernel:   node   0: [mem 0x0000000805f10000-0x0000000805f1ffff]
+Apr 21 21:31:40 fedora kernel:   node   0: [mem 0x0000000805f20000-0x0000000805f23fff]
+Apr 21 21:31:40 fedora kernel:   node   0: [mem 0x0000000805f24000-0x0000000805f33fff]
+Apr 21 21:31:40 fedora kernel:   node   0: [mem 0x0000000805f34000-0x0000000805f37fff]
+Apr 21 21:31:40 fedora kernel:   node   0: [mem 0x0000000805f38000-0x0000000805f47fff]
+Apr 21 21:31:40 fedora kernel:   node   0: [mem 0x0000000805f48000-0x0000000805f4bfff]
+Apr 21 21:31:40 fedora kernel:   node   0: [mem 0x0000000805f4c000-0x0000000805f5bfff]
+Apr 21 21:31:40 fedora kernel:   node   0: [mem 0x0000000805f5c000-0x0000000805f5ffff]
+Apr 21 21:31:40 fedora kernel:   node   0: [mem 0x0000000805f60000-0x0000000805f6ffff]
+Apr 21 21:31:40 fedora kernel:   node   0: [mem 0x0000000805f70000-0x0000000805f73fff]
+Apr 21 21:31:40 fedora kernel:   node   0: [mem 0x0000000805f74000-0x0000000805f83fff]
+Apr 21 21:31:40 fedora kernel:   node   0: [mem 0x0000000805f84000-0x0000000805f87fff]
+Apr 21 21:31:40 fedora kernel:   node   0: [mem 0x0000000805f88000-0x0000000805f97fff]
+Apr 21 21:31:40 fedora kernel:   node   0: [mem 0x0000000805f98000-0x0000000805f9bfff]
+Apr 21 21:31:40 fedora kernel:   node   0: [mem 0x0000000805f9c000-0x0000000805fc7fff]
+Apr 21 21:31:40 fedora kernel:   node   0: [mem 0x0000000805fc8000-0x0000000b413fffff]
+Apr 21 21:31:40 fedora kernel:   node   0: [mem 0x0000000b41400000-0x0000000b41403fff]
+Apr 21 21:31:40 fedora kernel:   node   0: [mem 0x0000000b41404000-0x0000000bda39bfff]
+Apr 21 21:31:40 fedora kernel:   node   0: [mem 0x0000000bda39c000-0x0000000bda39ffff]
+Apr 21 21:31:40 fedora kernel:   node   0: [mem 0x0000000bda3a0000-0x0000000bda3c7fff]
+Apr 21 21:31:40 fedora kernel:   node   0: [mem 0x0000000bda3c8000-0x0000000bda3effff]
+Apr 21 21:31:40 fedora kernel:   node   0: [mem 0x0000000bda3f0000-0x0000000bdb463fff]
+Apr 21 21:31:40 fedora kernel:   node   0: [mem 0x0000000bdb464000-0x0000000bdb467fff]
+Apr 21 21:31:40 fedora kernel:   node   0: [mem 0x0000000bdb468000-0x0000000bdf42ffff]
+Apr 21 21:31:40 fedora kernel:   node   0: [mem 0x0000000bdf430000-0x0000000bdf43ffff]
+Apr 21 21:31:40 fedora kernel:   node   0: [mem 0x0000000bdf440000-0x0000000bdf517fff]
+Apr 21 21:31:40 fedora kernel:   node   0: [mem 0x0000000bdf51c000-0x0000000bdf51ffff]
+Apr 21 21:31:40 fedora kernel:   node   0: [mem 0x0000000bdf520000-0x0000000bdf6cbfff]
+Apr 21 21:31:40 fedora kernel:   node   0: [mem 0x0000000be262c000-0x0000000be674bfff]
+Apr 21 21:31:40 fedora kernel:   node   0: [mem 0x0000000bfff70000-0x0000000bfff73fff]
+Apr 21 21:31:40 fedora kernel:   node   0: [mem 0x0000000bfff78000-0x0000000bfffbbfff]
+Apr 21 21:31:40 fedora kernel: Initmem setup node 0 [mem 0x0000000800b0c000-0x0000000bfffbbfff]
+Apr 21 21:31:40 fedora kernel: On node 0, zone DMA: 707 pages in unavailable ranges
+Apr 21 21:31:40 fedora kernel: On node 0, zone DMA: 392 pages in unavailable ranges
+Apr 21 21:31:40 fedora kernel: On node 0, zone DMA: 62 pages in unavailable ranges
+Apr 21 21:31:40 fedora kernel: On node 0, zone DMA: 1 pages in unavailable ranges
+Apr 21 21:31:40 fedora kernel: On node 0, zone DMA: 3032 pages in unavailable ranges
+Apr 21 21:31:40 fedora kernel: On node 0, zone DMA: 9737 pages in unavailable ranges
+Apr 21 21:31:40 fedora kernel: On node 0, zone DMA: 1 pages in unavailable ranges
+Apr 21 21:31:40 fedora kernel: On node 0, zone DMA: 17 pages in unavailable ranges
+Apr 21 21:31:40 fedora kernel: cma: Reserved 64 MiB at 0x0000000806000000
+Apr 21 21:31:40 fedora kernel: percpu: Embedded 14 pages/cpu s102424 r8192 d118760 u229376
+Apr 21 21:31:40 fedora kernel: pcpu-alloc: s102424 r8192 d118760 u229376 alloc=14*16384
+Apr 21 21:31:40 fedora kernel: pcpu-alloc: [0] 0 [0] 1 [0] 2 [0] 3 [0] 4 [0] 5 [0] 6 [0] 7 
+Apr 21 21:31:40 fedora kernel: Detected VIPT I-cache on CPU0
+Apr 21 21:31:40 fedora kernel: CPU features: detected: Address authentication (IMP DEF algorithm)
+Apr 21 21:31:40 fedora kernel: CPU features: detected: Virtualization Host Extensions
+Apr 21 21:31:40 fedora kernel: CPU features: detected: Spectre-v4
+Apr 21 21:31:40 fedora kernel: CPU features: detected: Spectre-BHB
+Apr 21 21:31:40 fedora kernel: CPU features: detected: Apple IMPDEF PMUv3 Traps
+Apr 21 21:31:40 fedora kernel: alternatives: applying boot alternatives
+Apr 21 21:31:40 fedora kernel: Kernel command line: BOOT_IMAGE=(hd0,gpt5)/vmlinuz-6.18.15-m1opt+ root=UUID=3cbd9d9a-90a4-404d-afaa-446e1c0722dc ro rootflags=subvol=root rhgb quiet workqueue.power_efficient=1 fw_devlink=permissive
+Apr 21 21:31:40 fedora kernel: Unknown kernel command line parameters "rhgb", will be passed to user space.
+Apr 21 21:31:40 fedora kernel: printk: log buffer data + meta data: 262144 + 917504 = 1179648 bytes
+Apr 21 21:31:40 fedora kernel: Dentry cache hash table entries: 2097152 (order: 10, 16777216 bytes, linear)
+Apr 21 21:31:40 fedora kernel: Inode-cache hash table entries: 1048576 (order: 9, 8388608 bytes, linear)
+Apr 21 21:31:40 fedora kernel: software IO TLB: SWIOTLB bounce buffer size adjusted to 15MB
+Apr 21 21:31:40 fedora kernel: software IO TLB: area num 8.
+Apr 21 21:31:40 fedora kernel: software IO TLB: SWIOTLB bounce buffer size roundup to 16MB
+Apr 21 21:31:40 fedora kernel: software IO TLB: mapped [mem 0x0000000bdc2f0000-0x0000000bdd2f0000] (16MB)
+Apr 21 21:31:40 fedora kernel: Built 1 zonelists, mobility grouping on.  Total pages: 1018243
+Apr 21 21:31:40 fedora kernel: mem auto-init: stack:all(zero), heap alloc:on, heap free:off
+Apr 21 21:31:40 fedora kernel: SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=8, Nodes=1
+Apr 21 21:31:40 fedora kernel: ftrace: allocating 57807 entries in 57 pages
+Apr 21 21:31:40 fedora kernel: ftrace: allocated 57 pages with 4 groups
+Apr 21 21:31:40 fedora kernel: Dynamic Preempt: full
+Apr 21 21:31:40 fedora kernel: rcu: Preemptible hierarchical RCU implementation.
+Apr 21 21:31:40 fedora kernel: rcu:         RCU event tracing is enabled.
+Apr 21 21:31:40 fedora kernel: rcu:         RCU restricting CPUs from NR_CPUS=16 to nr_cpu_ids=8.
+Apr 21 21:31:40 fedora kernel:         Trampoline variant of Tasks RCU enabled.
+Apr 21 21:31:40 fedora kernel:         Rude variant of Tasks RCU enabled.
+Apr 21 21:31:40 fedora kernel:         Tracing variant of Tasks RCU enabled.
+Apr 21 21:31:40 fedora kernel: rcu: RCU calculated value of scheduler-enlistment delay is 100 jiffies.
+Apr 21 21:31:40 fedora kernel: rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=8
+Apr 21 21:31:40 fedora kernel: RCU Tasks: Setting shift to 3 and lim to 1 rcu_task_cb_adjust=1 rcu_task_cpu_ids=8.
+Apr 21 21:31:40 fedora kernel: RCU Tasks Rude: Setting shift to 3 and lim to 1 rcu_task_cb_adjust=1 rcu_task_cpu_ids=8.
+Apr 21 21:31:40 fedora kernel: RCU Tasks Trace: Setting shift to 3 and lim to 1 rcu_task_cb_adjust=1 rcu_task_cpu_ids=8.
+Apr 21 21:31:40 fedora kernel: NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+Apr 21 21:31:40 fedora kernel: Root IRQ handler: aic_handle_irq
+Apr 21 21:31:40 fedora kernel: Root FIQ handler: aic_handle_fiq
+Apr 21 21:31:40 fedora kernel: irq_apple_aic: Using Fast IPIs
+Apr 21 21:31:40 fedora kernel: irq_apple_aic: Initialized with 896/1024 IRQs * 1/1 die(s), 7 FIQs, 32 vIPIs
+Apr 21 21:31:40 fedora kernel: rcu: srcu_init: Setting srcu_struct sizes based on contention.
+Apr 21 21:31:40 fedora kernel: arch_timer: cp15 timer running at 24.00MHz (phys).
+Apr 21 21:31:40 fedora kernel: clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x588fe9dc0, max_idle_ns: 440795202592 ns
+Apr 21 21:31:40 fedora kernel: sched_clock: 56 bits at 24MHz, resolution 41ns, wraps every 4398046511097ns
+Apr 21 21:31:40 fedora kernel: Console: colour dummy device 80x25
+Apr 21 21:31:40 fedora kernel: printk: legacy console [tty0] enabled
+Apr 21 21:31:40 fedora kernel: Calibrating delay loop (skipped), value calculated using timer frequency.. 48.00 BogoMIPS (lpj=24000)
+Apr 21 21:31:40 fedora kernel: pid_max: default: 32768 minimum: 301
+Apr 21 21:31:40 fedora kernel: LSM: initializing lsm=lockdown,capability,yama,selinux,bpf,landlock
+Apr 21 21:31:40 fedora kernel: Yama: becoming mindful.
+Apr 21 21:31:40 fedora kernel: SELinux:  Initializing.
+Apr 21 21:31:40 fedora kernel: LSM support for eBPF active
+Apr 21 21:31:40 fedora kernel: landlock: Up and running.
+Apr 21 21:31:40 fedora kernel: Mount-cache hash table entries: 32768 (order: 4, 262144 bytes, linear)
+Apr 21 21:31:40 fedora kernel: Mountpoint-cache hash table entries: 32768 (order: 4, 262144 bytes, linear)
+Apr 21 21:31:40 fedora kernel: rcu: Hierarchical SRCU implementation.
+Apr 21 21:31:40 fedora kernel: rcu:         Max phase no-delay instances is 400.
+Apr 21 21:31:40 fedora kernel: Timer migration: 1 hierarchy levels; 8 children per group; 1 crossnode level
+Apr 21 21:31:40 fedora kernel: Remapping and enabling EFI services.
+Apr 21 21:31:40 fedora kernel: smp: Bringing up secondary CPUs ...
+Apr 21 21:31:40 fedora kernel: Detected VIPT I-cache on CPU1
+Apr 21 21:31:40 fedora kernel: CPU1: Booted secondary processor 0x0000000001 [0x611f0221]
+Apr 21 21:31:40 fedora kernel: Detected VIPT I-cache on CPU2
+Apr 21 21:31:40 fedora kernel: CPU2: Booted secondary processor 0x0000000002 [0x611f0221]
+Apr 21 21:31:40 fedora kernel: Detected VIPT I-cache on CPU3
+Apr 21 21:31:40 fedora kernel: CPU3: Booted secondary processor 0x0000000003 [0x611f0221]
+Apr 21 21:31:40 fedora kernel: Detected VIPT I-cache on CPU4
+Apr 21 21:31:40 fedora kernel: CPU4: Booted secondary processor 0x0000010100 [0x611f0231]
+Apr 21 21:31:40 fedora kernel: Detected VIPT I-cache on CPU5
+Apr 21 21:31:40 fedora kernel: CPU5: Booted secondary processor 0x0000010101 [0x611f0231]
+Apr 21 21:31:40 fedora kernel: Detected VIPT I-cache on CPU6
+Apr 21 21:31:40 fedora kernel: CPU6: Booted secondary processor 0x0000010102 [0x611f0231]
+Apr 21 21:31:40 fedora kernel: Detected VIPT I-cache on CPU7
+Apr 21 21:31:40 fedora kernel: CPU7: Booted secondary processor 0x0000010103 [0x611f0231]
+Apr 21 21:31:40 fedora kernel: smp: Brought up 1 node, 8 CPUs
+Apr 21 21:31:40 fedora kernel: SMP: Total of 8 processors activated.
+Apr 21 21:31:40 fedora kernel: CPU: All CPU(s) started at EL2
+Apr 21 21:31:40 fedora kernel: CPU features: detected: ARMv8.4 Translation Table Level
+Apr 21 21:31:40 fedora kernel: CPU features: detected: Data cache clean to the PoU not required for I/D coherence
+Apr 21 21:31:40 fedora kernel: CPU features: detected: Common not Private translations
+Apr 21 21:31:40 fedora kernel: CPU features: detected: CRC32 instructions
+Apr 21 21:31:40 fedora kernel: CPU features: detected: Data cache clean to Point of Deep Persistence
+Apr 21 21:31:40 fedora kernel: CPU features: detected: Data cache clean to Point of Persistence
+Apr 21 21:31:40 fedora kernel: CPU features: detected: Data independent timing control (DIT)
+Apr 21 21:31:40 fedora kernel: CPU features: detected: E0PD
+Apr 21 21:31:40 fedora kernel: CPU features: detected: Enhanced Virtualization Traps
+Apr 21 21:31:40 fedora kernel: CPU features: detected: Generic authentication (IMP DEF algorithm)
+Apr 21 21:31:40 fedora kernel: CPU features: detected: RCpc load-acquire (LDAPR)
+Apr 21 21:31:40 fedora kernel: CPU features: detected: LSE atomic instructions
+Apr 21 21:31:40 fedora kernel: CPU features: detected: Privileged Access Never
+Apr 21 21:31:40 fedora kernel: CPU features: detected: RAS Extension Support
+Apr 21 21:31:40 fedora kernel: CPU features: detected: Speculation barrier (SB)
+Apr 21 21:31:40 fedora kernel: CPU features: detected: Stage-2 Force Write-Back
+Apr 21 21:31:40 fedora kernel: CPU features: detected: TLB range maintenance instructions
+Apr 21 21:31:40 fedora kernel: CPU features: detected: Speculative Store Bypassing Safe (SSBS)
+Apr 21 21:31:40 fedora kernel: alternatives: applying system-wide alternatives
+Apr 21 21:31:40 fedora kernel: CPU features: detected: ACTLR virtualization (IMPDEF, Apple)
+Apr 21 21:31:40 fedora kernel: CPU features: detected: TSO memory model (Apple)
+Apr 21 21:31:40 fedora kernel: Memory: 15940192K/16291888K available (18176K kernel code, 2610K rwdata, 7104K rodata, 7296K init, 730K bss, 269584K reserved, 65536K cma-reserved)
+Apr 21 21:31:40 fedora kernel: devtmpfs: initialized
+Apr 21 21:31:40 fedora kernel: setend instruction emulation is not supported on this system
+Apr 21 21:31:40 fedora kernel: clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 1911260446275000 ns
+Apr 21 21:31:40 fedora kernel: posixtimers hash table entries: 4096 (order: 2, 65536 bytes, linear)
+Apr 21 21:31:40 fedora kernel: futex hash table entries: 2048 (131072 bytes on 1 NUMA nodes, total 128 KiB, linear).
+Apr 21 21:31:40 fedora kernel: 5920 pages in range for non-PLT usage
+Apr 21 21:31:40 fedora kernel: 128800 pages in range for PLT usage
+Apr 21 21:31:40 fedora kernel: pinctrl core: initialized pinctrl subsystem
+Apr 21 21:31:40 fedora kernel: SMBIOS 3.7.0 present.
+Apr 21 21:31:40 fedora kernel: DMI: Apple Inc. MacBookAir10,1/J313, BIOS 2025.10 10/01/2025
+Apr 21 21:31:40 fedora kernel: DMI: Memory slots populated: 0/0
+Apr 21 21:31:40 fedora kernel: NET: Registered PF_NETLINK/PF_ROUTE protocol family
+Apr 21 21:31:40 fedora kernel: DMA: preallocated 2048 KiB GFP_KERNEL pool for atomic allocations
+Apr 21 21:31:40 fedora kernel: DMA: preallocated 2048 KiB GFP_KERNEL|GFP_DMA pool for atomic allocations
+Apr 21 21:31:40 fedora kernel: DMA: preallocated 2048 KiB GFP_KERNEL|GFP_DMA32 pool for atomic allocations
+Apr 21 21:31:40 fedora kernel: audit: initializing netlink subsys (disabled)
+Apr 21 21:31:40 fedora kernel: audit: type=2000 audit(0.007:1): state=initialized audit_enabled=0 res=1
+Apr 21 21:31:40 fedora kernel: thermal_sys: Registered thermal governor 'step_wise'
+Apr 21 21:31:40 fedora kernel: cpuidle: using governor menu
+Apr 21 21:31:40 fedora kernel: hw-breakpoint: found 6 breakpoint and 4 watchpoint registers.
+Apr 21 21:31:40 fedora kernel: ASID allocator initialised with 256 entries
+Apr 21 21:31:40 fedora kernel: Serial: AMBA PL011 UART driver
+Apr 21 21:31:40 fedora kernel: /soc/i2c@235010000/usb-pd@38/connector: Fixed dependency cycle(s) with /soc/phy@383000000
+Apr 21 21:31:40 fedora kernel: /soc/i2c@235010000/usb-pd@38/connector: Fixed dependency cycle(s) with /soc/usb@382280000
+Apr 21 21:31:40 fedora kernel: /soc/i2c@235010000/usb-pd@3f/connector: Fixed dependency cycle(s) with /soc/phy@503000000
+Apr 21 21:31:40 fedora kernel: /soc/i2c@235010000/usb-pd@3f/connector: Fixed dependency cycle(s) with /soc/usb@502280000
+Apr 21 21:31:40 fedora kernel: /soc/usb@382280000: Fixed dependency cycle(s) with /soc/i2c@235010000/usb-pd@38/connector
+Apr 21 21:31:40 fedora kernel: /soc/usb@382280000: Fixed dependency cycle(s) with /soc/phy@383000000
+Apr 21 21:31:40 fedora kernel: /soc/phy@383000000: Fixed dependency cycle(s) with /soc/usb@382280000
+Apr 21 21:31:40 fedora kernel: /soc/phy@383000000: Fixed dependency cycle(s) with /soc/i2c@235010000/usb-pd@38/connector
+Apr 21 21:31:40 fedora kernel: /soc/usb@502280000: Fixed dependency cycle(s) with /soc/i2c@235010000/usb-pd@3f/connector
+Apr 21 21:31:40 fedora kernel: /soc/usb@502280000: Fixed dependency cycle(s) with /soc/phy@503000000
+Apr 21 21:31:40 fedora kernel: /soc/phy@503000000: Fixed dependency cycle(s) with /soc/usb@502280000
+Apr 21 21:31:40 fedora kernel: /soc/phy@503000000: Fixed dependency cycle(s) with /soc/i2c@235010000/usb-pd@3f/connector
+Apr 21 21:31:40 fedora kernel: /soc/pcie@690000000: Fixed dependency cycle(s) with /soc/pcie@690000000
+Apr 21 21:31:40 fedora kernel: /soc/pcie@690000000/pci@0,0: Fixed dependency cycle(s) with /soc/pcie@690000000/pci@0,0
+Apr 21 21:31:40 fedora kernel: /soc/i2c@235010000/usb-pd@38/connector: Fixed dependency cycle(s) with /soc/phy@383000000
+Apr 21 21:31:40 fedora kernel: /soc/i2c@235010000/usb-pd@38/connector: Fixed dependency cycle(s) with /soc/usb@382280000
+Apr 21 21:31:40 fedora kernel: /soc/i2c@235010000/usb-pd@3f/connector: Fixed dependency cycle(s) with /soc/phy@503000000
+Apr 21 21:31:40 fedora kernel: /soc/i2c@235010000/usb-pd@3f/connector: Fixed dependency cycle(s) with /soc/usb@502280000
+Apr 21 21:31:40 fedora kernel: /soc/i2c@235010000/usb-pd@38/connector: Fixed dependency cycle(s) with /soc/usb@382280000
+Apr 21 21:31:40 fedora kernel: /soc/usb@382280000: Fixed dependency cycle(s) with /soc/i2c@235010000/usb-pd@38/connector
+Apr 21 21:31:40 fedora kernel: /soc/usb@382280000: Fixed dependency cycle(s) with /soc/phy@383000000
+Apr 21 21:31:40 fedora kernel: /soc/usb@382280000: Fixed dependency cycle(s) with /soc/phy@383000000
+Apr 21 21:31:40 fedora kernel: /soc/i2c@235010000/usb-pd@38/connector: Fixed dependency cycle(s) with /soc/phy@383000000
+Apr 21 21:31:40 fedora kernel: /soc/phy@383000000: Fixed dependency cycle(s) with /soc/usb@382280000
+Apr 21 21:31:40 fedora kernel: /soc/phy@383000000: Fixed dependency cycle(s) with /soc/i2c@235010000/usb-pd@38/connector
+Apr 21 21:31:40 fedora kernel: /soc/i2c@235010000/usb-pd@3f/connector: Fixed dependency cycle(s) with /soc/usb@502280000
+Apr 21 21:31:40 fedora kernel: /soc/usb@502280000: Fixed dependency cycle(s) with /soc/i2c@235010000/usb-pd@3f/connector
+Apr 21 21:31:40 fedora kernel: /soc/usb@502280000: Fixed dependency cycle(s) with /soc/phy@503000000
+Apr 21 21:31:40 fedora kernel: /soc/usb@502280000: Fixed dependency cycle(s) with /soc/phy@503000000
+Apr 21 21:31:40 fedora kernel: /soc/i2c@235010000/usb-pd@3f/connector: Fixed dependency cycle(s) with /soc/phy@503000000
+Apr 21 21:31:40 fedora kernel: /soc/phy@503000000: Fixed dependency cycle(s) with /soc/usb@502280000
+Apr 21 21:31:40 fedora kernel: /soc/phy@503000000: Fixed dependency cycle(s) with /soc/i2c@235010000/usb-pd@3f/connector
+Apr 21 21:31:40 fedora kernel: /soc/pcie@690000000: Fixed dependency cycle(s) with /soc/pcie@690000000
+Apr 21 21:31:40 fedora kernel: /soc/pcie@690000000/pci@0,0: Fixed dependency cycle(s) with /soc/pcie@690000000/pci@0,0
+Apr 21 21:31:40 fedora kernel: raid6: skipped pq benchmark and selected neonx8
+Apr 21 21:31:40 fedora kernel: raid6: using neon recovery algorithm
+Apr 21 21:31:40 fedora kernel: ACPI: Interpreter disabled.
+Apr 21 21:31:40 fedora kernel: iommu: Default domain type: Translated
+Apr 21 21:31:40 fedora kernel: iommu: DMA domain TLB invalidation policy: lazy mode
+Apr 21 21:31:40 fedora kernel: SCSI subsystem initialized
+Apr 21 21:31:40 fedora kernel: usbcore: registered new interface driver usbfs
+Apr 21 21:31:40 fedora kernel: usbcore: registered new interface driver hub
+Apr 21 21:31:40 fedora kernel: usbcore: registered new device driver usb
+Apr 21 21:31:40 fedora kernel: pps_core: LinuxPPS API ver. 1 registered
+Apr 21 21:31:40 fedora kernel: pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+Apr 21 21:31:40 fedora kernel: PTP clock support registered
+Apr 21 21:31:40 fedora kernel: scmi_core: SCMI protocol bus registered
+Apr 21 21:31:40 fedora kernel: efivars: Registered efivars operations
+Apr 21 21:31:40 fedora kernel: NetLabel: Initializing
+Apr 21 21:31:40 fedora kernel: NetLabel:  domain hash size = 128
+Apr 21 21:31:40 fedora kernel: NetLabel:  protocols = UNLABELED CIPSOv4 CALIPSO
+Apr 21 21:31:40 fedora kernel: NetLabel:  unlabeled traffic allowed by default
+Apr 21 21:31:40 fedora kernel: vgaarb: loaded
+Apr 21 21:31:40 fedora kernel: clocksource: Switched to clocksource arch_sys_counter
+Apr 21 21:31:40 fedora kernel: VFS: Disk quotas dquot_6.6.0
+Apr 21 21:31:40 fedora kernel: VFS: Dquot-cache hash table entries: 2048 (order 0, 16384 bytes)
+Apr 21 21:31:40 fedora kernel: pnp: PnP ACPI: disabled
+Apr 21 21:31:40 fedora kernel: NET: Registered PF_INET protocol family
+Apr 21 21:31:40 fedora kernel: IP idents hash table entries: 262144 (order: 7, 2097152 bytes, linear)
+Apr 21 21:31:40 fedora kernel: tcp_listen_portaddr_hash hash table entries: 8192 (order: 3, 131072 bytes, linear)
+Apr 21 21:31:40 fedora kernel: Table-perturb hash table entries: 65536 (order: 4, 262144 bytes, linear)
+Apr 21 21:31:40 fedora kernel: TCP established hash table entries: 131072 (order: 6, 1048576 bytes, linear)
+Apr 21 21:31:40 fedora kernel: TCP bind hash table entries: 65536 (order: 7, 2097152 bytes, linear)
+Apr 21 21:31:40 fedora kernel: TCP: Hash tables configured (established 131072 bind 65536)
+Apr 21 21:31:40 fedora kernel: UDP hash table entries: 8192 (order: 5, 524288 bytes, linear)
+Apr 21 21:31:40 fedora kernel: UDP-Lite hash table entries: 8192 (order: 5, 524288 bytes, linear)
+Apr 21 21:31:40 fedora kernel: NET: Registered PF_UNIX/PF_LOCAL protocol family
+Apr 21 21:31:40 fedora kernel: NET: Registered PF_XDP protocol family
+Apr 21 21:31:40 fedora kernel: PCI: CLS 0 bytes, default 64
+Apr 21 21:31:40 fedora kernel: Unpacking initramfs...
+Apr 21 21:31:40 fedora kernel: kvm [1]: nv: 568 coarse grained trap handlers
+Apr 21 21:31:40 fedora kernel: kvm [1]: IPA Size Limit: 36 bits (Reduced IPA size, limited VM/VMM compatibility)
+Apr 21 21:31:40 fedora kernel: kvm [1]: Non-architectural vgic, tainting kernel
+Apr 21 21:31:40 fedora kernel: kvm [1]: GICv3: no GICV resource entry
+Apr 21 21:31:40 fedora kernel: kvm [1]: disabling GICv2 emulation
+Apr 21 21:31:40 fedora kernel: kvm [1]: GICv3 with broken locally generated SEI
+Apr 21 21:31:40 fedora kernel: kvm [1]: GICv3 sysreg trapping enabled ([G0G1D], reduced performance)
+Apr 21 21:31:40 fedora kernel: kvm [1]: GIC system register CPU interface enabled
+Apr 21 21:31:40 fedora kernel: kvm [1]: vgic interrupt IRQ33
+Apr 21 21:31:40 fedora kernel: kvm [1]: VHE mode initialized successfully
+Apr 21 21:31:40 fedora kernel: Initialise system trusted keyrings
+Apr 21 21:31:40 fedora kernel: Key type blacklist registered
+Apr 21 21:31:40 fedora kernel: workingset: timestamp_bits=46 max_order=20 bucket_order=0
+Apr 21 21:31:40 fedora kernel: integrity: Platform Keyring initialized
+Apr 21 21:31:40 fedora kernel: integrity: Machine keyring initialized
+Apr 21 21:31:40 fedora kernel: cryptd: max_cpu_qlen set to 1000
+Apr 21 21:31:40 fedora kernel: NET: Registered PF_ALG protocol family
+Apr 21 21:31:40 fedora kernel: xor: measuring software checksum speed
+Apr 21 21:31:40 fedora kernel:    8regs           : 29747 MB/sec
+Apr 21 21:31:40 fedora kernel:    32regs          : 29871 MB/sec
+Apr 21 21:31:40 fedora kernel:    arm64_neon      : 31559 MB/sec
+Apr 21 21:31:40 fedora kernel: xor: using function: arm64_neon (31559 MB/sec)
+Apr 21 21:31:40 fedora kernel: Key type asymmetric registered
+Apr 21 21:31:40 fedora kernel: Asymmetric key parser 'x509' registered
+Apr 21 21:31:40 fedora kernel: Block layer SCSI generic (bsg) driver version 0.4 loaded (major 244)
+Apr 21 21:31:40 fedora kernel: io scheduler mq-deadline registered
+Apr 21 21:31:40 fedora kernel: io scheduler kyber registered
+Apr 21 21:31:40 fedora kernel: io scheduler bfq registered
+Apr 21 21:31:40 fedora kernel: atomic64_test: passed
+Apr 21 21:31:40 fedora kernel: apple-gpio-pinctrl 23e820000.pinctrl: No cache defaults, reading back from HW
+Apr 21 21:31:40 fedora kernel: apple-gpio-pinctrl 24a820000.pinctrl: No cache defaults, reading back from HW
+Apr 21 21:31:40 fedora kernel: apple-pmgr-pwrstate 23d280000.power-management:power-controller@78: always-on domain msg is not on at boot
+Apr 21 21:31:40 fedora kernel: apple-dart 22c0e8000.iommu: DART [pagesize 4000, 16 streams, bypass support: 1, bypass forced: 0, locked: 0, AS 32 -> 36] initialized
+Apr 21 21:31:40 fedora kernel: apple-dart 22c0f4000.iommu: DART [pagesize 4000, 16 streams, bypass support: 0, bypass forced: 0, locked: 0, AS 32 -> 36] initialized
+Apr 21 21:31:40 fedora kernel: platform 22a000000.isp: Adding to iommu group 0
+Apr 21 21:31:40 fedora kernel: apple-dart 22c0fc000.iommu: DART [pagesize 4000, 16 streams, bypass support: 0, bypass forced: 0, locked: 0, AS 32 -> 36] initialized
+Apr 21 21:31:40 fedora kernel: platform 242400000.sep: Adding to iommu group 1
+Apr 21 21:31:40 fedora kernel: apple-dart 2412c0000.iommu: DART [pagesize 4000, 16 streams, bypass support: 0, bypass forced: 0, locked: 0, AS 32 -> 36] initialized
+Apr 21 21:31:40 fedora kernel: platform 24a980000.dma-controller: Adding to iommu group 2
+Apr 21 21:31:40 fedora kernel: platform 24ac00000.aop: Adding to iommu group 3
+Apr 21 21:31:40 fedora kernel: apple-dart 24a808000.iommu: DART [pagesize 4000, 16 streams, bypass support: 1, bypass forced: 0, locked: 0, AS 32 -> 36] initialized
+Apr 21 21:31:40 fedora kernel: apple-dart 382f00000.iommu: DART [pagesize 4000, 16 streams, bypass support: 1, bypass forced: 0, locked: 0, AS 32 -> 36] initialized
+Apr 21 21:31:40 fedora kernel: platform 382280000.usb: Adding to iommu group 4
+Apr 21 21:31:40 fedora kernel: apple-dart 382f80000.iommu: DART [pagesize 4000, 16 streams, bypass support: 1, bypass forced: 0, locked: 0, AS 32 -> 36] initialized
+Apr 21 21:31:40 fedora kernel: apple-dart 502f00000.iommu: DART [pagesize 4000, 16 streams, bypass support: 1, bypass forced: 0, locked: 0, AS 32 -> 36] initialized
+Apr 21 21:31:40 fedora kernel: platform 502280000.usb: Adding to iommu group 5
+Apr 21 21:31:40 fedora kernel: apple-dart 502f80000.iommu: DART [pagesize 4000, 16 streams, bypass support: 1, bypass forced: 0, locked: 0, AS 32 -> 36] initialized
+Apr 21 21:31:40 fedora kernel: apple-dart 681008000.iommu: DART [pagesize 4000, 16 streams, bypass support: 0, bypass forced: 0, locked: 0, AS 32 -> 36] initialized
+Apr 21 21:31:40 fedora kernel: macsmc 23e400000.smc: RTKit: Initializing (protocol version 12)
+Apr 21 21:31:40 fedora kernel: macsmc-gpio macsmc-gpio: First GPIO key: gP01 (0x67503031)
+Apr 21 21:31:40 fedora kernel: Key type psk registered
+Apr 21 21:31:40 fedora kernel: mousedev: PS/2 mouse device common for all mice
+Apr 21 21:31:40 fedora kernel: input: Apple SMC power/lid events as /devices/platform/soc/23e400000.smc/macsmc-input/input/input0
+Apr 21 21:31:40 fedora kernel: device-mapper: uevent: version 1.0.3
+Apr 21 21:31:40 fedora kernel: device-mapper: ioctl: 4.50.0-ioctl (2025-04-28) initialised: dm-devel@lists.linux.dev
+Apr 21 21:31:40 fedora kernel: cpu cpu0: EM: created perf domain
+Apr 21 21:31:40 fedora kernel: cpu cpu4: EM: created perf domain
+Apr 21 21:31:40 fedora kernel: hid: raw HID events driver (C) Jiri Kosina
+Apr 21 21:31:40 fedora kernel: usbcore: registered new interface driver usbhid
+Apr 21 21:31:40 fedora kernel: usbhid: USB HID core driver
+Apr 21 21:31:40 fedora kernel: hw perfevents: enabled with apple_icestorm_pmu PMU driver, 10 (0,000003ff) counters available
+Apr 21 21:31:40 fedora kernel: hw perfevents: enabled with apple_firestorm_pmu PMU driver, 10 (0,000003ff) counters available
+Apr 21 21:31:40 fedora kernel: drop_monitor: Initializing network drop monitor service
+Apr 21 21:31:40 fedora kernel: Initializing XFRM netlink socket
+Apr 21 21:31:40 fedora kernel: NET: Registered PF_INET6 protocol family
+Apr 21 21:31:40 fedora kernel: Segment Routing with IPv6
+Apr 21 21:31:40 fedora kernel: RPL Segment Routing with IPv6
+Apr 21 21:31:40 fedora kernel: In-situ OAM (IOAM) with IPv6
+Apr 21 21:31:40 fedora kernel: mip6: Mobile IPv6
+Apr 21 21:31:40 fedora kernel: NET: Registered PF_PACKET protocol family
+Apr 21 21:31:40 fedora kernel: registered taskstats version 1
+Apr 21 21:31:40 fedora kernel: Loading compiled-in X.509 certificates
+Apr 21 21:31:40 fedora kernel: Freeing initrd memory: 25632K
+Apr 21 21:31:40 fedora kernel: Loaded X.509 cert 'Build time autogenerated kernel key: ee0f858551ccefdca65bff8b09f026d49cf2f2d6'
+Apr 21 21:31:40 fedora kernel: page_owner is disabled
+Apr 21 21:31:40 fedora kernel: Key type .fscrypt registered
+Apr 21 21:31:40 fedora kernel: Key type fscrypt-provisioning registered
+Apr 21 21:31:40 fedora kernel: Btrfs loaded, zoned=yes, fsverity=yes
+Apr 21 21:31:40 fedora kernel: Key type big_key registered
+Apr 21 21:31:40 fedora kernel: Key type encrypted registered
+Apr 21 21:31:40 fedora kernel: apple-gpio-pinctrl 23c100000.pinctrl: No cache defaults, reading back from HW
+Apr 21 21:31:40 fedora kernel: apple-gpio-pinctrl 23d1f0000.pinctrl: No cache defaults, reading back from HW
+Apr 21 21:31:40 fedora kernel: pcie-apple 690000000.pcie: host bridge /soc/pcie@690000000 ranges:
+Apr 21 21:31:40 fedora kernel: pcie-apple 690000000.pcie:      MEM 0x06a0000000..0x06bfffffff -> 0x06a0000000
+Apr 21 21:31:40 fedora kernel: pcie-apple 690000000.pcie:      MEM 0x06c0000000..0x06ffffffff -> 0x00c0000000
+Apr 21 21:31:40 fedora kernel: pcie-apple 690000000.pcie: Using 0 auxiliary PERST#
+Apr 21 21:31:40 fedora kernel: pcie-apple 690000000.pcie: ECAM at [mem 0x690000000-0x690ffffff] for [bus 00-03]
+Apr 21 21:31:40 fedora kernel: pcie-apple 690000000.pcie: PCI host bridge to bus 0000:00
+Apr 21 21:31:40 fedora kernel: pci_bus 0000:00: root bus resource [bus 00-03]
+Apr 21 21:31:40 fedora kernel: pci_bus 0000:00: root bus resource [mem 0x6a0000000-0x6bfffffff pref]
+Apr 21 21:31:40 fedora kernel: pci_bus 0000:00: root bus resource [mem 0x6c0000000-0x6ffffffff] (bus address [0xc0000000-0xffffffff])
+Apr 21 21:31:40 fedora kernel: pci 0000:00:00.0: [106b:100c] type 01 class 0x060400 PCIe Root Port
+Apr 21 21:31:40 fedora kernel: pci 0000:00:00.0: PCI bridge to [bus 01]
+Apr 21 21:31:40 fedora kernel: pci 0000:00:00.0: PME# supported from D0 D3hot D3cold
+Apr 21 21:31:40 fedora kernel: pci 0000:00:00.0: PTM enabled (root), 16ns granularity
+Apr 21 21:31:40 fedora kernel: OF: /soc/pcie@690000000: no iommu-map translation for id 0x0 on (null)
+Apr 21 21:31:40 fedora kernel: /soc/pcie@690000000/pci@0,0: Fixed dependency cycle(s) with /soc/pcie@690000000/pci@0,0
+Apr 21 21:31:40 fedora kernel: pci 0000:01:00.0: [14e4:4425] type 00 class 0x028000 PCIe Endpoint
+Apr 21 21:31:40 fedora kernel: pci 0000:01:00.0: BAR 0 [mem 0x00000000-0x0000ffff 64bit]
+Apr 21 21:31:40 fedora kernel: pci 0000:01:00.0: BAR 2 [mem 0x00000000-0x007fffff 64bit]
+Apr 21 21:31:40 fedora kernel: pci 0000:01:00.0: supports D1 D2
+Apr 21 21:31:40 fedora kernel: pci 0000:01:00.0: PME# supported from D0 D1 D2 D3hot D3cold
+Apr 21 21:31:40 fedora kernel: pci 0000:01:00.0: Adding to iommu group 6
+Apr 21 21:31:40 fedora kernel: pci 0000:01:00.1: [14e4:5f69] type 00 class 0x028000 PCIe Endpoint
+Apr 21 21:31:40 fedora kernel: pci 0000:01:00.1: BAR 0 [mem 0x00000000-0x00007fff 64bit]
+Apr 21 21:31:40 fedora kernel: pci 0000:01:00.1: BAR 2 [mem 0x00000000-0x003fffff 64bit]
+Apr 21 21:31:40 fedora kernel: pci 0000:01:00.1: supports D1 D2
+Apr 21 21:31:40 fedora kernel: pci 0000:01:00.1: PME# supported from D0 D1 D2 D3hot D3cold
+Apr 21 21:31:40 fedora kernel: pci 0000:01:00.1: Adding to iommu group 6
+Apr 21 21:31:40 fedora kernel: pci 0000:01:00.0: ASPM: default states L1
+Apr 21 21:31:40 fedora kernel: pci 0000:00:00.0: bridge window [mem 0x6c0000000-0x6c0cfffff]: assigned
+Apr 21 21:31:40 fedora kernel: pci 0000:01:00.0: BAR 2 [mem 0x6c0000000-0x6c07fffff 64bit]: assigned
+Apr 21 21:31:40 fedora kernel: pci 0000:01:00.1: BAR 2 [mem 0x6c0800000-0x6c0bfffff 64bit]: assigned
+Apr 21 21:31:40 fedora kernel: pci 0000:01:00.0: BAR 0 [mem 0x6c0c00000-0x6c0c0ffff 64bit]: assigned
+Apr 21 21:31:40 fedora kernel: pci 0000:01:00.1: BAR 0 [mem 0x6c0c10000-0x6c0c17fff 64bit]: assigned
+Apr 21 21:31:40 fedora kernel: pci 0000:00:00.0: PCI bridge to [bus 01]
+Apr 21 21:31:40 fedora kernel: pci 0000:00:00.0:   bridge window [mem 0x6c0000000-0x6c0cfffff]
+Apr 21 21:31:40 fedora kernel: pci_bus 0000:00: resource 4 [mem 0x6a0000000-0x6bfffffff pref]
+Apr 21 21:31:40 fedora kernel: pci_bus 0000:00: resource 5 [mem 0x6c0000000-0x6ffffffff]
+Apr 21 21:31:40 fedora kernel: pci_bus 0000:01: resource 1 [mem 0x6c0000000-0x6c0cfffff]
+Apr 21 21:31:40 fedora kernel: OF: /soc/pcie@690000000: no iommu-map translation for id 0x0 on (null)
+Apr 21 21:31:40 fedora kernel: pcieport 0000:00:00.0: PME: Signaling with IRQ 87
+Apr 21 21:31:40 fedora kernel: pcieport 0000:00:00.0: AER: enabled with IRQ 87
+Apr 21 21:31:40 fedora kernel: apple-admac 24a980000.dma-controller: Audio DMA Controller
+Apr 21 21:31:40 fedora kernel: apple-dart 231304000.iommu: Limiting DMA range to 0x0000000000000000..0x00000000fbffffff
+Apr 21 21:31:40 fedora kernel: platform soc:display-subsystem: Adding to iommu group 7
+Apr 21 21:31:40 fedora kernel: apple-dart 231304000.iommu: DART [pagesize 4000, 16 streams, bypass support: 1, bypass forced: 0, locked: 1, AS 32 -> 36] initialized
+Apr 21 21:31:40 fedora kernel: apple-dart 23130c000.iommu: Limiting DMA range to 0x0000000f00000000..0x0000000ffbffffff
+Apr 21 21:31:40 fedora kernel: platform 231c00000.dcp: Adding to iommu group 8
+Apr 21 21:31:40 fedora kernel: apple-dart 23130c000.iommu: DART [pagesize 4000, 16 streams, bypass support: 1, bypass forced: 0, locked: 1, AS 32 -> 36] initialized
+Apr 21 21:31:40 fedora kernel: platform 238200000.dma-controller: Adding to iommu group 9
+Apr 21 21:31:40 fedora kernel: apple-dart 235004000.iommu: DART [pagesize 4000, 16 streams, bypass support: 1, bypass forced: 0, locked: 0, AS 32 -> 36] initialized
+Apr 21 21:31:40 fedora kernel: simple-framebuffer be262c000.framebuffer: [drm] Registered 1 planes with drm panic
+Apr 21 21:31:40 fedora kernel: [drm] Initialized simpledrm 1.0.0 for be262c000.framebuffer on minor 0
+Apr 21 21:31:40 fedora kernel: fbcon: Deferring console take-over
+Apr 21 21:31:40 fedora kernel: simple-framebuffer be262c000.framebuffer: [drm] fb0: simpledrmdrmfb frame buffer device
+Apr 21 21:31:40 fedora kernel: nvme-apple 27bcc0000.nvme: RTKit: Initializing (protocol version 12)
+Apr 21 21:31:40 fedora kernel: spi-hid-apple-of spi1.0: limiting the number of devices to mngt, kbd and mouse
+Apr 21 21:31:40 fedora kernel: nvme-apple 27bcc0000.nvme: RTKit: syslog message: cmd.c:6546:  boot mode normal
+Apr 21 21:31:40 fedora kernel: hwmon hwmon2: temp1_input not attached to any thermal zone
+Apr 21 21:31:40 fedora kernel:  nvme0n1: p1 p2 p3 p4 p5 p6 p7
+Apr 21 21:31:40 fedora kernel: input: Apple SPI Keyboard as /devices/platform/soc/23510c000.spi/spi_master/spi1/spi1.0/001C:05AC:0281.0001/input/input1
+Apr 21 21:31:40 fedora kernel: apple 001C:05AC:0281.0001: input,hidraw0: SPI HID v9.35 Keyboard [Apple SPI Keyboard] on spi1.0 (1)
+Apr 21 21:31:40 fedora kernel: input: Apple SPI Trackpad as /devices/platform/soc/23510c000.spi/spi_master/spi1/spi1.0/001C:05AC:0281.0002/input/input2
+Apr 21 21:31:40 fedora kernel: magicmouse 001C:05AC:0281.0002: input,hidraw1: SPI HID v9.35 Mouse [Apple SPI Trackpad] on spi1.0 (2)
+Apr 21 21:31:40 fedora kernel: macsmc-rtc macsmc-rtc: registered as rtc0
+Apr 21 21:31:40 fedora kernel: macsmc-rtc macsmc-rtc: setting system clock to 2026-04-22T00:31:40 UTC (1776817900)
+Apr 21 21:31:40 fedora kernel: /soc/i2c@235010000/usb-pd@38/connector: Fixed dependency cycle(s) with /soc/phy@383000000
+Apr 21 21:31:40 fedora kernel: /soc/i2c@235010000/usb-pd@38/connector: Fixed dependency cycle(s) with /soc/usb@382280000
+Apr 21 21:31:40 fedora kernel: /soc/i2c@235010000/usb-pd@3f/connector: Fixed dependency cycle(s) with /soc/phy@503000000
+Apr 21 21:31:40 fedora kernel: /soc/i2c@235010000/usb-pd@3f/connector: Fixed dependency cycle(s) with /soc/usb@502280000
+Apr 21 21:31:40 fedora kernel: macsmc-reboot macsmc-reboot: Handling reboot and poweroff requests via SMC
+Apr 21 21:31:40 fedora kernel: apple-admac 238200000.dma-controller: Audio DMA Controller
+Apr 21 21:31:40 fedora kernel: clk: Disabling unused clocks
+Apr 21 21:31:40 fedora kernel: PM: genpd: Disabling unused power domains
+Apr 21 21:31:40 fedora kernel: Freeing unused kernel memory: 7296K
+Apr 21 21:31:40 fedora kernel: Checked W+X mappings: passed, no W+X pages found
+Apr 21 21:31:40 fedora kernel: Run /init as init process
+Apr 21 21:31:40 fedora kernel:   with arguments:
+Apr 21 21:31:40 fedora kernel:     /init
+Apr 21 21:31:40 fedora kernel:     rhgb
+Apr 21 21:31:40 fedora kernel:   with environment:
+Apr 21 21:31:40 fedora kernel:     HOME=/
+Apr 21 21:31:40 fedora kernel:     TERM=linux
+Apr 21 21:31:40 fedora systemd[1]: Successfully made /usr/ read-only.
+Apr 21 21:31:40 fedora systemd[1]: systemd 258.7-1.fc43 running in system mode (+PAM +AUDIT +SELINUX -APPARMOR +IMA +IPE +SMACK +SECCOMP -GCRYPT +GNUTLS +OPENSSL +ACL +BLKID +CURL +ELFUTILS +FIDO2 +IDN2 -IDN -IPTC +KMOD +LIBCRYPTSETUP +LIBCRYPTSETUP_PLUGINS +LIBFDISK +PCRE2 +PWQUALITY +P11KIT +QRENCODE +TPM2 +BZIP2 +LZ4 +XZ +ZLIB +ZSTD +BPF_FRAMEWORK +BTF +XKBCOMMON +UTMP +SYSVINIT +LIBARCHIVE)
+Apr 21 21:31:40 fedora systemd[1]: Detected architecture arm64.
+Apr 21 21:31:40 fedora systemd[1]: Running in initrd.
+Apr 21 21:31:40 fedora systemd[1]: No hostname configured, using default hostname.
+Apr 21 21:31:40 fedora systemd[1]: Hostname set to <fedora>.
+Apr 21 21:31:40 fedora systemd[1]: bpf-restrict-fs: Failed to load BPF object: No such process
+Apr 21 21:31:40 fedora systemd[1]: Queued start job for default target initrd.target.
+Apr 21 21:31:40 fedora systemd[1]: Started systemd-ask-password-console.path - Dispatch Password Requests to Console Directory Watch.
+Apr 21 21:31:40 fedora systemd[1]: Expecting device dev-disk-by\x2duuid-3cbd9d9a\x2d90a4\x2d404d\x2dafaa\x2d446e1c0722dc.device - /dev/disk/by-uuid/3cbd9d9a-90a4-404d-afaa-446e1c0722dc...
+Apr 21 21:31:40 fedora systemd[1]: Reached target initrd-usr-fs.target - Initrd /usr File System.
+Apr 21 21:31:40 fedora systemd[1]: Reached target paths.target - Path Units.
+Apr 21 21:31:40 fedora systemd[1]: Reached target slices.target - Slice Units.
+Apr 21 21:31:40 fedora systemd[1]: Reached target swap.target - Swaps.
+Apr 21 21:31:40 fedora systemd[1]: Reached target timers.target - Timer Units.
+Apr 21 21:31:40 fedora systemd[1]: Listening on systemd-journald-dev-log.socket - Journal Socket (/dev/log).
+Apr 21 21:31:40 fedora systemd[1]: Listening on systemd-journald.socket - Journal Sockets.
+Apr 21 21:31:40 fedora systemd[1]: Listening on systemd-udevd-control.socket - udev Control Socket.
+Apr 21 21:31:40 fedora systemd[1]: Listening on systemd-udevd-kernel.socket - udev Kernel Socket.
+Apr 21 21:31:40 fedora systemd[1]: Reached target sockets.target - Socket Units.
+Apr 21 21:31:40 fedora systemd[1]: Starting kmod-static-nodes.service - Create List of Static Device Nodes...
+Apr 21 21:31:40 fedora systemd[1]: memstrack.service - Memstrack Anylazing Service skipped, no trigger condition checks were met.
+Apr 21 21:31:40 fedora systemd[1]: Starting systemd-journald.service - Journal Service...
+Apr 21 21:31:40 fedora systemd[1]: Starting systemd-modules-load.service - Load Kernel Modules...
+Apr 21 21:31:40 fedora systemd[1]: Starting systemd-vconsole-setup.service - Virtual Console Setup...
+Apr 21 21:31:40 fedora systemd[1]: Finished kmod-static-nodes.service - Create List of Static Device Nodes.
+Apr 21 21:31:40 fedora systemd[1]: Starting systemd-tmpfiles-setup-dev-early.service - Create Static Device Nodes in /dev gracefully...
+Apr 21 21:31:40 fedora systemd[1]: Finished systemd-modules-load.service - Load Kernel Modules.
+Apr 21 21:31:40 fedora systemd[1]: Starting systemd-sysctl.service - Apply Kernel Variables...
+Apr 21 21:31:40 fedora systemd[1]: Finished systemd-sysctl.service - Apply Kernel Variables.
+Apr 21 21:31:40 fedora systemd-journald[287]: Collecting audit messages is disabled.
+Apr 21 21:31:40 fedora systemd[1]: Finished systemd-tmpfiles-setup-dev-early.service - Create Static Device Nodes in /dev gracefully.
+Apr 21 21:31:40 fedora systemd[1]: Starting systemd-sysusers.service - Create System Users...
+Apr 21 21:31:40 fedora systemd-journald[287]: Journal started
+Apr 21 21:31:40 fedora systemd-journald[287]: Runtime Journal (/run/log/journal/a2a47b05f5f24e679b6b3b0780a58ce4) is 2.5M, max 20M, 17.5M free.
+Apr 21 21:31:40 fedora systemd-modules-load[289]: Failed to find module 'hci_bcm4377'
+Apr 21 21:31:40 fedora systemd-modules-load[289]: Failed to find module 'fuse'
+Apr 21 21:31:40 fedora systemd-modules-load[289]: Failed to find module 'i2c_dev'
+Apr 21 21:31:40 fedora systemd-modules-load[289]: Failed to find module 'fuse'
+Apr 21 21:31:40 fedora systemd-modules-load[289]: Failed to find module 'scsi_dh_alua'
+Apr 21 21:31:40 fedora systemd-modules-load[289]: Failed to find module 'scsi_dh_emc'
+Apr 21 21:31:40 fedora systemd-modules-load[289]: Failed to find module 'scsi_dh_rdac'
+Apr 21 21:31:40 fedora systemd-modules-load[289]: Failed to find module 'uinput'
+Apr 21 21:31:40 fedora systemd-sysctl[296]: Couldn't write 'bbr' to 'net/ipv4/tcp_congestion_control', ignoring: No such file or directory
+Apr 21 21:31:40 fedora systemd[1]: Started systemd-journald.service - Journal Service.
+Apr 21 21:31:40 fedora systemd-sysusers[304]: Creating group 'systemd-journal' with GID 190.
+Apr 21 21:31:40 fedora systemd[1]: Finished systemd-sysusers.service - Create System Users.
+Apr 21 21:31:40 fedora systemd[1]: Finished systemd-vconsole-setup.service - Virtual Console Setup.
+Apr 21 21:31:40 fedora systemd[1]: Starting dracut-cmdline-ask.service - dracut ask for additional cmdline parameters...
+Apr 21 21:31:40 fedora systemd[1]: Starting systemd-tmpfiles-setup-dev.service - Create Static Device Nodes in /dev...
+Apr 21 21:31:40 fedora systemd[1]: Finished systemd-tmpfiles-setup-dev.service - Create Static Device Nodes in /dev.
+Apr 21 21:31:40 fedora systemd[1]: Reached target local-fs-pre.target - Preparation for Local File Systems.
+Apr 21 21:31:40 fedora systemd[1]: Reached target local-fs.target - Local File Systems.
+Apr 21 21:31:40 fedora systemd[1]: Starting systemd-tmpfiles-setup.service - Create System Files and Directories...
+Apr 21 21:31:40 fedora systemd[1]: Finished dracut-cmdline-ask.service - dracut ask for additional cmdline parameters.
+Apr 21 21:31:40 fedora systemd[1]: Starting dracut-cmdline.service - dracut cmdline hook...
+Apr 21 21:31:40 fedora dracut-cmdline[326]: dracut-107-8.fc43
+Apr 21 21:31:40 fedora dracut-cmdline[326]: Using kernel command line parameters:  rd.driver.pre=btrfs rd.driver.pre=xhci_plat_hcd rootfstype=btrfs rootflags=rw,relatime,ssd,discard=async,space_cache=v2,subvolid=256,subvol=/root,subvol=root   BOOT_IMAGE=(hd0,gpt5)/vmlinuz-6.18.15-m1opt+ root=UUID=3cbd9d9a-90a4-404d-afaa-446e1c0722dc ro rootflags=subvol=root rhgb quiet workqueue.power_efficient=1 fw_devlink=permissive
+Apr 21 21:31:40 fedora systemd-tmpfiles[323]: /usr/lib/tmpfiles.d/var.conf:14: Duplicate line for path "/var/log", ignoring.
+Apr 21 21:31:40 fedora systemd[1]: Finished dracut-cmdline.service - dracut cmdline hook.
+Apr 21 21:31:40 fedora systemd[1]: Starting dracut-pre-udev.service - dracut pre-udev hook...
+Apr 21 21:31:40 fedora kernel: zswap: loaded using pool lzo
+Apr 21 21:31:40 fedora dracut-pre-udev[377]: :: Asahi: Triggering early load of NVMe modules...
+Apr 21 21:31:40 fedora dracut-pre-udev[377]: :: Asahi: Unpacking vendor firmware into initramfs...
+Apr 21 21:31:40 fedora systemd[1]: Finished systemd-tmpfiles-setup.service - Create System Files and Directories.
+Apr 21 21:31:40 fedora dracut-pre-udev[391]: mount: /run/.system-efi: unknown filesystem type 'vfat'.
+Apr 21 21:31:40 fedora dracut-pre-udev[391]:        dmesg(1) may have more information after failed mount system call.
+Apr 21 21:31:40 fedora dracut-pre-udev[377]: Warning: :: Asahi: Vendor firmware not found in ESP.
+Apr 21 21:31:40 fedora dracut-pre-udev[393]: umount: /run/.system-efi: not mounted.
+Apr 21 21:31:40 fedora systemd[1]: Finished dracut-pre-udev.service - dracut pre-udev hook.
+Apr 21 21:31:40 fedora kernel: fbcon: Taking over console
+Apr 21 21:31:40 fedora systemd[1]: Starting systemd-udevd.service - Rule-based Manager for Device Events and Files...
+Apr 21 21:31:40 fedora kernel: Console: switching to colour frame buffer device 320x100
+Apr 21 21:31:40 fedora systemd-udevd[412]: Using default interface naming scheme 'v258'.
+Apr 21 21:31:40 fedora systemd[1]: Started systemd-udevd.service - Rule-based Manager for Device Events and Files.
+Apr 21 21:31:40 fedora systemd[1]: dracut-pre-trigger.service - dracut pre-trigger hook skipped, no trigger condition checks were met.
+Apr 21 21:31:40 fedora systemd[1]: Starting systemd-udev-trigger.service - Coldplug All udev Devices...
+Apr 21 21:31:40 fedora systemd[1]: systemd-vconsole-setup.service: Deactivated successfully.
+Apr 21 21:31:40 fedora systemd[1]: Stopped systemd-vconsole-setup.service - Virtual Console Setup.
+Apr 21 21:31:40 fedora systemd[1]: Stopping systemd-vconsole-setup.service - Virtual Console Setup...
+Apr 21 21:31:40 fedora systemd[1]: Starting systemd-vconsole-setup.service - Virtual Console Setup...
+Apr 21 21:31:40 fedora systemd[1]: Finished systemd-vconsole-setup.service - Virtual Console Setup.
+Apr 21 21:31:40 fedora systemd[1]: Finished systemd-udev-trigger.service - Coldplug All udev Devices.
+Apr 21 21:31:40 fedora systemd[1]: Reached target sysinit.target - System Initialization.
+Apr 21 21:31:40 fedora systemd[1]: Reached target basic.target - Basic System.
+Apr 21 21:31:40 fedora systemd[1]: Starting dracut-initqueue.service - dracut initqueue hook...
+Apr 21 21:31:41 fedora systemd[1]: Created slice system-modprobe.slice - Slice /system/modprobe.
+Apr 21 21:31:41 fedora systemd[1]: modprobe@configfs.service - Load Kernel Module configfs skipped, unmet condition check ConditionKernelModuleLoaded=!configfs
+Apr 21 21:31:41 fedora (udev-worker)[453]: nvme0: /etc/udev/rules.d/60-nvme-scheduler.rules:1 ATTR{queue/scheduler}="none": Could not chase sysfs attribute "/sys/devices/platform/soc/27bcc0000.nvme/nvme/nvme0/queue/scheduler", ignoring: No such file or directory
+Apr 21 21:31:41 fedora (udev-worker)[438]: nvme0n1p3: /etc/udev/rules.d/60-nvme-scheduler.rules:1 ATTR{queue/scheduler}="none": Could not chase sysfs attribute "/sys/devices/platform/soc/27bcc0000.nvme/nvme/nvme0/nvme0n1/nvme0n1p3/queue/scheduler", ignoring: No such file or directory
+Apr 21 21:31:41 fedora (udev-worker)[456]: nvme0n1p6: /etc/udev/rules.d/60-nvme-scheduler.rules:1 ATTR{queue/scheduler}="none": Could not chase sysfs attribute "/sys/devices/platform/soc/27bcc0000.nvme/nvme/nvme0/nvme0n1/nvme0n1p6/queue/scheduler", ignoring: No such file or directory
+Apr 21 21:31:41 fedora (udev-worker)[414]: nvme0n1p5: /etc/udev/rules.d/60-nvme-scheduler.rules:1 ATTR{queue/scheduler}="none": Could not chase sysfs attribute "/sys/devices/platform/soc/27bcc0000.nvme/nvme/nvme0/nvme0n1/nvme0n1p5/queue/scheduler", ignoring: No such file or directory
+Apr 21 21:31:41 fedora (udev-worker)[453]: nvme0n1p1: /etc/udev/rules.d/60-nvme-scheduler.rules:1 ATTR{queue/scheduler}="none": Could not chase sysfs attribute "/sys/devices/platform/soc/27bcc0000.nvme/nvme/nvme0/nvme0n1/nvme0n1p1/queue/scheduler", ignoring: No such file or directory
+Apr 21 21:31:41 fedora (udev-worker)[462]: macsmc-ac: Failed to find and pin callout binary "/usr/local/bin/m1-battery-mode": No such file or directory
+Apr 21 21:31:41 fedora (udev-worker)[441]: nvme0n1p4: /etc/udev/rules.d/60-nvme-scheduler.rules:1 ATTR{queue/scheduler}="none": Could not chase sysfs attribute "/sys/devices/platform/soc/27bcc0000.nvme/nvme/nvme0/nvme0n1/nvme0n1p4/queue/scheduler", ignoring: No such file or directory
+Apr 21 21:31:41 fedora (udev-worker)[436]: nvme0n1p2: /etc/udev/rules.d/60-nvme-scheduler.rules:1 ATTR{queue/scheduler}="none": Could not chase sysfs attribute "/sys/devices/platform/soc/27bcc0000.nvme/nvme/nvme0/nvme0n1/nvme0n1p2/queue/scheduler", ignoring: No such file or directory
+Apr 21 21:31:41 fedora (udev-worker)[462]: macsmc-ac: Failed to execute '/usr/local/bin/m1-battery-mode auto', ignoring: No such file or directory
+Apr 21 21:31:41 fedora (udev-worker)[442]: nvme0n1p7: /etc/udev/rules.d/60-nvme-scheduler.rules:1 ATTR{queue/scheduler}="none": Could not chase sysfs attribute "/sys/devices/platform/soc/27bcc0000.nvme/nvme/nvme0/nvme0n1/nvme0n1p7/queue/scheduler", ignoring: No such file or directory
+Apr 21 21:31:41 fedora kernel: apple_aop 24ac00000.aop: RTKit: Initializing (protocol version 12)
+Apr 21 21:31:41 fedora kernel: apple-display-crossbar 38304c000.mux: Switched dpphy to disconnected state
+Apr 21 21:31:41 fedora kernel: apple-display-crossbar 38304c000.mux: Switched dpin0 to disconnected state
+Apr 21 21:31:41 fedora kernel: apple-display-crossbar 38304c000.mux: Switched dpin1 to disconnected state
+Apr 21 21:31:41 fedora kernel: apple_aop 24ac00000.aop: RTKit: syslog message: AOP_oslog_init.cpp:96: Start AOP OSLog init
+Apr 21 21:31:41 fedora kernel: apple_aop 24ac00000.aop: RTKit: syslog message: P_os_log_support.cpp:60: AOP os log initialized
+Apr 21 21:31:41 fedora kernel: apple_aop 24ac00000.aop: RTKit: syslog message: SPU_dram_client.cpp:211: AOP platform dram client initialized
+Apr 21 21:31:41 fedora kernel: apple-display-crossbar 50304c000.mux: Switched dpphy to disconnected state
+Apr 21 21:31:41 fedora kernel: apple-display-crossbar 50304c000.mux: Switched dpin0 to disconnected state
+Apr 21 21:31:41 fedora kernel: apple-display-crossbar 50304c000.mux: Switched dpin1 to disconnected state
+Apr 21 21:31:41 fedora kernel: /soc/i2c@235010000/usb-pd@3f/connector: Fixed dependency cycle(s) with /soc/usb@502280000
+Apr 21 21:31:41 fedora kernel: apple_aop 24ac00000.aop: RTKit: syslog message: ALSCT720.cpp:57: probe
+Apr 21 21:31:41 fedora kernel: apple_aop 24ac00000.aop: RTKit: syslog message: ALSCT720.cpp:85: CT720 device found.
+Apr 21 21:31:41 fedora kernel: apple_aop 24ac00000.aop: RTKit: syslog message: ALSVD6286.cpp:80: [ALS2] VD6286 device NOT found. Calibration Override:0
+Apr 21 21:31:41 fedora kernel: apple_aop 24ac00000.aop: RTKit: syslog message: ClientInfo.cpp:184: exp "inCallbackAction(it.key(), inRef)" fail, RunActionOnClientManagers(), ln 1
+Apr 21 21:31:41 fedora kernel: apple_aop 24ac00000.aop: RTKit: syslog message: ALSCT720.cpp:93: start
+Apr 21 21:31:41 fedora kernel: apple_aop 24ac00000.aop: RTKit: syslog message: udioPDMNodeBase.cpp:150: PDMDev<pdm0> wake notification. Prev AP state 1
+Apr 21 21:31:41 fedora kernel: apple_aop 24ac00000.aop: RTKit: syslog message: iggerController.cpp:129: VoiceTrig ready!! <AppleAOPVoiceTriggerController v240.2 built: Jun 30 202317:4
+Apr 21 21:31:41 fedora kernel: apple_aop 24ac00000.aop: RTKit: syslog message: ClientInfo.cpp:184: exp "inCallbackAction(it.key(), inRef)" fail, RunActionOnClientManagers(), ln 1
+Apr 21 21:31:41 fedora kernel: apple_aop 24ac00000.aop: RTKit: syslog message: Controller.cpp:160: RTKitAudioFramework v240.4 (built Jun 30 2023 17:51:05) ready!! {12 nodes}
+Apr 21 21:31:41 fedora kernel: apple_aop 24ac00000.aop: RTKit: syslog message: Controller.cpp:251: aop-audio v240.10 (built Jun 30 2023 17:56:11, debug 0x0) ready!!
+Apr 21 21:31:41 fedora kernel: apple_aop 24ac00000.aop: RTKit: syslog message: SPU_init.cpp:320: ===( AOP IS READY )===
+Apr 21 21:31:41 fedora kernel: cfg80211: Loading compiled-in X.509 certificates for regulatory database
+Apr 21 21:31:41 fedora kernel: Loaded X.509 cert 'sforshee: 00b28ddf47aef9cea7'
+Apr 21 21:31:41 fedora kernel: Loaded X.509 cert 'wens: 61c038651aabdcf94bd0ac7ff06c7248db18c600'
+Apr 21 21:31:41 fedora kernel: brcmfmac: loading out-of-tree module taints kernel.
+Apr 21 21:31:41 fedora kernel: usbcore: registered new interface driver brcmfmac
+Apr 21 21:31:41 fedora kernel: brcmfmac 0000:01:00.0: enabling device (0000 -> 0002)
+Apr 21 21:31:41 fedora kernel: brcmfmac: brcmf_fw_alloc_request: using brcm/brcmfmac4378b1-pcie for chip BCM4378/3
+Apr 21 21:31:41 fedora kernel: brcmfmac 0000:01:00.0: Direct firmware load for brcm/brcmfmac4378b1-pcie.sig failed with error -2
+Apr 21 21:31:41 fedora systemd[1]: Found device dev-disk-by\x2duuid-3cbd9d9a\x2d90a4\x2d404d\x2dafaa\x2d446e1c0722dc.device - APPLE SSD AP0256Q fedora.
+Apr 21 21:31:41 fedora systemd[1]: Reached target initrd-root-device.target - Initrd Root Device.
+Apr 21 21:31:41 fedora systemd[1]: systemd-vconsole-setup.service: Deactivated successfully.
+Apr 21 21:31:41 fedora systemd[1]: Stopped systemd-vconsole-setup.service - Virtual Console Setup.
+Apr 21 21:31:41 fedora systemd[1]: Stopping systemd-vconsole-setup.service - Virtual Console Setup...
+Apr 21 21:31:41 fedora systemd[1]: Starting systemd-vconsole-setup.service - Virtual Console Setup...
+Apr 21 21:31:41 fedora systemd[1]: Finished dracut-initqueue.service - dracut initqueue hook.
+Apr 21 21:31:41 fedora systemd[1]: Reached target remote-fs-pre.target - Preparation for Remote File Systems.
+Apr 21 21:31:41 fedora systemd[1]: Reached target remote-fs.target - Remote File Systems.
+Apr 21 21:31:41 fedora systemd[1]: dracut-pre-mount.service - dracut pre-mount hook skipped, no trigger condition checks were met.
+Apr 21 21:31:41 fedora systemd[1]: Starting systemd-fsck-root.service - File System Check on /dev/disk/by-uuid/3cbd9d9a-90a4-404d-afaa-446e1c0722dc...
+Apr 21 21:31:41 fedora systemd[1]: Finished systemd-vconsole-setup.service - Virtual Console Setup.
+Apr 21 21:31:41 fedora systemd[1]: Finished systemd-fsck-root.service - File System Check on /dev/disk/by-uuid/3cbd9d9a-90a4-404d-afaa-446e1c0722dc.
+Apr 21 21:31:41 fedora systemd[1]: Mounting sys-kernel-config.mount - Kernel Configuration File System...
+Apr 21 21:31:41 fedora systemd[1]: Mounting sysroot.mount - /sysroot...
+Apr 21 21:31:41 fedora kernel: brcmfmac: brcmf_fwvid_request_module: mod=wcc: failed 256
+Apr 21 21:31:41 fedora kernel: ieee80211 phy0: brcmf_attach: brcmf_fwvid_attach failed
+Apr 21 21:31:41 fedora kernel: brcmfmac 0000:01:00.0: brcmf_pcie_setup: Dongle setup failed
+Apr 21 21:31:41 fedora kernel: brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 00000.236 MALLOC warning: allocations are persistent by default in attach phase!
+Apr 21 21:31:41 fedora kernel: brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 000000.236 MALLOC warning: allocations are persistent by default in attach phase!
+Apr 21 21:31:41 fedora kernel: brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 000000.237 MALLOC warning: allocations are persistent by default in attach phase!
+Apr 21 21:31:41 fedora kernel: brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 000000.237 MALLOC warning: allocations are persistent by default in attach phase!
+Apr 21 21:31:41 fedora systemd[1]: Mounted sys-kernel-config.mount - Kernel Configuration File System.
+Apr 21 21:31:41 fedora kernel: brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 000000.241 wl1: Broadcom BCM4378 802.11 Wireless Controller 18.20.383.15.7.8.150
+Apr 21 21:31:41 fedora kernel: brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 000000.242 MALLOC warning: allocations are persistent by default in attach phase!
+Apr 21 21:31:41 fedora kernel: brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 000000.243 TCAM: 768 used: 691 exceed:0
+Apr 21 21:31:41 fedora kernel: brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 000000.243 Reclaim section 1: returned 251380 bytes (pre-reclaim: 224556)
+Apr 21 21:31:41 fedora kernel: brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 000000.246 SPLITRX_MODE: 4 tcmsegsize 0 d11rxoffset 0
+Apr 21 21:31:41 fedora kernel: brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 000000.246 ThreadX v5.6 initialized
+Apr 21 21:31:41 fedora kernel: brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 000000.247 EL: 30 7c60
+Apr 21 21:31:41 fedora kernel: brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 000000.247 Single MSI enabled
+Apr 21 21:31:41 fedora kernel: brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 000000.247 FUNCNAME: dngl_sendpkt: dropped pkt
+Apr 21 21:31:41 fedora kernel: brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 000000.247 FUNCNAME: dngl_sendpkt: dropped pkt
+Apr 21 21:31:41 fedora kernel: brcmfmac 0000:01:00.0: brcmf_pcie_bus_console_read: CONSOLE: 000000.247 FUNCNAME: dngl_sendpkt: dropped pkt
+Apr 21 21:31:41 fedora kernel: ieee80211 phy0: brcmf_fw_crashed: Firmware has halted or crashed
+Apr 21 21:31:41 fedora kernel: BTRFS: device label fedora devid 1 transid 2766 /dev/nvme0n1p6 (259:6) scanned by mount (501)
+Apr 21 21:31:41 fedora kernel: BTRFS info (device nvme0n1p6): first mount of filesystem 3cbd9d9a-90a4-404d-afaa-446e1c0722dc
+Apr 21 21:31:41 fedora kernel: BTRFS info (device nvme0n1p6): using crc32c (crc32c-lib) checksum algorithm
+Apr 21 21:31:41 fedora kernel: BTRFS info (device nvme0n1p6): enabling ssd optimizations
+Apr 21 21:31:41 fedora kernel: BTRFS info (device nvme0n1p6): turning on async discard
+Apr 21 21:31:41 fedora kernel: BTRFS info (device nvme0n1p6): enabling free space tree
+Apr 21 21:31:41 fedora systemd[1]: Mounted sysroot.mount - /sysroot.
+Apr 21 21:31:41 fedora systemd[1]: Reached target initrd-root-fs.target - Initrd Root File System.
+Apr 21 21:31:41 fedora systemd[1]: Starting initrd-parse-etc.service - Mountpoints Configured in the Real Root...
+Apr 21 21:31:41 fedora systemd[1]: initrd-parse-etc.service: Deactivated successfully.
+Apr 21 21:31:41 fedora systemd[1]: Finished initrd-parse-etc.service - Mountpoints Configured in the Real Root.
+Apr 21 21:31:41 fedora systemd[1]: initrd-parse-etc.service: Triggering OnSuccess= dependencies.
+Apr 21 21:31:41 fedora systemd[1]: Reached target initrd-fs.target - Initrd File Systems.
+Apr 21 21:31:41 fedora systemd[1]: Reached target initrd.target - Initrd Default Target.
+Apr 21 21:31:41 fedora systemd[1]: dracut-mount.service - dracut mount hook skipped, no trigger condition checks were met.
+Apr 21 21:31:41 fedora systemd[1]: Starting dracut-pre-pivot.service - dracut pre-pivot and cleanup hook...
+Apr 21 21:31:41 fedora dracut-pre-pivot[522]: :: Asahi: Installing vendor firmware to root filesystem...
+Apr 21 21:31:41 fedora dracut-pre-pivot[528]: cp: cannot stat '/vendorfw/*': No such file or directory
+Apr 21 21:31:41 fedora dracut-pre-pivot[528]: cp: cannot stat '/vendorfw/.vendorfw.manifest': No such file or directory
+Apr 21 21:31:41 fedora systemd[1]: Finished dracut-pre-pivot.service - dracut pre-pivot and cleanup hook.
+Apr 21 21:31:41 fedora systemd[1]: Starting initrd-cleanup.service - Cleaning Up and Shutting Down Daemons...
+Apr 21 21:31:41 fedora systemd[1]: Stopped target timers.target - Timer Units.
+Apr 21 21:31:41 fedora systemd[1]: dracut-pre-pivot.service: Deactivated successfully.
+Apr 21 21:31:41 fedora systemd[1]: Stopped dracut-pre-pivot.service - dracut pre-pivot and cleanup hook.
+Apr 21 21:31:41 fedora systemd[1]: Stopped target initrd.target - Initrd Default Target.
+Apr 21 21:31:41 fedora systemd[1]: Stopped target basic.target - Basic System.
+Apr 21 21:31:41 fedora systemd[1]: Stopped target initrd-root-device.target - Initrd Root Device.
+Apr 21 21:31:41 fedora systemd[1]: Stopped target initrd-usr-fs.target - Initrd /usr File System.
+Apr 21 21:31:41 fedora systemd[1]: Stopped target paths.target - Path Units.
+Apr 21 21:31:41 fedora systemd[1]: systemd-ask-password-console.path: Deactivated successfully.
+Apr 21 21:31:41 fedora systemd[1]: Stopped systemd-ask-password-console.path - Dispatch Password Requests to Console Directory Watch.
+Apr 21 21:31:41 fedora systemd[1]: Stopped target remote-fs.target - Remote File Systems.
+Apr 21 21:31:41 fedora systemd[1]: Stopped target remote-fs-pre.target - Preparation for Remote File Systems.
+Apr 21 21:31:41 fedora systemd[1]: Stopped target slices.target - Slice Units.
+Apr 21 21:31:41 fedora systemd[1]: Stopped target sockets.target - Socket Units.
+Apr 21 21:31:41 fedora systemd[1]: Stopped target sysinit.target - System Initialization.
+Apr 21 21:31:41 fedora systemd[1]: Stopped target swap.target - Swaps.
+Apr 21 21:31:41 fedora systemd[1]: dracut-initqueue.service: Deactivated successfully.
+Apr 21 21:31:41 fedora systemd[1]: Stopped dracut-initqueue.service - dracut initqueue hook.
+Apr 21 21:31:41 fedora systemd[1]: systemd-sysctl.service: Deactivated successfully.
+Apr 21 21:31:41 fedora systemd[1]: Stopped systemd-sysctl.service - Apply Kernel Variables.
+Apr 21 21:31:41 fedora systemd[1]: systemd-modules-load.service: Deactivated successfully.
+Apr 21 21:31:41 fedora systemd[1]: Stopped systemd-modules-load.service - Load Kernel Modules.
+Apr 21 21:31:41 fedora systemd[1]: systemd-tmpfiles-setup.service: Deactivated successfully.
+Apr 21 21:31:41 fedora systemd[1]: Stopped systemd-tmpfiles-setup.service - Create System Files and Directories.
+Apr 21 21:31:41 fedora systemd[1]: Stopped target local-fs.target - Local File Systems.
+Apr 21 21:31:41 fedora systemd[1]: Stopped target local-fs-pre.target - Preparation for Local File Systems.
+Apr 21 21:31:41 fedora systemd[1]: systemd-udev-trigger.service: Deactivated successfully.
+Apr 21 21:31:41 fedora systemd[1]: Stopped systemd-udev-trigger.service - Coldplug All udev Devices.
+Apr 21 21:31:41 fedora systemd[1]: Stopping systemd-udevd.service - Rule-based Manager for Device Events and Files...
+Apr 21 21:31:41 fedora systemd[1]: initrd-cleanup.service: Deactivated successfully.
+Apr 21 21:31:41 fedora systemd[1]: Finished initrd-cleanup.service - Cleaning Up and Shutting Down Daemons.
+Apr 21 21:31:41 fedora systemd[1]: systemd-udevd.service: Deactivated successfully.
+Apr 21 21:31:41 fedora systemd[1]: Stopped systemd-udevd.service - Rule-based Manager for Device Events and Files.
+Apr 21 21:31:41 fedora systemd[1]: systemd-udevd-control.socket: Deactivated successfully.
+Apr 21 21:31:41 fedora systemd[1]: Closed systemd-udevd-control.socket - udev Control Socket.
+Apr 21 21:31:41 fedora systemd[1]: dracut-pre-udev.service: Deactivated successfully.
+Apr 21 21:31:41 fedora systemd[1]: Stopped dracut-pre-udev.service - dracut pre-udev hook.
+Apr 21 21:31:41 fedora systemd[1]: dracut-cmdline.service: Deactivated successfully.
+Apr 21 21:31:41 fedora systemd[1]: Stopped dracut-cmdline.service - dracut cmdline hook.
+Apr 21 21:31:41 fedora systemd[1]: dracut-cmdline-ask.service: Deactivated successfully.
+Apr 21 21:31:41 fedora systemd[1]: Stopped dracut-cmdline-ask.service - dracut ask for additional cmdline parameters.
+Apr 21 21:31:41 fedora systemd[1]: Starting initrd-udevadm-cleanup-db.service - Cleanup udev Database...
+Apr 21 21:31:41 fedora systemd[1]: systemd-tmpfiles-setup-dev.service: Deactivated successfully.
+Apr 21 21:31:41 fedora systemd[1]: Stopped systemd-tmpfiles-setup-dev.service - Create Static Device Nodes in /dev.
+Apr 21 21:31:41 fedora systemd[1]: systemd-sysusers.service: Deactivated successfully.
+Apr 21 21:31:41 fedora systemd[1]: Stopped systemd-sysusers.service - Create System Users.
+Apr 21 21:31:41 fedora systemd[1]: systemd-tmpfiles-setup-dev-early.service: Deactivated successfully.
+Apr 21 21:31:41 fedora systemd[1]: Stopped systemd-tmpfiles-setup-dev-early.service - Create Static Device Nodes in /dev gracefully.
+Apr 21 21:31:41 fedora systemd[1]: kmod-static-nodes.service: Deactivated successfully.
+Apr 21 21:31:41 fedora systemd[1]: Stopped kmod-static-nodes.service - Create List of Static Device Nodes.
+Apr 21 21:31:41 fedora systemd[1]: systemd-vconsole-setup.service: Deactivated successfully.
+Apr 21 21:31:41 fedora systemd[1]: Stopped systemd-vconsole-setup.service - Virtual Console Setup.
+Apr 21 21:31:41 fedora systemd[1]: initrd-udevadm-cleanup-db.service: Deactivated successfully.
+Apr 21 21:31:41 fedora systemd[1]: Finished initrd-udevadm-cleanup-db.service - Cleanup udev Database.
+Apr 21 21:31:41 fedora systemd[1]: Reached target initrd-switch-root.target - Switch Root.
+Apr 21 21:31:41 fedora systemd[1]: Starting initrd-switch-root.service - Switch Root...
+Apr 21 21:31:41 fedora systemd[1]: Switching root.
+Apr 21 21:31:41 fedora systemd-journald[287]: Journal stopped
+Apr 21 21:31:42 fedora systemd-journald[287]: Received SIGTERM from PID 1 (systemd).
+Apr 21 21:31:42 fedora kernel: audit: type=1404 audit(1776817901.909:2): enforcing=1 old_enforcing=0 auid=4294967295 ses=4294967295 enabled=1 old-enabled=1 lsm=selinux res=1
+Apr 21 21:31:42 fedora kernel: SELinux:  Permission firmware_load in class system not defined in policy.
+Apr 21 21:31:42 fedora kernel: SELinux:  Permission kexec_image_load in class system not defined in policy.
+Apr 21 21:31:42 fedora kernel: SELinux:  Permission kexec_initramfs_load in class system not defined in policy.
+Apr 21 21:31:42 fedora kernel: SELinux:  Permission policy_load in class system not defined in policy.
+Apr 21 21:31:42 fedora kernel: SELinux:  Permission x509_certificate_load in class system not defined in policy.
+Apr 21 21:31:42 fedora kernel: SELinux:  Permission allowed in class io_uring not defined in policy.
+Apr 21 21:31:42 fedora kernel: SELinux: the above unknown classes and permissions will be allowed
+Apr 21 21:31:42 fedora kernel: SELinux:  policy capability network_peer_controls=1
+Apr 21 21:31:42 fedora kernel: SELinux:  policy capability open_perms=1
+Apr 21 21:31:42 fedora kernel: SELinux:  policy capability extended_socket_class=1
+Apr 21 21:31:42 fedora kernel: SELinux:  policy capability always_check_network=0
+Apr 21 21:31:42 fedora kernel: SELinux:  policy capability cgroup_seclabel=1
+Apr 21 21:31:42 fedora kernel: SELinux:  policy capability nnp_nosuid_transition=1
+Apr 21 21:31:42 fedora kernel: SELinux:  policy capability genfs_seclabel_symlinks=1
+Apr 21 21:31:42 fedora kernel: SELinux:  policy capability ioctl_skip_cloexec=0
+Apr 21 21:31:42 fedora kernel: SELinux:  policy capability userspace_initial_context=0
+Apr 21 21:31:42 fedora kernel: SELinux:  policy capability netlink_xperm=0
+Apr 21 21:31:42 fedora kernel: SELinux:  policy capability netif_wildcard=0
+Apr 21 21:31:42 fedora kernel: SELinux:  policy capability genfs_seclabel_wildcard=0
+Apr 21 21:31:42 fedora kernel: SELinux:  policy capability functionfs_seclabel=0
+Apr 21 21:31:42 fedora kernel: audit: type=1403 audit(1776817901.988:3): auid=4294967295 ses=4294967295 lsm=selinux res=1
+Apr 21 21:31:42 fedora systemd[1]: Successfully loaded SELinux policy in 80.648ms.
+Apr 21 21:31:42 fedora systemd[1]: Relabeled /dev/, /dev/shm/, /run/ in 21.044ms.
+Apr 21 21:31:42 fedora systemd[1]: systemd 258.7-1.fc43 running in system mode (+PAM +AUDIT +SELINUX -APPARMOR +IMA +IPE +SMACK +SECCOMP -GCRYPT +GNUTLS +OPENSSL +ACL +BLKID +CURL +ELFUTILS +FIDO2 +IDN2 -IDN -IPTC +KMOD +LIBCRYPTSETUP +LIBCRYPTSETUP_PLUGINS +LIBFDISK +PCRE2 +PWQUALITY +P11KIT +QRENCODE +TPM2 +BZIP2 +LZ4 +XZ +ZLIB +ZSTD +BPF_FRAMEWORK +BTF +XKBCOMMON +UTMP +SYSVINIT +LIBARCHIVE)
+Apr 21 21:31:42 fedora systemd[1]: Detected architecture arm64.
+Apr 21 21:31:42 fedora systemd[1]: bpf-restrict-fs: Failed to load BPF object: No such process
+Apr 21 21:31:42 fedora kernel: audit: type=1400 audit(1776817902.273:4): avc:  denied  { module_load } for  pid=596 comm="modprobe" path="/usr/lib/modules/6.18.15-m1opt+/kernel/lib/842/842_compress.ko" dev="nvme0n1p6" ino=393227 scontext=system_u:system_r:kmod_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=system permissive=0
+Apr 21 21:31:42 fedora zram_generator::generator[587]: modprobe "zram" failed, ignoring: code exit status: 1
+Apr 21 21:31:42 fedora (sd-exec-[550]: /usr/lib/systemd/system-generators/zram-generator failed with exit status 1.
+Apr 21 21:31:42 fedora systemd[1]: initrd-switch-root.service: Deactivated successfully.
+Apr 21 21:31:42 fedora systemd[1]: Stopped initrd-switch-root.service - Switch Root.
+Apr 21 21:31:42 fedora systemd[1]: systemd-journald.service: Scheduled restart job, restart counter is at 1.
+Apr 21 21:31:42 fedora systemd[1]: Created slice system-getty.slice - Slice /system/getty.
+Apr 21 21:31:42 fedora systemd[1]: Created slice system-systemd\x2dgrowfs.slice - Slice /system/systemd-growfs.
+Apr 21 21:31:42 fedora systemd[1]: Created slice system-systemd\x2dzram\x2dsetup.slice - Slice /system/systemd-zram-setup.
+Apr 21 21:31:42 fedora systemd[1]: Created slice user.slice - User and Session Slice.
+Apr 21 21:31:42 fedora systemd[1]: Started systemd-ask-password-console.path - Dispatch Password Requests to Console Directory Watch.
+Apr 21 21:31:42 fedora systemd[1]: Started systemd-ask-password-wall.path - Forward Password Requests to Wall Directory Watch.
+Apr 21 21:31:42 fedora systemd[1]: Set up automount proc-sys-fs-binfmt_misc.automount - Arbitrary Executable File Formats File System Automount Point.
+Apr 21 21:31:42 fedora systemd[1]: Expecting device dev-disk-by\x2duuid-107698e4\x2d392a\x2d4bf6\x2d9737\x2da1e9a84792c1.device - /dev/disk/by-uuid/107698e4-392a-4bf6-9737-a1e9a84792c1...
+Apr 21 21:31:42 fedora systemd[1]: Expecting device dev-disk-by\x2duuid-3cbd9d9a\x2d90a4\x2d404d\x2dafaa\x2d446e1c0722dc.device - /dev/disk/by-uuid/3cbd9d9a-90a4-404d-afaa-446e1c0722dc...
+Apr 21 21:31:42 fedora systemd[1]: Expecting device dev-disk-by\x2duuid-84BA\x2d5639.device - /dev/disk/by-uuid/84BA-5639...
+Apr 21 21:31:42 fedora systemd[1]: Expecting device dev-zram0.device - /dev/zram0...
+Apr 21 21:31:42 fedora systemd[1]: Reached target cryptsetup.target - Local Encrypted Volumes.
+Apr 21 21:31:42 fedora systemd[1]: Reached target getty.target - Login Prompts.
+Apr 21 21:31:42 fedora systemd[1]: Reached target imports.target - Image Downloads.
+Apr 21 21:31:42 fedora systemd[1]: Stopped target initrd-switch-root.target - Switch Root.
+Apr 21 21:31:42 fedora systemd[1]: Stopped target initrd-fs.target - Initrd File Systems.
+Apr 21 21:31:42 fedora systemd[1]: Stopped target initrd-root-fs.target - Initrd Root File System.
+Apr 21 21:31:42 fedora systemd[1]: Reached target integritysetup.target - Local Integrity Protected Volumes.
+Apr 21 21:31:42 fedora systemd[1]: Reached target paths.target - Path Units.
+Apr 21 21:31:42 fedora systemd[1]: Reached target slices.target - Slice Units.
+Apr 21 21:31:42 fedora systemd[1]: Reached target veritysetup.target - Local Verity Protected Volumes.
+Apr 21 21:31:42 fedora systemd[1]: Listening on dm-event.socket - Device-mapper event daemon FIFOs.
+Apr 21 21:31:42 fedora systemd[1]: Listening on lvm2-lvmpolld.socket - LVM2 poll daemon socket.
+Apr 21 21:31:42 fedora systemd[1]: Listening on systemd-ask-password.socket - Query the User Interactively for a Password.
+Apr 21 21:31:42 fedora systemd[1]: Listening on systemd-creds.socket - Credential Encryption/Decryption.
+Apr 21 21:31:42 fedora systemd[1]: Listening on systemd-factory-reset.socket - Factory Reset Management.
+Apr 21 21:31:42 fedora systemd[1]: Listening on systemd-journald-audit.socket - Journal Audit Socket.
+Apr 21 21:31:42 fedora systemd[1]: systemd-pcrextend.socket - TPM PCR Measurements skipped, unmet condition check ConditionSecurity=measured-uki
+Apr 21 21:31:42 fedora systemd[1]: systemd-pcrlock.socket - Make TPM PCR Policy skipped, unmet condition check ConditionSecurity=measured-uki
+Apr 21 21:31:42 fedora systemd[1]: Listening on systemd-resolved-monitor.socket - Resolve Monitor Varlink Socket.
+Apr 21 21:31:42 fedora systemd[1]: Listening on systemd-resolved-varlink.socket - Resolve Service Varlink Socket.
+Apr 21 21:31:42 fedora systemd[1]: Listening on systemd-udevd-control.socket - udev Control Socket.
+Apr 21 21:31:42 fedora systemd[1]: Listening on systemd-udevd-varlink.socket - udev Varlink Socket.
+Apr 21 21:31:42 fedora systemd[1]: Listening on systemd-userdbd.socket - User Database Manager Socket.
+Apr 21 21:31:42 fedora systemd[1]: dev-hugepages.mount - Huge Pages File System skipped, unmet condition check ConditionPathExists=/sys/kernel/mm/hugepages
+Apr 21 21:31:42 fedora systemd[1]: Mounting dev-mqueue.mount - POSIX Message Queue File System...
+Apr 21 21:31:42 fedora systemd[1]: Mounting sys-kernel-debug.mount - Kernel Debug File System...
+Apr 21 21:31:42 fedora systemd[1]: Mounting sys-kernel-tracing.mount - Kernel Trace File System...
+Apr 21 21:31:42 fedora systemd[1]: fips-crypto-policy-overlay.service - Bind-mount FIPS crypto-policy in FIPS mode skipped, unmet condition check ConditionKernelCommandLine=fips=1
+Apr 21 21:31:42 fedora systemd[1]: Starting kmod-static-nodes.service - Create List of Static Device Nodes...
+Apr 21 21:31:42 fedora systemd[1]: Starting lvm2-monitor.service - Monitoring of LVM2 mirrors, snapshots etc. using dmeventd or progress polling...
+Apr 21 21:31:42 fedora systemd[1]: modprobe@configfs.service - Load Kernel Module configfs skipped, unmet condition check ConditionKernelModuleLoaded=!configfs
+Apr 21 21:31:42 fedora systemd[1]: modprobe@dm_mod.service - Load Kernel Module dm_mod skipped, unmet condition check ConditionKernelModuleLoaded=!dm_mod
+Apr 21 21:31:42 fedora systemd[1]: Starting modprobe@dm_multipath.service - Load Kernel Module dm_multipath...
+Apr 21 21:31:42 fedora systemd[1]: modprobe@drm.service - Load Kernel Module drm skipped, unmet condition check ConditionKernelModuleLoaded=!drm
+Apr 21 21:31:42 fedora systemd[1]: Starting modprobe@fuse.service - Load Kernel Module fuse...
+Apr 21 21:31:42 fedora systemd[1]: Starting modprobe@loop.service - Load Kernel Module loop...
+Apr 21 21:31:42 fedora systemd[1]: systemd-boot-clear-sysfail.service - Clear SysFail Entry If The Boot Is Successful skipped, unmet condition check ConditionPathExists=/sys/firmware/efi/efivars/LoaderEntrySysFail-4a67b082-0a4c-41cf-b6c7-440b29bb8c4f
+Apr 21 21:31:42 fedora systemd[1]: systemd-hibernate-clear.service - Clear Stale Hibernate Storage Info skipped, unmet condition check ConditionPathExists=/sys/firmware/efi/efivars/HibernateLocation-8cf2644b-4b0b-428f-9387-6d876050dc67
+Apr 21 21:31:42 fedora systemd[1]: Starting systemd-journald.service - Journal Service...
+Apr 21 21:31:42 fedora systemd[1]: Starting systemd-modules-load.service - Load Kernel Modules...
+Apr 21 21:31:42 fedora systemd[1]: Starting systemd-network-generator.service - Generate Network Units from Kernel Command Line...
+Apr 21 21:31:42 fedora systemd[1]: systemd-pcrmachine.service - TPM PCR Machine ID Measurement skipped, unmet condition check ConditionSecurity=measured-uki
+Apr 21 21:31:42 fedora systemd[1]: Starting systemd-remount-fs.service - Remount Root and Kernel File Systems...
+Apr 21 21:31:42 fedora systemd[1]: systemd-tpm2-setup-early.service - Early TPM SRK Setup skipped, unmet condition check ConditionSecurity=measured-uki
+Apr 21 21:31:42 fedora systemd[1]: Starting systemd-udev-load-credentials.service - Load udev Rules from Credentials...
+Apr 21 21:31:42 fedora kernel: audit: type=1400 audit(1776817902.506:5): avc:  denied  { module_load } for  pid=607 comm="modprobe" path="/usr/lib/modules/6.18.15-m1opt+/kernel/drivers/block/loop.ko" dev="nvme0n1p6" ino=393815 scontext=system_u:system_r:kmod_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=system permissive=0
+Apr 21 21:31:42 fedora systemd[1]: Mounted dev-mqueue.mount - POSIX Message Queue File System.
+Apr 21 21:31:42 fedora systemd[1]: Mounted sys-kernel-debug.mount - Kernel Debug File System.
+Apr 21 21:31:42 fedora systemd[1]: Mounted sys-kernel-tracing.mount - Kernel Trace File System.
+Apr 21 21:31:42 fedora systemd[1]: Finished kmod-static-nodes.service - Create List of Static Device Nodes.
+Apr 21 21:31:42 fedora systemd[1]: modprobe@dm_multipath.service: Deactivated successfully.
+Apr 21 21:31:42 fedora kernel: audit: type=1400 audit(1776817902.507:6): avc:  denied  { module_load } for  pid=606 comm="modprobe" path="/usr/lib/modules/6.18.15-m1opt+/kernel/fs/fuse/fuse.ko" dev="nvme0n1p6" ino=393200 scontext=system_u:system_r:kmod_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=system permissive=0
+Apr 21 21:31:42 fedora systemd[1]: Finished modprobe@dm_multipath.service - Load Kernel Module dm_multipath.
+Apr 21 21:31:42 fedora systemd[1]: modprobe@loop.service: Deactivated successfully.
+Apr 21 21:31:42 fedora systemd[1]: Finished modprobe@loop.service - Load Kernel Module loop.
+Apr 21 21:31:42 fedora systemd[1]: modprobe@fuse.service: Deactivated successfully.
+Apr 21 21:31:42 fedora systemd[1]: Finished modprobe@fuse.service - Load Kernel Module fuse.
+Apr 21 21:31:42 fedora systemd[1]: sys-fs-fuse-connections.mount - FUSE Control File System skipped, unmet condition check ConditionPathExists=/sys/fs/fuse/connections
+Apr 21 21:31:42 fedora systemd[1]: systemd-repart.service - Repartition Root Disk skipped, no trigger condition checks were met.
+Apr 21 21:31:42 fedora systemd[1]: Starting systemd-tmpfiles-setup-dev-early.service - Create Static Device Nodes in /dev gracefully...
+Apr 21 21:31:42 fedora kernel: BTRFS info (device nvme0n1p6 state M): use zstd compression, level 1
+Apr 21 21:31:42 fedora kernel: audit: type=1400 audit(1776817902.511:7): avc:  denied  { getattr } for  pid=609 comm="systemd-modules" path="/usr/lib/modules/6.18.15-m1opt+/kernel/net/bluetooth/bluetooth.ko" dev="nvme0n1p6" ino=393250 scontext=system_u:system_r:systemd_modules_load_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=file permissive=0
+Apr 21 21:31:42 fedora kernel: audit: type=1400 audit(1776817902.511:8): avc:  denied  { getattr } for  pid=609 comm="systemd-modules" path="/usr/lib/modules/6.18.15-m1opt+/kernel/net/bluetooth/bluetooth.ko" dev="nvme0n1p6" ino=393250 scontext=system_u:system_r:systemd_modules_load_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=file permissive=0
+Apr 21 21:31:42 fedora kernel: audit: type=1400 audit(1776817902.512:9): avc:  denied  { read } for  pid=609 comm="systemd-modules" name="hci_bcm4377.ko" dev="nvme0n1p6" ino=393822 scontext=system_u:system_r:systemd_modules_load_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=file permissive=0
+Apr 21 21:31:42 fedora kernel: audit: type=1400 audit(1776817902.512:10): avc:  denied  { read } for  pid=609 comm="systemd-modules" name="fuse.ko" dev="nvme0n1p6" ino=393200 scontext=system_u:system_r:systemd_modules_load_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=file permissive=0
+Apr 21 21:31:42 fedora systemd[1]: Finished systemd-remount-fs.service - Remount Root and Kernel File Systems.
+Apr 21 21:31:42 fedora systemd[1]: multipathd.service - Device-Mapper Multipath Device Controller skipped, unmet condition check ConditionPathExists=/etc/multipath.conf
+Apr 21 21:31:42 fedora systemd[1]: Starting m1-wifi-firmware-fix.service - M1 WiFi firmware symlink fix (brcmfmac variant names)...
+Apr 21 21:31:42 fedora systemd[1]: Starting systemd-growfs-root.service - Grow Root File System...
+Apr 21 21:31:42 fedora systemd[1]: systemd-hwdb-update.service - Rebuild Hardware Database skipped, unmet condition check ConditionNeedsUpdate=/etc
+Apr 21 21:31:42 fedora systemd-journald[608]: Collecting audit messages is enabled.
+Apr 21 21:31:42 fedora systemd[1]: Starting systemd-random-seed.service - Load/Save OS Random Seed...
+Apr 21 21:31:42 fedora systemd[1]: systemd-tpm2-setup.service - TPM SRK Setup skipped, unmet condition check ConditionSecurity=measured-uki
+Apr 21 21:31:42 fedora systemd[1]: systemd-modules-load.service: Main process exited, code=exited, status=1/FAILURE
+Apr 21 21:31:42 fedora systemd[1]: systemd-modules-load.service: Failed with result 'exit-code'.
+Apr 21 21:31:42 fedora systemd[1]: Failed to start systemd-modules-load.service - Load Kernel Modules.
+Apr 21 21:31:42 fedora systemd[1]: Finished systemd-network-generator.service - Generate Network Units from Kernel Command Line.
+Apr 21 21:31:42 fedora systemd[1]: Finished systemd-udev-load-credentials.service - Load udev Rules from Credentials.
+Apr 21 21:31:42 fedora systemd-journald[608]: Journal started
+Apr 21 21:31:42 fedora systemd-journald[608]: Runtime Journal (/run/log/journal/a2a47b05f5f24e679b6b3b0780a58ce4) is 2.5M, max 20M, 17.5M free.
+Apr 21 21:31:42 fedora audit[607]: AVC avc:  denied  { module_load } for  pid=607 comm="modprobe" path="/usr/lib/modules/6.18.15-m1opt+/kernel/drivers/block/loop.ko" dev="nvme0n1p6" ino=393815 scontext=system_u:system_r:kmod_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=system permissive=0
+Apr 21 21:31:42 fedora audit[606]: AVC avc:  denied  { module_load } for  pid=606 comm="modprobe" path="/usr/lib/modules/6.18.15-m1opt+/kernel/fs/fuse/fuse.ko" dev="nvme0n1p6" ino=393200 scontext=system_u:system_r:kmod_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=system permissive=0
+Apr 21 21:31:42 fedora audit[609]: AVC avc:  denied  { getattr } for  pid=609 comm="systemd-modules" path="/usr/lib/modules/6.18.15-m1opt+/kernel/net/bluetooth/bluetooth.ko" dev="nvme0n1p6" ino=393250 scontext=system_u:system_r:systemd_modules_load_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=file permissive=0
+Apr 21 21:31:42 fedora audit[609]: AVC avc:  denied  { getattr } for  pid=609 comm="systemd-modules" path="/usr/lib/modules/6.18.15-m1opt+/kernel/net/bluetooth/bluetooth.ko" dev="nvme0n1p6" ino=393250 scontext=system_u:system_r:systemd_modules_load_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=file permissive=0
+Apr 21 21:31:42 fedora audit[609]: AVC avc:  denied  { read } for  pid=609 comm="systemd-modules" name="hci_bcm4377.ko" dev="nvme0n1p6" ino=393822 scontext=system_u:system_r:systemd_modules_load_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=file permissive=0
+Apr 21 21:31:42 fedora audit[609]: AVC avc:  denied  { read } for  pid=609 comm="systemd-modules" name="fuse.ko" dev="nvme0n1p6" ino=393200 scontext=system_u:system_r:systemd_modules_load_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=file permissive=0
+Apr 21 21:31:42 fedora audit[609]: AVC avc:  denied  { read } for  pid=609 comm="systemd-modules" name="i2c-dev.ko" dev="nvme0n1p6" ino=393889 scontext=system_u:system_r:systemd_modules_load_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=file permissive=0
+Apr 21 21:31:42 fedora audit[609]: AVC avc:  denied  { read } for  pid=609 comm="systemd-modules" name="fuse.ko" dev="nvme0n1p6" ino=393200 scontext=system_u:system_r:systemd_modules_load_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=file permissive=0
+Apr 21 21:31:42 fedora audit[609]: AVC avc:  denied  { read } for  pid=609 comm="systemd-modules" name="uinput.ko" dev="nvme0n1p6" ino=393908 scontext=system_u:system_r:systemd_modules_load_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=file permissive=0
+Apr 21 21:31:42 fedora audit[1]: SERVICE_START pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-modules-load comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=failed'
+Apr 21 21:31:42 fedora audit[1]: SERVICE_START pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-network-generator comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Apr 21 21:31:42 fedora audit[1]: SERVICE_START pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-udev-load-credentials comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Apr 21 21:31:42 fedora systemd[1]: Queued start job for default target graphical.target.
+Apr 21 21:31:42 fedora audit[1]: SERVICE_START pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-journald comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Apr 21 21:31:42 fedora systemd[1]: systemd-journald.service: Deactivated successfully.
+Apr 21 21:31:42 fedora systemd-modules-load[609]: ctx=0xaaab6430eba0 path=/lib/modules/6.18.15-m1opt+/kernel/net/bluetooth/bluetooth.ko error=Permission denied
+Apr 21 21:31:42 fedora systemd-modules-load[609]: ctx=0xaaab6430eba0 path=/lib/modules/6.18.15-m1opt+/kernel/net/bluetooth/bluetooth.ko error=Permission denied
+Apr 21 21:31:42 fedora systemd-modules-load[609]: Failed to insert module 'hci_bcm4377': Permission denied
+Apr 21 21:31:42 fedora systemd-modules-load[609]: Failed to insert module 'fuse': Permission denied
+Apr 21 21:31:42 fedora systemd-modules-load[609]: Failed to insert module 'i2c_dev': Permission denied
+Apr 21 21:31:42 fedora systemd-modules-load[609]: Failed to insert module 'fuse': Permission denied
+Apr 21 21:31:42 fedora systemd-modules-load[609]: Failed to find module 'scsi_dh_alua'
+Apr 21 21:31:42 fedora systemd-modules-load[609]: Failed to find module 'scsi_dh_emc'
+Apr 21 21:31:42 fedora systemd-modules-load[609]: Failed to find module 'scsi_dh_rdac'
+Apr 21 21:31:42 fedora systemd[1]: Starting systemd-sysctl.service - Apply Kernel Variables...
+Apr 21 21:31:42 fedora systemd-modules-load[609]: Failed to insert module 'uinput': Permission denied
+Apr 21 21:31:42 fedora systemd[1]: Started systemd-journald.service - Journal Service.
+Apr 21 21:31:42 fedora systemd[1]: Starting systemd-journal-flush.service - Flush Journal to Persistent Storage...
+Apr 21 21:31:42 fedora systemd-journald[608]: Time spent on flushing to /var/log/journal/a2a47b05f5f24e679b6b3b0780a58ce4 is 4.280ms for 824 entries.
+Apr 21 21:31:42 fedora systemd-journald[608]: System Journal (/var/log/journal/a2a47b05f5f24e679b6b3b0780a58ce4) is 48.3M, max 50M, 1.6M free.
+Apr 21 21:31:42 fedora audit[1]: SERVICE_START pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-random-seed comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Apr 21 21:31:42 fedora audit: BPF prog-id=43 op=LOAD
+Apr 21 21:31:42 fedora audit: BPF prog-id=44 op=LOAD
+Apr 21 21:31:42 fedora audit: BPF prog-id=45 op=LOAD
+Apr 21 21:31:42 fedora audit[1]: SERVICE_START pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=m1-wifi-firmware-fix comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Apr 21 21:31:42 fedora audit[643]: AVC avc:  denied  { module_load } for  pid=643 comm="modprobe" path="/usr/lib/modules/6.18.15-m1opt+/kernel/net/ipv4/tcp_bbr.ko" dev="nvme0n1p6" ino=393261 scontext=system_u:system_r:kmod_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=system permissive=0
+Apr 21 21:31:42 fedora audit[643]: SYSCALL arch=c00000b7 syscall=273 success=no exit=-13 a0=3 a1=aaab33221110 a2=0 a3=aaab393e0d70 items=0 ppid=64 pid=643 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="modprobe" exe="/usr/bin/kmod" subj=system_u:system_r:kmod_t:s0 key=(null)
+Apr 21 21:31:42 fedora audit: EXECVE argc=4 a0="/usr/sbin/modprobe" a1="-q" a2="--" a3="tcp_bbr"
+Apr 21 21:31:42 fedora audit: PROCTITLE proctitle=2F7573722F7362696E2F6D6F6470726F6265002D71002D2D007463705F626272
+Apr 21 21:31:42 fedora audit[1]: SERVICE_START pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-growfs-root comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Apr 21 21:31:42 fedora audit[1]: SERVICE_START pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-sysctl comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Apr 21 21:31:42 fedora audit[1]: SERVICE_START pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=lvm2-monitor comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Apr 21 21:31:42 fedora audit[1]: SERVICE_START pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-journal-flush comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Apr 21 21:31:42 fedora systemd[1]: Finished systemd-random-seed.service - Load/Save OS Random Seed.
+Apr 21 21:31:42 fedora systemd-journald[608]: Received client request to flush runtime journal.
+Apr 21 21:31:42 fedora m1-wifi-firmware-fix.sh[620]: m1-wifi-firmware-fix: created 0 symlinks
+Apr 21 21:31:42 fedora systemd[1]: Starting systemd-userdbd.service - User Database Manager...
+Apr 21 21:31:42 fedora systemd[1]: Finished m1-wifi-firmware-fix.service - M1 WiFi firmware symlink fix (brcmfmac variant names).
+Apr 21 21:31:42 fedora systemd[1]: Starting systemd-udev-trigger.service - Coldplug All udev Devices...
+Apr 21 21:31:42 fedora systemd-growfs[621]: Successfully resized "/" to 24.1G bytes.
+Apr 21 21:31:42 fedora systemd-sysctl[623]: Couldn't write 'bbr' to 'net/ipv4/tcp_congestion_control', ignoring: No such file or directory
+Apr 21 21:31:42 fedora systemd[1]: Finished systemd-growfs-root.service - Grow Root File System.
+Apr 21 21:31:42 fedora systemd[1]: Finished systemd-sysctl.service - Apply Kernel Variables.
+Apr 21 21:31:42 fedora systemd[1]: Finished lvm2-monitor.service - Monitoring of LVM2 mirrors, snapshots etc. using dmeventd or progress polling.
+Apr 21 21:31:42 fedora systemd[1]: Finished systemd-journal-flush.service - Flush Journal to Persistent Storage.
+Apr 21 21:31:42 fedora systemd[1]: Started systemd-userdbd.service - User Database Manager.
+Apr 21 21:31:42 fedora audit[1]: SERVICE_START pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-userdbd comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Apr 21 21:31:42 fedora systemd[1]: Finished systemd-tmpfiles-setup-dev-early.service - Create Static Device Nodes in /dev gracefully.
+Apr 21 21:31:42 fedora audit[1]: SERVICE_START pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-tmpfiles-setup-dev-early comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Apr 21 21:31:42 fedora systemd[1]: systemd-sysusers.service - Create System Users skipped, no trigger condition checks were met.
+Apr 21 21:31:42 fedora systemd[1]: Starting systemd-tmpfiles-setup-dev.service - Create Static Device Nodes in /dev...
+Apr 21 21:31:42 fedora systemd[1]: Finished systemd-tmpfiles-setup-dev.service - Create Static Device Nodes in /dev.
+Apr 21 21:31:42 fedora audit[1]: SERVICE_START pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-tmpfiles-setup-dev comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Apr 21 21:31:42 fedora systemd[1]: Reached target local-fs-pre.target - Preparation for Local File Systems.
+Apr 21 21:31:42 fedora audit: BPF prog-id=19 op=UNLOAD
+Apr 21 21:31:42 fedora audit: BPF prog-id=18 op=UNLOAD
+Apr 21 21:31:42 fedora audit: BPF prog-id=46 op=LOAD
+Apr 21 21:31:42 fedora audit: BPF prog-id=47 op=LOAD
+Apr 21 21:31:42 fedora systemd[1]: Starting systemd-udevd.service - Rule-based Manager for Device Events and Files...
+Apr 21 21:31:42 fedora systemd[1]: Finished systemd-udev-trigger.service - Coldplug All udev Devices.
+Apr 21 21:31:42 fedora audit[1]: SERVICE_START pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-udev-trigger comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Apr 21 21:31:42 fedora systemd-udevd[655]: Using default interface naming scheme 'v258'.
+Apr 21 21:31:42 fedora systemd[1]: Started systemd-udevd.service - Rule-based Manager for Device Events and Files.
+Apr 21 21:31:42 fedora audit[1]: SERVICE_START pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-udevd comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Apr 21 21:31:42 fedora systemd[1]: modprobe@configfs.service - Load Kernel Module configfs skipped, unmet condition check ConditionKernelModuleLoaded=!configfs
+Apr 21 21:31:42 fedora (udev-worker)[681]: nvme0: /etc/udev/rules.d/60-nvme-scheduler.rules:1 ATTR{queue/scheduler}="none": Could not chase sysfs attribute "/sys/devices/platform/soc/27bcc0000.nvme/nvme/nvme0/queue/scheduler", ignoring: No such file or directory
+Apr 21 21:31:42 fedora (udev-worker)[682]: nvme0n1p5: /etc/udev/rules.d/60-nvme-scheduler.rules:1 ATTR{queue/scheduler}="none": Could not chase sysfs attribute "/sys/devices/platform/soc/27bcc0000.nvme/nvme/nvme0/nvme0n1/nvme0n1p5/queue/scheduler", ignoring: No such file or directory
+Apr 21 21:31:42 fedora (udev-worker)[666]: nvme0n1p7: /etc/udev/rules.d/60-nvme-scheduler.rules:1 ATTR{queue/scheduler}="none": Could not chase sysfs attribute "/sys/devices/platform/soc/27bcc0000.nvme/nvme/nvme0/nvme0n1/nvme0n1p7/queue/scheduler", ignoring: No such file or directory
+Apr 21 21:31:42 fedora (udev-worker)[680]: nvme0n1p4: /etc/udev/rules.d/60-nvme-scheduler.rules:1 ATTR{queue/scheduler}="none": Could not chase sysfs attribute "/sys/devices/platform/soc/27bcc0000.nvme/nvme/nvme0/nvme0n1/nvme0n1p4/queue/scheduler", ignoring: No such file or directory
+Apr 21 21:31:42 fedora (udev-worker)[664]: nvme0n1p2: /etc/udev/rules.d/60-nvme-scheduler.rules:1 ATTR{queue/scheduler}="none": Could not chase sysfs attribute "/sys/devices/platform/soc/27bcc0000.nvme/nvme/nvme0/nvme0n1/nvme0n1p2/queue/scheduler", ignoring: No such file or directory
+Apr 21 21:31:42 fedora (udev-worker)[681]: nvme0n1p1: /etc/udev/rules.d/60-nvme-scheduler.rules:1 ATTR{queue/scheduler}="none": Could not chase sysfs attribute "/sys/devices/platform/soc/27bcc0000.nvme/nvme/nvme0/nvme0n1/nvme0n1p1/queue/scheduler", ignoring: No such file or directory
+Apr 21 21:31:42 fedora (udev-worker)[670]: nvme0n1p6: /etc/udev/rules.d/60-nvme-scheduler.rules:1 ATTR{queue/scheduler}="none": Could not chase sysfs attribute "/sys/devices/platform/soc/27bcc0000.nvme/nvme/nvme0/nvme0n1/nvme0n1p6/queue/scheduler", ignoring: No such file or directory
+Apr 21 21:31:42 fedora (udev-worker)[689]: nvme0n1p3: /etc/udev/rules.d/60-nvme-scheduler.rules:1 ATTR{queue/scheduler}="none": Could not chase sysfs attribute "/sys/devices/platform/soc/27bcc0000.nvme/nvme/nvme0/nvme0n1/nvme0n1p3/queue/scheduler", ignoring: No such file or directory
+Apr 21 21:31:42 fedora systemd[1]: Condition check resulted in dev-disk-by\x2duuid-84BA\x2d5639.device - APPLE SSD AP0256Q EFI_-_FEDOR being skipped.
+Apr 21 21:31:42 fedora systemd[1]: Condition check resulted in dev-disk-by\x2duuid-107698e4\x2d392a\x2d4bf6\x2d9737\x2da1e9a84792c1.device - APPLE SSD AP0256Q BOOT being skipped.
+Apr 21 21:31:42 fedora systemd[1]: Found device dev-disk-by\x2duuid-3cbd9d9a\x2d90a4\x2d404d\x2dafaa\x2d446e1c0722dc.device - APPLE SSD AP0256Q fedora.
+Apr 21 21:31:42 fedora audit[662]: AVC avc:  denied  { module_load } for  pid=662 comm="(udev-worker)" path="/usr/lib/modules/6.18.15-m1opt+/kernel/drivers/media/mc/mc.ko" dev="nvme0n1p6" ino=393951 scontext=system_u:system_r:udev_t:s0-s0:c0.c1023 tcontext=system_u:object_r:unlabeled_t:s0 tclass=system permissive=0
+Apr 21 21:31:42 fedora audit[662]: SYSCALL arch=c00000b7 syscall=273 success=no exit=-13 a0=1c a1=fffec39b4298 a2=0 a3=aaab15405940 items=0 ppid=655 pid=662 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="(udev-worker)" exe="/usr/bin/udevadm" subj=system_u:system_r:udev_t:s0-s0:c0.c1023 key=(null)
+Apr 21 21:31:42 fedora audit: PROCTITLE proctitle="(udev-worker)"
+Apr 21 21:31:42 fedora audit[672]: AVC avc:  denied  { module_load } for  pid=672 comm="(udev-worker)" path="/usr/lib/modules/6.18.15-m1opt+/kernel/sound/soundcore.ko" dev="nvme0n1p6" ino=393364 scontext=system_u:system_r:udev_t:s0-s0:c0.c1023 tcontext=system_u:object_r:unlabeled_t:s0 tclass=system permissive=0
+Apr 21 21:31:42 fedora audit[672]: SYSCALL arch=c00000b7 syscall=273 success=no exit=-13 a0=30 a1=fffec39b4298 a2=0 a3=aaab1570e620 items=0 ppid=655 pid=672 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="(udev-worker)" exe="/usr/bin/udevadm" subj=system_u:system_r:udev_t:s0-s0:c0.c1023 key=(null)
+Apr 21 21:31:42 fedora audit: PROCTITLE proctitle="(udev-worker)"
+Apr 21 21:31:42 fedora audit[673]: AVC avc:  denied  { module_load } for  pid=673 comm="(udev-worker)" path="/usr/lib/modules/6.18.15-m1opt+/kernel/drivers/gpu/drm/asahi/asahi.ko" dev="nvme0n1p6" ino=393871 scontext=system_u:system_r:udev_t:s0-s0:c0.c1023 tcontext=system_u:object_r:unlabeled_t:s0 tclass=system permissive=0
+Apr 21 21:31:42 fedora audit[673]: SYSCALL arch=c00000b7 syscall=273 success=no exit=-13 a0=32 a1=fffec39b4298 a2=0 a3=aaab15409270 items=0 ppid=655 pid=673 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="(udev-worker)" exe="/usr/bin/udevadm" subj=system_u:system_r:udev_t:s0-s0:c0.c1023 key=(null)
+Apr 21 21:31:42 fedora audit: PROCTITLE proctitle="(udev-worker)"
+Apr 21 21:31:42 fedora audit[658]: AVC avc:  denied  { module_load } for  pid=658 comm="(udev-worker)" path="/usr/lib/modules/6.18.15-m1opt+/kernel/sound/soundcore.ko" dev="nvme0n1p6" ino=393364 scontext=system_u:system_r:udev_t:s0-s0:c0.c1023 tcontext=system_u:object_r:unlabeled_t:s0 tclass=system permissive=0
+Apr 21 21:31:42 fedora audit[658]: SYSCALL arch=c00000b7 syscall=273 success=no exit=-13 a0=13 a1=fffec39b4298 a2=0 a3=aaab15708020 items=0 ppid=655 pid=658 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="(udev-worker)" exe="/usr/bin/udevadm" subj=system_u:system_r:udev_t:s0-s0:c0.c1023 key=(null)
+Apr 21 21:31:42 fedora audit: PROCTITLE proctitle="(udev-worker)"
+Apr 21 21:31:42 fedora audit[690]: AVC avc:  denied  { module_load } for  pid=690 comm="(udev-worker)" path="/usr/lib/modules/6.18.15-m1opt+/kernel/sound/soundcore.ko" dev="nvme0n1p6" ino=393364 scontext=system_u:system_r:udev_t:s0-s0:c0.c1023 tcontext=system_u:object_r:unlabeled_t:s0 tclass=system permissive=0
+Apr 21 21:31:42 fedora audit[690]: SYSCALL arch=c00000b7 syscall=273 success=no exit=-13 a0=52 a1=fffec39b4298 a2=0 a3=aaab15713740 items=0 ppid=655 pid=690 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="(udev-worker)" exe="/usr/bin/udevadm" subj=system_u:system_r:udev_t:s0-s0:c0.c1023 key=(null)
+Apr 21 21:31:42 fedora audit: PROCTITLE proctitle="(udev-worker)"
+Apr 21 21:31:42 fedora audit[660]: AVC avc:  denied  { module_load } for  pid=660 comm="(udev-worker)" path="/usr/lib/modules/6.18.15-m1opt+/kernel/sound/soundcore.ko" dev="nvme0n1p6" ino=393364 scontext=system_u:system_r:udev_t:s0-s0:c0.c1023 tcontext=system_u:object_r:unlabeled_t:s0 tclass=system permissive=0
+Apr 21 21:31:42 fedora audit[660]: SYSCALL arch=c00000b7 syscall=273 success=no exit=-13 a0=18 a1=fffec39b4298 a2=0 a3=aaab15705f80 items=0 ppid=655 pid=660 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="(udev-worker)" exe="/usr/bin/udevadm" subj=system_u:system_r:udev_t:s0-s0:c0.c1023 key=(null)
+Apr 21 21:31:42 fedora audit: PROCTITLE proctitle="(udev-worker)"
+Apr 21 21:31:42 fedora audit[660]: AVC avc:  denied  { module_load } for  pid=660 comm="(udev-worker)" path="/usr/lib/modules/6.18.15-m1opt+/kernel/sound/soundcore.ko" dev="nvme0n1p6" ino=393364 scontext=system_u:system_r:udev_t:s0-s0:c0.c1023 tcontext=system_u:object_r:unlabeled_t:s0 tclass=system permissive=0
+Apr 21 21:31:42 fedora audit[660]: SYSCALL arch=c00000b7 syscall=273 success=no exit=-13 a0=18 a1=fffec39b4298 a2=0 a3=aaab15705f80 items=0 ppid=655 pid=660 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="(udev-worker)" exe="/usr/bin/udevadm" subj=system_u:system_r:udev_t:s0-s0:c0.c1023 key=(null)
+Apr 21 21:31:42 fedora audit: PROCTITLE proctitle="(udev-worker)"
+Apr 21 21:31:42 fedora audit[681]: AVC avc:  denied  { module_load } for  pid=681 comm="(udev-worker)" path="/usr/lib/modules/6.18.15-m1opt+/kernel/sound/soundcore.ko" dev="nvme0n1p6" ino=393364 scontext=system_u:system_r:udev_t:s0-s0:c0.c1023 tcontext=system_u:object_r:unlabeled_t:s0 tclass=system permissive=0
+Apr 21 21:31:42 fedora audit[681]: SYSCALL arch=c00000b7 syscall=273 success=no exit=-13 a0=40 a1=fffec39b4298 a2=0 a3=aaab155d3490 items=0 ppid=655 pid=681 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="(udev-worker)" exe="/usr/bin/udevadm" subj=system_u:system_r:udev_t:s0-s0:c0.c1023 key=(null)
+Apr 21 21:31:42 fedora audit: PROCTITLE proctitle="(udev-worker)"
+Apr 21 21:31:42 fedora audit[667]: AVC avc:  denied  { module_load } for  pid=667 comm="(udev-worker)" path="/usr/lib/modules/6.18.15-m1opt+/kernel/sound/soundcore.ko" dev="nvme0n1p6" ino=393364 scontext=system_u:system_r:udev_t:s0-s0:c0.c1023 tcontext=system_u:object_r:unlabeled_t:s0 tclass=system permissive=0
+Apr 21 21:31:42 fedora audit[667]: SYSCALL arch=c00000b7 syscall=273 success=no exit=-13 a0=26 a1=fffec39b4298 a2=0 a3=aaab1570ce30 items=0 ppid=655 pid=667 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="(udev-worker)" exe="/usr/bin/udevadm" subj=system_u:system_r:udev_t:s0-s0:c0.c1023 key=(null)
+Apr 21 21:31:42 fedora audit: PROCTITLE proctitle="(udev-worker)"
+Apr 21 21:31:42 fedora audit[666]: AVC avc:  denied  { module_load } for  pid=666 comm="(udev-worker)" path="/usr/lib/modules/6.18.15-m1opt+/kernel/sound/soundcore.ko" dev="nvme0n1p6" ino=393364 scontext=system_u:system_r:udev_t:s0-s0:c0.c1023 tcontext=system_u:object_r:unlabeled_t:s0 tclass=system permissive=0
+Apr 21 21:31:42 fedora audit[666]: SYSCALL arch=c00000b7 syscall=273 success=no exit=-13 a0=24 a1=fffec39b4298 a2=0 a3=aaab1570c1d0 items=0 ppid=655 pid=666 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="(udev-worker)" exe="/usr/bin/udevadm" subj=system_u:system_r:udev_t:s0-s0:c0.c1023 key=(null)
+Apr 21 21:31:42 fedora audit: PROCTITLE proctitle="(udev-worker)"
+Apr 21 21:31:42 fedora audit[666]: AVC avc:  denied  { module_load } for  pid=666 comm="(udev-worker)" path="/usr/lib/modules/6.18.15-m1opt+/kernel/sound/soundcore.ko" dev="nvme0n1p6" ino=393364 scontext=system_u:system_r:udev_t:s0-s0:c0.c1023 tcontext=system_u:object_r:unlabeled_t:s0 tclass=system permissive=0
+Apr 21 21:31:42 fedora audit[666]: SYSCALL arch=c00000b7 syscall=273 success=no exit=-13 a0=24 a1=fffec39b4298 a2=0 a3=aaab1570c1d0 items=0 ppid=655 pid=666 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="(udev-worker)" exe="/usr/bin/udevadm" subj=system_u:system_r:udev_t:s0-s0:c0.c1023 key=(null)
+Apr 21 21:31:42 fedora audit: PROCTITLE proctitle="(udev-worker)"
+Apr 21 21:31:42 fedora nfsrahead[713]: skipping non-NFS device 259:0
+Apr 21 21:31:42 fedora nfsrahead[715]: skipping non-NFS device 259:8
+Apr 21 21:31:42 fedora audit[670]: AVC avc:  denied  { module_load } for  pid=670 comm="(udev-worker)" path="/usr/lib/modules/6.18.15-m1opt+/kernel/net/bluetooth/bluetooth.ko" dev="nvme0n1p6" ino=393250 scontext=system_u:system_r:udev_t:s0-s0:c0.c1023 tcontext=system_u:object_r:unlabeled_t:s0 tclass=system permissive=0
+Apr 21 21:31:42 fedora audit[670]: SYSCALL arch=c00000b7 syscall=273 success=no exit=-13 a0=2c a1=fffec39b4298 a2=0 a3=aaab15711740 items=0 ppid=655 pid=670 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="(udev-worker)" exe="/usr/bin/udevadm" subj=system_u:system_r:udev_t:s0-s0:c0.c1023 key=(null)
+Apr 21 21:31:42 fedora audit: PROCTITLE proctitle="(udev-worker)"
+Apr 21 21:31:42 fedora nfsrahead[725]: skipping non-NFS device 259:9
+Apr 21 21:31:42 fedora nfsrahead[726]: skipping non-NFS device btrfs-1
+Apr 21 21:31:42 fedora systemd[1]: Condition check resulted in sys-devices-virtual-misc-rfkill.device - /sys/devices/virtual/misc/rfkill being skipped.
+Apr 21 21:31:42 fedora systemd[1]: Listening on systemd-rfkill.socket - Load/Save RF Kill Switch Status /dev/rfkill Watch.
+Apr 21 21:31:42 fedora systemd[1]: fips-crypto-policy-overlay.service - Bind-mount FIPS crypto-policy in FIPS mode skipped, unmet condition check ConditionKernelCommandLine=fips=1
+Apr 21 21:31:42 fedora systemd[1]: modprobe@dm_mod.service - Load Kernel Module dm_mod skipped, unmet condition check ConditionKernelModuleLoaded=!dm_mod
+Apr 21 21:31:42 fedora systemd[1]: Starting modprobe@dm_multipath.service - Load Kernel Module dm_multipath...
+Apr 21 21:31:42 fedora systemd[1]: Starting modprobe@fuse.service - Load Kernel Module fuse...
+Apr 21 21:31:42 fedora systemd[1]: Starting modprobe@loop.service - Load Kernel Module loop...
+Apr 21 21:31:42 fedora systemd[1]: systemd-boot-clear-sysfail.service - Clear SysFail Entry If The Boot Is Successful skipped, unmet condition check ConditionPathExists=/sys/firmware/efi/efivars/LoaderEntrySysFail-4a67b082-0a4c-41cf-b6c7-440b29bb8c4f
+Apr 21 21:31:42 fedora systemd[1]: systemd-hibernate-clear.service - Clear Stale Hibernate Storage Info skipped, unmet condition check ConditionPathExists=/sys/firmware/efi/efivars/HibernateLocation-8cf2644b-4b0b-428f-9387-6d876050dc67
+Apr 21 21:31:42 fedora systemd[1]: systemd-hwdb-update.service - Rebuild Hardware Database skipped, unmet condition check ConditionNeedsUpdate=/etc
+Apr 21 21:31:42 fedora audit[732]: AVC avc:  denied  { module_load } for  pid=732 comm="modprobe" path="/usr/lib/modules/6.18.15-m1opt+/kernel/fs/fuse/fuse.ko" dev="nvme0n1p6" ino=393200 scontext=system_u:system_r:kmod_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=system permissive=0
+Apr 21 21:31:42 fedora audit[732]: SYSCALL arch=c00000b7 syscall=273 success=no exit=-13 a0=3 a1=aaab5d561110 a2=0 a3=aaab8a454d70 items=0 ppid=1 pid=732 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="modprobe" exe="/usr/bin/kmod" subj=system_u:system_r:kmod_t:s0 key=(null)
+Apr 21 21:31:42 fedora audit: PROCTITLE proctitle=6D6F6470726F6265002D6162710066757365
+Apr 21 21:31:42 fedora systemd[1]: Starting systemd-modules-load.service - Load Kernel Modules...
+Apr 21 21:31:42 fedora systemd[1]: systemd-pcrmachine.service - TPM PCR Machine ID Measurement skipped, unmet condition check ConditionSecurity=measured-uki
+Apr 21 21:31:42 fedora systemd[1]: systemd-sysusers.service - Create System Users skipped, no trigger condition checks were met.
+Apr 21 21:31:42 fedora systemd[1]: systemd-tpm2-setup-early.service - Early TPM SRK Setup skipped, unmet condition check ConditionSecurity=measured-uki
+Apr 21 21:31:42 fedora systemd[1]: systemd-tpm2-setup.service - TPM SRK Setup skipped, unmet condition check ConditionSecurity=measured-uki
+Apr 21 21:31:42 fedora systemd[1]: Starting systemd-vconsole-setup.service - Virtual Console Setup...
+Apr 21 21:31:42 fedora systemd[1]: modprobe@dm_multipath.service: Deactivated successfully.
+Apr 21 21:31:42 fedora audit[733]: AVC avc:  denied  { module_load } for  pid=733 comm="modprobe" path="/usr/lib/modules/6.18.15-m1opt+/kernel/drivers/block/loop.ko" dev="nvme0n1p6" ino=393815 scontext=system_u:system_r:kmod_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=system permissive=0
+Apr 21 21:31:42 fedora audit[733]: SYSCALL arch=c00000b7 syscall=273 success=no exit=-13 a0=3 a1=aaaad11a1110 a2=0 a3=aaaaf9660db0 items=0 ppid=1 pid=733 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="modprobe" exe="/usr/bin/kmod" subj=system_u:system_r:kmod_t:s0 key=(null)
+Apr 21 21:31:42 fedora audit: PROCTITLE proctitle=6D6F6470726F6265002D616271006C6F6F70
+Apr 21 21:31:42 fedora systemd[1]: Finished modprobe@dm_multipath.service - Load Kernel Module dm_multipath.
+Apr 21 21:31:42 fedora audit[1]: SERVICE_START pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=modprobe@dm_multipath comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Apr 21 21:31:42 fedora audit[1]: SERVICE_STOP pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=modprobe@dm_multipath comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Apr 21 21:31:42 fedora systemd[1]: modprobe@fuse.service: Deactivated successfully.
+Apr 21 21:31:42 fedora systemd[1]: Finished modprobe@fuse.service - Load Kernel Module fuse.
+Apr 21 21:31:42 fedora audit[1]: SERVICE_START pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=modprobe@fuse comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Apr 21 21:31:42 fedora audit[1]: SERVICE_STOP pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=modprobe@fuse comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Apr 21 21:31:42 fedora systemd[1]: modprobe@loop.service: Deactivated successfully.
+Apr 21 21:31:42 fedora systemd[1]: Finished modprobe@loop.service - Load Kernel Module loop.
+Apr 21 21:31:42 fedora audit[1]: SERVICE_START pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=modprobe@loop comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Apr 21 21:31:42 fedora audit[1]: SERVICE_STOP pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=modprobe@loop comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Apr 21 21:31:42 fedora systemd[1]: multipathd.service - Device-Mapper Multipath Device Controller skipped, unmet condition check ConditionPathExists=/etc/multipath.conf
+Apr 21 21:31:42 fedora systemd[1]: systemd-repart.service - Repartition Root Disk skipped, no trigger condition checks were met.
+Apr 21 21:31:42 fedora audit[734]: AVC avc:  denied  { getattr } for  pid=734 comm="systemd-modules" path="/usr/lib/modules/6.18.15-m1opt+/kernel/net/bluetooth/bluetooth.ko" dev="nvme0n1p6" ino=393250 scontext=system_u:system_r:systemd_modules_load_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=file permissive=0
+Apr 21 21:31:42 fedora audit[734]: SYSCALL arch=c00000b7 syscall=79 success=no exit=-13 a0=ffffffffffffff9c a1=aaab6758cb40 a2=fffff8866fa8 a3=0 items=0 ppid=1 pid=734 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="systemd-modules" exe="/usr/lib/systemd/systemd-modules-load" subj=system_u:system_r:systemd_modules_load_t:s0 key=(null)
+Apr 21 21:31:42 fedora audit: PROCTITLE proctitle="/usr/lib/systemd/systemd-modules-load"
+Apr 21 21:31:42 fedora audit[734]: AVC avc:  denied  { getattr } for  pid=734 comm="systemd-modules" path="/usr/lib/modules/6.18.15-m1opt+/kernel/net/bluetooth/bluetooth.ko" dev="nvme0n1p6" ino=393250 scontext=system_u:system_r:systemd_modules_load_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=file permissive=0
+Apr 21 21:31:42 fedora audit[734]: SYSCALL arch=c00000b7 syscall=79 success=no exit=-13 a0=ffffffffffffff9c a1=aaab6758cb40 a2=fffff8867f18 a3=0 items=0 ppid=1 pid=734 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="systemd-modules" exe="/usr/lib/systemd/systemd-modules-load" subj=system_u:system_r:systemd_modules_load_t:s0 key=(null)
+Apr 21 21:31:42 fedora audit: PROCTITLE proctitle="/usr/lib/systemd/systemd-modules-load"
+Apr 21 21:31:42 fedora audit[734]: AVC avc:  denied  { read } for  pid=734 comm="systemd-modules" name="hci_bcm4377.ko" dev="nvme0n1p6" ino=393822 scontext=system_u:system_r:systemd_modules_load_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=file permissive=0
+Apr 21 21:31:42 fedora audit[734]: SYSCALL arch=c00000b7 syscall=56 success=no exit=-13 a0=ffffffffffffff9c a1=aaab6758f8b0 a2=80000 a3=0 items=0 ppid=1 pid=734 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="systemd-modules" exe="/usr/lib/systemd/systemd-modules-load" subj=system_u:system_r:systemd_modules_load_t:s0 key=(null)
+Apr 21 21:31:42 fedora audit: PROCTITLE proctitle="/usr/lib/systemd/systemd-modules-load"
+Apr 21 21:31:42 fedora audit[734]: AVC avc:  denied  { read } for  pid=734 comm="systemd-modules" name="fuse.ko" dev="nvme0n1p6" ino=393200 scontext=system_u:system_r:systemd_modules_load_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=file permissive=0
+Apr 21 21:31:42 fedora audit[734]: SYSCALL arch=c00000b7 syscall=56 success=no exit=-13 a0=ffffffffffffff9c a1=aaab6758f110 a2=80000 a3=0 items=0 ppid=1 pid=734 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="systemd-modules" exe="/usr/lib/systemd/systemd-modules-load" subj=system_u:system_r:systemd_modules_load_t:s0 key=(null)
+Apr 21 21:31:42 fedora audit: PROCTITLE proctitle="/usr/lib/systemd/systemd-modules-load"
+Apr 21 21:31:42 fedora audit[734]: AVC avc:  denied  { read } for  pid=734 comm="systemd-modules" name="i2c-dev.ko" dev="nvme0n1p6" ino=393889 scontext=system_u:system_r:systemd_modules_load_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=file permissive=0
+Apr 21 21:31:42 fedora audit[734]: SYSCALL arch=c00000b7 syscall=56 success=no exit=-13 a0=ffffffffffffff9c a1=aaab6758f8b0 a2=80000 a3=0 items=0 ppid=1 pid=734 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="systemd-modules" exe="/usr/lib/systemd/systemd-modules-load" subj=system_u:system_r:systemd_modules_load_t:s0 key=(null)
+Apr 21 21:31:42 fedora audit: PROCTITLE proctitle="/usr/lib/systemd/systemd-modules-load"
+Apr 21 21:31:42 fedora audit[734]: AVC avc:  denied  { read } for  pid=734 comm="systemd-modules" name="fuse.ko" dev="nvme0n1p6" ino=393200 scontext=system_u:system_r:systemd_modules_load_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=file permissive=0
+Apr 21 21:31:42 fedora audit[734]: SYSCALL arch=c00000b7 syscall=56 success=no exit=-13 a0=ffffffffffffff9c a1=aaab6758f110 a2=80000 a3=0 items=0 ppid=1 pid=734 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="systemd-modules" exe="/usr/lib/systemd/systemd-modules-load" subj=system_u:system_r:systemd_modules_load_t:s0 key=(null)
+Apr 21 21:31:42 fedora audit: PROCTITLE proctitle="/usr/lib/systemd/systemd-modules-load"
+Apr 21 21:31:42 fedora audit[734]: AVC avc:  denied  { read } for  pid=734 comm="systemd-modules" name="uinput.ko" dev="nvme0n1p6" ino=393908 scontext=system_u:system_r:systemd_modules_load_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=file permissive=0
+Apr 21 21:31:42 fedora audit[734]: SYSCALL arch=c00000b7 syscall=56 success=no exit=-13 a0=ffffffffffffff9c a1=aaab6758f8b0 a2=80000 a3=0 items=0 ppid=1 pid=734 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="systemd-modules" exe="/usr/lib/systemd/systemd-modules-load" subj=system_u:system_r:systemd_modules_load_t:s0 key=(null)
+Apr 21 21:31:42 fedora audit: PROCTITLE proctitle="/usr/lib/systemd/systemd-modules-load"
+Apr 21 21:31:42 fedora systemd-modules-load[734]: ctx=0xaaab6758eba0 path=/lib/modules/6.18.15-m1opt+/kernel/net/bluetooth/bluetooth.ko error=Permission denied
+Apr 21 21:31:42 fedora systemd-modules-load[734]: ctx=0xaaab6758eba0 path=/lib/modules/6.18.15-m1opt+/kernel/net/bluetooth/bluetooth.ko error=Permission denied
+Apr 21 21:31:42 fedora systemd-modules-load[734]: Failed to insert module 'hci_bcm4377': Permission denied
+Apr 21 21:31:42 fedora systemd-modules-load[734]: Failed to insert module 'fuse': Permission denied
+Apr 21 21:31:42 fedora systemd-modules-load[734]: Failed to insert module 'i2c_dev': Permission denied
+Apr 21 21:31:42 fedora systemd-modules-load[734]: Failed to insert module 'fuse': Permission denied
+Apr 21 21:31:42 fedora systemd-modules-load[734]: Failed to find module 'scsi_dh_alua'
+Apr 21 21:31:42 fedora systemd-modules-load[734]: Failed to find module 'scsi_dh_emc'
+Apr 21 21:31:42 fedora systemd-modules-load[734]: Failed to find module 'scsi_dh_rdac'
+Apr 21 21:31:42 fedora systemd-modules-load[734]: Failed to insert module 'uinput': Permission denied
+Apr 21 21:31:42 fedora systemd[1]: systemd-modules-load.service: Main process exited, code=exited, status=1/FAILURE
+Apr 21 21:31:42 fedora systemd[1]: systemd-modules-load.service: Failed with result 'exit-code'.
+Apr 21 21:31:42 fedora systemd[1]: Failed to start systemd-modules-load.service - Load Kernel Modules.
+Apr 21 21:31:42 fedora audit[1]: SERVICE_START pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-modules-load comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=failed'
+Apr 21 21:31:43 fedora systemd[1]: Finished systemd-vconsole-setup.service - Virtual Console Setup.
+Apr 21 21:31:43 fedora audit[1]: SERVICE_START pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-vconsole-setup comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Apr 21 21:31:43 fedora systemd[1]: boot.mount: Directory /boot to mount over is not empty, mounting anyway.
+Apr 21 21:31:43 fedora systemd[1]: Mounting boot.mount - /boot...
+Apr 21 21:31:43 fedora systemd[1]: dev-hugepages.mount - Huge Pages File System skipped, unmet condition check ConditionPathExists=/sys/kernel/mm/hugepages
+Apr 21 21:31:43 fedora systemd[1]: Mounting home.mount - /home...
+Apr 21 21:31:43 fedora systemd[1]: sys-fs-fuse-connections.mount - FUSE Control File System skipped, unmet condition check ConditionPathExists=/sys/fs/fuse/connections
+Apr 21 21:31:43 fedora kernel: EXT4-fs (nvme0n1p5): Supports (experimental) DIO atomic writes awu_min: 4096, awu_max: 4096
+Apr 21 21:31:43 fedora kernel: EXT4-fs (nvme0n1p5): mounted filesystem 107698e4-392a-4bf6-9737-a1e9a84792c1 r/w with ordered data mode. Quota mode: none.
+Apr 21 21:31:43 fedora systemd[1]: Mounted boot.mount - /boot.
+Apr 21 21:31:43 fedora systemd[1]: Mounted home.mount - /home.
+Apr 21 21:31:43 fedora systemd[1]: Mounting boot-efi.mount - /boot/efi...
+Apr 21 21:31:43 fedora systemd[1]: Starting systemd-growfs@home.service - Grow File System on /home...
+Apr 21 21:31:43 fedora audit[753]: AVC avc:  denied  { module_load } for  pid=753 comm="modprobe" path="/usr/lib/modules/6.18.15-m1opt+/kernel/fs/fat/fat.ko" dev="nvme0n1p6" ino=393197 scontext=system_u:system_r:kmod_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=system permissive=0
+Apr 21 21:31:43 fedora audit[753]: SYSCALL arch=c00000b7 syscall=273 success=no exit=-13 a0=3 a1=aaab3c471110 a2=0 a3=aaab76e00d30 items=0 ppid=565 pid=753 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="modprobe" exe="/usr/bin/kmod" subj=system_u:system_r:kmod_t:s0 key=(null)
+Apr 21 21:31:43 fedora audit: EXECVE argc=4 a0="/usr/sbin/modprobe" a1="-q" a2="--" a3="fs-vfat"
+Apr 21 21:31:43 fedora audit: PROCTITLE proctitle=2F7573722F7362696E2F6D6F6470726F6265002D71002D2D0066732D76666174
+Apr 21 21:31:43 fedora mount[751]: mount: /boot/efi: unknown filesystem type 'vfat'.
+Apr 21 21:31:43 fedora mount[751]:        dmesg(1) may have more information after failed mount system call.
+Apr 21 21:31:43 fedora systemd[1]: boot-efi.mount: Mount process exited, code=exited, status=32/n/a
+Apr 21 21:31:43 fedora systemd[1]: boot-efi.mount: Failed with result 'exit-code'.
+Apr 21 21:31:43 fedora systemd[1]: Failed to mount boot-efi.mount - /boot/efi.
+Apr 21 21:31:43 fedora systemd[1]: Dependency failed for local-fs.target - Local File Systems.
+Apr 21 21:31:43 fedora systemd[1]: Dependency failed for selinux-autorelabel-mark.service - Mark the need to relabel after reboot.
+Apr 21 21:31:43 fedora systemd[1]: selinux-autorelabel-mark.service: Job selinux-autorelabel-mark.service/start failed with result 'dependency'.
+Apr 21 21:31:43 fedora systemd[1]: local-fs.target: Job local-fs.target/start failed with result 'dependency'.
+Apr 21 21:31:43 fedora systemd[1]: local-fs.target: Triggering OnFailure= dependencies.
+Apr 21 21:31:43 fedora systemd[1]: systemd-ask-password-console.path: Deactivated successfully.
+Apr 21 21:31:43 fedora systemd[1]: Stopped systemd-ask-password-console.path - Dispatch Password Requests to Console Directory Watch.
+Apr 21 21:31:43 fedora systemd-growfs[752]: Successfully resized "/home" to 24.1G bytes.
+Apr 21 21:31:43 fedora systemd[1]: systemd-ask-password-wall.path: Deactivated successfully.
+Apr 21 21:31:43 fedora systemd[1]: Stopped systemd-ask-password-wall.path - Forward Password Requests to Wall Directory Watch.
+Apr 21 21:31:43 fedora systemd[1]: Reached target timers.target - Timer Units.
+Apr 21 21:31:43 fedora systemd[1]: Listening on systemd-bootctl.socket - Boot Entries Service Socket.
+Apr 21 21:31:43 fedora systemd[1]: Listening on systemd-sysext.socket - System Extension Image Management.
+Apr 21 21:31:43 fedora systemd[1]: Reached target network-pre.target - Preparation for Network.
+Apr 21 21:31:43 fedora systemd[1]: Starting systemd-userdb-load-credentials.service - Load JSON user/group Records from Credentials...
+Apr 21 21:31:43 fedora systemd[1]: Reached target sockets.target - Socket Units.
+Apr 21 21:31:43 fedora systemd[1]: Started emergency.service - Emergency Shell.
+Apr 21 21:31:43 fedora audit[1]: SERVICE_START pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=emergency comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Apr 21 21:31:43 fedora systemd[1]: Reached target emergency.target - Emergency Mode.
+Apr 21 21:31:43 fedora systemd[1]: Starting plymouth-read-write.service - Tell Plymouth To Write Out Runtime Data...
+Apr 21 21:31:43 fedora systemd[1]: rpmdb-rebuild.service - RPM database rebuild skipped, unmet condition check ConditionPathExists=/usr/lib/sysimage/rpm/.rebuilddb
+Apr 21 21:31:43 fedora systemd[1]: Starting systemd-binfmt.service - Set Up Additional Binary Formats...
+Apr 21 21:31:43 fedora systemd[1]: systemd-boot-random-seed.service - Update Boot Loader Random Seed skipped, no trigger condition checks were met.
+Apr 21 21:31:43 fedora systemd[1]: systemd-confext.service - Merge System Configuration Images into /etc/ skipped, no trigger condition checks were met.
+Apr 21 21:31:43 fedora systemd[1]: systemd-pcrphase-sysinit.service - TPM PCR Barrier (Initialization) skipped, unmet condition check ConditionSecurity=measured-uki
+Apr 21 21:31:43 fedora systemd[1]: systemd-sysext.service - Merge System Extension Images into /usr/ and /opt/ skipped, no trigger condition checks were met.
+Apr 21 21:31:43 fedora systemd[1]: Starting systemd-tmpfiles-setup.service - Create System Files and Directories...
+Apr 21 21:31:43 fedora systemd[1]: Finished systemd-growfs@home.service - Grow File System on /home.
+Apr 21 21:31:43 fedora audit[1]: SERVICE_START pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-growfs@home comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Apr 21 21:31:43 fedora systemd[1]: Finished systemd-userdb-load-credentials.service - Load JSON user/group Records from Credentials.
+Apr 21 21:31:43 fedora audit[1]: SERVICE_START pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-userdb-load-credentials comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Apr 21 21:31:43 fedora systemd[1]: proc-sys-fs-binfmt_misc.automount: Got automount request for /proc/sys/fs/binfmt_misc, triggered by 761 (systemd-binfmt)
+Apr 21 21:31:43 fedora systemd[1]: Reached target nss-user-lookup.target - User and Group Name Lookups.
+Apr 21 21:31:43 fedora systemd[1]: Finished plymouth-read-write.service - Tell Plymouth To Write Out Runtime Data.
+Apr 21 21:31:43 fedora audit[1]: SERVICE_START pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=plymouth-read-write comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Apr 21 21:31:43 fedora systemd-tmpfiles[762]: Failed to open file "/sys/module/brcmfmac/parameters/roamoff": Permission denied
+Apr 21 21:31:43 fedora systemd[1]: Finished systemd-tmpfiles-setup.service - Create System Files and Directories.
+Apr 21 21:31:43 fedora audit[1]: SERVICE_START pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-tmpfiles-setup comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Apr 21 21:31:43 fedora systemd[1]: Starting auditd.service - Security Audit Logging Service...
+Apr 21 21:31:43 fedora systemd[1]: ldconfig.service - Rebuild Dynamic Linker Cache skipped, no trigger condition checks were met.
+Apr 21 21:31:43 fedora systemd[1]: systemd-firstboot.service - First Boot Wizard skipped, unmet condition check ConditionFirstBoot=yes
+Apr 21 21:31:43 fedora systemd[1]: first-boot-complete.target - First Boot Complete skipped, unmet condition check ConditionFirstBoot=yes
+Apr 21 21:31:43 fedora systemd[1]: systemd-journal-catalog-update.service - Rebuild Journal Catalog skipped, unmet condition check ConditionNeedsUpdate=/var
+Apr 21 21:31:43 fedora systemd[1]: systemd-machine-id-commit.service - Save Transient machine-id to Disk skipped, unmet condition check ConditionPathIsMountPoint=/etc/machine-id
+Apr 21 21:31:43 fedora systemd[1]: systemd-update-done.service - Update is Completed skipped, no trigger condition checks were met.
+Apr 21 21:31:43 fedora auditd[772]: No plugins found, not dispatching events
+Apr 21 21:31:43 fedora audit: CONFIG_CHANGE op=set audit_enabled=1 old=1 auid=4294967295 ses=4294967295 subj=system_u:system_r:auditd_t:s0 res=1
+Apr 21 21:31:43 fedora audit[772]: SYSCALL arch=c00000b7 syscall=206 success=yes exit=60 a0=3 a1=ffffff972630 a2=3c a3=0 items=0 ppid=771 pid=772 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="auditd" exe="/usr/bin/auditd" subj=system_u:system_r:auditd_t:s0 key=(null)
+Apr 21 21:31:43 fedora audit: PROCTITLE proctitle="/usr/bin/auditd"
+Apr 21 21:31:43 fedora audit: CONFIG_CHANGE op=set audit_pid=772 old=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:auditd_t:s0 res=1
+Apr 21 21:31:43 fedora audit[772]: SYSCALL arch=c00000b7 syscall=206 success=yes exit=60 a0=3 a1=ffffff9702e0 a2=3c a3=0 items=0 ppid=771 pid=772 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="auditd" exe="/usr/bin/auditd" subj=system_u:system_r:auditd_t:s0 key=(null)
+Apr 21 21:31:43 fedora audit: PROCTITLE proctitle="/usr/bin/auditd"
+Apr 21 21:31:43 fedora auditd[772]: Init complete, auditd 4.1.4 listening for events (startup state enable)
+Apr 21 21:31:43 fedora systemd[1]: Started auditd.service - Security Audit Logging Service.
+Apr 21 21:31:43 fedora audit[1]: SERVICE_START pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=auditd comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Apr 21 21:31:43 fedora systemd[1]: Starting audit-rules.service - Load Audit Rules...
+Apr 21 21:31:43 fedora systemd[1]: Starting systemd-update-utmp.service - Record System Boot/Shutdown in UTMP...
+Apr 21 21:31:43 fedora audit[777]: AUDIT1127 pid=777 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg=' comm="systemd-update-utmp" exe="/usr/lib/systemd/systemd-update-utmp" hostname=? addr=? terminal=? res=success'
+Apr 21 21:31:43 fedora augenrules[776]: /usr/bin/augenrules: No change
+Apr 21 21:31:43 fedora systemd[1]: Finished systemd-update-utmp.service - Record System Boot/Shutdown in UTMP.
+Apr 21 21:31:43 fedora audit[1]: SERVICE_START pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-update-utmp comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Apr 21 21:31:43 fedora audit: CONFIG_CHANGE auid=4294967295 ses=4294967295 subj=system_u:system_r:unconfined_service_t:s0 op=add_rule key=(null) list=1 res=1
+Apr 21 21:31:43 fedora audit[793]: SYSCALL arch=c00000b7 syscall=206 success=yes exit=1056 a0=3 a1=ffffd798b1e0 a2=420 a3=0 items=0 ppid=776 pid=793 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="auditctl" exe="/usr/bin/auditctl" subj=system_u:system_r:unconfined_service_t:s0 key=(null)
+Apr 21 21:31:43 fedora audit: PROCTITLE proctitle=2F7573722F62696E2F617564697463746C002D52002F6574632F61756469742F61756469742E72756C6573
+Apr 21 21:31:43 fedora augenrules[793]: No rules
+Apr 21 21:31:43 fedora systemd[1]: audit-rules.service: Deactivated successfully.
+Apr 21 21:31:43 fedora systemd[1]: Finished audit-rules.service - Load Audit Rules.
+Apr 21 21:31:43 fedora audit[1]: SERVICE_START pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=audit-rules comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Apr 21 21:31:43 fedora audit[1]: SERVICE_STOP pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=audit-rules comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Apr 21 21:31:44 fedora systemd[1]: Mounting proc-sys-fs-binfmt_misc.mount - Arbitrary Executable File Formats File System...
+Apr 21 21:31:44 fedora audit[799]: AVC avc:  denied  { module_load } for  pid=799 comm="modprobe" path="/usr/lib/modules/6.18.15-m1opt+/kernel/fs/binfmt_misc.ko" dev="nvme0n1p6" ino=393192 scontext=system_u:system_r:kmod_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=system permissive=0
+Apr 21 21:31:44 fedora mount[798]: mount: /proc/sys/fs/binfmt_misc: unknown filesystem type 'binfmt_misc'.
+Apr 21 21:31:44 fedora mount[798]:        dmesg(1) may have more information after failed mount system call.
+Apr 21 21:31:44 fedora systemd[1]: proc-sys-fs-binfmt_misc.mount: Mount process exited, code=exited, status=32/n/a
+Apr 21 21:31:44 fedora systemd[1]: proc-sys-fs-binfmt_misc.mount: Failed with result 'exit-code'.
+Apr 21 21:31:44 fedora systemd[1]: Failed to mount proc-sys-fs-binfmt_misc.mount - Arbitrary Executable File Formats File System.
+Apr 21 21:31:44 fedora systemd-binfmt[761]: Failed to check if /proc/sys/fs/binfmt_misc is mounted: No such device
+Apr 21 21:31:44 fedora systemd[1]: systemd-binfmt.service: Main process exited, code=exited, status=1/FAILURE
+Apr 21 21:31:44 fedora systemd[1]: systemd-binfmt.service: Failed with result 'exit-code'.
+Apr 21 21:31:44 fedora systemd[1]: Failed to start systemd-binfmt.service - Set Up Additional Binary Formats.
+Apr 21 21:31:44 fedora audit[1]: SERVICE_START pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-binfmt comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=failed'
+Apr 21 21:31:51 fedora kernel: apple-pmgr-pwrstate 23b700000.power-management:power-controller@228: sync_state() pending due to 238400000.i2s
+Apr 21 21:31:51 fedora kernel: apple-pmgr-pwrstate 23b700000.power-management:power-controller@270: sync_state() pending due to 235200000.serial
+Apr 21 21:31:51 fedora kernel: apple-pmgr-pwrstate 23b700000.power-management:power-controller@280: sync_state() pending due to 235208000.serial
+Apr 21 21:31:51 fedora kernel: apple-pmgr-pwrstate 23b700000.power-management:power-controller@2b8: sync_state() pending due to 238400000.i2s
+Apr 21 21:31:51 fedora kernel: apple-pmgr-pwrstate 23b700000.power-management:power-controller@2c0: sync_state() pending due to 238400000.i2s
+Apr 21 21:31:51 fedora kernel: apple-pmgr-pwrstate 23b700000.power-management:power-controller@2c8: sync_state() pending due to 238400000.i2s
+Apr 21 21:31:51 fedora kernel: apple-pmgr-pwrstate 23b700000.power-management:power-controller@2d0: sync_state() pending due to 238400000.i2s
+Apr 21 21:31:51 fedora kernel: apple-pmgr-pwrstate 23b700000.power-management:power-controller@2d8: sync_state() pending due to 238400000.i2s
+Apr 21 21:31:51 fedora kernel: apple-pmgr-pwrstate 23b700000.power-management:power-controller@2e0: sync_state() pending due to 238400000.i2s
+Apr 21 21:31:51 fedora kernel: apple-pmgr-pwrstate 23b700000.power-management:power-controller@3f8: sync_state() pending due to 206400000.gpu
+Apr 21 21:31:51 fedora kernel: apple-pmgr-pwrstate 23b700000.power-management:power-controller@400: sync_state() pending due to 22a000000.isp
+Apr 21 21:31:51 fedora kernel: apple-pmgr-pwrstate 23b700000.power-management:power-controller@10018: sync_state() pending due to 231c00000.dcp
+Apr 21 21:31:51 fedora kernel: apple-pmgr-pwrstate 23b700000.power-management:power-controller@4000: sync_state() pending due to 22a000000.isp
+Apr 21 21:31:51 fedora kernel: apple-pmgr-pwrstate 23b700000.power-management:power-controller@4008: sync_state() pending due to 22a000000.isp
+Apr 21 21:31:51 fedora kernel: apple-pmgr-pwrstate 23b700000.power-management:power-controller@4010: sync_state() pending due to 22a000000.isp
+Apr 21 21:31:51 fedora kernel: apple-pmgr-pwrstate 23b700000.power-management:power-controller@4018: sync_state() pending due to 22a000000.isp
+Apr 21 21:31:51 fedora kernel: apple-pmgr-pwrstate 23b700000.power-management:power-controller@4020: sync_state() pending due to 22a000000.isp
+Apr 21 21:31:51 fedora kernel: apple-pmgr-pwrstate 23b700000.power-management:power-controller@4028: sync_state() pending due to 22a000000.isp
+Apr 21 21:31:51 fedora kernel: apple-pmgr-pwrstate 23b700000.power-management:power-controller@4030: sync_state() pending due to 22a000000.isp
+Apr 21 21:31:51 fedora kernel: apple-pmgr-pwrstate 23b700000.power-management:power-controller@4038: sync_state() pending due to 22a000000.isp
+Apr 21 21:31:51 fedora kernel: apple-pmgr-pwrstate 23b700000.power-management:power-controller@4040: sync_state() pending due to 22a000000.isp
+Apr 21 21:31:51 fedora kernel: apple-pmgr-pwrstate 23b700000.power-management:power-controller@4048: sync_state() pending due to 22a000000.isp
+Apr 21 21:31:51 fedora kernel: apple-pmgr-pwrstate 23b700000.power-management:power-controller@4050: sync_state() pending due to 22a000000.isp
+Apr 21 21:31:51 fedora kernel: apple-pmgr-pwrstate 23b700000.power-management:power-controller@4058: sync_state() pending due to 22a000000.isp
+Apr 21 21:31:51 fedora kernel: apple-pmgr-pwrstate 23b700000.power-management:power-controller@4060: sync_state() pending due to 22a000000.isp
+Apr 21 21:31:52 fedora systemd[1]: dev-zram0.device: Job dev-zram0.device/start timed out.
+Apr 21 21:31:52 fedora systemd[1]: Timed out waiting for device dev-zram0.device - /dev/zram0.
+Apr 21 21:31:52 fedora systemd[1]: Dependency failed for dev-zram0.swap - Compressed Swap on /dev/zram0.
+Apr 21 21:31:52 fedora systemd[1]: Dependency failed for systemd-zram-setup@zram0.service - Create swap on /dev/zram0.
+Apr 21 21:31:52 fedora systemd[1]: systemd-zram-setup@zram0.service: Job systemd-zram-setup@zram0.service/start failed with result 'dependency'.
+Apr 21 21:31:52 fedora systemd[1]: dev-zram0.swap: Job dev-zram0.swap/start failed with result 'dependency'.
+Apr 21 21:31:52 fedora systemd[1]: dev-zram0.device: Job dev-zram0.device/start failed with result 'timeout'.
+Apr 21 21:31:52 fedora systemd[1]: Reached target swap.target - Swaps.
+Apr 21 21:31:52 fedora systemd[1]: tmp.mount: Directory /tmp to mount over is not empty, mounting anyway.
+Apr 21 21:31:52 fedora systemd[1]: Mounting tmp.mount - Temporary Directory /tmp...
+Apr 21 21:31:52 fedora systemd[1]: Mounted tmp.mount - Temporary Directory /tmp.
+Apr 21 21:31:52 fedora audit: BPF prog-id=48 op=LOAD
+Apr 21 21:31:52 fedora systemd[1]: Starting systemd-resolved.service - Network Name Resolution...
+Apr 21 21:31:52 fedora systemd-resolved[807]: Positive Trust Anchors:
+Apr 21 21:31:52 fedora systemd-resolved[807]: . IN DS 20326 8 2 e06d44b80b8f1d39a95c0b0d7c65d08458e880409bbc683457104237c7f8ec8d
+Apr 21 21:31:52 fedora systemd-resolved[807]: . IN DS 38696 8 2 683d2d0acb8c9b712a1948b27f741219298d0a450d612c483af444a4c0fb2b16
+Apr 21 21:31:52 fedora systemd-resolved[807]: Negative trust anchors: home.arpa 10.in-addr.arpa 16.172.in-addr.arpa 17.172.in-addr.arpa 18.172.in-addr.arpa 19.172.in-addr.arpa 20.172.in-addr.arpa 21.172.in-addr.arpa 22.172.in-addr.arpa 23.172.in-addr.arpa 24.172.in-addr.arpa 25.172.in-addr.arpa 26.172.in-addr.arpa 27.172.in-addr.arpa 28.172.in-addr.arpa 29.172.in-addr.arpa 30.172.in-addr.arpa 31.172.in-addr.arpa 170.0.0.192.in-addr.arpa 171.0.0.192.in-addr.arpa 168.192.in-addr.arpa d.f.ip6.arpa ipv4only.arpa resolver.arpa corp home internal intranet lan local private test
+Apr 21 21:31:52 fedora systemd-resolved[807]: Using system hostname 'fedora'.
+Apr 21 21:31:52 fedora systemd[1]: Started systemd-resolved.service - Network Name Resolution.
+Apr 21 21:31:52 fedora audit[1]: SERVICE_START pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-resolved comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Apr 21 21:31:52 fedora systemd[1]: Reached target network.target - Network.
+Apr 21 21:31:52 fedora systemd[1]: Reached target network-online.target - Network is Online.
+Apr 21 21:31:52 fedora systemd[1]: Reached target nss-lookup.target - Host and Network Name Lookups.
+Apr 21 21:31:52 fedora systemd[1]: Startup finished in 511ms (kernel) + 1.350s (initrd) + 10.934s (userspace) = 12.796s.
+Apr 21 21:31:55 fedora systemd[1]: Reload requested from client PID 802 ('systemd-sulogin') (unit emergency.service)...
+Apr 21 21:31:55 fedora systemd[1]: Reloading...
+Apr 21 21:31:55 fedora audit[863]: AVC avc:  denied  { module_load } for  pid=863 comm="modprobe" path="/usr/lib/modules/6.18.15-m1opt+/kernel/lib/842/842_compress.ko" dev="nvme0n1p6" ino=393227 scontext=system_u:system_r:kmod_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=system permissive=0
+Apr 21 21:31:55 fedora zram_generator::generator[861]: modprobe "zram" failed, ignoring: code exit status: 1
+Apr 21 21:31:55 fedora (sd-exec-[818]: /usr/lib/systemd/system-generators/zram-generator failed with exit status 1.
+Apr 21 21:31:55 fedora systemd[1]: Reloading finished in 271 ms.
+Apr 21 21:31:55 fedora audit: BPF prog-id=49 op=LOAD
+Apr 21 21:31:55 fedora audit: BPF prog-id=48 op=UNLOAD
+Apr 21 21:31:55 fedora audit: BPF prog-id=50 op=LOAD
+Apr 21 21:31:55 fedora audit: BPF prog-id=40 op=UNLOAD
+Apr 21 21:31:55 fedora audit: BPF prog-id=51 op=LOAD
+Apr 21 21:31:55 fedora audit: BPF prog-id=52 op=LOAD
+Apr 21 21:31:55 fedora audit: BPF prog-id=41 op=UNLOAD
+Apr 21 21:31:55 fedora audit: BPF prog-id=42 op=UNLOAD
+Apr 21 21:31:55 fedora audit: BPF prog-id=53 op=LOAD
+Apr 21 21:31:55 fedora audit: BPF prog-id=43 op=UNLOAD
+Apr 21 21:31:55 fedora audit: BPF prog-id=54 op=LOAD
+Apr 21 21:31:55 fedora audit: BPF prog-id=55 op=LOAD
+Apr 21 21:31:55 fedora audit: BPF prog-id=44 op=UNLOAD
+Apr 21 21:31:55 fedora audit: BPF prog-id=45 op=UNLOAD
+Apr 21 21:31:55 fedora audit: BPF prog-id=56 op=LOAD
+Apr 21 21:31:55 fedora audit: BPF prog-id=57 op=LOAD
+Apr 21 21:31:55 fedora audit: BPF prog-id=46 op=UNLOAD
+Apr 21 21:31:55 fedora audit: BPF prog-id=47 op=UNLOAD
+Apr 21 21:31:55 fedora systemd[1]: emergency.service: Deactivated successfully.
+Apr 21 21:31:55 fedora systemd[1]: Stopped emergency.service - Emergency Shell.
+Apr 21 21:31:55 fedora audit[1]: SERVICE_STOP pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=emergency comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Apr 21 21:31:55 fedora systemd[1]: Started systemd-ask-password-console.path - Dispatch Password Requests to Console Directory Watch.
+Apr 21 21:31:55 fedora systemd[1]: Started systemd-ask-password-wall.path - Forward Password Requests to Wall Directory Watch.
+Apr 21 21:31:55 fedora systemd[1]: Expecting device dev-zram0.device - /dev/zram0...
+Apr 21 21:31:55 fedora systemd[1]: Stopped target emergency.target - Emergency Mode.
+Apr 21 21:31:55 fedora systemd[1]: systemd-pcrextend.socket - TPM PCR Measurements skipped, unmet condition check ConditionSecurity=measured-uki
+Apr 21 21:31:55 fedora systemd[1]: systemd-pcrlock.socket - Make TPM PCR Policy skipped, unmet condition check ConditionSecurity=measured-uki
+Apr 21 21:31:55 fedora systemd[1]: systemd-rfkill.socket: Deactivated successfully.
+Apr 21 21:31:55 fedora systemd[1]: Closed systemd-rfkill.socket - Load/Save RF Kill Switch Status /dev/rfkill Watch.
+Apr 21 21:31:55 fedora systemd[1]: Mounting boot-efi.mount - /boot/efi...
+Apr 21 21:31:55 fedora systemd[1]: dev-hugepages.mount - Huge Pages File System skipped, unmet condition check ConditionPathExists=/sys/kernel/mm/hugepages
+Apr 21 21:31:55 fedora systemd[1]: fips-crypto-policy-overlay.service - Bind-mount FIPS crypto-policy in FIPS mode skipped, unmet condition check ConditionKernelCommandLine=fips=1
+Apr 21 21:31:55 fedora systemd[1]: modprobe@configfs.service - Load Kernel Module configfs skipped, unmet condition check ConditionKernelModuleLoaded=!configfs
+Apr 21 21:31:55 fedora systemd[1]: modprobe@dm_mod.service - Load Kernel Module dm_mod skipped, unmet condition check ConditionKernelModuleLoaded=!dm_mod
+Apr 21 21:31:55 fedora systemd[1]: Starting modprobe@dm_multipath.service - Load Kernel Module dm_multipath...
+Apr 21 21:31:55 fedora systemd[1]: modprobe@drm.service - Load Kernel Module drm skipped, unmet condition check ConditionKernelModuleLoaded=!drm
+Apr 21 21:31:55 fedora systemd[1]: Starting modprobe@fuse.service - Load Kernel Module fuse...
+Apr 21 21:31:55 fedora systemd[1]: Starting modprobe@loop.service - Load Kernel Module loop...
+Apr 21 21:31:55 fedora systemd[1]: systemd-boot-clear-sysfail.service - Clear SysFail Entry If The Boot Is Successful skipped, unmet condition check ConditionPathExists=/sys/firmware/efi/efivars/LoaderEntrySysFail-4a67b082-0a4c-41cf-b6c7-440b29bb8c4f
+Apr 21 21:31:55 fedora systemd[1]: systemd-hibernate-clear.service - Clear Stale Hibernate Storage Info skipped, unmet condition check ConditionPathExists=/sys/firmware/efi/efivars/HibernateLocation-8cf2644b-4b0b-428f-9387-6d876050dc67
+Apr 21 21:31:55 fedora systemd[1]: systemd-hwdb-update.service - Rebuild Hardware Database skipped, unmet condition check ConditionNeedsUpdate=/etc
+Apr 21 21:31:55 fedora audit[1]: SERVICE_STOP pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-userdb-load-credentials comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Apr 21 21:31:55 fedora audit[1]: SERVICE_STOP pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-vconsole-setup comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Apr 21 21:31:55 fedora systemd[1]: Starting systemd-modules-load.service - Load Kernel Modules...
+Apr 21 21:31:55 fedora systemd[1]: systemd-pcrmachine.service - TPM PCR Machine ID Measurement skipped, unmet condition check ConditionSecurity=measured-uki
+Apr 21 21:31:55 fedora systemd[1]: systemd-sysusers.service - Create System Users skipped, no trigger condition checks were met.
+Apr 21 21:31:55 fedora systemd[1]: systemd-tpm2-setup-early.service - Early TPM SRK Setup skipped, unmet condition check ConditionSecurity=measured-uki
+Apr 21 21:31:55 fedora systemd[1]: systemd-tpm2-setup.service - TPM SRK Setup skipped, unmet condition check ConditionSecurity=measured-uki
+Apr 21 21:31:55 fedora systemd[1]: systemd-userdb-load-credentials.service: Deactivated successfully.
+Apr 21 21:31:55 fedora systemd[1]: Stopped systemd-userdb-load-credentials.service - Load JSON user/group Records from Credentials.
+Apr 21 21:31:55 fedora systemd[1]: systemd-vconsole-setup.service: Deactivated successfully.
+Apr 21 21:31:55 fedora systemd[1]: Stopped systemd-vconsole-setup.service - Virtual Console Setup.
+Apr 21 21:31:55 fedora systemd[1]: systemd-firstboot.service - First Boot Wizard skipped, unmet condition check ConditionFirstBoot=yes
+Apr 21 21:31:55 fedora systemd[1]: first-boot-complete.target - First Boot Complete skipped, unmet condition check ConditionFirstBoot=yes
+Apr 21 21:31:55 fedora audit[868]: AVC avc:  denied  { module_load } for  pid=868 comm="modprobe" path="/usr/lib/modules/6.18.15-m1opt+/kernel/drivers/block/loop.ko" dev="nvme0n1p6" ino=393815 scontext=system_u:system_r:kmod_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=system permissive=0
+Apr 21 21:31:55 fedora audit[867]: AVC avc:  denied  { module_load } for  pid=867 comm="modprobe" path="/usr/lib/modules/6.18.15-m1opt+/kernel/fs/fuse/fuse.ko" dev="nvme0n1p6" ino=393200 scontext=system_u:system_r:kmod_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=system permissive=0
+Apr 21 21:31:55 fedora systemd[1]: modprobe@dm_multipath.service: Deactivated successfully.
+Apr 21 21:31:55 fedora systemd[1]: Finished modprobe@dm_multipath.service - Load Kernel Module dm_multipath.
+Apr 21 21:31:55 fedora audit[1]: SERVICE_START pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=modprobe@dm_multipath comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Apr 21 21:31:55 fedora audit[1]: SERVICE_STOP pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=modprobe@dm_multipath comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Apr 21 21:31:55 fedora systemd[1]: modprobe@fuse.service: Deactivated successfully.
+Apr 21 21:31:55 fedora systemd[1]: Finished modprobe@fuse.service - Load Kernel Module fuse.
+Apr 21 21:31:55 fedora audit[1]: SERVICE_START pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=modprobe@fuse comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Apr 21 21:31:55 fedora audit[1]: SERVICE_STOP pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=modprobe@fuse comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Apr 21 21:31:55 fedora systemd[1]: modprobe@loop.service: Deactivated successfully.
+Apr 21 21:31:55 fedora audit[871]: AVC avc:  denied  { module_load } for  pid=871 comm="modprobe" path="/usr/lib/modules/6.18.15-m1opt+/kernel/fs/fat/fat.ko" dev="nvme0n1p6" ino=393197 scontext=system_u:system_r:kmod_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=system permissive=0
+Apr 21 21:31:55 fedora audit[1]: SERVICE_START pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=modprobe@loop comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Apr 21 21:31:55 fedora audit[1]: SERVICE_STOP pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=modprobe@loop comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Apr 21 21:31:55 fedora systemd[1]: Finished modprobe@loop.service - Load Kernel Module loop.
+Apr 21 21:31:55 fedora mount[865]: mount: /boot/efi: unknown filesystem type 'vfat'.
+Apr 21 21:31:55 fedora mount[865]:        dmesg(1) may have more information after failed mount system call.
+Apr 21 21:31:55 fedora systemd[1]: boot-efi.mount: Mount process exited, code=exited, status=32/n/a
+Apr 21 21:31:55 fedora systemd[1]: boot-efi.mount: Failed with result 'exit-code'.
+Apr 21 21:31:55 fedora systemd[1]: Failed to mount boot-efi.mount - /boot/efi.
+Apr 21 21:31:55 fedora systemd[1]: Dependency failed for local-fs.target - Local File Systems.
+Apr 21 21:31:55 fedora systemd[1]: Dependency failed for selinux-autorelabel-mark.service - Mark the need to relabel after reboot.
+Apr 21 21:31:55 fedora systemd[1]: selinux-autorelabel-mark.service: Job selinux-autorelabel-mark.service/start failed with result 'dependency'.
+Apr 21 21:31:55 fedora systemd[1]: local-fs.target: Job local-fs.target/start failed with result 'dependency'.
+Apr 21 21:31:55 fedora systemd[1]: local-fs.target: Triggering OnFailure= dependencies.
+Apr 21 21:31:55 fedora systemd[1]: systemd-ask-password-console.path: Deactivated successfully.
+Apr 21 21:31:55 fedora systemd[1]: Stopped systemd-ask-password-console.path - Dispatch Password Requests to Console Directory Watch.
+Apr 21 21:31:55 fedora systemd[1]: systemd-ask-password-wall.path: Deactivated successfully.
+Apr 21 21:31:55 fedora systemd[1]: Stopped systemd-ask-password-wall.path - Forward Password Requests to Wall Directory Watch.
+Apr 21 21:31:55 fedora systemd[1]: multipathd.service - Device-Mapper Multipath Device Controller skipped, unmet condition check ConditionPathExists=/etc/multipath.conf
+Apr 21 21:31:55 fedora systemd[1]: Starting audit-rules.service - Load Audit Rules...
+Apr 21 21:31:55 fedora systemd[1]: systemd-machine-id-commit.service - Save Transient machine-id to Disk skipped, unmet condition check ConditionPathIsMountPoint=/etc/machine-id
+Apr 21 21:31:55 fedora systemd[1]: systemd-repart.service - Repartition Root Disk skipped, no trigger condition checks were met.
+Apr 21 21:31:55 fedora systemd[1]: sys-fs-fuse-connections.mount - FUSE Control File System skipped, unmet condition check ConditionPathExists=/sys/fs/fuse/connections
+Apr 21 21:31:55 fedora systemd[1]: Started emergency.service - Emergency Shell.
+Apr 21 21:31:55 fedora audit[1]: SERVICE_START pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=emergency comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Apr 21 21:31:55 fedora systemd[1]: Reached target emergency.target - Emergency Mode.
+Apr 21 21:31:55 fedora systemd[1]: rpmdb-rebuild.service - RPM database rebuild skipped, unmet condition check ConditionPathExists=/usr/lib/sysimage/rpm/.rebuilddb
+Apr 21 21:31:55 fedora systemd[1]: Starting systemd-binfmt.service - Set Up Additional Binary Formats...
+Apr 21 21:31:55 fedora systemd[1]: systemd-boot-random-seed.service - Update Boot Loader Random Seed skipped, no trigger condition checks were met.
+Apr 21 21:31:55 fedora systemd[1]: systemd-confext.service - Merge System Configuration Images into /etc/ skipped, no trigger condition checks were met.
+Apr 21 21:31:55 fedora systemd[1]: ldconfig.service - Rebuild Dynamic Linker Cache skipped, no trigger condition checks were met.
+Apr 21 21:31:55 fedora systemd[1]: systemd-journal-catalog-update.service - Rebuild Journal Catalog skipped, unmet condition check ConditionNeedsUpdate=/var
+Apr 21 21:31:55 fedora systemd[1]: systemd-pcrphase-sysinit.service - TPM PCR Barrier (Initialization) skipped, unmet condition check ConditionSecurity=measured-uki
+Apr 21 21:31:55 fedora systemd[1]: systemd-sysext.service - Merge System Extension Images into /usr/ and /opt/ skipped, no trigger condition checks were met.
+Apr 21 21:31:55 fedora systemd[1]: systemd-update-done.service - Update is Completed skipped, no trigger condition checks were met.
+Apr 21 21:31:55 fedora audit[869]: AVC avc:  denied  { getattr } for  pid=869 comm="systemd-modules" path="/usr/lib/modules/6.18.15-m1opt+/kernel/net/bluetooth/bluetooth.ko" dev="nvme0n1p6" ino=393250 scontext=system_u:system_r:systemd_modules_load_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=file permissive=0
+Apr 21 21:31:55 fedora systemd-modules-load[869]: ctx=0xaaaac9b52ba0 path=/lib/modules/6.18.15-m1opt+/kernel/net/bluetooth/bluetooth.ko error=Permission denied
+Apr 21 21:31:55 fedora audit[869]: AVC avc:  denied  { getattr } for  pid=869 comm="systemd-modules" path="/usr/lib/modules/6.18.15-m1opt+/kernel/net/bluetooth/bluetooth.ko" dev="nvme0n1p6" ino=393250 scontext=system_u:system_r:systemd_modules_load_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=file permissive=0
+Apr 21 21:31:55 fedora audit[869]: AVC avc:  denied  { read } for  pid=869 comm="systemd-modules" name="hci_bcm4377.ko" dev="nvme0n1p6" ino=393822 scontext=system_u:system_r:systemd_modules_load_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=file permissive=0
+Apr 21 21:31:55 fedora audit[869]: AVC avc:  denied  { read } for  pid=869 comm="systemd-modules" name="fuse.ko" dev="nvme0n1p6" ino=393200 scontext=system_u:system_r:systemd_modules_load_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=file permissive=0
+Apr 21 21:31:55 fedora audit[869]: AVC avc:  denied  { read } for  pid=869 comm="systemd-modules" name="i2c-dev.ko" dev="nvme0n1p6" ino=393889 scontext=system_u:system_r:systemd_modules_load_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=file permissive=0
+Apr 21 21:31:55 fedora audit[869]: AVC avc:  denied  { read } for  pid=869 comm="systemd-modules" name="fuse.ko" dev="nvme0n1p6" ino=393200 scontext=system_u:system_r:systemd_modules_load_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=file permissive=0
+Apr 21 21:31:55 fedora audit[869]: AVC avc:  denied  { read } for  pid=869 comm="systemd-modules" name="uinput.ko" dev="nvme0n1p6" ino=393908 scontext=system_u:system_r:systemd_modules_load_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=file permissive=0
+Apr 21 21:31:55 fedora systemd-modules-load[869]: ctx=0xaaaac9b52ba0 path=/lib/modules/6.18.15-m1opt+/kernel/net/bluetooth/bluetooth.ko error=Permission denied
+Apr 21 21:31:55 fedora systemd-modules-load[869]: Failed to insert module 'hci_bcm4377': Permission denied
+Apr 21 21:31:55 fedora systemd-modules-load[869]: Failed to insert module 'fuse': Permission denied
+Apr 21 21:31:55 fedora systemd-modules-load[869]: Failed to insert module 'i2c_dev': Permission denied
+Apr 21 21:31:55 fedora systemd-modules-load[869]: Failed to insert module 'fuse': Permission denied
+Apr 21 21:31:55 fedora systemd-modules-load[869]: Failed to find module 'scsi_dh_alua'
+Apr 21 21:31:55 fedora systemd-modules-load[869]: Failed to find module 'scsi_dh_emc'
+Apr 21 21:31:55 fedora systemd-modules-load[869]: Failed to find module 'scsi_dh_rdac'
+Apr 21 21:31:55 fedora systemd-modules-load[869]: Failed to insert module 'uinput': Permission denied
+Apr 21 21:31:56 fedora systemd[1]: systemd-modules-load.service: Main process exited, code=exited, status=1/FAILURE
+Apr 21 21:31:56 fedora systemd[1]: systemd-modules-load.service: Failed with result 'exit-code'.
+Apr 21 21:31:56 fedora systemd[1]: Failed to start systemd-modules-load.service - Load Kernel Modules.
+Apr 21 21:31:56 fedora audit[1]: SERVICE_START pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-modules-load comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=failed'
+Apr 21 21:31:56 fedora systemd[1]: proc-sys-fs-binfmt_misc.automount: Got automount request for /proc/sys/fs/binfmt_misc, triggered by 879 (systemd-binfmt)
+Apr 21 21:31:56 fedora systemd[1]: Mounting proc-sys-fs-binfmt_misc.mount - Arbitrary Executable File Formats File System...
+Apr 21 21:31:56 fedora augenrules[877]: /usr/bin/augenrules: No change
+Apr 21 21:31:56 fedora audit[896]: AVC avc:  denied  { module_load } for  pid=896 comm="modprobe" path="/usr/lib/modules/6.18.15-m1opt+/kernel/fs/binfmt_misc.ko" dev="nvme0n1p6" ino=393192 scontext=system_u:system_r:kmod_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=system permissive=0
+Apr 21 21:31:56 fedora mount[889]: mount: /proc/sys/fs/binfmt_misc: unknown filesystem type 'binfmt_misc'.
+Apr 21 21:31:56 fedora mount[889]:        dmesg(1) may have more information after failed mount system call.
+Apr 21 21:31:56 fedora systemd[1]: proc-sys-fs-binfmt_misc.mount: Mount process exited, code=exited, status=32/n/a
+Apr 21 21:31:56 fedora systemd[1]: proc-sys-fs-binfmt_misc.mount: Failed with result 'exit-code'.
+Apr 21 21:31:56 fedora systemd[1]: Failed to mount proc-sys-fs-binfmt_misc.mount - Arbitrary Executable File Formats File System.
+Apr 21 21:31:56 fedora systemd-binfmt[879]: Failed to check if /proc/sys/fs/binfmt_misc is mounted: No such device
+Apr 21 21:31:56 fedora audit: CONFIG_CHANGE auid=4294967295 ses=4294967295 subj=system_u:system_r:unconfined_service_t:s0 op=remove_rule key=(null) list=1 res=1
+Apr 21 21:31:56 fedora audit: CONFIG_CHANGE auid=4294967295 ses=4294967295 subj=system_u:system_r:unconfined_service_t:s0 op=add_rule key=(null) list=1 res=1
+Apr 21 21:31:56 fedora audit[1]: SERVICE_START pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-binfmt comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=failed'
+Apr 21 21:31:56 fedora augenrules[897]: No rules
+Apr 21 21:31:56 fedora systemd[1]: systemd-binfmt.service: Main process exited, code=exited, status=1/FAILURE
+Apr 21 21:31:56 fedora audit[1]: SERVICE_START pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=audit-rules comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Apr 21 21:31:56 fedora audit[1]: SERVICE_STOP pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=audit-rules comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Apr 21 21:31:56 fedora systemd[1]: systemd-binfmt.service: Failed with result 'exit-code'.
+Apr 21 21:31:56 fedora systemd[1]: Failed to start systemd-binfmt.service - Set Up Additional Binary Formats.
+Apr 21 21:31:56 fedora systemd[1]: audit-rules.service: Deactivated successfully.
+Apr 21 21:31:56 fedora systemd[1]: Finished audit-rules.service - Load Audit Rules.
+Apr 21 21:32:05 fedora systemd[1]: Reload requested from client PID 904 ('systemd-sulogin') (unit emergency.service)...
+Apr 21 21:32:05 fedora systemd[1]: Reloading...
+Apr 21 21:32:05 fedora audit[959]: AVC avc:  denied  { module_load } for  pid=959 comm="modprobe" path="/usr/lib/modules/6.18.15-m1opt+/kernel/lib/842/842_compress.ko" dev="nvme0n1p6" ino=393227 scontext=system_u:system_r:kmod_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=system permissive=0
+Apr 21 21:32:05 fedora zram_generator::generator[957]: modprobe "zram" failed, ignoring: code exit status: 1
+Apr 21 21:32:05 fedora (sd-exec-[915]: /usr/lib/systemd/system-generators/zram-generator failed with exit status 1.
+Apr 21 21:32:06 fedora systemd[1]: Reloading finished in 238 ms.
+Apr 21 21:32:06 fedora audit: BPF prog-id=58 op=LOAD
+Apr 21 21:32:06 fedora audit: BPF prog-id=49 op=UNLOAD
+Apr 21 21:32:06 fedora audit: BPF prog-id=59 op=LOAD
+Apr 21 21:32:06 fedora audit: BPF prog-id=50 op=UNLOAD
+Apr 21 21:32:06 fedora audit: BPF prog-id=60 op=LOAD
+Apr 21 21:32:06 fedora audit: BPF prog-id=61 op=LOAD
+Apr 21 21:32:06 fedora audit: BPF prog-id=51 op=UNLOAD
+Apr 21 21:32:06 fedora audit: BPF prog-id=52 op=UNLOAD
+Apr 21 21:32:06 fedora audit: BPF prog-id=62 op=LOAD
+Apr 21 21:32:06 fedora audit: BPF prog-id=53 op=UNLOAD
+Apr 21 21:32:06 fedora audit: BPF prog-id=63 op=LOAD
+Apr 21 21:32:06 fedora audit: BPF prog-id=64 op=LOAD
+Apr 21 21:32:06 fedora audit: BPF prog-id=54 op=UNLOAD
+Apr 21 21:32:06 fedora audit: BPF prog-id=55 op=UNLOAD
+Apr 21 21:32:06 fedora audit: BPF prog-id=65 op=LOAD
+Apr 21 21:32:06 fedora audit: BPF prog-id=66 op=LOAD
+Apr 21 21:32:06 fedora audit: BPF prog-id=56 op=UNLOAD
+Apr 21 21:32:06 fedora audit: BPF prog-id=57 op=UNLOAD
+Apr 21 21:32:06 fedora systemd[1]: dev-zram0.device: Job dev-zram0.device/start timed out.
+Apr 21 21:32:06 fedora systemd[1]: Timed out waiting for device dev-zram0.device - /dev/zram0.
+Apr 21 21:32:06 fedora systemd[1]: Dependency failed for dev-zram0.swap - Compressed Swap on /dev/zram0.
+Apr 21 21:32:06 fedora systemd[1]: Dependency failed for systemd-zram-setup@zram0.service - Create swap on /dev/zram0.
+Apr 21 21:32:06 fedora systemd[1]: systemd-zram-setup@zram0.service: Job systemd-zram-setup@zram0.service/start failed with result 'dependency'.
+Apr 21 21:32:06 fedora systemd[1]: dev-zram0.swap: Job dev-zram0.swap/start failed with result 'dependency'.
+Apr 21 21:32:06 fedora systemd[1]: dev-zram0.device: Job dev-zram0.device/start failed with result 'timeout'.
+Apr 21 21:32:06 fedora systemd[1]: emergency.service: Deactivated successfully.
+Apr 21 21:32:06 fedora systemd[1]: Stopped emergency.service - Emergency Shell.
+Apr 21 21:32:06 fedora audit[1]: SERVICE_STOP pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=emergency comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Apr 21 21:32:06 fedora systemd[1]: Started systemd-ask-password-console.path - Dispatch Password Requests to Console Directory Watch.
+Apr 21 21:32:06 fedora systemd[1]: Started systemd-ask-password-wall.path - Forward Password Requests to Wall Directory Watch.
+Apr 21 21:32:06 fedora systemd[1]: Expecting device dev-zram0.device - /dev/zram0...
+Apr 21 21:32:06 fedora systemd[1]: Stopped target emergency.target - Emergency Mode.
+Apr 21 21:32:06 fedora systemd[1]: systemd-pcrextend.socket - TPM PCR Measurements skipped, unmet condition check ConditionSecurity=measured-uki
+Apr 21 21:32:06 fedora systemd[1]: systemd-pcrlock.socket - Make TPM PCR Policy skipped, unmet condition check ConditionSecurity=measured-uki
+Apr 21 21:32:06 fedora systemd[1]: Mounting boot-efi.mount - /boot/efi...
+Apr 21 21:32:06 fedora systemd[1]: dev-hugepages.mount - Huge Pages File System skipped, unmet condition check ConditionPathExists=/sys/kernel/mm/hugepages
+Apr 21 21:32:06 fedora systemd[1]: fips-crypto-policy-overlay.service - Bind-mount FIPS crypto-policy in FIPS mode skipped, unmet condition check ConditionKernelCommandLine=fips=1
+Apr 21 21:32:06 fedora systemd[1]: modprobe@configfs.service - Load Kernel Module configfs skipped, unmet condition check ConditionKernelModuleLoaded=!configfs
+Apr 21 21:32:06 fedora systemd[1]: modprobe@dm_mod.service - Load Kernel Module dm_mod skipped, unmet condition check ConditionKernelModuleLoaded=!dm_mod
+Apr 21 21:32:06 fedora systemd[1]: Starting modprobe@dm_multipath.service - Load Kernel Module dm_multipath...
+Apr 21 21:32:06 fedora systemd[1]: modprobe@drm.service - Load Kernel Module drm skipped, unmet condition check ConditionKernelModuleLoaded=!drm
+Apr 21 21:32:06 fedora systemd[1]: Starting modprobe@fuse.service - Load Kernel Module fuse...
+Apr 21 21:32:06 fedora systemd[1]: Starting modprobe@loop.service - Load Kernel Module loop...
+Apr 21 21:32:06 fedora systemd[1]: systemd-boot-clear-sysfail.service - Clear SysFail Entry If The Boot Is Successful skipped, unmet condition check ConditionPathExists=/sys/firmware/efi/efivars/LoaderEntrySysFail-4a67b082-0a4c-41cf-b6c7-440b29bb8c4f
+Apr 21 21:32:06 fedora systemd[1]: systemd-hibernate-clear.service - Clear Stale Hibernate Storage Info skipped, unmet condition check ConditionPathExists=/sys/firmware/efi/efivars/HibernateLocation-8cf2644b-4b0b-428f-9387-6d876050dc67
+Apr 21 21:32:06 fedora systemd[1]: systemd-hwdb-update.service - Rebuild Hardware Database skipped, unmet condition check ConditionNeedsUpdate=/etc
+Apr 21 21:32:06 fedora systemd[1]: Starting systemd-modules-load.service - Load Kernel Modules...
+Apr 21 21:32:06 fedora systemd[1]: systemd-pcrmachine.service - TPM PCR Machine ID Measurement skipped, unmet condition check ConditionSecurity=measured-uki
+Apr 21 21:32:06 fedora systemd[1]: systemd-sysusers.service - Create System Users skipped, no trigger condition checks were met.
+Apr 21 21:32:06 fedora systemd[1]: systemd-firstboot.service - First Boot Wizard skipped, unmet condition check ConditionFirstBoot=yes
+Apr 21 21:32:06 fedora systemd[1]: first-boot-complete.target - First Boot Complete skipped, unmet condition check ConditionFirstBoot=yes
+Apr 21 21:32:06 fedora systemd[1]: systemd-tpm2-setup-early.service - Early TPM SRK Setup skipped, unmet condition check ConditionSecurity=measured-uki
+Apr 21 21:32:06 fedora systemd[1]: systemd-tpm2-setup.service - TPM SRK Setup skipped, unmet condition check ConditionSecurity=measured-uki
+Apr 21 21:32:06 fedora audit[964]: AVC avc:  denied  { module_load } for  pid=964 comm="modprobe" path="/usr/lib/modules/6.18.15-m1opt+/kernel/drivers/block/loop.ko" dev="nvme0n1p6" ino=393815 scontext=system_u:system_r:kmod_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=system permissive=0
+Apr 21 21:32:06 fedora audit[963]: AVC avc:  denied  { module_load } for  pid=963 comm="modprobe" path="/usr/lib/modules/6.18.15-m1opt+/kernel/fs/fuse/fuse.ko" dev="nvme0n1p6" ino=393200 scontext=system_u:system_r:kmod_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=system permissive=0
+Apr 21 21:32:06 fedora systemd[1]: modprobe@dm_multipath.service: Deactivated successfully.
+Apr 21 21:32:06 fedora systemd[1]: Finished modprobe@dm_multipath.service - Load Kernel Module dm_multipath.
+Apr 21 21:32:06 fedora audit[1]: SERVICE_START pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=modprobe@dm_multipath comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Apr 21 21:32:06 fedora audit[1]: SERVICE_STOP pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=modprobe@dm_multipath comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Apr 21 21:32:06 fedora systemd[1]: modprobe@fuse.service: Deactivated successfully.
+Apr 21 21:32:06 fedora systemd[1]: Finished modprobe@fuse.service - Load Kernel Module fuse.
+Apr 21 21:32:06 fedora audit[1]: SERVICE_START pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=modprobe@fuse comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Apr 21 21:32:06 fedora audit[1]: SERVICE_STOP pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=modprobe@fuse comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Apr 21 21:32:06 fedora systemd[1]: modprobe@loop.service: Deactivated successfully.
+Apr 21 21:32:06 fedora systemd[1]: Finished modprobe@loop.service - Load Kernel Module loop.
+Apr 21 21:32:06 fedora audit[1]: SERVICE_START pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=modprobe@loop comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Apr 21 21:32:06 fedora audit[1]: SERVICE_STOP pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=modprobe@loop comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Apr 21 21:32:06 fedora systemd[1]: sys-fs-fuse-connections.mount - FUSE Control File System skipped, unmet condition check ConditionPathExists=/sys/fs/fuse/connections
+Apr 21 21:32:06 fedora systemd[1]: multipathd.service - Device-Mapper Multipath Device Controller skipped, unmet condition check ConditionPathExists=/etc/multipath.conf
+Apr 21 21:32:06 fedora systemd[1]: systemd-repart.service - Repartition Root Disk skipped, no trigger condition checks were met.
+Apr 21 21:32:06 fedora audit[967]: AVC avc:  denied  { module_load } for  pid=967 comm="modprobe" path="/usr/lib/modules/6.18.15-m1opt+/kernel/fs/fat/fat.ko" dev="nvme0n1p6" ino=393197 scontext=system_u:system_r:kmod_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=system permissive=0
+Apr 21 21:32:06 fedora audit[965]: AVC avc:  denied  { getattr } for  pid=965 comm="systemd-modules" path="/usr/lib/modules/6.18.15-m1opt+/kernel/net/bluetooth/bluetooth.ko" dev="nvme0n1p6" ino=393250 scontext=system_u:system_r:systemd_modules_load_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=file permissive=0
+Apr 21 21:32:06 fedora audit[965]: AVC avc:  denied  { getattr } for  pid=965 comm="systemd-modules" path="/usr/lib/modules/6.18.15-m1opt+/kernel/net/bluetooth/bluetooth.ko" dev="nvme0n1p6" ino=393250 scontext=system_u:system_r:systemd_modules_load_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=file permissive=0
+Apr 21 21:32:06 fedora audit[965]: AVC avc:  denied  { read } for  pid=965 comm="systemd-modules" name="hci_bcm4377.ko" dev="nvme0n1p6" ino=393822 scontext=system_u:system_r:systemd_modules_load_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=file permissive=0
+Apr 21 21:32:06 fedora audit[965]: AVC avc:  denied  { read } for  pid=965 comm="systemd-modules" name="fuse.ko" dev="nvme0n1p6" ino=393200 scontext=system_u:system_r:systemd_modules_load_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=file permissive=0
+Apr 21 21:32:06 fedora audit[965]: AVC avc:  denied  { read } for  pid=965 comm="systemd-modules" name="i2c-dev.ko" dev="nvme0n1p6" ino=393889 scontext=system_u:system_r:systemd_modules_load_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=file permissive=0
+Apr 21 21:32:06 fedora audit[965]: AVC avc:  denied  { read } for  pid=965 comm="systemd-modules" name="fuse.ko" dev="nvme0n1p6" ino=393200 scontext=system_u:system_r:systemd_modules_load_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=file permissive=0
+Apr 21 21:32:06 fedora audit[965]: AVC avc:  denied  { read } for  pid=965 comm="systemd-modules" name="uinput.ko" dev="nvme0n1p6" ino=393908 scontext=system_u:system_r:systemd_modules_load_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=file permissive=0
+Apr 21 21:32:06 fedora systemd-modules-load[965]: ctx=0xaaab9e3ceba0 path=/lib/modules/6.18.15-m1opt+/kernel/net/bluetooth/bluetooth.ko error=Permission denied
+Apr 21 21:32:06 fedora mount[961]: mount: /boot/efi: unknown filesystem type 'vfat'.
+Apr 21 21:32:06 fedora mount[961]:        dmesg(1) may have more information after failed mount system call.
+Apr 21 21:32:06 fedora systemd-modules-load[965]: ctx=0xaaab9e3ceba0 path=/lib/modules/6.18.15-m1opt+/kernel/net/bluetooth/bluetooth.ko error=Permission denied
+Apr 21 21:32:06 fedora systemd-modules-load[965]: Failed to insert module 'hci_bcm4377': Permission denied
+Apr 21 21:32:06 fedora systemd-modules-load[965]: Failed to insert module 'fuse': Permission denied
+Apr 21 21:32:06 fedora systemd-modules-load[965]: Failed to insert module 'i2c_dev': Permission denied
+Apr 21 21:32:06 fedora systemd-modules-load[965]: Failed to insert module 'fuse': Permission denied
+Apr 21 21:32:06 fedora systemd-modules-load[965]: Failed to find module 'scsi_dh_alua'
+Apr 21 21:32:06 fedora systemd-modules-load[965]: Failed to find module 'scsi_dh_emc'
+Apr 21 21:32:06 fedora systemd-modules-load[965]: Failed to find module 'scsi_dh_rdac'
+Apr 21 21:32:06 fedora audit[1]: SERVICE_START pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-modules-load comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=failed'
+Apr 21 21:32:06 fedora systemd-modules-load[965]: Failed to insert module 'uinput': Permission denied
+Apr 21 21:32:06 fedora systemd[1]: boot-efi.mount: Mount process exited, code=exited, status=32/n/a
+Apr 21 21:32:06 fedora systemd[1]: boot-efi.mount: Failed with result 'exit-code'.
+Apr 21 21:32:06 fedora systemd[1]: Failed to mount boot-efi.mount - /boot/efi.
+Apr 21 21:32:06 fedora systemd[1]: Dependency failed for local-fs.target - Local File Systems.
+Apr 21 21:32:06 fedora systemd[1]: Dependency failed for selinux-autorelabel-mark.service - Mark the need to relabel after reboot.
+Apr 21 21:32:06 fedora systemd[1]: selinux-autorelabel-mark.service: Job selinux-autorelabel-mark.service/start failed with result 'dependency'.
+Apr 21 21:32:06 fedora systemd[1]: local-fs.target: Job local-fs.target/start failed with result 'dependency'.
+Apr 21 21:32:06 fedora systemd[1]: local-fs.target: Triggering OnFailure= dependencies.
+Apr 21 21:32:06 fedora systemd[1]: systemd-modules-load.service: Main process exited, code=exited, status=1/FAILURE
+Apr 21 21:32:06 fedora systemd[1]: systemd-modules-load.service: Failed with result 'exit-code'.
+Apr 21 21:32:06 fedora systemd[1]: Failed to start systemd-modules-load.service - Load Kernel Modules.
+Apr 21 21:32:06 fedora systemd[1]: systemd-ask-password-console.path: Deactivated successfully.
+Apr 21 21:32:06 fedora systemd[1]: Stopped systemd-ask-password-console.path - Dispatch Password Requests to Console Directory Watch.
+Apr 21 21:32:06 fedora systemd[1]: systemd-ask-password-wall.path: Deactivated successfully.
+Apr 21 21:32:06 fedora systemd[1]: Stopped systemd-ask-password-wall.path - Forward Password Requests to Wall Directory Watch.
+Apr 21 21:32:06 fedora systemd[1]: Starting audit-rules.service - Load Audit Rules...
+Apr 21 21:32:06 fedora systemd[1]: systemd-machine-id-commit.service - Save Transient machine-id to Disk skipped, unmet condition check ConditionPathIsMountPoint=/etc/machine-id
+Apr 21 21:32:06 fedora systemd[1]: Started emergency.service - Emergency Shell.
+Apr 21 21:32:06 fedora audit[1]: SERVICE_START pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=emergency comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Apr 21 21:32:06 fedora systemd[1]: Reached target emergency.target - Emergency Mode.
+Apr 21 21:32:06 fedora systemd[1]: rpmdb-rebuild.service - RPM database rebuild skipped, unmet condition check ConditionPathExists=/usr/lib/sysimage/rpm/.rebuilddb
+Apr 21 21:32:06 fedora systemd[1]: Starting systemd-binfmt.service - Set Up Additional Binary Formats...
+Apr 21 21:32:06 fedora systemd[1]: systemd-boot-random-seed.service - Update Boot Loader Random Seed skipped, no trigger condition checks were met.
+Apr 21 21:32:06 fedora systemd[1]: systemd-confext.service - Merge System Configuration Images into /etc/ skipped, no trigger condition checks were met.
+Apr 21 21:32:06 fedora systemd[1]: ldconfig.service - Rebuild Dynamic Linker Cache skipped, no trigger condition checks were met.
+Apr 21 21:32:06 fedora systemd[1]: systemd-journal-catalog-update.service - Rebuild Journal Catalog skipped, unmet condition check ConditionNeedsUpdate=/var
+Apr 21 21:32:06 fedora systemd[1]: systemd-pcrphase-sysinit.service - TPM PCR Barrier (Initialization) skipped, unmet condition check ConditionSecurity=measured-uki
+Apr 21 21:32:06 fedora systemd[1]: systemd-sysext.service - Merge System Extension Images into /usr/ and /opt/ skipped, no trigger condition checks were met.
+Apr 21 21:32:06 fedora systemd[1]: systemd-update-done.service - Update is Completed skipped, no trigger condition checks were met.
+Apr 21 21:32:06 fedora systemd[1]: proc-sys-fs-binfmt_misc.automount: Got automount request for /proc/sys/fs/binfmt_misc, triggered by 976 (systemd-binfmt)
+Apr 21 21:32:06 fedora systemd[1]: Mounting proc-sys-fs-binfmt_misc.mount - Arbitrary Executable File Formats File System...
+Apr 21 21:32:06 fedora augenrules[974]: /usr/bin/augenrules: No change
+Apr 21 21:32:06 fedora audit[987]: AVC avc:  denied  { module_load } for  pid=987 comm="modprobe" path="/usr/lib/modules/6.18.15-m1opt+/kernel/fs/binfmt_misc.ko" dev="nvme0n1p6" ino=393192 scontext=system_u:system_r:kmod_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=system permissive=0
+Apr 21 21:32:06 fedora mount[984]: mount: /proc/sys/fs/binfmt_misc: unknown filesystem type 'binfmt_misc'.
+Apr 21 21:32:06 fedora mount[984]:        dmesg(1) may have more information after failed mount system call.
+Apr 21 21:32:06 fedora systemd[1]: proc-sys-fs-binfmt_misc.mount: Mount process exited, code=exited, status=32/n/a
+Apr 21 21:32:06 fedora systemd[1]: proc-sys-fs-binfmt_misc.mount: Failed with result 'exit-code'.
+Apr 21 21:32:06 fedora systemd[1]: Failed to mount proc-sys-fs-binfmt_misc.mount - Arbitrary Executable File Formats File System.
+Apr 21 21:32:06 fedora systemd-binfmt[976]: Failed to check if /proc/sys/fs/binfmt_misc is mounted: No such device
+Apr 21 21:32:06 fedora systemd[1]: systemd-binfmt.service: Main process exited, code=exited, status=1/FAILURE
+Apr 21 21:32:06 fedora systemd[1]: systemd-binfmt.service: Failed with result 'exit-code'.
+Apr 21 21:32:06 fedora systemd[1]: Failed to start systemd-binfmt.service - Set Up Additional Binary Formats.
+Apr 21 21:32:06 fedora audit[1]: SERVICE_START pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-binfmt comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=failed'
+Apr 21 21:32:06 fedora audit: CONFIG_CHANGE auid=4294967295 ses=4294967295 subj=system_u:system_r:unconfined_service_t:s0 op=remove_rule key=(null) list=1 res=1
+Apr 21 21:32:06 fedora audit: CONFIG_CHANGE auid=4294967295 ses=4294967295 subj=system_u:system_r:unconfined_service_t:s0 op=add_rule key=(null) list=1 res=1
+Apr 21 21:32:06 fedora augenrules[995]: No rules
+Apr 21 21:32:06 fedora systemd[1]: audit-rules.service: Deactivated successfully.
+Apr 21 21:32:06 fedora systemd[1]: Finished audit-rules.service - Load Audit Rules.
+Apr 21 21:32:06 fedora audit[1]: SERVICE_START pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=audit-rules comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Apr 21 21:32:06 fedora audit[1]: SERVICE_STOP pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=audit-rules comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Apr 21 21:32:16 fedora systemd[1]: dev-zram0.device: Job dev-zram0.device/start timed out.
+Apr 21 21:32:16 fedora systemd[1]: Timed out waiting for device dev-zram0.device - /dev/zram0.
+Apr 21 21:32:16 fedora systemd[1]: Dependency failed for dev-zram0.swap - Compressed Swap on /dev/zram0.
+Apr 21 21:32:16 fedora systemd[1]: Dependency failed for systemd-zram-setup@zram0.service - Create swap on /dev/zram0.
+Apr 21 21:32:16 fedora systemd[1]: systemd-zram-setup@zram0.service: Job systemd-zram-setup@zram0.service/start failed with result 'dependency'.
+Apr 21 21:32:16 fedora systemd[1]: dev-zram0.swap: Job dev-zram0.swap/start failed with result 'dependency'.
+Apr 21 21:32:16 fedora systemd[1]: dev-zram0.device: Job dev-zram0.device/start failed with result 'timeout'.
+Apr 21 21:32:45 fedora kernel: macsmc 23e400000.smc: RTKit: syslog message: apComms.cpp:354: SMC HID Event: 01 06 00
+Apr 21 21:32:45 fedora kernel: macsmc 23e400000.smc: RTKit: syslog message: apComms.cpp:354: SMC HID Event: 01 06 01
+Apr 21 21:32:48 fedora kernel: macsmc 23e400000.smc: RTKit: syslog message: apComms.cpp:354: SMC HID Event: 01 fe 01
+Apr 21 21:32:49 fedora kernel: macsmc 23e400000.smc: RTKit: syslog message: apComms.cpp:354: SMC HID Event: 01 00 01
+Apr 21 21:32:49 fedora kernel: macsmc-input macsmc-input: Triggering forced shutdown!
