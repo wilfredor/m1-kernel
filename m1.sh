@@ -75,9 +75,8 @@ cmd_validate() {
     check_ym CONFIG_SND_SOC_APPLE_MACAUDIO "Apple MacAudio machine driver"
 
     echo "[WiFi/BT]"
-    check_ym CONFIG_BRCMFMAC       "Broadcom WiFi (brcmfmac)"
+    check_ym CONFIG_BRCMFMAC       "Broadcom WiFi (brcmfmac, vendor WCC/BCA/CYW auto-built)"
     check_ym CONFIG_BRCMFMAC_PCIE  "brcmfmac PCIe transport"
-    check_ym CONFIG_BRCMFMAC_WCC   "brcmfmac WCC vendor (BCM4378)"
     check_ym CONFIG_BT             "Bluetooth core"
     check_ym CONFIG_BT_HCIBCM4377  "Apple BCM4377 Bluetooth"
 
@@ -141,7 +140,47 @@ cmd_validate() {
 }
 
 # ============================================================================
-# Build — copy config, olddefconfig, validate, build RPM
+# Patch kernel.spec to add self-install %post scriptlets.
+# Without this, the RPM relies on kernel-install hooks that may be missing
+# and skips SELinux relabel → boot failure after manual `dnf install`.
+# Idempotent: marker comment prevents double-injection.
+# ============================================================================
+patch_spec() {
+    local spec=scripts/package/kernel.spec
+    [ -f "$spec" ] || { warn "$spec not found — skipping spec patch"; return 0; }
+    if grep -q "M1-OPTIMIZED-POSTINSTALL" "$spec"; then
+        log "kernel.spec already patched"
+        return 0
+    fi
+    log "Patching kernel.spec with self-install %post (relabel + dracut + grubby)"
+    python3 - "$spec" <<'PY'
+import sys
+path = sys.argv[1]
+src  = open(path).read()
+inject = """
+# M1-OPTIMIZED-POSTINSTALL — make RPM self-sufficient (no manual postinstall step)
+# Fixes SELinux unlabeled_t boot failure, regenerates initramfs, sets default boot.
+if command -v restorecon >/dev/null 2>&1; then
+    restorecon -RF /lib/modules/%{KERNELRELEASE}/ >/dev/null 2>&1 || :
+fi
+if command -v dracut >/dev/null 2>&1; then
+    dracut -f --kver %{KERNELRELEASE} >/dev/null 2>&1 || :
+fi
+if command -v grubby >/dev/null 2>&1; then
+    grubby --set-default=/boot/vmlinuz-%{KERNELRELEASE} >/dev/null 2>&1 || :
+fi
+if command -v restorecon >/dev/null 2>&1 && [ -d /lib/firmware/brcm ]; then
+    restorecon -RF /lib/firmware/brcm/ >/dev/null 2>&1 || :
+fi
+"""
+out = src.replace("%preun", inject + "\n%preun", 1)
+open(path, "w").write(out)
+PY
+    log "kernel.spec patched"
+}
+
+# ============================================================================
+# Build — copy config, olddefconfig, validate, patch spec, build RPM
 # ============================================================================
 cmd_build() {
     [ -f config-m1-final ] || { err "config-m1-final missing"; return 1; }
@@ -156,6 +195,8 @@ cmd_build() {
     yes "" | make oldconfig >/dev/null 2>&1 || true
 
     cmd_validate .config || { err "Validation failed — aborting"; return 1; }
+
+    patch_spec
 
     log "Building binrpm-pkg (~15-25 min)"
     PATH="$HOME/.cargo/bin:$PATH" make -j"$(nproc)" binrpm-pkg < /dev/null
