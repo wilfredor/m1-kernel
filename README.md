@@ -3,6 +3,11 @@
 Optimized Linux kernel for **Apple M1 (T8103)** on Fedora Asahi Remix.
 Smaller, faster, longer battery life.
 
+### 📦 [Download latest pre-built kernel RPM →](https://github.com/wilfredor/m1-kernel/releases/latest)
+
+[![Latest Release](https://img.shields.io/github/v/release/wilfredor/m1-kernel?label=latest%20kernel&color=blue)](https://github.com/wilfredor/m1-kernel/releases/latest)
+[![Downloads](https://img.shields.io/github/downloads/wilfredor/m1-kernel/total?color=green)](https://github.com/wilfredor/m1-kernel/releases)
+
 ## What you gain
 
 | Metric | Stock Asahi | This kernel | Gain |
@@ -20,6 +25,12 @@ Battery gains come from kernel config (HZ=250, ASPM, governors), boot params
 
 ## Install (5 minutes — pre-built RPM)
 
+The compiled kernel RPMs are published on the
+**[Releases page](https://github.com/wilfredor/m1-kernel/releases/latest)**
+(GitHub stores binaries there, not in the file tree).
+
+### Easiest: one command
+
 ```bash
 git clone https://github.com/wilfredor/m1-kernel.git
 cd m1-kernel
@@ -27,8 +38,22 @@ cd m1-kernel
 sudo reboot
 ```
 
-That's it. `./m1.sh download` does the install **AND** runs the critical
-post-install steps (SELinux relabel, dracut, grubby) automatically.
+`./m1.sh download` does the install **AND** runs the critical post-install
+steps (SELinux relabel, dracut, grubby) automatically.
+
+### Manual download (if you prefer)
+
+1. Open https://github.com/wilfredor/m1-kernel/releases/latest
+2. Download `kernel-*.aarch64.rpm` from "Assets"
+3. Install:
+
+```bash
+git clone https://github.com/wilfredor/m1-kernel.git
+cd m1-kernel
+sudo dnf install -y ~/Downloads/kernel-*.aarch64.rpm
+sudo ./m1.sh postinstall      # MANDATORY — see warning below
+sudo reboot
+```
 
 ## ⚠ If you install the RPM manually, you MUST run postinstall
 
